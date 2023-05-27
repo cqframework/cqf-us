@@ -1,0 +1,35 @@
+== Suppressed Messages ==
+
+# Correct
+== C:\Users\Bryn\Documents\Src\CQF\cqf\input\cqf.xml ==
+INFORMATION: ImplementationGuide/cqf.fhir.common: ImplementationGuide: Validate resource against profile http://hl7.org/fhir/StructureDefinition/ImplementationGuide
+
+# Correct
+== C:\Users\Bryn\Documents\Src\CQF\cqf\input\resources\library-FHIR-ModelInfo.json ==
+INFORMATION: Library/FHIR-ModelInfo: Library: Validate resource against profile http://hl7.org/fhir/StructureDefinition/Library
+# Should be allowed, I've specified this extension as allowed, I don't want to introduce a dependency on CPG, but I want to state the profiles and knowledge capabilities
+ERROR: Library/FHIR-ModelInfo: Library.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-shareablelibrary' does not resolve
+ERROR: Library/FHIR-ModelInfo: Library.meta.profile[1]: Canonical URL 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablelibrary' does not resolve
+ERROR: Library/FHIR-ModelInfo: Library.extension[0].url: URL value 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability' does not resolve
+ERROR: Library/FHIR-ModelInfo: Library.extension[1].url: URL value 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability' does not resolve
+ERROR: Library/FHIR-ModelInfo: Library.extension[2].url: URL value 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel' does not resolve
+WARNING: Library/FHIR-ModelInfo: Library.meta.profile[0]: Profile reference 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-shareablelibrary' has not been checked because it is unknown, and the validator is set to not fetch unknown profiles
+WARNING: Library/FHIR-ModelInfo: Library.meta.profile[1]: Profile reference 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablelibrary' has not been checked because it is unknown, and the validator is set to not fetch unknown profiles
+
+# Correct
+== C:\Users\Bryn\Documents\Src\CQF\cqf\input\resources\library-FHIRHelpers.json ==
+INFORMATION: Library/FHIRHelpers: Library: Validate resource against profile http://hl7.org/fhir/StructureDefinition/Library
+# Should be allowed, I've specified this extension as allowed, I don't want to introduce a dependency on CPG, but I want to state the profiles and knowledge capabilities
+ERROR: Library/FHIRHelpers: Library.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-shareablelibrary' does not resolve
+ERROR: Library/FHIRHelpers: Library.meta.profile[1]: Canonical URL 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablelibrary' does not resolve
+ERROR: Library/FHIRHelpers: Library.meta.profile[2]: Canonical URL 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablelibrary' does not resolve
+ERROR: Library/FHIRHelpers: Library.meta.profile[3]: Canonical URL 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablelibrary' does not resolve
+ERROR: Library/FHIRHelpers: Library.extension[0].url: URL value 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability' does not resolve
+ERROR: Library/FHIRHelpers: Library.extension[1].url: URL value 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability' does not resolve
+ERROR: Library/FHIRHelpers: Library.extension[2].url: URL value 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability' does not resolve
+ERROR: Library/FHIRHelpers: Library.extension[3].url: URL value 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability' does not resolve
+ERROR: Library/FHIRHelpers: Library.extension[4].url: URL value 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel' does not resolve
+WARNING: Library/FHIRHelpers: Library.meta.profile[0]: Profile reference 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-shareablelibrary' has not been checked because it is unknown, and the validator is set to not fetch unknown profiles
+WARNING: Library/FHIRHelpers: Library.meta.profile[1]: Profile reference 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablelibrary' has not been checked because it is unknown, and the validator is set to not fetch unknown profiles
+WARNING: Library/FHIRHelpers: Library.meta.profile[2]: Profile reference 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablelibrary' has not been checked because it is unknown, and the validator is set to not fetch unknown profiles
+WARNING: Library/FHIRHelpers: Library.meta.profile[3]: Profile reference 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablelibrary' has not been checked because it is unknown, and the validator is set to not fetch unknown profiles

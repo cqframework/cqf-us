@@ -1,0 +1,22 @@
+{
+ "package-id" : "fhir.cqf.us.common",
+ "title" : "Clinical Quality Framework Common FHIR Assets (US-Based)",
+ "canonical" : "http://fhir.org/guides/cqf/us/common",
+ "category": "Quality / CDS",
+ "introduction" : "This implementation guide contains common FHIR assets for use in US-based CQFramework content IGs, including the USCore-ModelInfo and USCommon libraries.",
+ "list" : [{
+  "version" : "current",
+  "desc" : "Continuous Integration Build (latest in version control)",
+  "path" : "http://build.fhir.org/ig/cqframework/cqf-us",
+  "status" : "ci-build",
+  "current" : true
+ }, {
+  "version" : "3.1.0",
+  "fhirversion": "3.1.0",
+  "date": "2021-03-14",
+  "desc" : "Release 1",
+  "path" : "http://fhir.org/guides/cqf/us/common",
+  "status": "active",
+  "sequence": "Release 1"
+ }]
+}
