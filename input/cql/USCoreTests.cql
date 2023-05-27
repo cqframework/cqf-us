@@ -1,10 +1,13 @@
-library USCoreTests
+/*
+@description: This is a testing library used to validate capability of the CQL-to-ELM translator
+using the US Core model info. It is not intended as
+*/
+library USCoreTests version '0.1.0'
 
-using FHIR version '4.0.1'
+using USCore version '3.1.1'
 
 include FHIRHelpers version '4.0.1'
 
-codesystem "LOINC": 'http://loinc.org'
 codesystem "Marital Status Codes": 'http://terminology.hl7.org/CodeSystem/v3-MaritalStatus'
 codesystem "CDC Race and Ethnicity Codes": 'urn:oid:2.16.840.1.113883.6.238'
 
@@ -13,51 +16,55 @@ valueset "Marital Status": 'http://hl7.org/fhir/ValueSet/marital-status'
 code "Marital Status - Married": 'M' from "Marital Status Codes"
 code "American Indian or Alaska Native": '1002-5' from "CDC Race and Ethnicity Codes"
 code "Alaska Native": '1735-0' from "CDC Race and Ethnicity Codes"
-code "Blood pressure": '85354-9' from "LOINC" display 'blood pressure'
-code "Diastolic blood pressure": '8462-4' from "LOINC" display 'Diastolic blood pressure'
-code "Systolic blood pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 
 context Patient
 
-define TestAdverseEvent: ["AdverseEvent"]
+define TestPatient: ["PatientProfile"]
 define TestAllergyIntolerance: ["AllergyIntolerance"]
-define TestBodyStructure: ["BodyStructure"]
-define TestCarePlan: ["CarePlan"]
+define TestCarePlan: ["CarePlanProfile"]
 define TestCareTeam: ["CareTeam"]
-define TestClaim: ["Claim"]
-define TestCommunication: ["Communication"]
-define TestCommunicationRequest: ["CommunicationRequest"]
 define TestCondition: ["Condition"]
-define TestCoverage: ["Coverage"]
-define TestDevice: ["Device"]
-define TestDeviceRequest: ["DeviceRequest"]
-define TestDeviceUseStatement: ["DeviceUseStatement"]
-define TestDiagnosticReport: ["DiagnosticReport"]
-define TestEncounter: ["Encounter"]
-define TestFamilyMemberHistory: ["FamilyMemberHistory"]
-define TestFlag: ["Flag"]
-define TestGoal: ["Goal"]
-define TestImagingStudy: ["ImagingStudy"]
-define TestImmunization: ["Immunization"]
-define TestImmunizationEvaluation: ["ImmunizationEvaluation"]
-define TestImmunizationRecommendation: ["ImmunizationRecommendation"]
+define TestDiagnosticReport: ["DiagnosticReportProfileLaboratoryReporting"]
+define TestDiagnosticReportNote: ["DiagnosticReportProfileNoteExchange"]
+define TestDocumentReference: ["DocumentReferenceProfile"]
+define TestEncounter: ["EncounterProfile"]
+define TestGoal: ["GoalProfile"]
+define TestImmunization: ["ImmunizationProfile"]
+define TestImplantableDevice: ["ImplantableDeviceProfile"]
+define TestObservation: ["LaboratoryResultObservationProfile"]
 define TestLocation: ["Location"]
-define TestMedication: ["Medication"]
-define TestMedicationAdministration: ["MedicationAdministration"]
-define TestMedicationDispense: ["MedicationDispense"]
-define TestMedicationRequest: ["MedicationRequest"]
-//define TestMedicationStatement: ["MedicationStatement"]
-define TestObservation: ["Observation"]
-define TestOrganization: ["Organization"]
-define TestPatient: ["Patient"]
-define TestPractitioner: ["Practitioner"]
-define TestPractitionerRole: ["PractitionerRole"]
-define TestProcedure: ["Procedure"]
-define TestRelatedPerson: ["RelatedPerson"]
-define TestServiceRequest: ["ServiceRequest"]
-define TestSpecimen: ["Specimen"]
-define TestSubstsance: ["Substance"]
-define TestTask: ["Task"]
+define TestMedication: ["MedicationProfile"]
+define TestMedicationRequest: ["MedicationRequestProfile"]
+define TestOrganization: ["OrganizationProfile"]
+define TestVitalsPanel: ["observation-vitalspanel"]
+define TestVitalsPanel2: ["Observation Vital Signs Panel Profile"]
+define TestRespRate: ["observation-resprate"]
+define TestRespRate2: ["Observation Respiratory Rate Profile"]
+define TestHeartRate: ["observation-heartrate"]
+define TestHeartRate2: ["Observation Heart Rate Profile"]
+define TestOxygenSat: ["observation-oxygensat"]
+define TestOxygenSat2: ["Observation Oxygen Saturation Profile"]
+define TestBodyTemp: ["observation-bodytemp"]
+define TestBodyTemp2: ["Observation Body Temperature Profile"]
+define TestBodyHeight: ["observation-bodyheight"]
+define TestBodyHeight2: ["Observation Body Height Profile"]
+define TestHeadCircum: ["observation-headcircum"]
+define TestHeadCircum2: ["Observation Head Circumference Profile"]
+define TestBodyWeight: ["observation-bodyweight"]
+define TestBodyWeight2: ["Observation Body Weight Profile"]
+define TestBMI: ["observation-bmi"]
+define TestBMI2: ["Observation Body Mass Index Profile"]
+
+define TestBP: ["observation-bp"]
+define TestBP2: ["Observation Blood Pressure Profile"]
+define TestSmokingStatus: ["SmokingStatusProfile"]
+define TestPulseOximetry: ["PulseOximetryProfile"]
+define TestPediatricBMIForAge: ["PediatricBMIforAgeObservationProfile"]
+define TestPediatricWeightForHeight: ["PediatricWeightForHeightObservationProfile"]
+define TestPractitioner: ["PractitionerProfile"]
+define TestPractitionerRole: ["PractitionerRoleProfile"]
+define TestProcedure: ["ProcedureProfile"]
+define TestProvenance: ["Provenance"]
 
 define TestPrimitives:
   Patient P
@@ -73,23 +80,19 @@ define TestChoice:
       or P.deceased before Today()
 
 define TestSlices:
-  [Observation: "Blood pressure"] BP
-    let
-      SystolicBP: singleton from (BP.component C where C.code ~ "Systolic blood pressure"),
-      DiastolicBP: singleton from (BP.component C where C.code ~ "Diastolic blood pressure")
-    where SystolicBP.value < 140 'mm[Hg]'
-      and DiastolicBP.value < 90 'mm[Hg]'
+  ["observation-bp"] BP
+    where BP.SystolicBP.value < 140 'mm[Hg]'
+      and BP.DiastolicBP.value < 90 'mm[Hg]'
 
 define TestSimpleExtensions:
   Patient P
-    let birthsex: singleton from (P.extension E where E.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex')
-    where birthsex.value = 'M'
+    where P.birthsex = 'M'
 
 define TestComplexExtensions:
   Patient P
-    let
-      race: singleton from (P.extension E where E.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'),
-      ombCategory: race.extension E where E.url = 'ombCategory',
-      detailed: race.extension E where E.url = 'detailed'
-    where ombCategory.value contains "American Indian or Alaska Native"
-      and detailed.value contains "Alaska Native"
+    where P.race.ombCategory contains "American Indian or Alaska Native"
+      and P.race.detailed contains "Alaska Native"
+
+define TestComplexFHIRHelpers:
+  ["PediatricBMIforAgeObservationProfile"] PB
+    return PB.VSCat
