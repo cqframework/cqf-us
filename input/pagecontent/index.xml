@@ -17,9 +17,9 @@
     below. To use these libraries in your implementation guide, include a reference to this implementation guide as
     an implementation guide dependency:</p>
   <pre><code>&lt;dependsOn id=&quot;cqf-us&quot;&gt;
-  &lt;uri value=&quot;http://fhir.org/guides/cqf/us-common/ImplementationGuide/cqf.fhir.us.common&quot;/&gt;
-  &lt;packageId value=&quot;cqf.fhir.us.common&quot;/&gt;
-  &lt;version value=&quot;4.0.1&quot;/&gt;
+  &lt;uri value=&quot;http://fhir.org/guides/cqf/us/common/ImplementationGuide/fhir.cqf.us.common&quot;/&gt;
+  &lt;packageId value=&quot;fhir.cqf.us.common&quot;/&gt;
+  &lt;version value=&quot;0.1.0&quot;/&gt;
 &lt;/dependsOn&gt;</code></pre>
 
   <a name="uscore-modelinfo"> </a>
@@ -34,6 +34,6 @@
   information</a> must be provided to the implementation environment. The <a href="Library-USCore-ModelInfo.html">USCore-ModelInfo</a>
   library provides this information for US Core. To use USCore, include a <a href="https://cql.hl7.org/02-authorsguide.html#data-models">using
   declaration</a> as shown in the example below:</p>
-  <pre><code>using USCore version '3.1.0'</code></pre>
+  <pre><code>using USCore version '3.1.1'</code></pre>
   <p>Although not required by CQL, current best-practice is to include the version of USCore.</p>
 </div>
