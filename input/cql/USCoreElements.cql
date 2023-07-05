@@ -79,6 +79,8 @@ define "All Health Concerns":
 @comment: [Diagnostic Report for Laboratory Results](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-diagnosticreport-lab.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
 */
+define "All Diagnostic Reports for Laboratory Results":
+  [DiagnosticReportProfileLaboratoryReporting]
 
 // Diagnostic Report
 
@@ -86,6 +88,8 @@ define "All Health Concerns":
 @comment: [Diagnostic Report Note](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-diagnosticreport-note.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note
 */
+define "All Diagnostic Report Notes":
+  [DiagnosticReportProfileNoteExchange]
 
 // Encounter
 
@@ -93,6 +97,12 @@ define "All Health Concerns":
 @comment: [Encounter](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-encounter.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter 
 */
+define "All Encounters":
+  [EncounterProfile]
+
+define "All Performed Encounters":
+  "All Encounters" E
+    where E.status = 'finished'  
 
 // Immunization
 
@@ -100,6 +110,12 @@ define "All Health Concerns":
 @comment: [Immunization](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-immunization.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization
 */
+define "All Immunizations":
+  [ImmunizationProfile] 
+
+define "All Completed Immunizations":
+  "All Immunizations" I
+    where I.status = 'completed'
 
 // Implantable Device
 
@@ -107,6 +123,8 @@ define "All Health Concerns":
 @comment: [Implantable Device](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-implantable-device.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device
 */
+define "All Implantable Devices":
+  [ImplantableDeviceProfile]
 
 // Laboratory Result
 
@@ -143,6 +161,8 @@ define "Active Medication Orders":
 @comment: [Pediatric BMI for Age](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-pediatric-bmi-for-age.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age
 */
+define "Pediatric BMI for Age":
+  [PediatricBMIforAgeObservationProfile]
 
 // Pediatric Head Circumference Percentile
 
@@ -150,6 +170,8 @@ define "Active Medication Orders":
 @comment: [Pediatric Head Circumference Percentile](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/head-occipital-frontal-circumference-percentile
 */
+//define "All Pediatric Head Circumference Percentile Measurements":
+  //TODO - couldn't find profile
 
 // Pediatric Weight for Height
 
@@ -157,6 +179,9 @@ define "Active Medication Orders":
 @comment: [Pediatric Weight for Height](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-pediatric-weight-for-height.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height
 */
+define "Pediatric Weight for Height":
+  [PediatricWeightForHeightObservationProfile]
+
 
 // Procedure
 
@@ -164,6 +189,13 @@ define "Active Medication Orders":
 @comment: [Procedure](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-procedure.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure
 */
+define "All Procedures":
+  [ProcedureProfile] P
+    where P.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
+
+define "All Performed Procedures":
+  "All Procedures" P
+    where P.status = 'completed'
 
 // Pulse Oximetry
 
@@ -171,6 +203,8 @@ define "Active Medication Orders":
 @comment: [Pulse Oximetry](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-pulse-oximetry.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry
 */
+define "Pulse Oximetry":
+  [PulseOximetryProfile]
 
 // Smoking Status
 
@@ -203,6 +237,8 @@ define "Most Recent Smoking Status":
 @comment: [Vital Signs Panel](http://hl7.org/fhir/R4/vitalspanel.html)
 @profile: http://hl7.org/fhir/StructureDefinition/vitalspanel
 */
+define "All Vital Signs Panels":
+  ["observation-vitalspanel"]
 
 // Respiratory Rate
 
@@ -210,6 +246,8 @@ define "Most Recent Smoking Status":
 @comment: [Respiratory Rate](http://hl7.org/fhir/R4/resprate.html)
 @profile: http://hl7.org/fhir/StructureDefinition/resprate
 */
+define "All Respiratory Rate Measurements":
+  ["observation-resprate"]
 
 // Heart Rate
 
@@ -217,6 +255,8 @@ define "Most Recent Smoking Status":
 @comment: [Heart Rate](http://hl7.org/fhir/R4/heartrate.html)
 @profile:http://hl7.org/fhir/StructureDefinition/heartrate
 */
+define "All Heart Rate Measurements":
+  ["observation-heartrate"]
 
 // Oxygen Saturation
 
@@ -224,6 +264,8 @@ define "Most Recent Smoking Status":
 @comment: [Oxygen Saturation](http://hl7.org/fhir/R4/oxygensat.html)
 @profile: http://hl7.org/fhir/StructureDefinition/oxygensat
 */
+define "All Oxygen Saturation Measurements":
+  ["observation-oxygensat"]
 
 // Body Temperature
 
@@ -231,6 +273,8 @@ define "Most Recent Smoking Status":
 @comment: [Body Temperature](http://hl7.org/fhir/R4/bodytemp.html)
 @profile: http://hl7.org/fhir/StructureDefinition/bodytemp
 */
+define "All Body Temperature Measurements":
+  ["observation-bodytemp"]
 
 // Body Height
 
@@ -238,6 +282,8 @@ define "Most Recent Smoking Status":
 @comment: [Body Height](http://hl7.org/fhir/R4/bodyheight.html)
 @profile: http://hl7.org/fhir/StructureDefinition/bodyheight
 */
+define "All Body Height Measurements":
+  ["observation-bodyheight"]
 
 // Head Circumference
 
@@ -245,6 +291,8 @@ define "Most Recent Smoking Status":
 @comment: [Head Circumference](http://hl7.org/fhir/R4/headcircum.html)
 @profile: http://hl7.org/fhir/StructureDefinition/headcircum
 */
+define "All Head Circumference Measurements":
+  ["observation-headcircum"]
 
 // Body Weight
 
@@ -252,6 +300,8 @@ define "Most Recent Smoking Status":
 @comment: [Body Weight](http://hl7.org/fhir/R4/bodyweight.html)
 @profile: http://hl7.org/fhir/StructureDefinition/bodyweight
 */
+define "All Body Weight Measurements":
+  ["observation-bodyweight"]
 
 // Body Mass Index
 
@@ -259,6 +309,8 @@ define "Most Recent Smoking Status":
 @comment: [Body Mass Index](http://hl7.org/fhir/R4/bmi.html)
 @profile: http://hl7.org/fhir/StructureDefinition/bmi
 */
+define "All Body Mass Index Measurements":
+  ["observation-bmi"]
 
 // Blood Pressure
 
@@ -266,6 +318,8 @@ define "Most Recent Smoking Status":
 @comment: [Blood Pressure](http://hl7.org/fhir/R4/bp.html)
 @profile: http://hl7.org/fhir/StructureDefinition/bp
 */
+define "All Blood Pressure Measurements":
+  ["observation-bp"]
 
 // Systolic Blood Pressure
 
