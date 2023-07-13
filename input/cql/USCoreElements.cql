@@ -22,7 +22,7 @@ and any verification status (including none).
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
 */
 define "All Allergies and Intolerances":
-  [AllergyIntolerance]
+  ["AllergyIntolerance"]
 
 define "Common Allergies and Intolerances":
   "All Allergies and Intolerances" A
@@ -56,7 +56,7 @@ any verification status (including none).
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition
 */
 define "All Conditions":
-  [Condition]
+  ["Condition"]
 
 define "All Problem List Items":
   "All Conditions" C
@@ -80,7 +80,7 @@ define "All Health Concerns":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
 */
 define "All Diagnostic Reports for Laboratory Results":
-  [DiagnosticReportProfileLaboratoryReporting]
+  ["DiagnosticReportProfileLaboratoryReporting"]
 
 // Diagnostic Report
 
@@ -89,7 +89,7 @@ define "All Diagnostic Reports for Laboratory Results":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note
 */
 define "All Diagnostic Report Notes":
-  [DiagnosticReportProfileNoteExchange]
+  ["DiagnosticReportProfileNoteExchange"]
 
 // Encounter
 
@@ -98,7 +98,7 @@ define "All Diagnostic Report Notes":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter 
 */
 define "All Encounters":
-  [EncounterProfile]
+  ["EncounterProfile"]
 
 define "All Performed Encounters":
   "All Encounters" E
@@ -111,7 +111,7 @@ define "All Performed Encounters":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization
 */
 define "All Immunizations":
-  [ImmunizationProfile] 
+  ["ImmunizationProfile"] 
 
 define "All Completed Immunizations":
   "All Immunizations" I
@@ -124,7 +124,7 @@ define "All Completed Immunizations":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device
 */
 define "All Implantable Devices":
-  [ImplantableDeviceProfile]
+  ["ImplantableDeviceProfile"]
 
 // Laboratory Result
 
@@ -148,7 +148,7 @@ define "Resulted Laboratory Results":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
 */
 define "All Medication Requests":
-  [MedicationRequestProfile]
+  ["MedicationRequestProfile"]
 
 define "Active Medication Orders":
   "All Medication Requests" M
@@ -162,7 +162,7 @@ define "Active Medication Orders":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age
 */
 define "Pediatric BMI for Age":
-  [PediatricBMIforAgeObservationProfile]
+  ["PediatricBMIforAgeObservationProfile"]
 
 // Pediatric Head Circumference Percentile
 
@@ -171,7 +171,9 @@ define "Pediatric BMI for Age":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/head-occipital-frontal-circumference-percentile
 */
 //define "All Pediatric Head Circumference Percentile Measurements":
-  //TODO - couldn't find profile
+  //TODO - profile not in modelinfo
+  //UsCorePediatricHeadOccipitalFrontalCircumferencePercentileProfile
+
 
 // Pediatric Weight for Height
 
@@ -180,8 +182,7 @@ define "Pediatric BMI for Age":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height
 */
 define "Pediatric Weight for Height":
-  [PediatricWeightForHeightObservationProfile]
-
+  ["PediatricWeightForHeightObservationProfile"]
 
 // Procedure
 
@@ -190,7 +191,7 @@ define "Pediatric Weight for Height":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure
 */
 define "All Procedures":
-  [ProcedureProfile] P
+  ["ProcedureProfile"] P
     where P.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
 
 define "All Performed Procedures":
@@ -204,7 +205,7 @@ define "All Performed Procedures":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry
 */
 define "Pulse Oximetry":
-  [PulseOximetryProfile]
+  ["PulseOximetryProfile"]
 
 // Smoking Status
 
@@ -216,7 +217,7 @@ profile.
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus
 */
 define "Smoking Status":
-  [SmokingStatusProfile]
+  ["SmokingStatusProfile"]
 
 /*
 @description: Returns the most recent smoking status
@@ -322,7 +323,11 @@ define "All Blood Pressure Measurements":
   ["observation-bp"]
 
 // Systolic Blood Pressure
-
+define "Systolic Blood Pressure":
+  "All Blood Pressure Measurements".SystolicBP.value
+  
 // Diastolic Blood Pressure
+define "Diastolic Blood Pressure":
+  "All Blood Pressure Measurements".DiastolicBP.value
 
 
