@@ -385,3 +385,105 @@ define fluent function earliest(choice Choice<DateTime, Quantity, Interval<DateT
       if (period.hasStart()) then start of period
       else end of period
 
+/*
+@description: Returns the most recent Condition
+*/
+define function MostRecent(conditions List<Condition>):
+  Last(
+    conditions C
+      sort by recordedDate
+  )
+
+/*
+@description: Return the most recent Observation
+*/
+
+define function MostRecent(observations List<"SmokingStatusProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define function MostRecent(observations List<"PulseOximetryProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define function MostRecent(observations List<"PediatricWeightForHeightObservationProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+  define function MostRecent(observations List<"PediatricBMIforAgeObservationProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define function MostRecent(observations List<"LaboratoryResultObservationProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define function MostRecent(observations List<"observation-vitalspanel">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define function MostRecent(observations List<"observation-resprate">):
+  Last(
+    observations O
+      sort by issued
+  )
+  
+  define function MostRecent(observations List<"observation-heartrate">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+  define function MostRecent(observations List<"observation-oxygensat">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+  define function MostRecent(observations List<"observation-bodytemp">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+  define function MostRecent(observations List<"observation-headcircum">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+  define function MostRecent(observations List<"observation-bp">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define function MostRecent(observations List<"observation-bmi">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define function MostRecent(observations List<"observation-bodyheight">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define function MostRecent(observations List<"observation-bodyweight">):
+  Last(
+    observations O
+      sort by issued
+  )
