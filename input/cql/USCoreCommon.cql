@@ -487,3 +487,15 @@ define function MostRecent(observations List<"observation-bodyweight">):
     observations O
       sort by issued
   )
+
+define function MostRecent(medicationRequests List<"MedicationRequestProfile">):
+  Last(
+    medicationRequests MR
+      sort by authoredOn
+  )
+
+
+
+ define function Mobile(contactPoints List<ContactPoint>):
+  singleton from (contactPoints P where P.use = 'mobile')
+
