@@ -24,6 +24,9 @@ and any verification status (including none).
 define "All Allergies and Intolerances":
   ["AllergyIntolerance"]
 
+define "Active Confirmed Allergies and Intolerances":
+  "All Allergies and Intolerances".active().confirmed()
+
 define "Common Allergies and Intolerances":
   "All Allergies and Intolerances" A
     where A.code in "Common allergy substances"
@@ -154,6 +157,9 @@ define "Active Medication Orders":
   "All Medication Requests" M
     where M.status = 'active'
       and M.intent in { 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order' }
+
+define "All Medications":
+  ["MedicationProfile"]
 
 // Pediatric BMI for Age
 

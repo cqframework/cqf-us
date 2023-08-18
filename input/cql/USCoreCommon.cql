@@ -7,6 +7,7 @@ used in writing CQL with FHIR and QICore profiles.
 library USCoreCommon version '0.1.0'
 
 using USCore version '3.1.1'
+using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
 
@@ -24,6 +25,7 @@ codesystem "AllergyIntoleranceClinicalStatusCodes": 'http://terminology.hl7.org/
 codesystem "AllergyIntoleranceVerificationStatusCodes": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification'
 codesystem "ObservationCategoryCodes": 'http://terminology.hl7.org/CodeSystem/observation-category'
 codesystem "USCoreObservationCategory": 'http://hl7.org/fhir/us/core/CodeSystem/us-core-observation-category'
+codesystem "ObservationStatusCodes": 'http://hl7.org/fhir/observation-status'
 codesystem "ConditionCategory": 'http://terminology.hl7.org/CodeSystem/condition-category'
 codesystem "USCoreConditionCategory": 'http://hl7.org/fhir/us/core/CodeSystem/condition-category'
 codesystem "CDC Race and Ethnicity Codes": 'urn:oid:2.16.840.1.113883.6.238'
@@ -105,6 +107,16 @@ code "therapy": 'therapy' from "ObservationCategoryCodes" display 'Therapy'
 code "activity": 'activity' from "ObservationCategoryCodes" display 'Activity'
 code "clinical-test": 'clinical-test' from "USCoreObservationCategory" display 'Clinical Test'
 
+// Observation Status Codes
+code "observation-registered": 'registered' from "ObservationStatusCodes" display 'Registered'
+code "observation-preliminary": 'preliminary' from "ObservationStatusCodes" display 'Preliminary'
+code "observation-final": 'final' from "ObservationStatusCodes" display 'Final'
+code "observation-amended": 'amended' from "ObservationStatusCodes" display 'Amended'
+code "observation-corrected": 'corrected' from "ObservationStatusCodes" display 'Corrected'
+code "observation-cancelled": 'cancelled' from "ObservationStatusCodes" display 'Cancelled'
+code "observation-entered-in-error": 'entered-in-error' from "ObservationStatusCodes" display 'Entered in Error'
+code "observation-unknown": 'unknown' from "ObservationStatusCodes" display 'Unknown'
+
 context Patient
 
 /* Candidates for FHIRCommon */
@@ -112,63 +124,63 @@ context Patient
 /*
 @description: Returns true if the given condition has a clinical status of active, recurrence, or relapse
 */
-define fluent function isActive(condition Condition):
+define fluent function isActive(condition USCore.Condition):
   condition.clinicalStatus ~ "active"
     or condition.clinicalStatus ~ "recurrence"
     or condition.clinicalStatus ~ "relapse"
 
-define fluent function active(conditions List<Condition>):
+define fluent function active(conditions List<USCore.Condition>):
   conditions C
     where C.clinicalStatus ~ "active"
       or C.clinicalStatus ~ "recurrence"
       or C.clinicalStatus ~ "relapse"
 
-define fluent function isActive(allergyIntolerance AllergyIntolerance):
+define fluent function isActive(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.clinicalStatus ~ "allergy-active"
 
-define fluent function active(allergyIntolerances List<AllergyIntolerance>):
+define fluent function active(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.clinicalStatus ~ "allergy-active"
 
-define fluent function isInactive(allergyIntolerance AllergyIntolerance):
+define fluent function isInactive(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.clinicalStatus ~ "allergy-inactive"
 
-define fluent function inactive(allergyIntolerances List<AllergyIntolerance>):
+define fluent function inactive(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.clinicalStatus ~ "allergy-inactive"
 
-define fluent function isResolved(allergyIntolerance AllergyIntolerance):
+define fluent function isResolved(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.clinicalStatus ~ "allergy-resolved"
 
-define fluent function resolved(allergyIntolerances List<AllergyIntolerance>):
+define fluent function resolved(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.clinicalStatus ~ "allergy-resolved"
 
-define fluent function isConfirmed(allergyIntolerance AllergyIntolerance):
+define fluent function isConfirmed(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.verificationStatus ~ "allergy-confirmed"
 
-define fluent function confirmed(allergyIntolerances List<AllergyIntolerance>):
+define fluent function confirmed(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.verificationStatus ~ "allergy-confirmed"
 
-define fluent function isUnconfirmed(allergyIntolerance AllergyIntolerance):
+define fluent function isUnconfirmed(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.verificationStatus ~ "allergy-unconfirmed"
 
-define fluent function unconfirmed(allergyIntolerances AllergyIntolerance):
+define fluent function unconfirmed(allergyIntolerances USCore.AllergyIntolerance):
   allergyIntolerances A
     where A.verificationStatus ~ "allergy-unconfirmed"
 
-define fluent function isRefuted(allergyIntolerance AllergyIntolerance):
+define fluent function isRefuted(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.verificationStatus ~ "allergy-refuted"
 
-define fluent function refuted(allergyIntolerances AllergyIntolerance):
+define fluent function refuted(allergyIntolerances USCore.AllergyIntolerance):
   allergyIntolerances A
     where A.verificationStatus ~ "allergy-refuted"
 
 /*
 @description: Returns true if the given condition has the given category
 */
-define fluent function hasCategory(condition Condition, category Code):
+define fluent function hasCategory(condition USCore.Condition, category Code):
   exists (condition.category C
     where C ~ category
   )
@@ -176,7 +188,7 @@ define fluent function hasCategory(condition Condition, category Code):
 /*
 @description: Returns true if the given condition is a problem list item.
 */
-define fluent function isProblemListItem(condition Condition):
+define fluent function isProblemListItem(condition USCore.Condition):
   exists (condition.category C
     where C ~ "problem-list-item"
   )
@@ -184,7 +196,7 @@ define fluent function isProblemListItem(condition Condition):
 /*
 @description: Returns true if the given condition is an encounter diagnosis
 */
-define fluent function isEncounterDiagnosis(condition Condition):
+define fluent function isEncounterDiagnosis(condition USCore.Condition):
   exists (condition.category C
     where C ~ "encounter-diagnosis"
   )
@@ -192,43 +204,43 @@ define fluent function isEncounterDiagnosis(condition Condition):
 /*
 @description: Returns true if the given condition is a health concern
 */
-define fluent function isHealthConcern(condition Condition):
+define fluent function isHealthConcern(condition USCore.Condition):
   exists (condition.category C
     where C ~ "health-concern"
   )
 
-define fluent function isUnconfirmed(condition Condition):
+define fluent function isUnconfirmed(condition USCore.Condition):
   condition.verificationStatus ~ "unconfirmed"
 
-define fluent function unconfirmed(conditions List<Condition>):
+define fluent function unconfirmed(conditions List<USCore.Condition>):
   conditions C
     where C.verificationStatus ~ "unconfirmed"
 
-define fluent function isProvisional(condition Condition):
+define fluent function isProvisional(condition USCore.Condition):
   condition.verificationStatus ~ "provisional"
 
-define fluent function provisional(conditions List<Condition>):
+define fluent function provisional(conditions List<USCore.Condition>):
   conditions C
     where C.verificationStatus ~ "provisional"
 
-define fluent function isDifferential(condition Condition):
+define fluent function isDifferential(condition USCore.Condition):
   condition.verificationStatus ~ "differential"
 
-define fluent function differential(conditions List<Condition>):
+define fluent function differential(conditions List<USCore.Condition>):
   conditions C
     where C.verificationStatus ~ "differential"
 
-define fluent function isConfirmed(condition Condition):
+define fluent function isConfirmed(condition USCore.Condition):
   condition.verificationStatus ~ "confirmed"
 
-define fluent function confirmed(conditions List<Condition>):
+define fluent function confirmed(conditions List<USCore.Condition>):
   conditions C
     where C.verificationStatus ~ "confirmed"
 
-define fluent function isRefuted(condition Condition):
+define fluent function isRefuted(condition USCore.Condition):
   condition.verificationStatus ~ "refuted"
 
-define fluent function refuted(conditions List<Condition>):
+define fluent function refuted(conditions List<USCore.Condition>):
   conditions C
     where C.verificationStatus ~ "refuted"
 
@@ -239,6 +251,108 @@ define fluent function hasCategory(observation LaboratoryResultObservationProfil
   exists (observation.category C
     where C ~ category
   )
+
+/*
+@description: Returns true if the given observation has status
+*/
+define fluent function isResulted(observation LaboratoryResultObservationProfile):
+  observation.status ~ "observation-final".code
+    or observation.status ~ "observation-amended".code
+    or observation.status ~ "observation-corrected".code
+
+define fluent function resulted(observations List<LaboratoryResultObservationProfile>):
+  observations observation
+    where observation.status ~ "observation-final".code
+      or observation.status ~ "observation-amended".code
+      or observation.status ~ "observation-corrected".code
+
+define fluent function isFinal(observation LaboratoryResultObservationProfile):
+  observation.status ~ "observation-final".code
+
+define fluent function final(observations List<LaboratoryResultObservationProfile>):
+  observations observation
+    where observation.status ~ "observation-final".code
+
+define fluent function isAmended(observation LaboratoryResultObservationProfile):
+  observation.status ~ "observation-amended".code
+
+define fluent function amended(observations List<LaboratoryResultObservationProfile>):
+  observations observation
+    where observation.status ~ "observation-amended".code
+
+define fluent function isCorrected(observation LaboratoryResultObservationProfile):
+  observation.status ~ "observation-corrected".code
+
+define fluent function corrected(observations List<LaboratoryResultObservationProfile>):
+  observations observation
+    where observation.status ~ "observation-corrected".code
+
+
+define fluent function isResulted(observation "observation-bodyweight"):
+  observation.status ~ "observation-final".code
+    or observation.status ~ "observation-amended".code
+    or observation.status ~ "observation-corrected".code
+
+define fluent function resulted(observations List<"observation-bodyweight">):
+  observations observation
+    where observation.status ~ "observation-final".code
+      or observation.status ~ "observation-amended".code
+      or observation.status ~ "observation-corrected".code
+
+define fluent function isFinal(observation "observation-bodyweight"):
+  observation.status ~ "observation-final".code
+
+define fluent function final(observations List<"observation-bodyweight">):
+  observations observation
+    where observation.status ~ "observation-final".code
+
+define fluent function isAmended(observation "observation-bodyweight"):
+  observation.status ~ "observation-amended".code
+
+define fluent function amended(observations List<"observation-bodyweight">):
+  observations observation
+    where observation.status ~ "observation-amended".code
+
+define fluent function isCorrected(observation "observation-bodyweight"):
+  observation.status ~ "observation-corrected".code
+
+define fluent function corrected(observations List<"observation-bodyweight">):
+  observations observation
+    where observation.status ~ "observation-corrected".code
+
+
+define fluent function isResulted(observation "observation-bodyheight"):
+  observation.status ~ "observation-final".code
+    or observation.status ~ "observation-amended".code
+    or observation.status ~ "observation-corrected".code
+
+define fluent function resulted(observations List<"observation-bodyheight">):
+  observations observation
+    where observation.status ~ "observation-final".code
+      or observation.status ~ "observation-amended".code
+      or observation.status ~ "observation-corrected".code
+
+define fluent function isFinal(observation "observation-bodyheight"):
+  observation.status ~ "observation-final".code
+
+define fluent function final(observations List<"observation-bodyheight">):
+  observations observation
+    where observation.status ~ "observation-final".code
+
+define fluent function isAmended(observation "observation-bodyheight"):
+  observation.status ~ "observation-amended".code
+
+define fluent function amended(observations List<"observation-bodyheight">):
+  observations observation
+    where observation.status ~ "observation-amended".code
+
+define fluent function isCorrected(observation "observation-bodyheight"):
+  observation.status ~ "observation-corrected".code
+
+define fluent function corrected(observations List<"observation-bodyheight">):
+  observations observation
+    where observation.status ~ "observation-corrected".code
+    return observation.status
 
 /*
 @description: Returns true if the given MedicationRequest has a category of Community
@@ -310,15 +424,15 @@ If the abatement is represented as a Quantity Interval, the quantities are expec
 which the abatement occurred. The result is an interval from the date the patient turned the starting age of the quantity interval, and ending immediately
 before one year later than the date the patient turned the ending age of the quantity interval.
 */
-define fluent function abatementInterval(condition Condition):
+define fluent function abatementInterval(condition USCore.Condition):
 	if condition.abatement is DateTime then
 	  Interval[condition.abatement as DateTime, condition.abatement as DateTime]
-	else if condition.abatement is Quantity then
-		Interval[Patient.birthDate + (condition.abatement as Quantity),
-			Patient.birthDate + (condition.abatement as Quantity) + 1 year)
-	else if condition.abatement is Interval<Quantity> then
-	  Interval[Patient.birthDate + (condition.abatement.low as Quantity),
-		  Patient.birthDate + (condition.abatement.high as Quantity) + 1 year)
+	else if condition.abatement is System.Quantity then
+		Interval[Patient.birthDate + (condition.abatement as System.Quantity),
+			Patient.birthDate + (condition.abatement as System.Quantity) + 1 year)
+	else if condition.abatement is Interval<System.Quantity> then
+	  Interval[Patient.birthDate + (condition.abatement.low as System.Quantity),
+		  Patient.birthDate + (condition.abatement.high as System.Quantity) + 1 year)
 	else if condition.abatement is Interval<DateTime> then
 	  Interval[condition.abatement.low, condition.abatement.high)
 	else null as Interval<DateTime>
@@ -329,7 +443,7 @@ define fluent function abatementInterval(condition Condition):
 onset to abatement as specified in the given Condition. If the condition is active, the resulting interval will have
 a closed ending boundary. If the condition is not active, the resulting interval will have an open ending boundary.
 */
-define fluent function prevalenceInterval(condition Condition):
+define fluent function prevalenceInterval(condition USCore.Condition):
 if condition.clinicalStatus ~ "active"
   or condition.clinicalStatus ~ "recurrence"
   or condition.clinicalStatus ~ "relapse" then
@@ -388,7 +502,7 @@ define fluent function earliest(choice Choice<DateTime, Quantity, Interval<DateT
 /*
 @description: Returns the most recent Condition
 */
-define function MostRecent(conditions List<Condition>):
+define function MostRecent(conditions List<USCore.Condition>):
   Last(
     conditions C
       sort by recordedDate
@@ -496,6 +610,6 @@ define function MostRecent(medicationRequests List<"MedicationRequestProfile">):
 
 
 
- define function Mobile(contactPoints List<ContactPoint>):
+define function Mobile(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.use = 'mobile')
 

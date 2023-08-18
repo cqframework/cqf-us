@@ -1,0 +1,156 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "MBODAQuestionnaire",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
+      "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/MBODAInitialExpressions"
+    }
+  ],
+  "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/MBODAQuestionnaire",
+  "version": "0.1.0",
+  "name": "MBODAQuestionnaire",
+  "title": "Medical Benefit Outpatient Drug Authorization Form",
+  "status": "active",
+  "experimental": true,
+  "date": "2023-08-14T00:00:00+00:00",
+  "publisher": "Smile Digital Health",
+  "description": "Drugs administered by healthcare professionals in an outpatient setting are covered under the Medical Benefit. Information on drugs requiring prior authorization can be found on NaviNet.net or the For Providers section of the Geisinger Health Plan website.",
+  "item": [
+    {
+      "linkId": "patient-info",
+      "text": "Patient Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Patient Name"
+              }
+            }
+          ],
+          "linkId": "patient-info|name",
+          "text": "Patient name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Date of Birth"
+              }
+            }
+          ],
+          "linkId": "patient-info|dob",
+          "text": "DOB",
+          "type": "date"
+        },
+        {
+          "linkId": "patient-info|male",
+          "text": "Male",
+          "type": "boolean"
+        },
+        {
+          "linkId": "patient-info|female",
+          "text": "Female",
+          "type": "boolean"
+        },
+        {
+          "linkId": "patient-info|member-id",
+          "text": "Member ID #",
+          "type": "string",
+          "initial": [
+            {
+              "valueString": "Member 12345"
+            }
+          ]
+        },
+        {
+          "linkId": "patient-info|medical-record-number",
+          "text": "Medical record #",
+          "type": "string"
+        },
+        {
+          "linkId": "patient-info|phone-number",
+          "text": "Member phone #",
+          "type": "string"
+        },
+        {
+          "linkId": "patient-info|address",
+          "text": "Address",
+          "type": "string"
+        },
+        {
+          "linkId": "patient-info|city",
+          "text": "City",
+          "type": "string"
+        },
+        {
+          "linkId": "patient-info|state",
+          "text": "State",
+          "type": "string"
+        },
+        {
+          "linkId": "patient-info|zip-code",
+          "text": "Zip",
+          "type": "string"
+        },
+        {
+          "linkId": "patient-info|drug-allergies",
+          "text": "Drug allergies",
+          "type": "string"
+        },
+        {
+          "linkId": "patient-info|height",
+          "text": "Height",
+          "type": "quantity",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "[in_i]",
+                "display": "in"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "patient-info|weight",
+          "text": "Weight",
+          "type": "quantity",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "[lb_av]",
+                "display": "lbs"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "patient-info|bsa",
+          "text": "BSA",
+          "type": "quantity",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "[m2]",
+                "display": "m2"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
