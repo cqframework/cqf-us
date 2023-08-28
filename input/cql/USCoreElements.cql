@@ -3,11 +3,11 @@ library USCoreElements version '0.1.0'
 using USCore version '3.1.1'
 
 include FHIRHelpers version '4.0.1'
-include USCoreCommon version '0.1.0'
+include USCoreCommon version '0.1.0' called UC
 
 valueset "Common allergy substances": 'http://hl7.org/fhir/us/core/ValueSet/us-core-allergy-substance'
 
-code "No known allergy (situation)": '716186003' from USCoreCommon.SNOMEDCT
+code "No known allergy (situation)": '716186003' from UC.SNOMEDCT
 
 context Patient
 
@@ -150,6 +150,9 @@ define "Resulted Laboratory Results":
 @comment: [Medication Request](https://hl7.org/fhir/us/core/STU3.1.1/StructureDefinition-us-core-medicationrequest.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
 */
+define "Most Recent Medication Request":
+  UC.MostRecent("All Medication Requests")
+
 define "All Medication Requests":
   ["MedicationRequestProfile"]
 

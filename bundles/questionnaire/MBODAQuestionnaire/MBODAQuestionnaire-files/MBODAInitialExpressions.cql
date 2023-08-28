@@ -19,12 +19,11 @@ context Patient
 
 define "Member ID":
   [FHIR.Coverage] C
-  where C.subscriber.reference = Patient.id
-  return C.subscriberId
+    where C.subscriber.reference = Patient.id
+    return C.subscriberId
 
 define "Patient Name":
   OfficialName."Name - First Middle(s) Last"
-
 
 define "Last Name":
   Patient.name.family
@@ -32,7 +31,7 @@ define "Last Name":
 // TODO: Error: Could not resolve data provider for package 'java.util'.
 // define "First Name":
 //   Patient.name.given.first()
-  
+
 define "Date of Birth":
   Patient.birthDate
 
@@ -74,18 +73,9 @@ define "Weight":
     ).value 
   ) to '[lb_av]'
 
-
-// TODO: Move this to USCoreCommon.cql
-// TODO: Resolve error in USCoreCommon.cql when adding "using FHIR version '4.0.1'"
-define function MostRecent(observations List<Observation>):
-  Last(
-    observations O
-      sort by issued
-  )
-
 define "Most Recent BSA":
   convert( 
-    MostRecent(
+    UC.MostRecent(
       ([FHIR.Observation: "Body surface area"] observation
         where observation.status ~ UC."observation-final".code
           or observation.status ~ UC."observation-amended".code
@@ -95,13 +85,40 @@ define "Most Recent BSA":
   ) to 'm2'
 
 define "BSA":
-  Coalesce("Most Recent BSA", "Calculated BSA")
+  Coalesce("Most Recent BSA", "Calculated BSA - Mosteller")
 
-define "Calculated BSA":
-  ((("Weight"*"Height")/3131).value)^0.5
+// Mosteller formula using lbs and inches
+define "Calculated BSA - Mosteller":
+  CalculateBSA('Mosteller', "Height", "Weight")
+  //((("Weight"*"Height")/3131).value)^0.5
+
+define "Height in cm":
+  convert("Height") to 'cm'
+
+define "Weight in kg":
+  convert("Weight") to 'kg'
+
+define "Calculated BSA - DuBois and DuBois":
+  CalculateBSA('DuBois and DuBois', "Height", "Weight")
+
+define function CalculateBSA(alg System.String, height System.Quantity, weight System.Quantity):
+  System.Quantity { value: 
+    // Mosteller formula using lbs and inches
+    if (alg = 'Mosteller') then
+      ((((convert(height) to '[in_i]') * (convert(weight) to '[lb_av]'))/3131).value)^0.5
+    
+    // DuBois and DuBois formula using cm and kg
+    // NOTE: never to be used for newborn calculation
+    else if (alg = 'DuBois and DuBois') then
+      0.007184 * ((convert(height) to 'cm').value^0.725) * ((convert(weight) to 'kg').value^0.425)
+    
+    // No matching algorithm found
+    else null,
+    unit: 'm2'
+  }
 
 define "Birth Sex":
- Patient.birthsex 
+ Patient.birthsex
 
 define "Diagnosis Codes":
   UCE."All Conditions" C
@@ -112,38 +129,48 @@ define "Diagnosis Descriptions":
     return C.code.display
 
 // TODO: Error: Could not resolve call to operator 'ToValue(org.hl7.fhir.r4.model.CodeableConcept)' in library 'FHIRHelpers'.
-// define "Medication Name":
-//   UCE."All Medications" M
-//   where M.id = UC.MostRecent(UCE."All Medication Requests").medication.reference
-//     return M.code.display
+define "Medication Name":
+  UCE."All Medications" M
+    return M.id
+    //where M.id = "Most Recent Medication Request".medication.reference
+    //return M.code.display
+
+define "Medication Request References":
+  ("Most Recent Medication Request".medication) // as USCore.Reference).reference
   
+define "Most Recent Medication Request":
+  UC.MostRecent(UCE."All Medication Requests")
   
 define "Medication Dose":
-  UC.MostRecent(UCE."All Medication Requests").dosageInstruction.doseAndRate.dose
+  "Most Recent Medication Request".dosageInstruction.doseAndRate.dose
 
 define "Medication Route":
-  UC.MostRecent(UCE."All Medication Requests").dosageInstruction.route
+  "Most Recent Medication Request".dosageInstruction.route
 
 define "Medication Frequency":
-  UC.MostRecent(UCE."All Medication Requests").dosageInstruction.doseAndRate.rate
+  "Most Recent Medication Request".dosageInstruction.doseAndRate.rate
 
 define "Quantity or Number of requested Visits":
-  UC.MostRecent(UCE."All Medication Requests").dispenseRequest.quantity
+  "Most Recent Medication Request".dispenseRequest.quantity
 
 define "New therapy":
-  (UC.MostRecent(UCE."All Medication Requests").priorPrescription) is not null
+  ("Most Recent Medication Request".priorPrescription) is not null
 
 //Initial date of therapy does not return correct result if there have been more than 1 prior Prescriptions - logic needs to be adapted to that case
 define "Initial date of therapy":
   if not "New therapy" then
     UCE."All Medication Requests" M
-    where M.id = UC.MostRecent(UCE."All Medication Requests").priorPrescription.reference
+    where M.id = "Most Recent Medication Request".priorPrescription.reference
     return M.authoredOn
   else 
     null
 
+// define "Test":
+//   CMD."TestFunction"("Most Recent Medication Request")
+
+/*
 define "Medication Request Period":
-  CMD."MedicationRequestPeriod"(UC.MostRecent(UCE."All Medication Requests"))
+  CMD."MedicationRequestPeriod"("Most Recent Medication Request")
 
 // define "Expected Therapy Length":
 //   convert(
@@ -156,7 +183,7 @@ define "Medication Request Period":
 // TODO: Error: Could not resolve call to operator 'ToValue(org.hl7.fhir.r4.model.CodeableConcept)' in library 'FHIRHelpers'.
 // define "Code of Requested Drug":
 //   UCE."All Medications" M
-//     where M.id = UC.MostRecent(UCE."All Medication Requests").medication.reference
+//     where M.id = "Most Recent Medication Request".medication.reference
 //       return M.code
 
 /*

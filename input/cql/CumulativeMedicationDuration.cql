@@ -22,14 +22,20 @@ updated to reflect changes from AU2022 QDM library changes _JKR
 library CumulativeMedicationDuration version '3.1.000'
 
 using USCore version '3.1.1'
+// NOTE: Including FHIR to handle MedicationDispense and MedicationAdministration (not in USCore 3.1.1)
+// TODO: Remove this reference once USCore supports MedicationDispense and MedicationAdministration
 using FHIR version '4.0.1'
+
+// NOTE: Removed in favor of USCore version '3.1.1'
 //using QICore version '4.1.1'
 
 // NOTE: Updated to 4.0.1 for now to simplify dependencies
 // NOTE: include FHIRHelpers version '4.2.000'
 include FHIRHelpers version '4.0.1'
-// NOTE: Removed for now to simplify dependencies
+
+// NOTE: Removed in favor of USCoreCommon
 //include QICoreCommon version '1.3.000'
+include USCoreCommon version '0.1.0'
 
 // These code systems are not known to the MAT environment yet, request to have them added submitted
 codesystem "V3TimingEvent": 'http://terminology.hl7.org/CodeSystem/v3-TimingEvent'
@@ -63,28 +69,28 @@ code "EVE.late": 'EVE.late' from EventTiming //	Late Evening	Event occurs during
 code "NIGHT": 'NIGHT' from EventTiming //	Night	Event occurs during the night. The exact time is unspecified and established by institution convention or patient interpretation.
 code "PHS": 'PHS' from EventTiming //	After Sleep	Event occurs [offset] after subject goes to sleep. The exact time is unspecified and established by institution convention or patient interpretation.
 
-// code "Every eight hours (qualifier value)": '307469008' from QICoreCommon."SNOMEDCT" display 'Every eight hours (qualifier value)'
-// code "Every eight to twelve hours (qualifier value)": '396140003' from QICoreCommon."SNOMEDCT" display 'Every eight to twelve hours (qualifier value)'
-// code "Every forty eight hours (qualifier value)": '396131002' from QICoreCommon."SNOMEDCT" display 'Every forty eight hours (qualifier value)'
-// code "Every forty hours (qualifier value)": '396130001' from QICoreCommon."SNOMEDCT" display 'Every forty hours (qualifier value)'
-// code "Every four hours (qualifier value)": '225756002' from QICoreCommon."SNOMEDCT" display 'Every four hours (qualifier value)'
-// code "Every seventy two hours (qualifier value)": '396143001' from QICoreCommon."SNOMEDCT" display 'Every seventy two hours (qualifier value)'
-// code "Every six hours (qualifier value)": '307468000' from QICoreCommon."SNOMEDCT" display 'Every six hours (qualifier value)'
-// code "Every six to eight hours (qualifier value)": '396139000' from QICoreCommon."SNOMEDCT" display 'Every six to eight hours (qualifier value)'
-// code "Every thirty six hours (qualifier value)": '396126004' from QICoreCommon."SNOMEDCT" display 'Every thirty six hours (qualifier value)'
-// code "Every three to four hours (qualifier value)": '225754004' from QICoreCommon."SNOMEDCT" display 'Every three to four hours (qualifier value)'
-// code "Every three to six hours (qualifier value)": '396127008' from QICoreCommon."SNOMEDCT" display 'Every three to six hours (qualifier value)'
-// code "Every twelve hours (qualifier value)": '307470009' from QICoreCommon."SNOMEDCT" display 'Every twelve hours (qualifier value)'
-// code "Every twenty four hours (qualifier value)": '396125000' from QICoreCommon."SNOMEDCT" display 'Every twenty four hours (qualifier value)'
-// code "Every two to four hours (qualifier value)": '225752000' from QICoreCommon."SNOMEDCT" display 'Every two to four hours (qualifier value)'
-// code "Four times daily (qualifier value)": '307439001' from QICoreCommon."SNOMEDCT" display 'Four times daily (qualifier value)'
-// code "Once daily (qualifier value)": '229797004' from QICoreCommon."SNOMEDCT" display 'Once daily (qualifier value)'
-// code "One to four times a day (qualifier value)": '396109005' from QICoreCommon."SNOMEDCT" display 'One to four times a day (qualifier value)'
-// code "One to three times a day (qualifier value)": '396108002' from QICoreCommon."SNOMEDCT" display 'One to three times a day (qualifier value)'
-// code "One to two times a day (qualifier value)": '396107007' from QICoreCommon."SNOMEDCT" display 'One to two times a day (qualifier value)'
-// code "Three times daily (qualifier value)": '229798009' from QICoreCommon."SNOMEDCT" display 'Three times daily (qualifier value)'
-// code "Twice a day (qualifier value)": '229799001' from QICoreCommon."SNOMEDCT" display 'Twice a day (qualifier value)'
-// code "Two to four times a day (qualifier value)": '396111001' from QICoreCommon."SNOMEDCT" display 'Two to four times a day (qualifier value)'
+code "Every eight hours (qualifier value)": '307469008' from USCoreCommon."SNOMEDCT" display 'Every eight hours (qualifier value)'
+code "Every eight to twelve hours (qualifier value)": '396140003' from USCoreCommon."SNOMEDCT" display 'Every eight to twelve hours (qualifier value)'
+code "Every forty eight hours (qualifier value)": '396131002' from USCoreCommon."SNOMEDCT" display 'Every forty eight hours (qualifier value)'
+code "Every forty hours (qualifier value)": '396130001' from USCoreCommon."SNOMEDCT" display 'Every forty hours (qualifier value)'
+code "Every four hours (qualifier value)": '225756002' from USCoreCommon."SNOMEDCT" display 'Every four hours (qualifier value)'
+code "Every seventy two hours (qualifier value)": '396143001' from USCoreCommon."SNOMEDCT" display 'Every seventy two hours (qualifier value)'
+code "Every six hours (qualifier value)": '307468000' from USCoreCommon."SNOMEDCT" display 'Every six hours (qualifier value)'
+code "Every six to eight hours (qualifier value)": '396139000' from USCoreCommon."SNOMEDCT" display 'Every six to eight hours (qualifier value)'
+code "Every thirty six hours (qualifier value)": '396126004' from USCoreCommon."SNOMEDCT" display 'Every thirty six hours (qualifier value)'
+code "Every three to four hours (qualifier value)": '225754004' from USCoreCommon."SNOMEDCT" display 'Every three to four hours (qualifier value)'
+code "Every three to six hours (qualifier value)": '396127008' from USCoreCommon."SNOMEDCT" display 'Every three to six hours (qualifier value)'
+code "Every twelve hours (qualifier value)": '307470009' from USCoreCommon."SNOMEDCT" display 'Every twelve hours (qualifier value)'
+code "Every twenty four hours (qualifier value)": '396125000' from USCoreCommon."SNOMEDCT" display 'Every twenty four hours (qualifier value)'
+code "Every two to four hours (qualifier value)": '225752000' from USCoreCommon."SNOMEDCT" display 'Every two to four hours (qualifier value)'
+code "Four times daily (qualifier value)": '307439001' from USCoreCommon."SNOMEDCT" display 'Four times daily (qualifier value)'
+code "Once daily (qualifier value)": '229797004' from USCoreCommon."SNOMEDCT" display 'Once daily (qualifier value)'
+code "One to four times a day (qualifier value)": '396109005' from USCoreCommon."SNOMEDCT" display 'One to four times a day (qualifier value)'
+code "One to three times a day (qualifier value)": '396108002' from USCoreCommon."SNOMEDCT" display 'One to three times a day (qualifier value)'
+code "One to two times a day (qualifier value)": '396107007' from USCoreCommon."SNOMEDCT" display 'One to two times a day (qualifier value)'
+code "Three times daily (qualifier value)": '229798009' from USCoreCommon."SNOMEDCT" display 'Three times daily (qualifier value)'
+code "Twice a day (qualifier value)": '229799001' from USCoreCommon."SNOMEDCT" display 'Twice a day (qualifier value)'
+code "Two to four times a day (qualifier value)": '396111001' from USCoreCommon."SNOMEDCT" display 'Two to four times a day (qualifier value)'
 
 parameter ErrorLevel String default 'Warning'
 
@@ -171,29 +177,27 @@ define function ToDaily(frequency Code):
     when frequency ~ "NIGHT" then 1 //	Night	Event occurs during the night. The exact time is unspecified and established by institution convention or patient interpretation.
     when frequency ~ "PHS" then 1 //	After Sleep	Event occurs [offset] after subject goes to sleep. The exact time is unspecified and established by institution convention or patient interpretation.
 
-// NOTE: Removed for now to simplify dependencies
-    // when frequency ~ "Once daily (qualifier value)" then 1.0
-    // when frequency ~ "Twice a day (qualifier value)" then 2.0
-    // when frequency ~ "Three times daily (qualifier value)" then 3.0
-    // when frequency ~ "Four times daily (qualifier value)" then 4.0
-    // when frequency ~ "Every twenty four hours (qualifier value)" then 1.0
-    // when frequency ~ "Every twelve hours (qualifier value)" then 2.0
-    // when frequency ~ "Every thirty six hours (qualifier value)" then 0.67
-    // when frequency ~ "Every eight hours (qualifier value)" then 3.0
-    // when frequency ~ "Every four hours (qualifier value)" then 6.0
-    // when frequency ~ "Every six hours (qualifier value)" then 4.0
-    // when frequency ~ "Every seventy two hours (qualifier value)" then 0.33
-    // when frequency ~ "Every forty eight hours (qualifier value)" then 0.5
-    // when frequency ~ "Every eight to twelve hours (qualifier value)" then 3.0
-    // when frequency ~ "Every six to eight hours (qualifier value)" then 4.0
-    // when frequency ~ "Every three to four hours (qualifier value)" then 8.0
-    // when frequency ~ "Every three to six hours (qualifier value)" then 8.0
-    // when frequency ~ "Every two to four hours (qualifier value)" then 12.0
-    // when frequency ~ "One to four times a day (qualifier value)" then 4.0
-    // when frequency ~ "One to three times a day (qualifier value)" then 3.0
-    // when frequency ~ "One to two times a day (qualifier value)" then 2.0
-    // when frequency ~ "Two to four times a day (qualifier value)" then 4.0
-// END NOTE: Removed for now to simplify dependencies
+    when frequency ~ "Once daily (qualifier value)" then 1.0
+    when frequency ~ "Twice a day (qualifier value)" then 2.0
+    when frequency ~ "Three times daily (qualifier value)" then 3.0
+    when frequency ~ "Four times daily (qualifier value)" then 4.0
+    when frequency ~ "Every twenty four hours (qualifier value)" then 1.0
+    when frequency ~ "Every twelve hours (qualifier value)" then 2.0
+    when frequency ~ "Every thirty six hours (qualifier value)" then 0.67
+    when frequency ~ "Every eight hours (qualifier value)" then 3.0
+    when frequency ~ "Every four hours (qualifier value)" then 6.0
+    when frequency ~ "Every six hours (qualifier value)" then 4.0
+    when frequency ~ "Every seventy two hours (qualifier value)" then 0.33
+    when frequency ~ "Every forty eight hours (qualifier value)" then 0.5
+    when frequency ~ "Every eight to twelve hours (qualifier value)" then 3.0
+    when frequency ~ "Every six to eight hours (qualifier value)" then 4.0
+    when frequency ~ "Every three to four hours (qualifier value)" then 8.0
+    when frequency ~ "Every three to six hours (qualifier value)" then 8.0
+    when frequency ~ "Every two to four hours (qualifier value)" then 12.0
+    when frequency ~ "One to four times a day (qualifier value)" then 4.0
+    when frequency ~ "One to three times a day (qualifier value)" then 3.0
+    when frequency ~ "One to two times a day (qualifier value)" then 2.0
+    when frequency ~ "Two to four times a day (qualifier value)" then 4.0
 
     else Message(null, true, 'CMDLogic.ToDaily.UnknownFrequencyCode', ErrorLevel, 'Unknown frequency code ' & frequency.code)
   end
@@ -277,9 +281,20 @@ considered appropriate statuses, depending on the use case, typically `completed
 
 NOTE: Updated return to use "date from end of boundsPeriod" to ensure result is Interval<Date>
 */
-// define function TestFunction(Request "MedicationRequest"):
-//   Request R
-//     return (singleton from R.dosageInstruction.timing.repeat.bounds as Interval<System.DateTime>)
+define function TestFunction(Request USCore."MedicationRequestProfile"):
+  Request R
+    let
+      dosage: singleton from R.dosageInstruction,
+      doseAndRate: singleton from dosage.doseAndRate,
+      timing: dosage.timing,
+      frequency: Coalesce(timing.repeat.frequencyMax, timing.repeat.frequency),
+      period: Quantity(timing.repeat.period, timing.repeat.periodUnit),
+      doseRange: doseAndRate.dose
+    //   doseQuantity: doseAndRate.dose,
+    //   dose: Coalesce(end of doseRange, doseQuantity),
+    //   dosesPerDay: Coalesce(ToDaily(frequency, period), Count(timing.repeat.timeOfDay), 1.0),
+    //   boundsPeriod: timing.repeat.bounds as Interval<DateTime>
+    return doseRange
 
 define function MedicationRequestPeriod(Request USCore."MedicationRequestProfile"):
   Request R
@@ -509,7 +524,7 @@ define function MedicationPeriod(
     "MedicationDispense"
   >):
   case
-    when medication is MedicationRequest then MedicationRequestPeriod(medication)
+    when medication is USCore."MedicationRequestProfile" then MedicationRequestPeriod(medication)
     when medication is MedicationDispense then MedicationDispensePeriod(medication)
     else null
   end

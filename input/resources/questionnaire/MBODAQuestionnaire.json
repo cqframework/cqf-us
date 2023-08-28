@@ -51,24 +51,40 @@
           "type": "date"
         },
         {
-          "linkId": "patient-info|male",
-          "text": "Male",
-          "type": "boolean"
-        },
-        {
-          "linkId": "patient-info|female",
-          "text": "Female",
-          "type": "boolean"
+          "linkId": "patient-info|gender",
+          "text": "Sex",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "M",
+                "display": "Male"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "F",
+                "display": "Female"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "UNK",
+                "display": "Unkown"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "OTH",
+                "display": "Other"
+              }
+            }
+          ]
         },
         {
           "linkId": "patient-info|member-id",
           "text": "Member ID #",
-          "type": "string",
-          "initial": [
-            {
-              "valueString": "Member 12345"
-            }
-          ]
+          "type": "string"
         },
         {
           "linkId": "patient-info|medical-record-number",
@@ -103,12 +119,13 @@
         {
           "linkId": "patient-info|drug-allergies",
           "text": "Drug allergies",
-          "type": "string"
+          "type": "string",
+          "repeats": true
         },
         {
           "linkId": "patient-info|height",
           "text": "Height",
-          "type": "quantity",
+          "type": "decimal",
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
@@ -123,7 +140,7 @@
         {
           "linkId": "patient-info|weight",
           "text": "Weight",
-          "type": "quantity",
+          "type": "decimal",
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
@@ -138,7 +155,7 @@
         {
           "linkId": "patient-info|bsa",
           "text": "BSA",
-          "type": "quantity",
+          "type": "decimal",
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
@@ -147,6 +164,594 @@
                 "code": "[m2]",
                 "display": "m2"
               }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "provider-info",
+      "text": "Ordering Provider Information",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "provider-info|name",
+          "text": "Ordering provider name",
+          "type": "string"
+        },
+        {
+          "linkId": "provider-info|npi",
+          "text": "Ordering provider NPI #",
+          "type": "string"
+        },
+        {
+          "linkId": "provider-info|address",
+          "text": "Ordering provider address",
+          "type": "string"
+        },
+        {
+          "linkId": "provider-info|city",
+          "text": "City",
+          "type": "string"
+        },
+        {
+          "linkId": "provider-info|state",
+          "text": "State",
+          "type": "string"
+        },
+        {
+          "linkId": "provider-info|zip-code",
+          "text": "Zip",
+          "type": "string"
+        },
+        {
+          "linkId": "person-submitting-request",
+          "text": "Person submitting request",
+          "type": "group",
+          "item": [
+            {
+              "linkId": "person-submitting-request|name",
+              "text": "Name",
+              "type": "string"
+            },
+            {
+              "linkId": "person-submitting-request|phone-number",
+              "text": "Phone",
+              "type": "string"
+            },
+            {
+              "linkId": "person-submitting-request|fax",
+              "text": "Fax",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "linkId": "office-contact",
+          "text": "Office contact",
+          "type": "group",
+          "item": [
+            {
+              "linkId": "office-contact|name",
+              "text": "Name",
+              "type": "string"
+            },
+            {
+              "linkId": "office-contact|phone-number",
+              "text": "Phone",
+              "type": "string"
+            },
+            {
+              "linkId": "office-contact|fax",
+              "text": "Fax",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "servicing-provider-facility-info",
+      "text": "Servicing Provider/Facility Information",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "servicing-provider-facility-info|drug-admin",
+          "text": "Who is administering the drug?",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "OrderingProvider",
+                "display": "Ordering Provider"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "ServicingProvider",
+                "display": "Servicing Provider"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "HomeHealthAgency",
+                "display": "Home Health Agency - if yes, name of agency"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "select-one",
+          "text": "Please select if the medication will be dispensed or administered",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "AdministeredFromProviderStock",
+                "display": "Medication will be administered from provider stock and billed by provider (buy & bill)"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "DispensedByPharmacy",
+                "display": "Medication will be dispensed by a specialty pharmacy and billed by the pharmacy"
+              }
+            }
+          ],
+          "item": [
+            {
+              "linkId": "if-buy-bill",
+              "text": "If buy & bill, who will be billing for the drug?",
+              "type": "choice",
+              "enableWhen": [
+                {
+                  "question": "select-one",
+                  "operator": "=",
+                  "answerCoding": {
+                    "code": "AdministeredFromProviderStock"
+                  }
+                }
+              ],
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "OrderingProvider",
+                    "display": "Ordering Provider"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "ServicingProvider",
+                    "display": "Servicing Provider"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "Facility",
+                    "display": "Facility"
+                  }
+                }
+              ]
+            },
+            {
+              "linkId": "provider-participating-ghp",
+              "text": "Is the billing provider participating with GHP?",
+              "type": "choice",
+              "enableWhen": [
+                {
+                  "question": "select-one",
+                  "operator": "=",
+                  "answerCoding": {
+                    "code": "AdministeredFromProviderStock"
+                  }
+                }
+              ],
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "Y",
+                    "display": "Yes"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "N",
+                    "display": "No"
+                  }
+                }
+              ],
+              "item": [
+                {
+                  "linkId": "no-ghp",
+                  "text": "If No, is this a request for out-of-network services?",
+                  "type": "choice",
+                  "enableWhen": [
+                    {
+                      "question": "provider-participating-ghp",
+                      "operator": "=",
+                      "answerCoding": {
+                        "code": "N"
+                      }
+                    }
+                  ],
+                  "answerOption": [
+                    {
+                      "valueCoding": {
+                        "code": "Y",
+                        "display": "Yes"
+                      }
+                    },
+                    {
+                      "valueCoding": {
+                        "code": "N",
+                        "display": "No"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "servicing-provider",
+      "text": "Servicing provider",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "servicing-provider|name",
+          "text": "Provider name",
+          "type": "string"
+        },
+        {
+          "linkId": "servicing-provider|npi",
+          "text": "NPI #",
+          "type": "string"
+        },
+        {
+          "linkId": "servicing-provider|address",
+          "text": "Address",
+          "type": "string"
+        },
+        {
+          "linkId": "servicing-provider|phone-number",
+          "text": "Phone",
+          "type": "string"
+        },
+        {
+          "linkId": "servicing-provider|fax",
+          "text": "Fax",
+          "type": "string"
+        },
+        {
+          "linkId": "servicing-provider|office-contact",
+          "text": "Office contact",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "facility-of-service",
+      "text": "Facility/location of service",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "facility-of-service|name",
+          "text": "Facility/location name",
+          "type": "string"
+        },
+        {
+          "linkId": "facility-of-service|npi",
+          "text": "NPI #",
+          "type": "string"
+        },
+        {
+          "linkId": "facility-of-service|address",
+          "text": "Address",
+          "type": "string"
+        },
+        {
+          "linkId": "facility-of-service|phone-number",
+          "text": "Phone",
+          "type": "string"
+        },
+        {
+          "linkId": "facility-of-service|fax",
+          "text": "Fax",
+          "type": "string"
+        },
+        {
+          "linkId": "facility-of-service|office-contact",
+          "text": "Facility contact",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "specialty-vendor",
+      "text": "Specialty vendor (if applicable)",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "specialty-vendor|name",
+          "text": "Specialty pharmacy name",
+          "type": "string"
+        },
+        {
+          "linkId": "specialty-vendor|npi",
+          "text": "NPI #",
+          "type": "string"
+        },
+        {
+          "linkId": "specialty-vendor|address",
+          "text": "Address",
+          "type": "string"
+        },
+        {
+          "linkId": "specialty-vendor|phone-number",
+          "text": "Phone",
+          "type": "string"
+        },
+        {
+          "linkId": "specialty-vendor|fax",
+          "text": "Fax",
+          "type": "string"
+        },
+        {
+          "linkId": "specialty-vendor|office-contact",
+          "text": "Pharmacy contact",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "diagnosis-info",
+      "text": "Diagnosis Information",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "diagnosis-info|diagnosis-code",
+          "text": "Diagnosis/ICD-10 code(s)",
+          "type": "string",
+          "repeats": true
+        },
+        {
+          "linkId": "diagnosis-info|diagnosis-description",
+          "text": "Diagnosis description",
+          "type": "string",
+          "repeats": true
+        }
+      ]
+    },
+    {
+      "linkId": "medication-info",
+      "text": "Medication Information",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "medication-info|name",
+          "text": "Medication name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "ug",
+                "display": "mcg"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "mg",
+                "display": "mg"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "g",
+                "display": "g"
+              }
+            }
+          ],
+          "linkId": "medication-info|dose",
+          "text": "Dose",
+          "type": "quantity"
+        },
+        {
+          "linkId": "medication-info|route",
+          "text": "Route",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "hour",
+                "display": "Per Hour"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "day",
+                "display": "Per Day"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "week",
+                "display": "Per Week"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "month",
+                "display": "Per Month"
+              }
+            }
+          ],
+          "linkId": "medication-info|frequency",
+          "text": "Frequency",
+          "type": "quantity"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "hour",
+                "display": "Hour(s)"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "day",
+                "display": "Day(s)"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "week",
+                "display": "Week(s)"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "month",
+                "display": "Month(s)"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "year",
+                "display": "Year(s)"
+              }
+            }
+          ],
+          "linkId": "medication-info|therapy-leng",
+          "text": "Expected length of therapy",
+          "type": "quantity"
+        },
+        {
+          "linkId": "medication-info|num-visits",
+          "text": "Quantity/number of requested visits",
+          "type": "integer"
+        },
+        {
+          "linkId": "medication-info|service-date",
+          "text": "Anticipated/actual date of service",
+          "type": "date"
+        },
+        {
+          "linkId": "medication-info|new-med",
+          "text": "New Medication or Continued Therapy",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "NewMedication",
+                "display": "New Medication"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "ContinuedTherapy",
+                "display": "Continuation of therapy"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "medication-info|date-initiallized",
+          "text": "Date therapy initially started",
+          "type": "date",
+          "enableWhen": [
+            {
+              "question": "medication-info|new-med",
+              "operator": "=",
+              "answerCoding": {
+                "code": "ContinuedTherapy"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "medication-info|requested-drug-code",
+          "text": "HCPCS/CPT code/J code/NDC code of requested drug",
+          "type": "string"
+        },
+        {
+          "linkId": "medication-info|associated-procedure",
+          "text": "Associated procedure codes requiring prior auth",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "request-for-expedited-review",
+      "text": "Request for Expedited Review",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "request-for-expedited-review|para",
+          "text": "When a request needs to be reviewed in an expedited manner because the standard review time frame may SERIOUSLY JEOPARDIZE THE LIFE OR HEALTH OF THE MEMBER OR THE MEMBER’S ABILITY TO REGAIN MAXIMUM FUNCTION, note this below by checking URGENT in the space provided, along with the reason the request is urgent. Requests will not be processed as urgent unless a rationale for urgency is provided.",
+          "type": "group",
+          "item": [
+            {
+              "linkId": "request-for-expedited-review|rationale",
+              "text": "URGENT - rationale",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "ordering-provider-signature",
+      "text": "Ordering Provider Signature",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "ordering-provider-signature|author-signature",
+          "text": "Signature:",
+          "type": "attachment",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-signatureRequired",
+              "valueCoding": {
+                "system": "urn:iso-astm:E1762-95:2013",
+                "code": "1.2.840.10065.1.12.1.1",
+                "display": "Author's Signature"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-usageMode",
+              "valueCode": "capture"
             }
           ]
         }

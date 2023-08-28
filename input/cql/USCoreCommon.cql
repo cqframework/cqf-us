@@ -511,6 +511,11 @@ define function MostRecent(conditions List<USCore.Condition>):
 /*
 @description: Return the most recent Observation
 */
+define function MostRecent(observations List<Observation>):
+  Last(
+    observations O
+      sort by issued
+  )
 
 define function MostRecent(observations List<"SmokingStatusProfile">):
   Last(

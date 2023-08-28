@@ -1,0 +1,43 @@
+Executing CQL...
+CQL path: /Users/jasonevans/Documents/GitHub/cqf-us/input/cql
+Data path: /Users/jasonevans/Documents/GitHub/cqf-us/input/tests/library/MBODAInitialExpressions
+Terminology path: /Users/jasonevans/Documents/GitHub/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Member ID=[]
+Patient Name=Chalmers
+Last Name=[Chalmers, Chalmers, Windsor]
+Date of Birth=1974-12-25
+Medical Record Number=null
+Phone Number=ContactPoint
+Allergies=[]
+City=[PleasantVille]
+State=[UT]
+Zip=[84414]
+Height=69.1 '[in_i]'
+Weight=176.369809747902064578379 '[lb_av]'
+Most Recent BSA=null
+Calculated BSA - Mosteller=1.97292062 'm2'
+BSA=1.97292062 'm2'
+Height in cm=176 'cm'
+Weight in kg=80.0000000000000000000000 'kg'
+Calculated BSA - DuBois and DuBois=1.96415720 'm2'
+Birth Sex=null
+Diagnosis Codes=[]
+Diagnosis Descriptions=[]
+Most Recent Medication Request=null
+Medication Name=[]
+Medication Dose=null
+Medication Route=null
+Medication Frequency=null
+Quantity or Number of requested Visits=null
+New therapy=false
+Initial date of therapy=[]
+Medication Request Period=null
+Expected Therapy Length=null
+Anticipated/actual date of service=null
+
+
+Evaluation logs:
+12:48:10.503 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.127 seconds
+
