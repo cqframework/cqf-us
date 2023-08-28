@@ -131,15 +131,15 @@ define "Diagnosis Descriptions":
 // TODO: Error: Could not resolve call to operator 'ToValue(org.hl7.fhir.r4.model.CodeableConcept)' in library 'FHIRHelpers'.
 define "Medication Name":
   UCE."All Medications" M
-    return M.id
-    //where M.id = "Most Recent Medication Request".medication.reference
-    //return M.code.display
+    where M.id = "Most Recent Medication Request".medication.reference
+    return M.code.display
 
-define "Medication Request References":
-  ("Most Recent Medication Request".medication) // as USCore.Reference).reference
-  
 define "Most Recent Medication Request":
   UC.MostRecent(UCE."All Medication Requests")
+
+// TODO: Error: java.lang.NullPointerException: Cannot invoke "java.lang.Class.getName()" because the return value of "org.opencds.cqf.cql.engine.execution.Context.resolveType(Object)" is null
+// define "Medication Request References":
+//   ("Most Recent Medication Request".medication as USCore.Reference).reference
   
 define "Medication Dose":
   "Most Recent Medication Request".dosageInstruction.doseAndRate.dose
@@ -168,17 +168,16 @@ define "Initial date of therapy":
 // define "Test":
 //   CMD."TestFunction"("Most Recent Medication Request")
 
-/*
 define "Medication Request Period":
   CMD."MedicationRequestPeriod"("Most Recent Medication Request")
 
-// define "Expected Therapy Length":
-//   convert(
-//     CMD.Quantity(days between start of "Medication Request Period" and end of "Medication Request Period", 'days')
-//   ) to 'days'
+define "Expected Therapy Length":
+  convert(
+    CMD.Quantity(days between start of "Medication Request Period" and end of "Medication Request Period", 'days')
+  ) to 'days'
   
-// define "Anticipated/actual date of service":
-//   start of "Medication Request Period"
+define "Anticipated/actual date of service":
+  start of "Medication Request Period"
 
 // TODO: Error: Could not resolve call to operator 'ToValue(org.hl7.fhir.r4.model.CodeableConcept)' in library 'FHIRHelpers'.
 // define "Code of Requested Drug":
