@@ -51,82 +51,142 @@
           "type": "date"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Birth Sex"
+              }
+            }
+          ],
           "linkId": "patient-info|gender",
           "text": "Sex",
           "type": "choice",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "code": "M",
-                "display": "Male"
-              }
-            },
-            {
-              "valueCoding": {
-                "code": "F",
-                "display": "Female"
-              }
-            },
-            {
-              "valueCoding": {
-                "code": "UNK",
-                "display": "Unkown"
-              }
-            },
-            {
-              "valueCoding": {
-                "code": "OTH",
-                "display": "Other"
-              }
-            }
-          ]
+          "answerValueSet": "http://hl7.org/fhir/us/core/ValueSet/birthsex"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Member ID"
+              }
+            }
+          ],
           "linkId": "patient-info|member-id",
           "text": "Member ID #",
           "type": "string"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Medical Record Number"
+              }
+            }
+          ],
           "linkId": "patient-info|medical-record-number",
           "text": "Medical record #",
           "type": "string"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Phone Number"
+              }
+            }
+          ],
           "linkId": "patient-info|phone-number",
           "text": "Member phone #",
           "type": "string"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Address"
+              }
+            }
+          ],
           "linkId": "patient-info|address",
           "text": "Address",
           "type": "string"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "City"
+              }
+            }
+          ],
           "linkId": "patient-info|city",
           "text": "City",
           "type": "string"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "State"
+              }
+            }
+          ],
           "linkId": "patient-info|state",
           "text": "State",
           "type": "string"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Zip"
+              }
+            }
+          ],
           "linkId": "patient-info|zip-code",
           "text": "Zip",
           "type": "string"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Allergies"
+              }
+            }
+          ],
           "linkId": "patient-info|drug-allergies",
           "text": "Drug allergies",
-          "type": "string",
+          "type": "open-choice",
           "repeats": true
         },
         {
-          "linkId": "patient-info|height",
-          "text": "Height",
-          "type": "decimal",
           "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Height in [in_i]"
+              }
+            },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
               "valueCoding": {
@@ -135,13 +195,20 @@
                 "display": "in"
               }
             }
-          ]
+          ],
+          "linkId": "patient-info|height",
+          "text": "Height",
+          "type": "decimal"
         },
         {
-          "linkId": "patient-info|weight",
-          "text": "Weight",
-          "type": "decimal",
           "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Weight in [lb_av]"
+              }
+            },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
               "valueCoding": {
@@ -150,13 +217,20 @@
                 "display": "lbs"
               }
             }
-          ]
+          ],
+          "linkId": "patient-info|weight",
+          "text": "Weight",
+          "type": "decimal"
         },
         {
-          "linkId": "patient-info|bsa",
-          "text": "BSA",
-          "type": "decimal",
           "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "BSA in m2"
+              }
+            },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
               "valueCoding": {
@@ -165,7 +239,10 @@
                 "display": "m2"
               }
             }
-          ]
+          ],
+          "linkId": "patient-info|bsa",
+          "text": "BSA",
+          "type": "decimal"
         }
       ]
     },
@@ -512,12 +589,30 @@
       "type": "group",
       "item": [
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Diagnosis Codes"
+              }
+            }
+          ],
           "linkId": "diagnosis-info|diagnosis-code",
           "text": "Diagnosis/ICD-10 code(s)",
-          "type": "string",
+          "type": "choice",
           "repeats": true
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Diagnosis Descriptions"
+              }
+            }
+          ],
           "linkId": "diagnosis-info|diagnosis-description",
           "text": "Diagnosis description",
           "type": "string",
@@ -531,6 +626,15 @@
       "type": "group",
       "item": [
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Medication Name"
+              }
+            }
+          ],
           "linkId": "medication-info|name",
           "text": "Medication name",
           "type": "string"
@@ -560,6 +664,21 @@
                 "code": "g",
                 "display": "g"
               }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+              "valueCoding": {
+                "system": "http://unitsofmeasure.org",
+                "code": "ml",
+                "display": "ml"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Medication Dose"
+              }
             }
           ],
           "linkId": "medication-info|dose",
@@ -567,9 +686,19 @@
           "type": "quantity"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Medication Route"
+              }
+            }
+          ],
           "linkId": "medication-info|route",
           "text": "Route",
-          "type": "string"
+          "type": "open-choice",
+          "repeats": true
         },
         {
           "extension": [
@@ -603,6 +732,13 @@
                 "system": "http://unitsofmeasure.org",
                 "code": "month",
                 "display": "Per Month"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Medication Frequency"
               }
             }
           ],
@@ -651,6 +787,13 @@
                 "code": "year",
                 "display": "Year(s)"
               }
+            },
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Expected Therapy Length"
+              }
             }
           ],
           "linkId": "medication-info|therapy-leng",
@@ -663,6 +806,15 @@
           "type": "integer"
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Anticipated/actual date of service"
+              }
+            }
+          ],
           "linkId": "medication-info|service-date",
           "text": "Anticipated/actual date of service",
           "type": "date"
@@ -687,6 +839,15 @@
           ]
         },
         {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Initial date of therapy"
+              }
+            }
+          ],
           "linkId": "medication-info|date-initiallized",
           "text": "Date therapy initially started",
           "type": "date",

@@ -30,6 +30,9 @@ codesystem "ConditionCategory": 'http://terminology.hl7.org/CodeSystem/condition
 codesystem "USCoreConditionCategory": 'http://hl7.org/fhir/us/core/CodeSystem/condition-category'
 codesystem "CDC Race and Ethnicity Codes": 'urn:oid:2.16.840.1.113883.6.238'
 codesystem "CommunicationCategoryCodeSystem": 'http://terminology.hl7.org/CodeSystem/communication-category'
+codesystem "IdentifierType": 'http://terminology.hl7.org/CodeSystem/v2-0203'
+
+code "MedicalRecordNumber": 'MR' from "IdentifierType" display 'Medical record number'
 
 code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
 code "Dead": '419099009' from "SNOMEDCT" display 'Dead'

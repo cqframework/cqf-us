@@ -2,42 +2,211 @@ Executing CQL...
 CQL path: /Users/jasonevans/Documents/GitHub/cqf-us/input/cql
 Data path: /Users/jasonevans/Documents/GitHub/cqf-us/input/tests/library/MBODAInitialExpressions
 Terminology path: /Users/jasonevans/Documents/GitHub/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=USCorePatient-1)
+Member ID=[]
+Patient Name=Chalmers
+Last Name=[Chalmers, Chalmers, Windsor]
+Date of Birth=1974-12-25
+Medical Record Number=12345
+Phone Number=(03) 3410 5613
+Allergies=[]
+Address=[TODO: remove hard-coded address]
+City=[PleasantVille]
+State=[UT]
+Zip=[84414]
+Height=69.1 '[in_i]'
+Height in [in_i]=69.1
+Weight=176.369809747902064578379 '[lb_av]'
+Weight in [lb_av]=176.369809747902064578379
+Most Recent BSA=null
+Calculated BSA - Mosteller=1.97292062 'm2'
+BSA=1.97292062 'm2'
+BSA in m2=1.97292062
+Height in cm=176 'cm'
+Weight in kg=80.0000000000000000000000 'kg'
+Calculated BSA - DuBois and DuBois=1.96415720 'm2'
+Birth Sex=null
+Diagnosis Codes=[Concept {
+	Code { code: I10, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Essential (primary) hypertension }
+}]
+Diagnosis Descriptions=[Essential (primary) hypertension]
+Medication Name=[One, Two]
+Most Recent Medication Request=MedicationRequest(id=MedRequest-example)
+Most Recent Medication Request dosageInstruction=Dosage
+Most Recent Medication Request dosageInstruction.doseAndRate=null
+Medication Route=null
+Medication Frequency value=null
+Medication Frequency Period=null 'null'
+Medication Frequency String=null
+Quantity or Number of requested Visits=null
+New therapy=false
+New therapy code=Code { code: ContinuedTherapy, system: null, version: null, display: Continuation of therapy }
+Initial date of therapy=[]
+
+Patient=Patient(id=USCorePatient-2)
+Member ID=[]
+Patient Name=Elizabeth
+Last Name=[Elizabeth]
+Date of Birth=1975-12-25
+Medical Record Number=123456
+Phone Number=null
+Allergies=[]
+Address=[TODO: remove hard-coded address]
+City=[PleasantVille]
+State=[UT]
+Zip=[84414]
+Height=null
+Height in [in_i]=null
+Weight=176.810734272271819739825 '[lb_av]'
+Weight in [lb_av]=176.810734272271819739825
+Most Recent BSA=null
+Calculated BSA - Mosteller=null 'm2'
+BSA=null 'm2'
+BSA in m2=null
+Height in cm=null
+Weight in kg=80.2000000000000000000000 'kg'
+Calculated BSA - DuBois and DuBois=null 'm2'
+Birth Sex=null
+Diagnosis Codes=[Concept {
+	Code { code: O24.414, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Gestational diabetes mellitus in pregnancy, insulin controlled }
+}]
+Diagnosis Descriptions=[Gestational diabetes mellitus in pregnancy, insulin controlled]
+Medication Name=[One, Two]
+Most Recent Medication Request=null
+Most Recent Medication Request dosageInstruction=null
+Most Recent Medication Request dosageInstruction.doseAndRate=null
+Medication Route=null
+Medication Frequency value=null
+Medication Frequency Period=null 'null'
+Medication Frequency String=null
+Quantity or Number of requested Visits=null
+New therapy=false
+New therapy code=Code { code: ContinuedTherapy, system: null, version: null, display: Continuation of therapy }
+Initial date of therapy=[]
+
+Patient=Patient(id=USCorePatient-3)
+Member ID=[]
+Patient Name=Chalmers
+Last Name=[Chalmers]
+Date of Birth=1976-12-25
+Medical Record Number=1234567
+Phone Number=null
+Allergies=[]
+Address=[TODO: remove hard-coded address]
+City=[PleasantVille]
+State=[UT]
+Zip=[84416]
+Height=null
+Height in [in_i]=null
+Weight=null
+Weight in [lb_av]=null
+Most Recent BSA=null
+Calculated BSA - Mosteller=null 'm2'
+BSA=null 'm2'
+BSA in m2=null
+Height in cm=null
+Weight in kg=null
+Calculated BSA - DuBois and DuBois=null 'm2'
+Birth Sex=null
+Diagnosis Codes=[Concept {
+	Code { code: E11.618, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Type 2 diabetes mellitus with other diabetic arthropathy }
+}]
+Diagnosis Descriptions=[Type 2 diabetes mellitus with other diabetic arthropathy]
+Medication Name=[One, Two]
+Most Recent Medication Request=null
+Most Recent Medication Request dosageInstruction=null
+Most Recent Medication Request dosageInstruction.doseAndRate=null
+Medication Route=null
+Medication Frequency value=null
+Medication Frequency Period=null 'null'
+Medication Frequency String=null
+Quantity or Number of requested Visits=null
+New therapy=false
+New therapy code=Code { code: ContinuedTherapy, system: null, version: null, display: Continuation of therapy }
+Initial date of therapy=[]
+
+Patient=Patient(id=USCorePatient-4)
+Member ID=[]
+Patient Name=du Marché
+Last Name=[du Marché]
+Date of Birth=1936-12-25
+Medical Record Number=12345678
+Phone Number=null
+Allergies=[]
+Address=[TODO: remove hard-coded address]
+City=[PleasantVille]
+State=[VT]
+Zip=[3999]
+Height=null
+Height in [in_i]=null
+Weight=null
+Weight in [lb_av]=null
+Most Recent BSA=null
+Calculated BSA - Mosteller=null 'm2'
+BSA=null 'm2'
+BSA in m2=null
+Height in cm=null
+Weight in kg=null
+Calculated BSA - DuBois and DuBois=null 'm2'
+Birth Sex=null
+Diagnosis Codes=[Concept {
+	Code { code: G20, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Parkinson's disease }
+}]
+Diagnosis Descriptions=[Parkinson's disease]
+Medication Name=[One, Two]
+Most Recent Medication Request=null
+Most Recent Medication Request dosageInstruction=null
+Most Recent Medication Request dosageInstruction.doseAndRate=null
+Medication Route=null
+Medication Frequency value=null
+Medication Frequency Period=null 'null'
+Medication Frequency String=null
+Quantity or Number of requested Visits=null
+New therapy=false
+New therapy code=Code { code: ContinuedTherapy, system: null, version: null, display: Continuation of therapy }
+Initial date of therapy=[]
+
 Patient=Patient(id=example)
 Member ID=[]
 Patient Name=Chalmers
 Last Name=[Chalmers, Chalmers, Windsor]
 Date of Birth=1974-12-25
-Medical Record Number=null
-Phone Number=ContactPoint
+Medical Record Number=12345
+Phone Number=(03) 3410 5613
 Allergies=[]
+Address=[TODO: remove hard-coded address]
 City=[PleasantVille]
 State=[UT]
 Zip=[84414]
 Height=69.1 '[in_i]'
+Height in [in_i]=69.1
 Weight=176.369809747902064578379 '[lb_av]'
+Weight in [lb_av]=176.369809747902064578379
 Most Recent BSA=null
 Calculated BSA - Mosteller=1.97292062 'm2'
 BSA=1.97292062 'm2'
+BSA in m2=1.97292062
 Height in cm=176 'cm'
 Weight in kg=80.0000000000000000000000 'kg'
 Calculated BSA - DuBois and DuBois=1.96415720 'm2'
-Birth Sex=null
+Birth Sex=M
 Diagnosis Codes=[]
 Diagnosis Descriptions=[]
+Medication Name=[One, Two]
 Most Recent Medication Request=null
-Medication Name=[]
-Medication Dose=null
+Most Recent Medication Request dosageInstruction=null
+Most Recent Medication Request dosageInstruction.doseAndRate=null
 Medication Route=null
-Medication Frequency=null
+Medication Frequency value=null
+Medication Frequency Period=null 'null'
+Medication Frequency String=null
 Quantity or Number of requested Visits=null
 New therapy=false
+New therapy code=Code { code: ContinuedTherapy, system: null, version: null, display: Continuation of therapy }
 Initial date of therapy=[]
-Medication Request Period=null
-Expected Therapy Length=null
-Anticipated/actual date of service=null
 
 
 Evaluation logs:
-12:48:10.503 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
-elapsed: 0.127 seconds
+09:03:07.632 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.477 seconds
 

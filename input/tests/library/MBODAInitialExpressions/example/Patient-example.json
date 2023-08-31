@@ -6,6 +6,102 @@
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
     ]
   },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "code": "2106-3",
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "display": "White"
+          }
+        },
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "code": "1002-5",
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "display": "American Indian or Alaska Native"
+          }
+        },
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "code": "2028-9",
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "display": "Asian"
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "code": "1586-7",
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "display": "Shoshone"
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "code": "2036-2",
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "display": "Filipino"
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "code": "1735-0",
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "display": "Alaska Native"
+          }
+        },
+        {
+          "url": "text",
+          "valueString": "Mixed"
+        }
+      ]
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "code": "2135-2",
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "display": "Hispanic or Latino"
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "code": "2184-0",
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "display": "Dominican"
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "code": "2148-5",
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "display": "Mexican"
+          }
+        },
+        {
+          "url": "text",
+          "valueString": "Hispanic or Latino"
+        }
+      ]
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+      "valueCode": "M"
+    }
+  ],
   "identifier": [
     {
       "use": "usual",
@@ -60,14 +156,12 @@
     {
       "system": "phone",
       "value": "(03) 5555 6473",
-      "use": "work",
-      "rank": 1
+      "use": "work"
     },
     {
       "system": "phone",
       "value": "(03) 3410 5613",
-      "use": "mobile",
-      "rank": 2
+      "use": "mobile"
     },
     {
       "system": "phone",
