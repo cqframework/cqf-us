@@ -85,8 +85,5 @@
         "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"
       }
     ]
-  },
-  "managingOrganization": {
-    "reference": "Organization/example"
   }
 }

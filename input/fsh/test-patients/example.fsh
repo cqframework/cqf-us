@@ -184,7 +184,7 @@ Usage: #example
   * gender = #female
   * period.start = "2012"
   
-* managingOrganization = Reference(Organization/example)
+// * managingOrganization = Reference(Organization/example)
 
 
 Instance: example-height

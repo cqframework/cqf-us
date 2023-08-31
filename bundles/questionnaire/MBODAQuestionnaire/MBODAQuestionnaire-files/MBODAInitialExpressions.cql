@@ -77,6 +77,7 @@ define "Height":
     ).value 
   ) to '[in_i]'
 
+// TODO: Value is not initialized in Questionnaire$populate
 define "Height in [in_i]":
   "Height".value
 
@@ -137,6 +138,7 @@ define function CalculateBSA(alg System.String, height System.Quantity, weight S
     unit: 'm2'
   }
 
+// QUESTION: do we want to use Patient.gender as a backup? If so we'll need a ConceptMap or translation
 define "Birth Sex":
  Patient.birthsex
 

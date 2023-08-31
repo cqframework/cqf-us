@@ -180,7 +180,7 @@ Usage: #example
   * gender = #female
   * period.start = "2012"
  */ 
-* managingOrganization = Reference(Organization/example)
+// * managingOrganization = Reference(Organization/example)
 
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
 Alias: $loinc = http://loinc.org
