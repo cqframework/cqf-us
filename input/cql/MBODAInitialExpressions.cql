@@ -148,15 +148,12 @@ define "Diagnosis Descriptions":
   "Diagnosis Codes" ConceptItem
     return Combine(((ConceptItem.codes) C return C.display), '|')
 
-define "Medication Name":
-  { 'One', 'Two' }
-
 // TODO: Error: Could not resolve call to operator 'ToValue(org.hl7.fhir.r4.model.Reference)' in library 'FHIRHelpers'.
-// define "Medication Name Broken":
+// define "Medication Name":
 //   UCE."All Medications" M
-  // TODO: Error: Could not resolve call to operator 'ToValue(org.hl7.fhir.r4.model.Reference)' in library 'FHIRHelpers'.
-    // where M.id = "Most Recent Medication Request".medication.reference
-    // return M.code.display
+//   //TODO: Error: Could not resolve call to operator 'ToValue(org.hl7.fhir.r4.model.Reference)' in library 'FHIRHelpers'.
+//     where M.id = "Most Recent Medication Request".medication.reference
+//     return M.code.display
 
 define "Most Recent Medication Request":
   UC.MostRecent(UCE."All Medication Requests")
@@ -176,8 +173,8 @@ define "Most Recent Medication Request dosageInstruction.doseAndRate":
   singleton from "Most Recent Medication Request dosageInstruction".doseAndRate
 
 // TODO: Error: java.lang.NullPointerException: Cannot invoke "java.lang.Class.getName()" because the return value of "org.opencds.cqf.cql.engine.execution.Context.resolveType(Object)" is null
-//define "Medication Dose":
-//  "Most Recent Medication Request dosageInstruction.doseAndRate".dose
+// define "Medication Dose":
+//   "Most Recent Medication Request dosageInstruction.doseAndRate".dose
 
 // MISSING: needs test data to validate
 define "Medication Route":

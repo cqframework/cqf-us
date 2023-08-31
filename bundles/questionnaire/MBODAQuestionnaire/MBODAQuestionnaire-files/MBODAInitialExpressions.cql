@@ -17,7 +17,7 @@ code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
 
 context Patient
 
-// TODO: needs testing data
+// MISSING: needs test data to validate
 define "Member ID":
   [FHIR.Coverage] C
     where C.subscriber.reference = Patient.id
@@ -50,7 +50,7 @@ define "Medical Record Number":
 define "Phone Number":
   UC.Mobile(Patient.telecom).value
 
-// TODO: needs testing data
+// MISSING: needs test data to validate
 define "Allergies":
   UCE."Active Confirmed Allergies and Intolerances" A
     return A.code
@@ -148,15 +148,12 @@ define "Diagnosis Descriptions":
   "Diagnosis Codes" ConceptItem
     return Combine(((ConceptItem.codes) C return C.display), '|')
 
-define "Medication Name":
-  { 'One', 'Two' }
-
 // TODO: Error: Could not resolve call to operator 'ToValue(org.hl7.fhir.r4.model.Reference)' in library 'FHIRHelpers'.
-// define "Medication Name Broken":
+// define "Medication Name":
 //   UCE."All Medications" M
-  // TODO: Error: Could not resolve call to operator 'ToValue(org.hl7.fhir.r4.model.Reference)' in library 'FHIRHelpers'.
-    // where M.id = "Most Recent Medication Request".medication.reference
-    // return M.code.display
+//   //TODO: Error: Could not resolve call to operator 'ToValue(org.hl7.fhir.r4.model.Reference)' in library 'FHIRHelpers'.
+//     where M.id = "Most Recent Medication Request".medication.reference
+//     return M.code.display
 
 define "Most Recent Medication Request":
   UC.MostRecent(UCE."All Medication Requests")
@@ -165,21 +162,21 @@ define "Most Recent Medication Request":
 // define "Medication Request References":
 //   ("Most Recent Medication Request".medication as USCore.Reference).reference
 
-// TODO: needs testing data
+// MISSING: needs test data to validate
 define "Most Recent Medication Request dosageInstruction":
   // TODO: should this really be a singleton?
   singleton from "Most Recent Medication Request".dosageInstruction
 
-// TODO: needs testing data
+// MISSING: needs test data to validate
 define "Most Recent Medication Request dosageInstruction.doseAndRate":
   // TODO: should this really be a singleton?
   singleton from "Most Recent Medication Request dosageInstruction".doseAndRate
 
 // TODO: Error: java.lang.NullPointerException: Cannot invoke "java.lang.Class.getName()" because the return value of "org.opencds.cqf.cql.engine.execution.Context.resolveType(Object)" is null
-//define "Medication Dose":
-//  "Most Recent Medication Request dosageInstruction.doseAndRate".dose
+// define "Medication Dose":
+//   "Most Recent Medication Request dosageInstruction.doseAndRate".dose
 
-// TODO: needs testing data
+// MISSING: needs test data to validate
 define "Medication Route":
   "Most Recent Medication Request dosageInstruction".route
 
@@ -187,18 +184,18 @@ define "Medication Route":
 // define "Medication Frequency Rate":
 //   "Most Recent Medication Request dosageInstruction.doseAndRate".rate
 
-// TODO: needs testing data
+// MISSING: needs test data to validate
 define "Medication Frequency value":
   "Most Recent Medication Request dosageInstruction".timing.repeat.frequency
 
-// TODO: needs testing data
+// MISSING: needs test data to validate
 define "Medication Frequency Period":
   System.Quantity {
     value: "Most Recent Medication Request dosageInstruction".timing.repeat.period,
     unit: "Most Recent Medication Request dosageInstruction".timing.repeat.periodUnit
   }
 
-// TODO: needs testing data
+// MISSING: needs test data to validate
 define "Medication Frequency String": // '1x per 1d', '3x per 2wk', '1x per 1mo'
   ToString("Medication Frequency value") + 'x' +
   ' per ' + ToString("Medication Frequency Period".value) + 
@@ -207,7 +204,7 @@ define "Medication Frequency String": // '1x per 1d', '3x per 2wk', '1x per 1mo'
 define "Quantity or Number of requested Visits":
   "Most Recent Medication Request".dispenseRequest.quantity
 
-// TODO: needs testing data
+// MISSING: needs test data to validate
 define "New therapy":
   ("Most Recent Medication Request".priorPrescription) is not null
 
@@ -217,7 +214,7 @@ define "New therapy code":
   else
     System.Code { code: 'ContinuedTherapy', display: 'Continuation of therapy' }
 
-// TODO: needs testing data
+// MISSING: needs test data to validate
 //Initial date of therapy does not return correct result if there have been more than 1 prior Prescriptions - logic needs to be adapted to that case
 define "Initial date of therapy":
   if not "New therapy" then
