@@ -2,7 +2,7 @@ library USCoreElements version '0.1.0'
 
 using USCore version '3.1.1'
 
-include FHIRHelpers version '4.0.1'
+include FHIRHelpers version '4.1.000'
 include USCoreCommon version '0.1.0' called UC
 
 valueset "Common allergy substances": 'http://hl7.org/fhir/us/core/ValueSet/us-core-allergy-substance'

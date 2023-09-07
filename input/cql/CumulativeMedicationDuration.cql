@@ -31,7 +31,7 @@ using FHIR version '4.0.1'
 
 // NOTE: Updated to 4.0.1 for now to simplify dependencies
 // NOTE: include FHIRHelpers version '4.2.000'
-include FHIRHelpers version '4.0.1'
+include FHIRHelpers version '4.1.000'
 
 // NOTE: Removed in favor of USCoreCommon
 //include QICoreCommon version '1.3.000'
@@ -281,7 +281,7 @@ considered appropriate statuses, depending on the use case, typically `completed
 
 NOTE: Updated return to use "date from end of boundsPeriod" to ensure result is Interval<Date>
 */
-define function TestFunction(Request USCore."MedicationRequestProfile"):
+define function MedicationRequestPeriodTest(Request USCore."MedicationRequestProfile"):
   Request R
     let
       dosage: singleton from R.dosageInstruction,
@@ -289,12 +289,33 @@ define function TestFunction(Request USCore."MedicationRequestProfile"):
       timing: dosage.timing,
       frequency: Coalesce(timing.repeat.frequencyMax, timing.repeat.frequency),
       period: Quantity(timing.repeat.period, timing.repeat.periodUnit),
-      doseRange: doseAndRate.dose
-    //   doseQuantity: doseAndRate.dose,
-    //   dose: Coalesce(end of doseRange, doseQuantity),
-    //   dosesPerDay: Coalesce(ToDaily(frequency, period), Count(timing.repeat.timeOfDay), 1.0),
-    //   boundsPeriod: timing.repeat.bounds as Interval<DateTime>
-    return doseRange
+      doseRange: doseAndRate.dose,
+      doseQuantity: doseAndRate.dose,
+      dose: Coalesce(end of doseRange, doseQuantity),
+      dosesPerDay: Coalesce(ToDaily(frequency, period), Count(timing.repeat.timeOfDay), 1.0),
+      boundsPeriod: timing.repeat.bounds as Interval<DateTime>,
+      expectedDaysSupply: R.dispenseRequest.expectedSupplyDuration.value,
+      // TODO: this isn't working as expected, convert results in null
+      //daysSupply: (convert(R.dispenseRequest.expectedSupplyDuration) to days).value,
+      daysSupply: (R.dispenseRequest.expectedSupplyDuration).value,
+      quantity: R.dispenseRequest.quantity,
+      refills: Coalesce(R.dispenseRequest.numberOfRepeatsAllowed, 0),
+      startDate:
+        Coalesce(
+          date from start of boundsPeriod,
+          date from R.authoredOn,
+          date from start of R.dispenseRequest.validityPeriod
+        ),
+      totalDaysSupplied: Coalesce(daysSupply, quantity.value / (dose.value * dosesPerDay)) * (1 + refills)
+    return { dosage: dosage, doseAndRate: doseAndRate, timing: timing, frequency: frequency, period: period,
+      doseRange: doseRange, doseQuantity: doseQuantity, dose: dose, dosesPerDay: dosesPerDay, boundsPeriod: boundsPeriod,
+      expectedDaysSupply: expectedDaysSupply, daysSupply: daysSupply, quantity: quantity, refills: refills, startDate: startDate, totalDaysSupplied: totalDaysSupplied,
+      requestPeriod: if startDate is not null and totalDaysSupplied is not null then
+        Interval[startDate, startDate + Quantity(totalDaysSupplied - 1, 'day') ]
+      else if startDate is not null and boundsPeriod."high" is not null then
+        Interval[startDate, date from end of boundsPeriod]
+      else
+        null}
 
 define function MedicationRequestPeriod(Request USCore."MedicationRequestProfile"):
   Request R
@@ -309,7 +330,9 @@ define function MedicationRequestPeriod(Request USCore."MedicationRequestProfile
       dose: Coalesce(end of doseRange, doseQuantity),
       dosesPerDay: Coalesce(ToDaily(frequency, period), Count(timing.repeat.timeOfDay), 1.0),
       boundsPeriod: timing.repeat.bounds as Interval<DateTime>,
-      daysSupply: (convert R.dispenseRequest.expectedSupplyDuration to days).value,
+      // TODO: this isn't working as expected, convert results in null
+      //daysSupply: (convert(R.dispenseRequest.expectedSupplyDuration) to days).value,
+      daysSupply: (R.dispenseRequest.expectedSupplyDuration).value,
       quantity: R.dispenseRequest.quantity,
       refills: Coalesce(R.dispenseRequest.numberOfRepeatsAllowed, 0),
       startDate:
