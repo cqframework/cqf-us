@@ -148,10 +148,17 @@ define "Diagnosis Descriptions":
   "Diagnosis Codes" ConceptItem
     return Combine(((ConceptItem.codes) C return C.display), '|')
 
-define "Medication Name":
+define "Medication Requested":
   UCE."All Medications" M
     where EndsWith(("Most Recent Medication Request".medication as USCore.Reference).reference, M.id)
+
+define "Medication Name":
+  "Medication Requested" M
     return M.code.display
+
+define "Code of Requested Drug":
+  "Medication Requested" M
+    return M.code
 
 define "Most Recent Medication Request":
   UCE."Most Recent Medication Request"
@@ -159,12 +166,10 @@ define "Most Recent Medication Request":
 define "Medication Request References":
   ("Most Recent Medication Request".medication as USCore.Reference).reference
 
-// MISSING: needs test data to validate
 define "Most Recent Medication Request dosageInstruction":
   // TODO: should this really be a singleton?
   singleton from "Most Recent Medication Request".dosageInstruction
 
-// MISSING: needs test data to validate
 define "Most Recent Medication Request dosageInstruction.doseAndRate":
   // TODO: should this really be a singleton?
   singleton from "Most Recent Medication Request dosageInstruction".doseAndRate
@@ -172,20 +177,12 @@ define "Most Recent Medication Request dosageInstruction.doseAndRate":
 define "Medication Dose":
   "Most Recent Medication Request dosageInstruction.doseAndRate".dose
 
-// MISSING: needs test data to validate
 define "Medication Route":
   "Most Recent Medication Request dosageInstruction".route
 
-// MISSING: needs test data to validate
-// TODO: Error: java.lang.NullPointerException: Cannot invoke "java.lang.Class.getName()" because the return value of "org.opencds.cqf.cql.engine.execution.Context.resolveType(Object)" is null
-define "Medication Frequency Rate":
-  "Most Recent Medication Request dosageInstruction.doseAndRate".rate
-
-// MISSING: needs test data to validate
 define "Medication Frequency value":
   "Most Recent Medication Request dosageInstruction".timing.repeat.frequency
 
-// MISSING: needs test data to validate
 define "Medication Frequency Period":
   if (IsNull("Most Recent Medication Request dosageInstruction".timing.repeat.period)) then 
     null
@@ -195,8 +192,7 @@ define "Medication Frequency Period":
       unit: "Most Recent Medication Request dosageInstruction".timing.repeat.periodUnit
     }
 
-// MISSING: needs test data to validate
-define "Medication Frequency String": // '1x per 1d', '3x per 2wk', '1x per 1mo'
+define "Medication Frequency Rate": // '1x per 1d', '3x per 2wk', '1x per 1mo'
   ToString("Medication Frequency value") + 'x' +
   ' per ' + ToString("Medication Frequency Period".value) + 
   ' ' + "Medication Frequency Period".unit
@@ -204,9 +200,11 @@ define "Medication Frequency String": // '1x per 1d', '3x per 2wk', '1x per 1mo'
 define "Quantity or Number of requested Visits":
   "Most Recent Medication Request".dispenseRequest.quantity
 
-// MISSING: needs test data to validate
+define "Prior Prescription":
+  "Most Recent Medication Request".priorPrescription
+
 define "New therapy":
-  IsNull("Most Recent Medication Request".priorPrescription)
+  IsNull("Prior Prescription")
 
 define "New therapy code":
   if ("New therapy") then
@@ -219,14 +217,10 @@ define "New therapy code":
 define "Initial date of therapy":
   if not "New therapy" then
     UCE."All Medication Requests" M
-    where M.id = "Most Recent Medication Request".priorPrescription.reference
-    return M.authoredOn
+      where EndsWith(("Most Recent Medication Request".priorPrescription as USCore.Reference).reference, M.id)
+      return M.authoredOn
   else 
     null
-
-// TODO: Use this function to narrow down error for "Medication Request Period"
-// define "Test":
-//   CMD."MedicationRequestPeriodTest"("Most Recent Medication Request")
 
 define "Medication Request Period":
   CMD."MedicationRequestPeriod"("Most Recent Medication Request")
@@ -238,12 +232,6 @@ define "Expected Therapy Length":
 
 define "Anticipated/actual date of service":
   start of "Medication Request Period"
-
-// MISSING: needs test data to validate
-define "Code of Requested Drug":
-  UCE."All Medications" M
-    where M.id = "Most Recent Medication Request".medication.reference
-      return M.code
 
 /*
 //related Procedures - Procedure is not linked to medication request - not possible to find the related procedures
