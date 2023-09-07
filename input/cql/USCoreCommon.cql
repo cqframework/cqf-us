@@ -610,12 +610,6 @@ define function MostRecent(observations List<"observation-bodyweight">):
       sort by issued
   )
 
-define function MostRecent(medicationRequests List<"MedicationRequestProfile">):
-  Last(
-    medicationRequests MR
-      sort by authoredOn
-  )
-
 define function MostRecentMR(medicationRequests List<"MedicationRequestProfile">):
   Last(
     medicationRequests MR
