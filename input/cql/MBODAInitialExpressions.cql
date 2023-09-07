@@ -6,7 +6,6 @@ using FHIR version '4.0.1'
 include FHIRHelpers version '4.1.000'
 include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
-include OfficialName version '0.1.0' called OfficialName
 
 //CumulativeMedicationDuration was created as part of the US ECQM and CDC Opioid Guideline development 
 //http://fhir.org/guides/cdc/opioid-mme-r4
@@ -17,17 +16,18 @@ code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
 
 context Patient
 
-// MISSING: needs test data to validate
 define "Member ID":
-  [FHIR.Coverage] C
-    where C.subscriber.reference = Patient.id
-    return C.subscriberId
+  singleton from (
+    [FHIR.Coverage] C
+    where EndsWith(C.subscriber.reference, Patient.id)
+    return C.subscriberId.value
+  )
 
 define "Patient Name":
-  OfficialName."Name - First Middle(s) Last"
+  UCE."Name - First Middle(s) Last"
 
 define "Last Name":
-  Patient.name.family
+  UCE."Last Name"
 
 // TODO: Error: Could not resolve data provider for package 'java.util'.
 // define "First Name":
@@ -50,14 +50,13 @@ define "Medical Record Number":
 define "Phone Number":
   UC.Mobile(Patient.telecom).value
 
-// MISSING: needs test data to validate
 define "Allergies":
   UCE."Active Confirmed Allergies and Intolerances" A
     return A.code
 
 // TODO: Error: Could not resolve data provider for package 'java.util'.
 // define "Address":
-//   (singleton from Patient.address) //.line
+//   (singleton from Patient.address).line
 define "Address":
   { 'TODO: remove hard-coded address' }
 
@@ -155,7 +154,7 @@ define "Medication Name":
     return M.code.display
 
 define "Most Recent Medication Request":
-  UC.MostRecent(UCE."All Medication Requests")
+  UCE."Most Recent Medication Request"
 
 define "Medication Request References":
   ("Most Recent Medication Request".medication as USCore.Reference).reference

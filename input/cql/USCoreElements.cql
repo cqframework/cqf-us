@@ -11,6 +11,48 @@ code "No known allergy (situation)": '716186003' from UC.SNOMEDCT
 
 context Patient
 
+define "Usual Name":
+  First(
+    Patient.name name
+      where name.use ~ 'usual'
+  )
+
+define "Official Name":
+  First(
+    Patient.name name
+      where name.use ~ 'official'
+  )
+
+define "First Occurrence of Non-Official, Non-Usual Name":
+  First(
+    Patient.name name
+      where not(name.use ~ 'official') and not(name.use ~ 'usual')
+  )
+
+define "Name":
+  Coalesce("Official Name", "Usual Name", "First Occurrence of Non-Official, Non-Usual Name")
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+// define "First Name":
+//   "Name".given[0]
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+// define "Middle Names":
+//   Combine(Skip("Name".given, 1), ' ')
+
+define "Last Name":
+  "Name".family
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+define "Name - First Middle(s) Last":
+  //Combine("Name".given, ' ') + ' ' + "Name".family
+  "Name".family
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+define "Name - Last, First Middle(s)":
+  //"Name".family + ', ' + Combine("Name".given, ' ')
+  "Name".family
+
 // Allergy/Intolerance
 
 /*
@@ -25,28 +67,28 @@ define "All Allergies and Intolerances":
   ["AllergyIntolerance"]
 
 define "Active Confirmed Allergies and Intolerances":
-  "All Allergies and Intolerances".active().confirmed()
+  "All Allergies and Intolerances".allergyActive().allergyConfirmed()
 
 define "Common Allergies and Intolerances":
   "All Allergies and Intolerances" A
     where A.code in "Common allergy substances"
 
 define "Active Confirmed Common Allergies and Intolerances":
-  "Common Allergies and Intolerances".active().confirmed()
+  "Common Allergies and Intolerances".allergyActive().allergyConfirmed()
 
 // No Known Allergies (Not Asked)
 define "No Known Allergies (Not Asked)":
   "All Allergies and Intolerances" A
     where A.code ~ "No known allergy (situation)"
-      and A.isActive()
-      and A.isUnconfirmed()
+      and A.isAllergyActive()
+      and A.isAllergyUnconfirmed()
 
 // No Known Allergies (Confirmed)
 define "No Known Allergies (Confirmed)":
   "All Allergies and Intolerances" A
     where A.code ~ "No known allergy (situation)"
-      and A.isActive()
-      and A.isConfirmed()
+      and A.isAllergyActive()
+      and A.isAllergyConfirmed()
 
 // Condition
 
@@ -151,7 +193,7 @@ define "Resulted Laboratory Results":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
 */
 define "Most Recent Medication Request":
-  UC.MostRecent("All Medication Requests")
+  UC.MostRecentMR("All Medication Requests")
 
 define "All Medication Requests":
   ["MedicationRequestProfile"]

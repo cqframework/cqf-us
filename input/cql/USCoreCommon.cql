@@ -138,45 +138,45 @@ define fluent function active(conditions List<USCore.Condition>):
       or C.clinicalStatus ~ "recurrence"
       or C.clinicalStatus ~ "relapse"
 
-define fluent function isActive(allergyIntolerance USCore.AllergyIntolerance):
+define fluent function isAllergyActive(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.clinicalStatus ~ "allergy-active"
 
-define fluent function active(allergyIntolerances List<USCore.AllergyIntolerance>):
+define fluent function allergyActive(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.clinicalStatus ~ "allergy-active"
 
-define fluent function isInactive(allergyIntolerance USCore.AllergyIntolerance):
+define fluent function isAllergyInactive(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.clinicalStatus ~ "allergy-inactive"
 
-define fluent function inactive(allergyIntolerances List<USCore.AllergyIntolerance>):
+define fluent function allergyInactive(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.clinicalStatus ~ "allergy-inactive"
 
-define fluent function isResolved(allergyIntolerance USCore.AllergyIntolerance):
+define fluent function isAllergyResolved(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.clinicalStatus ~ "allergy-resolved"
 
-define fluent function resolved(allergyIntolerances List<USCore.AllergyIntolerance>):
+define fluent function allergyResolved(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.clinicalStatus ~ "allergy-resolved"
 
-define fluent function isConfirmed(allergyIntolerance USCore.AllergyIntolerance):
+define fluent function isAllergyConfirmed(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.verificationStatus ~ "allergy-confirmed"
 
-define fluent function confirmed(allergyIntolerances List<USCore.AllergyIntolerance>):
+define fluent function allergyConfirmed(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.verificationStatus ~ "allergy-confirmed"
 
-define fluent function isUnconfirmed(allergyIntolerance USCore.AllergyIntolerance):
+define fluent function isAllergyUnconfirmed(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.verificationStatus ~ "allergy-unconfirmed"
 
-define fluent function unconfirmed(allergyIntolerances USCore.AllergyIntolerance):
+define fluent function allergyUnconfirmed(allergyIntolerances USCore.AllergyIntolerance):
   allergyIntolerances A
     where A.verificationStatus ~ "allergy-unconfirmed"
 
-define fluent function isRefuted(allergyIntolerance USCore.AllergyIntolerance):
+define fluent function isAllergyRefuted(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.verificationStatus ~ "allergy-refuted"
 
-define fluent function refuted(allergyIntolerances USCore.AllergyIntolerance):
+define fluent function allergyRefuted(allergyIntolerances USCore.AllergyIntolerance):
   allergyIntolerances A
     where A.verificationStatus ~ "allergy-refuted"
 
@@ -610,7 +610,7 @@ define function MostRecent(observations List<"observation-bodyweight">):
       sort by issued
   )
 
-define function MostRecent(medicationRequests List<"MedicationRequestProfile">):
+define function MostRecentMR(medicationRequests List<"MedicationRequestProfile">):
   Last(
     medicationRequests MR
       sort by authoredOn
