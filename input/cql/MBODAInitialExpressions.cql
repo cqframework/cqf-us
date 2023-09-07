@@ -153,7 +153,14 @@ define "Medication Name":
     where EndsWith(("Most Recent Medication Request".medication as USCore.Reference).reference, M.id)
     return M.code.display
 
+define "All Medication Requests":
+  UCE."All Medication Requests" MR
+    return {id: MR.id, date: MR.authoredOn}
+
 define "Most Recent Medication Request":
+  UC.MostRecentMR(["MedicationRequestProfile"])
+
+define "Most Recent Medication Request 2":
   UCE."Most Recent Medication Request"
 
 define "Medication Request References":

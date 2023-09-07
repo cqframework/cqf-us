@@ -1,6 +1,6 @@
 {
   "resourceType" : "MedicationRequest",
-  "id" : "uscore-mo3",
+  "id" : "uscore-mo2",
   "meta" : {
     "profile" : [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
@@ -20,7 +20,7 @@
     "reference" : "Patient/example",
     "display" : "Amy Shaw"
   },
-  "authoredOn" : "2008-04-05T00:00:00.000-00:00",
+  "authoredOn" : "2009-04-05T00:00:00.000-00:00",
   "requester" : {
     "reference" : "Practitioner/practitioner-1",
     "display" : "Ronald Bone, MD"

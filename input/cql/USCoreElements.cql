@@ -193,7 +193,7 @@ define "Resulted Laboratory Results":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
 */
 define "Most Recent Medication Request":
-  UC.MostRecentMR("All Medication Requests")
+  UC.MostRecent("All Medication Requests")
 
 define "All Medication Requests":
   ["MedicationRequestProfile"]
