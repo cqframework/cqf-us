@@ -75,10 +75,7 @@
             ]
           }
         }
-      ],
-      "condition": {
-        "reference": "Condition/appendicitis-example-continued-therapy"
-      }
+      ]
     }
   ]
 }

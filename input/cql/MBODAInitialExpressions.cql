@@ -192,7 +192,7 @@ define "Medication Frequency Period":
       unit: "Most Recent Medication Request dosageInstruction".timing.repeat.periodUnit
     }
 
-define "Medication Frequency Rate": // '1x per 1d', '3x per 2wk', '1x per 1mo'
+define "Medication Frequency": // '1x per 1d', '3x per 2wk', '1x per 1mo'
   ToString("Medication Frequency value") + 'x' +
   ' per ' + ToString("Medication Frequency Period".value) + 
   ' ' + "Medication Frequency Period".unit

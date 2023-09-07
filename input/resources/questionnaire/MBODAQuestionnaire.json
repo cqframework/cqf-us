@@ -600,7 +600,7 @@
           ],
           "linkId": "diagnosis-info|diagnosis-code",
           "text": "Diagnosis/ICD-10 code(s)",
-          "type": "choice",
+          "type": "open-choice",
           "repeats": true
         },
         {
