@@ -21,15 +21,17 @@ context Patient
 define "Member ID":
   singleton from
     (
-      ("FHIR Coverage".identifier I
-    return {value: I.value.value, type: I.type.coding.code}
-    ) valuesByTypes
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
     where "Member Number".code in valuesByTypes.type
     return valuesByTypes.value
     )
 
-    define "FHIR Coverage":
- [FHIR.Coverage] C where EndsWith(C.beneficiary.reference, Patient.id)
 
 define "Patient Name":
   UCE."Name - First Middle(s) Last"
