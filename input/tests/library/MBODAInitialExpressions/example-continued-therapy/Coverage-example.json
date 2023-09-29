@@ -12,8 +12,15 @@
   },
   "identifier": [
     {
-      "system": "http://benefitsinc.com/certificate",
-      "value": "12345"
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MB"
+          }
+        ]
+      },
+      "value": "member-id-from-identifier-slice-example-continued-therapy-patient"
     }
   ],
   "status": "active",
