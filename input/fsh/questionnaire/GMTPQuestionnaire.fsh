@@ -102,17 +102,16 @@ Usage: #example
   * item[+]
     * insert QuestionnaireItem(#string, "servicing-provider-laboratory-info|fax", "Fax")
 * item[+]
-  * insert QuestionnaireItem(#choice, "billing-provider", "Is the billing provider/referring lab different from servicing provider?")
-  * insert QuestionnaireEnableWhenEqualsCoding("select-one", #DifferentBillingProvider)
-    * answerOption[+]
-      * valueCoding.code = #Y
-      * valueCoding.display = "Yes"
-    * answerOption[+]
-      * valueCoding.code = #N
-      * valueCoding.display = "No"
+  * insert QuestionnaireItem(#choice, "billing-provider-question", "Is the billing provider/referring lab different from servicing provider?")
+  * answerOption[+]
+    * valueCoding.code = #Y
+    * valueCoding.display = "Yes"
+  * answerOption[+]
+    * valueCoding.code = #N
+    * valueCoding.display = "No"
   * item[+]
+    * insert QuestionnaireEnableWhenEqualsCoding("billing-provider-question", #Y)
     * insert QuestionnaireItem(#group, "billing-provider-info", "Billing provider/referring lab information")
-    * insert QuestionnaireEnableWhenEqualsCoding("billing-provider", #Y)
     * item[+]
       * insert QuestionnaireItem(#string, "billing-provider-info|name", "Requesting provider name")
     * item[+]
@@ -135,12 +134,39 @@ Usage: #example
     * insert QuestionnaireItemInitialExpression("Diagnosis Description")
     * insert QuestionnaireItem(#string, "test-requested|diagnosis-description", "Diagnosis description")
   * item[+]
-    * insert QuestionnaireItemInitialExpression("Diagnosis Description")
-    * insert QuestionnaireItem(#string, "test-requested|diagnosis-description", "Diagnosis description")
-  * item[+]
     * insert QuestionnaireItemInitialExpression("Diagnosis ICD Codes")
-    * insert QuestionnaireItemRepeats(#choice, "test-requested|diagnosis-icd-code", "ICD-10 code(s\)")
+    * insert QuestionnaireItemRepeats(#string, "test-requested|diagnosis-icd-code", "ICD-10 code(s\)")
   * item[+]
     * insert QuestionnaireItemInitialExpression("Diagnosis CPT Codes")
-    * insert QuestionnaireItemRepeats(#choice, "test-requested|diagnosis-cpt-code", "CPT code(s\)")
-
+    * insert QuestionnaireItemRepeats(#string, "test-requested|diagnosis-cpt-code", "CPT code(s\)")
+* item[+]
+  * insert QuestionnaireItem(#group, "clinical-trial", "Clinical Trial Information")
+  * item[+]
+    * insert QuestionnaireItem(#choice, "clinical-trial-question", "Is the requested test part of a clinical trial?")
+    * answerOption[+]
+      * valueCoding.code = #Y
+      * valueCoding.display = "Yes"
+    * answerOption[+]
+      * valueCoding.code = #N
+      * valueCoding.display = "No"
+    * item[+]
+      * insert QuestionnaireEnableWhenEqualsCoding("clinical-trial-question", #Y)
+      * insert QuestionnaireItem(#string, "clinical-trial|yes-clinial-trial", "If Yes\, provide the registration or ID number for the specific trial in which this test is being studied.")
+* item[+]
+  * insert QuestionnaireItem(#group, "history", "Patient history and related findings")
+  * item[+]
+    * insert QuestionnaireItem(#string, "history|patient-history", "Patient history including age at diagnosis")
+  * item[+]
+    * insert QuestionnaireItem(#string, "history|family-history", "Family history\, including age at diagnosis\, availability for testing e.g.\, family member deceased\, refused testing or patient not in contact with affected family member and any genetic testing performed on family member - attach pedigree\, if available")
+  * item[+]
+    * insert QuestionnaireItem(#string, "history|other-findings", "Other findings/testing completed - previous genetic testing for condition")
+  * item[+]
+    * insert QuestionnaireItem(#string, "history|treatment-relation", "How will testing be used in relation to treatment or management of the patient?")
+* item[+]
+  * insert QuestionnaireItem(#group, "person-filling-out-form", "Person filling out form")
+  * item[+]
+    * insert QuestionnaireItem(#string, "person-filling-out-form|name", "Name")   
+  * item[+]
+    * insert QuestionnaireItem(#string, "person-filling-out-form|phone-number", "Phone number")
+  * item[+]
+    * insert QuestionnaireItem(#string, "person-filling-out-form|facility", "Phone number")  
