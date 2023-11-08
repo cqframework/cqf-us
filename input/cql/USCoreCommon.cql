@@ -616,6 +616,11 @@ define function MostRecentMR(medicationRequests List<"MedicationRequestProfile">
       sort by authoredOn
   )
 
+define function MostRecentSR(serviceRequests List<"ServiceRequest">):
+  Last(
+    serviceRequests SR
+      sort by authoredOn
+  )
 
 
 define function Mobile(contactPoints List<USCore.ContactPoint>):

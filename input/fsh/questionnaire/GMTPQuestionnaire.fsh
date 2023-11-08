@@ -80,27 +80,37 @@ Usage: #example
 * item[+]
   * insert QuestionnaireItem(#group, "provider-info", "Requesting Provider Information")
   * item[+]
+    * insert QuestionnaireItemInitialExpression("Requesting Provider Name")
     * insert QuestionnaireItem(#string, "provider-info|name", "Requesting provider name")
   * item[+]
+    * insert QuestionnaireItemInitialExpression("Requesting Provider Phone")
     * insert QuestionnaireItem(#string, "provider-info|phone-number", "Phone")
   * item[+]
+    * insert QuestionnaireItemInitialExpression("Requesting Provider Address")
     * insert QuestionnaireItem(#string, "provider-info|address", "Ordering provider address")
   * item[+]
+    * insert QuestionnaireItemInitialExpression("Requesting Provider NPI")
     * insert QuestionnaireItem(#string, "provider-info|npi", "Ordering provider Tax ID/NPI #")
   * item[+]
+    * insert QuestionnaireItemInitialExpression("Requesting Provider Fax")
     * insert QuestionnaireItem(#string, "provider-info|fax", "Fax")
 * item[+]
-  * insert QuestionnaireItem(#group, "servicing-provider-laboratory-info", "Laboratory performing testing/Servicing Provider")
+  * insert QuestionnaireItem(#group, "servicing-provider", "Laboratory performing testing/Servicing Provider")
   * item[+]
-    * insert QuestionnaireItem(#string, "servicing-provider-laboratory-info|name", "Requesting provider name")
+    * insert QuestionnaireItemInitialExpression("Servicing Provider Name")
+    * insert QuestionnaireItem(#string, "servicing-provider|name", "Requesting provider name")
   * item[+]
-    * insert QuestionnaireItem(#string, "servicing-provider-laboratory-info|phone-number", "Phone")
+    * insert QuestionnaireItemInitialExpression("Servicing Provider Phone")
+    * insert QuestionnaireItem(#string, "servicing-provider|phone-number", "Phone")
   * item[+]
-    * insert QuestionnaireItem(#string, "servicing-provider-laboratory-info|address", "Ordering provider address")
+    * insert QuestionnaireItemInitialExpression("Servicing Provider Address")
+    * insert QuestionnaireItem(#string, "servicing-provider|address", "Ordering provider address")
   * item[+]
-    * insert QuestionnaireItem(#string, "servicing-provider-laboratory-info|npi", "Ordering provider Tax ID/NPI #")
+    * insert QuestionnaireItemInitialExpression("Servicing Provider NPI")
+    * insert QuestionnaireItem(#string, "servicing-provider|npi", "Ordering provider Tax ID/NPI #")
   * item[+]
-    * insert QuestionnaireItem(#string, "servicing-provider-laboratory-info|fax", "Fax")
+    * insert QuestionnaireItemInitialExpression("Servicing Provider Fax")
+    * insert QuestionnaireItem(#string, "servicing-provider|fax", "Fax")
 * item[+]
   * insert QuestionnaireItem(#choice, "billing-provider-question", "Is the billing provider/referring lab different from servicing provider?")
   * answerOption[+]
@@ -125,20 +135,27 @@ Usage: #example
 * item[+]
   * insert QuestionnaireItem(#group, "test-requested", "Test requested")
   * item[+]
+    * insert QuestionnaireItemInitialExpression("Date of Service")
     * insert QuestionnaireItem(#date, "test-requested|service-date", "Date of service")
   * item[+]
+    * insert QuestionnaireItemInitialExpression("Test ID")
     * insert QuestionnaireItem(#string, "test-requested|test-id", "Test ID")   
   * item[+]
+    * insert QuestionnaireItemInitialExpression("Test name")
     * insert QuestionnaireItem(#string, "test-requested|test-name", "Test name")     
   * item[+]
-    * insert QuestionnaireItemInitialExpression("Diagnosis Description")
+    * insert QuestionnaireItemInitialExpression("Diagnosis Descriptions")
     * insert QuestionnaireItem(#string, "test-requested|diagnosis-description", "Diagnosis description")
   * item[+]
     * insert QuestionnaireItemInitialExpression("Diagnosis ICD Codes")
-    * insert QuestionnaireItemRepeats(#string, "test-requested|diagnosis-icd-code", "ICD-10 code(s\)")
+    * insert QuestionnaireItemRepeats(#open-choice, "test-requested|diagnosis-icd-code", "ICD-10 code(s\)")
+    * repeats = true
+    * answerValueSet = "http://hl7.org/fhir/sid/icd-10"
   * item[+]
     * insert QuestionnaireItemInitialExpression("Diagnosis CPT Codes")
-    * insert QuestionnaireItemRepeats(#string, "test-requested|diagnosis-cpt-code", "CPT code(s\)")
+    * insert QuestionnaireItemRepeats(#open-choice, "test-requested|diagnosis-cpt-code", "CPT code(s\)")
+    * repeats = true
+    * answerValueSet = "http://www.ama-assn.org/go/cpt"
 * item[+]
   * insert QuestionnaireItem(#group, "clinical-trial", "Clinical Trial Information")
   * item[+]
@@ -159,6 +176,7 @@ Usage: #example
   * item[+]
     * insert QuestionnaireItem(#string, "history|family-history", "Family history\, including age at diagnosis\, availability for testing e.g.\, family member deceased\, refused testing or patient not in contact with affected family member and any genetic testing performed on family member - attach pedigree\, if available")
   * item[+]
+    * insert QuestionnaireItemInitialExpression("Previous genetic testing for condition")
     * insert QuestionnaireItem(#string, "history|other-findings", "Other findings/testing completed - previous genetic testing for condition")
   * item[+]
     * insert QuestionnaireItem(#string, "history|treatment-relation", "How will testing be used in relation to treatment or management of the patient?")
