@@ -7,12 +7,18 @@ include FHIRHelpers version '4.1.000'
 include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
 
-//TBD: codes
+codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
+code "Member Number": 'MB' from "Identifier Type"
+code "Subscriber Number": 'SN' from "Identifier Type"
 
 context Patient
 
 define "Urgency":
-true //TBD
+"Most Recent Medication Request".priority P
+  if (P.code != 'routine')
+    return 'Not Urgent'
+  else 
+    return 'Urgent'
 //TODO: determine MedicationRequest.priority by initial expression https://build.fhir.org/valueset-request-priority.html
   //suggestion: only routine would resolve to Non-Urgent, all other codes resolve in Urgent (i.e. stat, asap and urgent)
   //question: is there even time when having stat or asap requests to proceed with prior auth?
@@ -36,9 +42,6 @@ if not "Is First Prior Authentication" then
   else 
     null
 
-define "Medication Name":
-true //TBD
-
 define "Is First Request > 12 Months":
 true //TBD
 
@@ -60,34 +63,55 @@ define "Member ID":
     )
 
 define "Policy Number":
-true //TBD
+singleton from
+    (
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
+    where "Subscriber Number".code in valuesByTypes.type
+    return valuesByTypes.value
+    )
 
 define "Date of Birth":
   Patient.birthDate
 
 define "Address":
-true //TBD
+  { 'TODO: remove hard-coded address' }
 
 define "Phone Number":
   UC.Mobile(Patient.telecom).value
 
 define "Email Address":
-true //TBD
+  Email(Patient.telecom).value
 
 define "Prescription Date":
-true //TBD
+"Most Recent Medication Request".authoredOn
+
+define "Requester":
+singleton(
+[USCore.PractitionerProfile] P
+              where EndsWith("Most Recent Medication Request".requester.reference, P.id))
+
+define "RequesterRole":
+singleton(
+[USCore.PractitionerRoleProfile] R
+              where EndsWith(R.practitioner.reference, "Requester".id))
 
 define "Prescriber Name":
-true //TBD
+  Requester.name
 
 define "Prescriber Fax":
-true //TBD
+  Fax(Requester.telecom).value
 
 define "Prescriber Phone":
-true //TBD
+  UC.Mobile(Requester.telecom).value
 
 define "Prescriber Pager":
-true //TBD
+  Pager(Requester.telecom).value
 
 define "Prescriber Address":
 true //TBD
@@ -96,16 +120,17 @@ define "Prescriber Contact":
 true //TBD
 
 define "Prescriber NPI":
-true //TBD
+  (Requester.identifier I
+    where I.system = 'http://hl7.org/fhir/sid/us-npi').value
 
 define "Prescriber Tax ID":
 true //TBD
 
 define "Prescriber Specialty":
-true //TBD
+RequesterRole.specialty.display
 
 define "Prescriber Email Address":
-true //TBD
+Email(Requester.telecom)
 
 define "Request Type":
 true //TBD
@@ -126,3 +151,17 @@ define "Most Recent Medication Request":
 
 define "Prior Prescription":
   "Most Recent Medication Request".priorPrescription
+
+//TBD: is this better as part of UC?
+define function Email(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.system = 'email')
+
+  //TBD: is this better as part of UC?
+define function Fax(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.system = 'fax')
+
+    //TBD: is this better as part of UC?
+define function Pager(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.system = 'pager')
+
+
