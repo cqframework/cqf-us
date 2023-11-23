@@ -58,7 +58,7 @@ Usage: #example
 * experimental = true
 * date = "2023-10-12T00:00:00+00:00"
 * publisher = "Smile Digital Health"
-* description = "TODO"
+* description = "Automated online preauthorization is available for some tests. Please log into the Availity Portal at Availity.com for a list of available questionnaires. If the appropriate questionnaire is not available, please complete this form."
 
 * item[+]
   * insert QuestionnaireItem(#group, "patient-info", "Patient Information")
@@ -123,14 +123,19 @@ Usage: #example
     * insert QuestionnaireEnableWhenEqualsCoding("billing-provider-question", #Y)
     * insert QuestionnaireItem(#group, "billing-provider-info", "Billing provider/referring lab information")
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Billing Provider Name")
       * insert QuestionnaireItem(#string, "billing-provider-info|name", "Requesting provider name")
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Billing Provider Phone")
       * insert QuestionnaireItem(#string, "billing-provider-info|phone-number", "Phone")
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Billing Provider Address")
       * insert QuestionnaireItem(#string, "billing-provider-info|address", "Ordering provider address")
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Billing Provider NPI")
       * insert QuestionnaireItem(#string, "billing-provider-info|npi", "Ordering provider Tax ID/NPI #")
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Billing Provider Fax")
       * insert QuestionnaireItem(#string, "billing-provider-info|fax", "Fax") 
 * item[+]
   * insert QuestionnaireItem(#group, "test-requested", "Test requested")
@@ -158,7 +163,8 @@ Usage: #example
     * answerValueSet = "http://www.ama-assn.org/go/cpt"
 * item[+]
   * insert QuestionnaireItem(#group, "clinical-trial", "Clinical Trial Information")
-  * item[+]
+  * item[+]     
+    * insert QuestionnaireItemInitialExpression("Clinical Trial ID")
     * insert QuestionnaireItem(#choice, "clinical-trial-question", "Is the requested test part of a clinical trial?")
     * answerOption[+]
       * valueCoding.code = #Y
@@ -167,6 +173,7 @@ Usage: #example
       * valueCoding.code = #N
       * valueCoding.display = "No"
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Clinical Trial ID")
       * insert QuestionnaireEnableWhenEqualsCoding("clinical-trial-question", #Y)
       * insert QuestionnaireItem(#string, "clinical-trial|yes-clinial-trial", "If Yes\, provide the registration or ID number for the specific trial in which this test is being studied.")
 * item[+]

@@ -7,16 +7,16 @@ include FHIRHelpers version '4.1.000'
 include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
 
-
-
 codesystem "LOINC": 'http://loinc.org'
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
+codesystem "ICD": 'http://hl7.org/fhir/sid/icd-10'
+codesystem "CPT": 'http://www.ama-assn.org/go/cpt'
 code "Member Number": 'MB' from "Identifier Type"
 
 
 context Patient
 
-define "Humana ID number": //TODO Similar to Member ID from MBODA Initial expressions?
+define "Humana ID": // Similar to Member ID from MBODA Initial expressions?
   singleton from
     (
       (
@@ -30,7 +30,6 @@ define "Humana ID number": //TODO Similar to Member ID from MBODA Initial expres
     return valuesByTypes.value
     )
 
-
 define "Patient Name":
   UCE."Name - First Middle(s) Last"
 
@@ -43,17 +42,11 @@ define "Phone Number":
 define "Address":
    (singleton from Patient.address).line
 
-
-define "Requesting Provider is Practitioner":
-  "Most Recent ServiceRequest" SR
-  return SR.requester.type = Practitioner//TODO check 
-
-//assuming the requesting provider is a practitioner
-define "Requesting Provider": //TODO check if correct way to get practitioner from reference
-  "Most Recent ServiceRequest" SR
-  where "Requesting Provider is Practitioner" 
-  return SR.requester.reference
-
+define "Requesting Provider":
+  First([PractitionerProfile: id in (Split(("Most Recent ServiceRequest".requester as FHIR.Reference).reference, '/'))]) P
+  First([OrganizationProfile: id in (Split(("Most Recent ServiceRequest".requester as FHIR.Reference).reference, '/'))]) O
+   return Coalece(P,O)
+  
 define "Requesting Provider Name":
     "Requesting Provider".name
 
@@ -70,23 +63,16 @@ define "Requesting Provider NPI":
 
 define "Requesting Provider Fax":
   "Requesting Provider".telecom T
-  where T.system = 'fax'//TODO check
+  where T.system = 'fax'
   return T.value
 
-define "Servicing Provider is Practitioner":
-  "Most Recent ServiceRequest" SR
-  return SR.requester.type = Practitioner//TODO check
-
 define "Servicing Provider":
-//assuming it is another practitioner based on the required NPI - would a lab (where the test is analyzed) fit better here?
-//TODO check if correct way to get practitioner from reference
-  "Most Recent ServiceRequest" SR
-     where "Servicing Provider is Practitioner" 
-  return SR.performer.reference
-
+   First([PractitionerProfile: id in (Split((First("Most Recent ServiceRequest".performer) as FHIR.Reference).reference, '/'))]) P
+   First([OrganizationProfile: id in (Split((First("Most Recent ServiceRequest".performer) as FHIR.Reference).reference, '/'))]) O
+   return Coalece(P,O)
 
 define "Servicing Provider Name":
-  "Requesting Provider".name
+  "Servicing Provider".name
 
 define "Servicing Provider Phone":
   UC.Mobile("Servicing Provider".telecom).value
@@ -101,62 +87,117 @@ define "Servicing Provider NPI":
 
 define "Servicing Provider Fax":
   "Servicing Provider".telecom T
-  where T.system = 'fax'//TODO check
+  where T.system = 'fax'
   return T.value
 
-//TODO
-//Billing Provider / Referring Lab
+define "Test Coverage":
+[FHIR.Coverage] C
+with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
 
-define "All Service Requests":
+define "Billing Provider" :
+ First([OrganizationProfile] O
+ with "Test Coverage" C such that EndsWith(First(C.payor.reference), O.id))
+
+define "Billing Provider Name":
+  "Billing Provider".name
+
+define "Billing Provider Phone":
+  UC.Mobile("Billing Provider".telecom).value
+
+define "Billing Provider Address":
+  (singleton from "Billing Provider".address).line
+
+define "Billing Provider NPI":
+  "Billing Provider".identifier I 
+  where I.system = 'http://hl7.org/fhir/sid/us-npi'
+  return I.value
+
+define "Billing Provider Fax":
+  "Billing Provider".telecom T
+  where T.system = 'fax'
+  return T.value
+
+define "All ServiceRequests":
   [ServiceRequest]
 
 define "Most Recent ServiceRequest":
-  UC.MostRecentSR("All Service Requests")
-
-define "Test Related Condition":
-  "Most Recent ServiceRequest".reason 
+  UC.MostRecentSR("All ServiceRequests")
 
 define "Date of Service":
   "Most Recent ServiceRequest".occurrence
 
-define "Test name":
-"Most Recent Service Request" SR
-  return SR.code.coding.display //TODO check
-
 define "Test ID":
-  "Most Recent Service Request" SR
-  return SR.code.coding.code //TODO check
+  "Most Recent ServiceRequest" SR
+  return SR.code.coding.code.value 
 
-define "Diagnosis Codes":
-  "Test Related Condition" C
-    return C.code
+define "Test name":
+"Most Recent ServiceRequest" SR
+  return SR.code.coding.display 
+
+define "Test Related Condition":
+//option 1 for related Condition
+  "Most Recent ServiceRequest" SR
+  return SR.reasonCode //this is just the code of the condition but not the entire condition resource
+  //option 2 for related Condition -this option uses the entire condition resource
+  //return [Condition: id in (Split((First("Most Recent ServiceRequest".reasonReference) as FHIR.Reference).reference, '/'))]
+
+define "ALL ICD and CPT Diagnosis Codes":
+  return "Diagnosis ICD Codes" union "Diagnosis CPT Codes" as List<FHIR.Coding>
 
 define "Diagnosis ICD Codes":
-  "Diagnosis Codes" D
-  where D.code.system = "http://hl7.org/fhir/sid/icd-10"
-
+  "Test Related Condition".coding C
+  where C.system.value =  'http://hl7.org/fhir/sid/icd-10'
+  return C
+  
 define "Diagnosis CPT Codes":
-  "Diagnosis Codes" D
-  where D.code.system = "http://www.ama-assn.org/go/cpt"
+  "Test Related Condition".coding C
+  where C.system.value =  'http://hl7.org/fhir/sid/icd-10'
+  return C
 
 define "Diagnosis Descriptions":
-  "ICD codes" and "CPT codes" ConceptItem
-    return Combine(((ConceptItem.codes) C return C.display), '|')
+  "ALL ICD and CPT Diagnosis Codes" ConceptItem
+    return Combine( {FHIRHelpers.ToString((ConceptItem C return C.display)) , '|'})    
 
+define "Billing Provider different from Servicing Provider":
+  "Billing Provider".id != "Servicing Provider".id
 
-//define "Previous genetic testing for condition":
-//TODO
+define "Clinical Trial Organization":
+  First([OrganizationProfile] O
+ with "Clinical Trial"  T such that EndsWith(T.sponsor.reference, O.id))  //in FHIR R5 T.associatedParty instead of T.sponsor 
 
-//Once TODOs below are resolved add the expressions below to fsh file 
-//define "Part of clinical trial"
-//TODO
+define "BillingProvider is Clinical Trial Organisation":
+  "Billing Provider" = "Clinical Trial Organization"
 
+define "Part of clinical trial":
+ "Is Research Subject" and "BillingProvider is Clinical Trial Organisation"
+
+define "Is Research Subject":
+  exists("Research Subject")
+
+define "Research Subject":
+     [FHIR.ResearchSubject] R
+     where  EndsWith(R.individual.reference, Patient.id)//ResearchSubject.individual is from FHIR version v4.0.1 and has been replaced by R.subject in FHIR R5
+
+define "Clinical Trial":
+  [FHIR.ResearchStudy] R 
+  with "Research Subject" S such that EndsWith(S.study.reference, R.id)
+  with  "Most Recent ServiceRequest" SR such that R.condition = SR.reasonCode
+
+define "Clinical Trial ID":
+  "Clinical Trial".identifier C
+  where FHIRHelpers.ToString(C.system) = 'https://clinicaltrials.gov'
+  return C.value
+
+define "Previous genetic testing for condition":
+        "All ServiceRequests" S
+        where S.code = "Most Recent ServiceRequest".code
+        and S.id != "Most Recent ServiceRequest".id
+  
+   
 //define "Family history of genetic testing"
-//TODO
-//should this be prefilled?
+//too general to prefill?
 
 //define "Patient history"
-//TODO
-//too general?
+//too general to prefill?
 
 
