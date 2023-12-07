@@ -1,4 +1,4 @@
-library MBODAInitialExpressions version '0.1.0'
+library UPPARFInitialExpressions version '0.1.0'
 
 using USCore version '3.1.1'
 using FHIR version '4.0.1'
@@ -15,11 +15,10 @@ context Patient
 
 define "Urgency":
 "Most Recent Medication Request".priority P
-  if (P.code != 'routine')
-    return 'Not Urgent'
-  else 
-    return 'Urgent'
-//TODO: determine MedicationRequest.priority by initial expression https://build.fhir.org/valueset-request-priority.html
+  return (
+    if P != 'routine' then 'Urgent'
+    else  'Not Urgent'
+  )
   //suggestion: only routine would resolve to Non-Urgent, all other codes resolve in Urgent (i.e. stat, asap and urgent)
   //question: is there even time when having stat or asap requests to proceed with prior auth?
   
@@ -30,20 +29,24 @@ define "Medication Name":
 define "Is Opioid Treatment":
 true //TBD
 
+//TODO: can we assume that with a previous prior authentication there also has been a prior prescription?
 define "Is First Prior Authentication":
-//TODO: can I assume that there has been a prescription before prior authentication?
 IsNull("Prior Prescription")
 
+//TODO: does the initial request date mean the exact same medication was requested before?
 define "Initial Request Date":
 if not "Is First Prior Authentication" then
+    singleton from (
     UCE."All Medication Requests" M
       where EndsWith(("Most Recent Medication Request".priorPrescription as USCore.Reference).reference, M.id)
       return M.authoredOn
+    )
   else 
     null
 
 define "Is First Request > 12 Months":
-true //TBD
+if IsNull("Initial Request Date") then null else 
+(months between "Initial Request Date" and Now() > 12)
 
 define "Patient Name":
   UCE."Name - First Middle(s) Last"
@@ -92,17 +95,23 @@ define "Prescription Date":
 "Most Recent Medication Request".authoredOn
 
 define "Requester":
-singleton(
+singleton from (
 [USCore.PractitionerProfile] P
               where EndsWith("Most Recent Medication Request".requester.reference, P.id))
 
 define "RequesterRole":
-singleton(
+singleton from (
 [USCore.PractitionerRoleProfile] R
               where EndsWith(R.practitioner.reference, "Requester".id))
 
+
 define "Prescriber Name":
-  Requester.name
+   "Practitioner First Name Occurance".family
+   //TODO: prefix and given do not work as expected.
+   //Combine("Practitioner First Name Occurance".prefix) + Combine("Practitioner First Name Occurance".given) + "Practitioner First Name Occurance".family
+
+define "Practitioner First Name Occurance":
+  First(Requester.name)
 
 define "Prescriber Fax":
   Fax(Requester.telecom).value
@@ -114,37 +123,64 @@ define "Prescriber Pager":
   Pager(Requester.telecom).value
 
 define "Prescriber Address":
-true //TBD
+'TODO: remove hard coded address'
 
 define "Prescriber Contact":
-true //TBD
+'TODO: remove hard coded contact'
+//TBD: would this be a work phone or more something like an address?
+
 
 define "Prescriber NPI":
-  (Requester.identifier I
-    where I.system = 'http://hl7.org/fhir/sid/us-npi').value
+First (
+  "Requester".identifier I
+  where I.system = 'http://hl7.org.fhir/sid/us-npi'
+  ).value
 
 define "Prescriber Tax ID":
-true //TBD
+null //is the tax id even stored in fhir?
 
 define "Prescriber Specialty":
-RequesterRole.specialty.display
+First(RequesterRole.specialty.codes).display
 
 define "Prescriber Email Address":
-Email(Requester.telecom)
+Email(Requester.telecom).value
 
 define "Request Type":
-true //TBD
+//TODO: is this logic correct?
+if "Is First Prior Authentication" then
+'New Request' else 'Reauthorization'
 
 define "Diagnosis Codes":
-true //TBD
+First("All Patients Diagnosis").code
+
+define "All Patients Diagnosis":
+[USCore.Condition] C
+  where EndsWith(C.subject.reference, Patient.id)
+
+define "Codes of Condition":
+ ("All Patients Diagnosis")
+  
+   //as List<FHIR.Coding>
+
+define "ICD-10 Code":
+null
+//return Fist("All Patients Diagnosis").
+/*Combine ("All Patients Diagnosis".Codes)
+  let D.code DC where DC.system = 'http://hl7.org/fhir/sid/icd-10-cm'
+  return DC.code*/
+
+//confirmed us core condition codes?
+//codes from http://hl7.org/fhir/sid/icd-10-cm Condition.code
+ //TBD
 
 define "Diagnosis Descriptions":
 true //TBD
 
 //helper definitions
 define "Medication Requested":
+singleton from (
   UCE."All Medications" M
-    where EndsWith(("Most Recent Medication Request".medication as USCore.Reference).reference, M.id)
+    where EndsWith(("Most Recent Medication Request".medication as USCore.Reference).reference, M.id))
 
 define "Most Recent Medication Request":
   UCE."Most Recent Medication Request"
