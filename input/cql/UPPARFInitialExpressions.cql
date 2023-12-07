@@ -16,14 +16,14 @@ code "Confirmed": 'confirmed' from "Verification Status"
 
 context Patient
 
+//TODO: find out if community prefers taking existing questionnaires literally or changing them slightly to e.g. a boolean type question in this example of the urgency quesiton.
 define "Urgency":
 "Most Recent Medication Request".priority P
   return (
+    //suggestion: only routine would resolve to Non-Urgent, all other codes resolve in Urgent (i.e. stat, asap and urgent)
     if P != 'routine' then 'Urgent'
     else  'Not Urgent'
   )
-  //suggestion: only routine would resolve to Non-Urgent, all other codes resolve in Urgent (i.e. stat, asap and urgent)
-  //question: is there even time when having stat or asap requests to proceed with prior auth?
   
 define "Medication Name":
   "Medication Requested" M
@@ -110,7 +110,7 @@ singleton from (
 
 define "Prescriber Name":
    "Practitioner First Name Occurance".family
-   //TODO: prefix and given do not work as expected.
+   //TODO: prefix, suffix and given do not work as expected.
    //Combine("Practitioner First Name Occurance".prefix) + Combine("Practitioner First Name Occurance".given) + "Practitioner First Name Occurance".family
 
 define "Practitioner First Name Occurance":
