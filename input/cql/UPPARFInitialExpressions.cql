@@ -8,8 +8,11 @@ include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
 
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
+codesystem "Verification Status": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
+codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10-cm'
 code "Member Number": 'MB' from "Identifier Type"
 code "Subscriber Number": 'SN' from "Identifier Type"
+code "Confirmed": 'confirmed' from "Verification Status"
 
 context Patient
 
@@ -138,6 +141,7 @@ First (
 
 define "Prescriber Tax ID":
 null //is the tax id even stored in fhir?
+//TODO: use EID from QI core
 
 define "Prescriber Specialty":
 First(RequesterRole.specialty.codes).display
@@ -150,31 +154,19 @@ define "Request Type":
 if "Is First Prior Authentication" then
 'New Request' else 'Reauthorization'
 
-define "Diagnosis Codes":
-First("All Patients Diagnosis").code
-
-define "All Patients Diagnosis":
+define "All Patients Confirmed Diagnosis":
 [USCore.Condition] C
   where EndsWith(C.subject.reference, Patient.id)
-
-define "Codes of Condition":
- ("All Patients Diagnosis")
-  
-   //as List<FHIR.Coding>
+  and "Confirmed" in C.verificationStatus.codes
 
 define "ICD-10 Code":
-null
-//return Fist("All Patients Diagnosis").
-/*Combine ("All Patients Diagnosis".Codes)
-  let D.code DC where DC.system = 'http://hl7.org/fhir/sid/icd-10-cm'
-  return DC.code*/
+ "All Patients Confirmed Diagnosis".code.codes C
+ where C.system = "ICD10".id
+ return C.code
 
-//confirmed us core condition codes?
-//codes from http://hl7.org/fhir/sid/icd-10-cm Condition.code
- //TBD
-
+//TODO: why does "display" use  CodeableConcept.text instead of  CodeableConcept.coding.display? Could System.Concept use coding.display to fill its display element?
 define "Diagnosis Descriptions":
-true //TBD
+ "All Patients Confirmed Diagnosis".code.display
 
 //helper definitions
 define "Medication Requested":
@@ -188,16 +180,14 @@ define "Most Recent Medication Request":
 define "Prior Prescription":
   "Most Recent Medication Request".priorPrescription
 
-//TBD: is this better as part of UC?
+//TBD: is this better as part of us common?
 define function Email(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'email')
 
-  //TBD: is this better as part of UC?
+  //TBD: is this better as part of us common?
 define function Fax(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'fax')
 
-    //TBD: is this better as part of UC?
+    //TBD: is this better as part of us common?
 define function Pager(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'pager')
-
-
