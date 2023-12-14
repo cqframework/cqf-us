@@ -1,0 +1,16 @@
+{
+  "resourceType": "Coverage",
+  "id": "coverage-GMTP-1",
+  "status": "active",
+  "policyHolder": {
+    "reference": "Patient/USCorePatient-GMTP-1"
+  },
+  "beneficiary": {
+    "reference": "Patient/USCorePatient-GMTP-1"
+  },
+  "payor": [
+    {
+      "reference": "Organization/billing-provider-GMTP-1"
+    }
+  ]
+}
