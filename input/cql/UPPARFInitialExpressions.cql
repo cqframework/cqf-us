@@ -132,7 +132,6 @@ define "Prescriber Contact":
 'TODO: remove hard coded contact'
 //TBD: would this be a work phone or more something like an address?
 
-
 define "Prescriber NPI":
 First (
   "Requester".identifier I
@@ -140,8 +139,10 @@ First (
   ).value
 
 define "Prescriber Tax ID":
-null //is the tax id even stored in fhir?
-//TODO: use EID from QI core
+First (
+  "Requester".identifier I
+  where I.system = 'urn:oid:2.16.840.1.113883.4.4'
+  ).value
 
 define "Prescriber Specialty":
 First(RequesterRole.specialty.codes).display
