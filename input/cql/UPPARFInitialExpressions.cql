@@ -16,11 +16,9 @@ code "Confirmed": 'confirmed' from "Verification Status"
 
 context Patient
 
-//TODO: find out if community prefers taking existing questionnaires literally or changing them slightly to e.g. a boolean type question in this example of the urgency quesiton.
 define "Urgency":
 "Most Recent Medication Request".priority P
   return (
-    //suggestion: only routine would resolve to Non-Urgent, all other codes resolve in Urgent (i.e. stat, asap and urgent)
     if P != 'routine' then 'Urgent'
     else  'Not Urgent'
   )
