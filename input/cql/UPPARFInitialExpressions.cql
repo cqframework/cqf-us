@@ -9,10 +9,13 @@ include USCoreElements version '0.1.0' called UCE
 
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 codesystem "Verification Status": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
+codesystem "Condition Clinical": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
 codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10-cm'
 code "Member Number": 'MB' from "Identifier Type"
 code "Subscriber Number": 'SN' from "Identifier Type"
 code "Confirmed": 'confirmed' from "Verification Status"
+code "Active": 'active' from "Condition Clinical"
+
 
 context Patient
 
@@ -22,13 +25,14 @@ define "Urgency":
     if P != 'routine' then 'Urgent'
     else  'Not Urgent'
   )
-  
-define "Medication Name":
-  "Medication Requested" M
+
+//TODO: name could also be retrieved by MedicationRequest as a codeable concept if there is no reference
+define "Most Recent Medication Name":
+  "Most Recent Medication" M
     return M.code.display
 
 define "Is Opioid Treatment":
-true //TBD
+null //TBD
 
 //TODO: can we assume that with a previous prior authentication there also has been a prior prescription?
 define "Is First Prior Authentication":
@@ -52,6 +56,7 @@ if IsNull("Initial Request Date") then null else
 define "Patient Name":
   UCE."Name - First Middle(s) Last"
 
+//TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form? 
 define "Member ID":
   singleton from
     (
@@ -66,6 +71,7 @@ define "Member ID":
     return valuesByTypes.value
     )
 
+//TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form? 
 define "Policy Number":
 singleton from
     (
@@ -95,24 +101,9 @@ define "Email Address":
 define "Prescription Date":
 "Most Recent Medication Request".authoredOn
 
-define "Requester":
-singleton from (
-[USCore.PractitionerProfile] P
-              where EndsWith("Most Recent Medication Request".requester.reference, P.id))
-
-define "RequesterRole":
-singleton from (
-[USCore.PractitionerRoleProfile] R
-              where EndsWith(R.practitioner.reference, "Requester".id))
-
-
 define "Prescriber Name":
-   "Practitioner First Name Occurance".family
+   First(Requester.name).family
    //TODO: prefix, suffix and given do not work as expected.
-   //Combine("Practitioner First Name Occurance".prefix) + Combine("Practitioner First Name Occurance".given) + "Practitioner First Name Occurance".family
-
-define "Practitioner First Name Occurance":
-  First(Requester.name)
 
 define "Prescriber Fax":
   Fax(Requester.telecom).value
@@ -136,6 +127,10 @@ First (
   where I.system = 'http://hl7.org.fhir/sid/us-npi'
   ).value
 
+//TODO: what is DEA?
+define "Prescriber DEA":
+  null
+
 define "Prescriber Tax ID":
 First (
   "Requester".identifier I
@@ -153,31 +148,32 @@ define "Request Type":
 if "Is First Prior Authentication" then
 'New Request' else 'Reauthorization'
 
-define "All Patients Confirmed Diagnosis":
-[USCore.Condition] C
-  where EndsWith(C.subject.reference, Patient.id)
-  and "Confirmed" in C.verificationStatus.codes
-
-define "ICD-10 Code":
- "All Patients Confirmed Diagnosis".code.codes C
+define "ICD-10 Codes":
+ "All Patients Confirmed Active Diagnosis".code.codes C
  where C.system = "ICD10".id
  return C.code
 
-//TODO: why does "display" use  CodeableConcept.text instead of  CodeableConcept.coding.display? Could System.Concept use coding.display to fill its display element?
 define "Diagnosis Descriptions":
- "All Patients Confirmed Diagnosis".code.display
+ "All Patients Confirmed Active Diagnosis".code.display
 
 //helper definitions
-define "Medication Requested":
+//TODO: medications are not necessarily a reference but could also be represented by a codeeable concept
+define "Most Recent Medication":
 singleton from (
   UCE."All Medications" M
-    where EndsWith(("Most Recent Medication Request".medication as USCore.Reference).reference, M.id))
+    where EndsWith((UCE."Most Recent Medication Request".medication as USCore.Reference).reference, M.id))
 
 define "Most Recent Medication Request":
   UCE."Most Recent Medication Request"
 
 define "Prior Prescription":
   "Most Recent Medication Request".priorPrescription
+
+define "All Patients Confirmed Active Diagnosis":
+[USCore.Condition] C
+  where EndsWith(C.subject.reference, Patient.id)
+  and "Confirmed" in C.verificationStatus.codes
+  and "Active" in C.clinicalStatus.codes
 
 //TBD: is this better as part of us common?
 define function Email(contactPoints List<USCore.ContactPoint>):
@@ -190,3 +186,14 @@ define function Fax(contactPoints List<USCore.ContactPoint>):
     //TBD: is this better as part of us common?
 define function Pager(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'pager')
+
+  define "Requester":
+singleton from (
+[USCore.PractitionerProfile] P
+              where EndsWith("Most Recent Medication Request".requester.reference, P.id))
+
+define "RequesterRole":
+singleton from (
+[USCore.PractitionerRoleProfile] R
+              where EndsWith(R.practitioner.reference, "Requester".id))
+

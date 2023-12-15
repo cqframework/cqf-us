@@ -34,8 +34,7 @@ InstanceOf: Questionnaire
 Usage: #example
 * extension[+]
   * url = "http://hl7.org/fhir/StructureDefinition/cqf-library"
-  //TODO: change to UPPARF initial expressions
-  * valueCanonical = "http://fhir.org/guides/cqf/us/common/Library/MBODAInitialExpressions"
+  * valueCanonical = "http://fhir.org/guides/cqf/us/common/Library/UPPARFInitialExpressions"
 * url = "http://fhir.org/guides/cqf/us/common/Questionnaire/UPPARFQuestionnaire"
 * version = "0.1.0"
 * name = "UPPARFQuestionnaire"
@@ -46,9 +45,6 @@ Usage: #example
 * publisher = "Smile Digital Health"
 * description = "Humana Uniform Pharmacy Prior Authorization Request Form"
 * item[+]
-  //TODO: determine MedicationRequest.priority by initial expression https://build.fhir.org/valueset-request-priority.html
-  //suggestion: only routine would resolve to Non-Urgent, all other codes resolve in Urgent (i.e. stat, asap and urgent)
-  //question: is there even time when having stat or asap requests to proceed with prior auth?
   * insert QuestionnaireItemInitialExpression("Urgency")
   * insert QuestionnaireItem(#choice, "urgency", "Urgency")
   * answerOption[+]
@@ -60,7 +56,7 @@ Usage: #example
 * item[+]
   * insert QuestionnaireItem(#group, "drug-info", "Drug Information")
   * item[+]
-    * insert QuestionnaireItemInitialExpression("Medication Name")
+    * insert QuestionnaireItemInitialExpression("Most Recent Medication Name")
     * insert QuestionnaireItem(#string, "drug-info|drug-name", "Requested Drug Name")
   * item[+]
     * insert QuestionnaireItemInitialExpression("Is Opioid Treatment")
@@ -153,7 +149,7 @@ Usage: #example
         * answerOption[+]
           * valueString = "Reauthorization"
     * item[+]
-      * insert QuestionnaireItemInitialExpression("Diagnosis Codes")
+      * insert QuestionnaireItemInitialExpression("ICD-10 Codes")
       * insert QuestionnaireItem(#open-choice, "completing-form|drug-benefit|diagnosis-codes", "Patient ICD Diagnostic Codes")
       * repeats = true
       * answerValueSet = "http://hl7.org/fhir/sid/icd-10"
