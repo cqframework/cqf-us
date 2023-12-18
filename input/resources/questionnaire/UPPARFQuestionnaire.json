@@ -4,7 +4,7 @@
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
-      "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/MBODAInitialExpressions"
+      "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/UPPARFInitialExpressions"
     }
   ],
   "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/UPPARFQuestionnaire",
@@ -56,7 +56,7 @@
               "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
               "valueExpression": {
                 "language": "text/cql-identifier",
-                "expression": "Medication Name"
+                "expression": "Most Recent Medication Name"
               }
             }
           ],
@@ -476,7 +476,7 @@
                   "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
                   "valueExpression": {
                     "language": "text/cql-identifier",
-                    "expression": "Diagnosis Codes"
+                    "expression": "ICD-10 Codes"
                   }
                 }
               ],
@@ -500,6 +500,124 @@
               "text": "Patient Diagnosis",
               "type": "string",
               "repeats": true
+            },
+            {
+              "linkId": "completing-form|drug-benefit|drugs",
+              "text": "Drugs Requested with J-Code; if applicable",
+              "type": "string",
+              "repeats": true
+            },
+            {
+              "linkId": "completing-form|drug-benefit|strength-route-frequency",
+              "text": "Strength/Route/Frequency",
+              "type": "string"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|unit-volume",
+              "text": "Unit/Volume of Named Drugs",
+              "type": "string"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "Start Date and Length"
+                  }
+                }
+              ],
+              "linkId": "completing-form|drug-benefit|start-length",
+              "text": "Start Date and Length of Therapy",
+              "type": "string"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|location",
+              "text": "Location of Treatment e.g. provider office; facility; home health; etc. including name; Type 2 NPI if applicable; address and tax ID:",
+              "type": "string"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|criteria",
+              "text": "Clinical Criteria for Approval; Including other Pertinent Information to Support the Request; other Medications Tried; Their Names; Duration; and Patient Response:",
+              "type": "string"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|for-trial",
+              "text": "For use in clinical trial?",
+              "type": "boolean"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|for-trial|registration-number",
+              "text": "Provide trial name and registration number",
+              "type": "string",
+              "enableWhen": [
+                {
+                  "question": "completing-form|drug-benefit|for-trial",
+                  "operator": "=",
+                  "answerBoolean": true
+                }
+              ]
+            },
+            {
+              "linkId": "completing-form|drug-benefit|drug-name",
+              "text": "Drug Name Brand Name and Scientific Name/Strength:",
+              "type": "string"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|dose",
+              "text": "Dose",
+              "type": "string"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|route",
+              "text": "Route",
+              "type": "string"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|frequency",
+              "text": "Frequency",
+              "type": "string"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|quantity",
+              "text": "Quantity",
+              "type": "quantity"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|refills",
+              "text": "Number of Refills",
+              "type": "integer"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|delivery",
+              "text": "Product will be delivered to:",
+              "type": "choice",
+              "answerOption": [
+                {
+                  "valueString": "Patient’s Home"
+                },
+                {
+                  "valueString": "Physician Office"
+                },
+                {
+                  "valueString": "Other"
+                }
+              ]
+            },
+            {
+              "linkId": "completing-form|drug-benefit|signature",
+              "text": "Prescriber or Authorized Signature:",
+              "type": "attachment"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|pharmacy",
+              "text": "Dispensing Pharmacy Name and Phone Number:",
+              "type": "string"
+            },
+            {
+              "linkId": "completing-form|drug-benefit|date",
+              "text": "Date",
+              "type": "date"
             }
           ]
         }

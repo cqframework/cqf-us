@@ -157,3 +157,49 @@ Usage: #example
       * insert QuestionnaireItemInitialExpression("Diagnosis Descriptions")
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|diagnosis-descriptions", "Patient Diagnosis")
       * repeats = true
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|drugs", "Drugs Requested with J-Code; if applicable")
+      * repeats = true
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|strength-route-frequency", "Strength/Route/Frequency")
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|unit-volume", "Unit/Volume of Named Drugs")
+    * item[+]
+      * insert QuestionnaireItemInitialExpression("Start Date and Length")
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|start-length", "Start Date and Length of Therapy")
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|location", "Location of Treatment e.g. provider office; facility; home health; etc. including name; Type 2 NPI if applicable; address and tax ID:")
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|criteria", "Clinical Criteria for Approval; Including other Pertinent Information to Support the Request; other Medications Tried; Their Names; Duration; and Patient Response:")
+    * item[+]
+      * insert QuestionnaireItem(#boolean, "completing-form|drug-benefit|for-trial", "For use in clinical trial?")
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|for-trial|registration-number", "Provide trial name and registration number")
+      * insert QuestionnaireEnableWhenBoolean("completing-form|drug-benefit|for-trial", true)
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|drug-name", "Drug Name Brand Name and Scientific Name/Strength:")
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|dose", "Dose")
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|route", "Route")
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|frequency", "Frequency")
+    * item[+]
+      * insert QuestionnaireItem(#quantity, "completing-form|drug-benefit|quantity", "Quantity")
+    * item[+]
+      * insert QuestionnaireItem(#integer, "completing-form|drug-benefit|refills", "Number of Refills")
+    * item[+]
+      * insert QuestionnaireItem(#choice, "completing-form|drug-benefit|delivery", "Product will be delivered to:")
+        * answerOption[+]
+          * valueString = "Patient’s Home"
+        * answerOption[+]
+          * valueString = "Physician Office"
+        * answerOption[+]
+          * valueString = "Other"
+    * item[+]
+      * insert QuestionnaireItem(#attachment, "completing-form|drug-benefit|signature", "Prescriber or Authorized Signature:")
+    * item[+]
+      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|pharmacy", "Dispensing Pharmacy Name and Phone Number:")
+    * item[+]
+      * insert QuestionnaireItem(#date, "completing-form|drug-benefit|date", "Date")
+
