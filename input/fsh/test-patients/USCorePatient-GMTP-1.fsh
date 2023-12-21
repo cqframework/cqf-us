@@ -22,7 +22,7 @@ RuleSet: USCoreBirthSexExtension(valueCode)
 RuleSet: USCoreBirthSex
 * url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"
 
-RuleSet: USCoreBirthSexCode(valueCode)
+RuleSet: USCoreBirthSexCode(valueCode) 
 * valueCode = {valueCode}
 
 RuleSet: USCoreBirthTimeExtension2
@@ -144,13 +144,29 @@ Usage: #example
 * code.coding[0] = $sct#405825005 "Molecular genetic test (procedure)"
 * code.coding[+] = $icd#Z13.89 " Encounter for screening for other disorder"
 * code.coding[+] = $cpt#81479 "Unlisted molecular pathology procedure"
-
 * reasonReference = Reference(Condition/related-Condition-GMTP-1)
 * subject = Reference(Patient/USCorePatient-GMTP-1)
 * occurrenceDateTime = "2023-12-15T19:32:52-05:00"
 * requester = Reference(Practitioner/requesting-provider-USCorePatient-GMTP-1)
 * performer = Reference(Organization/servicing-provider-GMTP-1)
 * authoredOn = "2023-11-29T19:32:52-05:00"
+* insurance = Reference(Coverage/coverage-GMTP-1)
+
+Instance: service-request-2-USCorePatient-GMTP-1
+InstanceOf: ServiceRequest
+Usage: #example
+* status = #active
+* intent = #order
+* subject = Reference(Patient/USCorePatient-GMTP-1)
+* code.coding[0] = $sct#405825005 "Molecular genetic test (procedure)"
+* code.coding[+] = $icd#Z13.89 " Encounter for screening for other disorder"
+* code.coding[+] = $cpt#81479 "Unlisted molecular pathology procedure"
+* reasonReference = Reference(Condition/related-Condition-GMTP-1)
+* subject = Reference(Patient/USCorePatient-GMTP-1)
+* occurrenceDateTime = "2023-12-10T19:32:52-05:00"
+* requester = Reference(Practitioner/requesting-provider-USCorePatient-GMTP-1)
+* performer = Reference(Organization/servicing-provider-GMTP-1)
+* authoredOn = "2023-11-10T19:32:52-05:00"
 * insurance = Reference(Coverage/coverage-GMTP-1)
 
   
@@ -232,10 +248,16 @@ Usage: #example
 Instance: coverage-GMTP-1
 InstanceOf: Coverage
 Usage: #example
+* identifier.type = $v2-0203#MB
+* identifier.value = "member-id-from-identifier-slice-USCorePatient-GMTP-1"
 * status = #active 
 * policyHolder = Reference(Patient/USCorePatient-GMTP-1) 
+* subscriber = Reference(Patient/USCorePatient-GMTP-1)
+* subscriberId = "subscriber-id-USCorePatient-GMTP-1"
 * beneficiary = Reference(Patient/USCorePatient-GMTP-1) 
-* payor = Reference(Organization/billing-provider-GMTP-1) // Reference to the billing provider as the payor
+* payor = Reference(Organization/billing-provider-GMTP-1) 
+
+
 
 Instance: research-subject-GMTP-1
 InstanceOf: ResearchSubject

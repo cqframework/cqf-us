@@ -13,7 +13,7 @@ code "Member Number": 'MB' from "Identifier Type"
 
 
 context Patient
-/*
+
 define "Humana ID": // Similar to Member ID from MBODA Initial expressions?
   singleton from
     (
@@ -27,7 +27,7 @@ define "Humana ID": // Similar to Member ID from MBODA Initial expressions?
     where "Member Number".code in valuesByTypes.type
     return valuesByTypes.value
     )
-*/
+
 define "Patient Name":
   UCE."Name - First Middle(s) Last"
 
@@ -37,24 +37,23 @@ define "Date of Birth":
 define "Phone Number":
   UC.Mobile(Patient.telecom).value
 
+// TODO: Error: Could not resolve data provider for package 'java.util'.
 /*
 define "Address":
    (singleton from Patient.address).line
 */
 
-define "Requesting Provider Practitioner"://assuming the requester is always a practitioner
+define "Requesting Provider Practitioner"://assuming the requester is a practitioner
   [PractitionerProfile] P
     where EndsWith("Most Recent ServiceRequest".requester.reference.value, P.id)
-/*  
+
+/*//if the requester is an Organization:
 define "Requesting Provider Organization":
   [OrganizationProfile] O
     where EndsWith("Most Recent ServiceRequest".requester.reference.value, O.id)
  */
    
 define "Requesting Provider":
-  /*if exists("Requesting Provider Organization") then
-    "Requesting Provider Organization"
-  else*/
    "Requesting Provider Practitioner"
   
   
@@ -88,6 +87,7 @@ define "Servicing Provider Name":
 define "Servicing Provider Phone":
   UC.Mobile("Servicing Provider".telecom).value
 
+// TODO: Error: Could not resolve data provider for package 'java.util'.
 /*
 define "Servicing Provider Address":
   (singleton from "Servicing Provider".address).line
@@ -106,14 +106,6 @@ define "Test Coverage":
 [FHIR.Coverage] C
 with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
 
-define "Test Coverage Payor (For testing)":
-  "Test Coverage".payor.reference.value
-
-define "Organization (For testing)":
-  [OrganizationProfile]
-
-define "FHIR Organization (For testing)":
-  [FHIR.Organization]
 
 define "Billing Provider":
  singleton from([OrganizationProfile] O
@@ -124,6 +116,8 @@ define "Billing Provider Name":
 
 define "Billing Provider Phone":
   UC.Mobile("Billing Provider".telecom).value
+
+// TODO: Error: Could not resolve data provider for package 'java.util'.
 /*
 define "Billing Provider Address":
   (singleton from "Billing Provider".address).line
@@ -155,8 +149,7 @@ define "Test ID":
   "Requested Test".coding.code.value 
 
 define "Test name":
-"Most Recent ServiceRequest" SR
-  return "Requested Test".coding.display.value 
+   "Requested Test".coding.display.value 
 
 define "ALL ICD and CPT Test Codes":
    "Test ICD Codes" union "Test CPT Codes" as List<FHIR.Coding>
@@ -180,7 +173,10 @@ define "Diagnosis Descriptions":
   "Test Related Condition".code.coding.display.value
 
 define "Billing Provider different from Servicing Provider":
-  "Billing Provider".id != "Servicing Provider".id
+  if "Billing Provider".id != "Servicing Provider".id then
+  'Yes'
+  else 
+  'No'
 
 define "Clinical Trial Organization":
   First([OrganizationProfile] O
@@ -189,8 +185,12 @@ define "Clinical Trial Organization":
 define "BillingProvider is Clinical Trial Organisation":
   "Billing Provider" = "Clinical Trial Organization"
 
+//TODO does not get populated properly
 define "Part of clinical trial":
- "Is Research Subject" and "BillingProvider is Clinical Trial Organisation"
+ if "Is Research Subject" and "BillingProvider is Clinical Trial Organisation" then
+ 'Yes'
+ else
+ 'No'
 
 define "Is Research Subject":
   exists("Research Subject")
@@ -205,20 +205,29 @@ define "All clinical Trials":
 define "Clinical Trial":
   [FHIR.ResearchStudy] R 
   with "Research Subject" S such that EndsWith(S.study.reference, R.id)
-  with  "Most Recent ServiceRequest" SR such that R.condition = "Test Related Condition".code
+  with  "Test Related Condition" C such that C.code in R.condition 
 
 define "Clinical Trial ID":
   "Clinical Trial".identifier C
   where C.system = 'https://clinicaltrials.gov'
   return C.value.value
 
-//TODO
+
+define function "GetServiceRequestReasonCondition"(S ServiceRequest):
+  [FHIR.Condition] C
+  with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
+  return C
+
+
 define "Previous genetic testing for condition":
-        "All ServiceRequests" S
-        where S.code = "Most Recent ServiceRequest".code
-        and S.id != "Most Recent ServiceRequest".id
-  
-   
+   from "All ServiceRequests" S,
+   "Most Recent ServiceRequest" SR 
+   where S.occurrence before SR.occurrence
+   and S.id != SR.id
+   and S.reasonReference = SR.reasonReference
+  return S.id.value
+         
+
 //define "Family history of genetic testing"
 //too general to prefill?
 

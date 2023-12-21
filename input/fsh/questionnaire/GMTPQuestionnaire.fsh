@@ -112,6 +112,7 @@ Usage: #example
     * insert QuestionnaireItemInitialExpression("Servicing Provider Fax")
     * insert QuestionnaireItem(#string, "servicing-provider|fax", "Fax")
 * item[+]
+  * insert QuestionnaireItemInitialExpression("Billing Provider different from Servicing Provider")
   * insert QuestionnaireItem(#choice, "billing-provider-question", "Is the billing provider/referring lab different from servicing provider?")
   * answerOption[+]
     * valueCoding.code = #Y
@@ -152,19 +153,19 @@ Usage: #example
     * insert QuestionnaireItemInitialExpression("Diagnosis Descriptions")
     * insert QuestionnaireItem(#string, "test-requested|diagnosis-description", "Diagnosis description")
   * item[+]
-    * insert QuestionnaireItemInitialExpression("Diagnosis ICD Codes")
+    * insert QuestionnaireItemInitialExpression("Test ICD Codes")
     * insert QuestionnaireItemRepeats(#open-choice, "test-requested|diagnosis-icd-code", "ICD-10 code(s\)")
     * repeats = true
     * answerValueSet = "http://hl7.org/fhir/sid/icd-10"
   * item[+]
-    * insert QuestionnaireItemInitialExpression("Diagnosis CPT Codes")
+    * insert QuestionnaireItemInitialExpression("Test CPT Codes")
     * insert QuestionnaireItemRepeats(#open-choice, "test-requested|diagnosis-cpt-code", "CPT code(s\)")
     * repeats = true
     * answerValueSet = "http://www.ama-assn.org/go/cpt"
 * item[+]
   * insert QuestionnaireItem(#group, "clinical-trial", "Clinical Trial Information")
   * item[+]     
-    * insert QuestionnaireItemInitialExpression("Clinical Trial ID")
+    * insert QuestionnaireItemInitialExpression("Part of clinical trial")
     * insert QuestionnaireItem(#choice, "clinical-trial-question", "Is the requested test part of a clinical trial?")
     * answerOption[+]
       * valueCoding.code = #Y
