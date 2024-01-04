@@ -160,12 +160,10 @@ Usage: #example
     * item[+]
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|drugs", "Drugs Requested with J-Code; if applicable")
       * repeats = true
-    * item[+]
-      * insert QuestionnaireItem(#string, "completing-form|drug-benefit|strength-route-frequency", "Strength/Route/Frequency")
-    * item[+]
+   * item[+]
+      * insert QuestionnaireItemInitialExpression("Unit Volume of Named Drugs")
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|unit-volume", "Unit/Volume of Named Drugs")
     * item[+]
-      * insert QuestionnaireItemInitialExpression("Start Date and Length")
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|start-length", "Start Date and Length of Therapy")
     * item[+]
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|location", "Location of Treatment e.g. provider office; facility; home health; etc. including name; Type 2 NPI if applicable; address and tax ID:")
@@ -179,14 +177,18 @@ Usage: #example
     * item[+]
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|drug-name", "Drug Name Brand Name and Scientific Name/Strength:")
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Dose")
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|dose", "Dose")
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Route")
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|route", "Route")
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Frequency")
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|frequency", "Frequency")
     * item[+]
       * insert QuestionnaireItem(#quantity, "completing-form|drug-benefit|quantity", "Quantity")
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Refill")
       * insert QuestionnaireItem(#integer, "completing-form|drug-benefit|refills", "Number of Refills")
     * item[+]
       * insert QuestionnaireItem(#choice, "completing-form|drug-benefit|delivery", "Product will be delivered to:")
@@ -201,5 +203,6 @@ Usage: #example
     * item[+]
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|pharmacy", "Dispensing Pharmacy Name and Phone Number:")
     * item[+]
+      * insert QuestionnaireItemInitialExpression("Today")
       * insert QuestionnaireItem(#date, "completing-form|drug-benefit|date", "Date")
 

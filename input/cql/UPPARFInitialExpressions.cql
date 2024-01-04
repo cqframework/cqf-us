@@ -156,6 +156,32 @@ define "ICD-10 Codes":
 define "Diagnosis Descriptions":
  "All Patients Confirmed Active Diagnosis".code.display
 
+define "Unit Volume of Named Drugs":
+"Dosage Value as String" + "Dosage Unit"
+
+define "Dose": 
+"Dosage Value as String"
+
+define "Route": 
+First("Most Recent Medication Request".dosageInstruction).route.display
+
+define "Frequency": 
+ ToString(First("Most Recent Medication Request".dosageInstruction).timing.repeat.frequency) + ' times per ' +
+ ToString(First("Most Recent Medication Request".dosageInstruction).timing.repeat.period) + 
+ First("Most Recent Medication Request".dosageInstruction).timing.repeat.periodUnit
+
+define "Refills": 
+"Most Recent Medication Request".dispenseRequest.numberOfRepeatsAllowed
+
+define "Today":
+Today()
+
+define "Dosage Value as String":
+  ToString(("Most Recent Medication Request".dosageInstruction.doseAndRate[0].dose as System.Quantity).value)
+
+define "Dosage Unit":
+  ("Most Recent Medication Request".dosageInstruction.doseAndRate[0].dose as System.Quantity).unit
+
 //helper definitions
 //TODO: medications are not necessarily a reference but could also be represented by a codeeable concept
 define "Most Recent Medication":
