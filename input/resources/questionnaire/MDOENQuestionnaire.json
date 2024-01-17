@@ -1,0 +1,235 @@
+{
+    "resourceType": "Questionnaire",
+    "id": "MDOENQuestionnaire",
+    "title": "Metabolic Disorders-Oral Enteral Nutrition Prior Authorization",
+    "status": "active",
+    "date": "2024-01-17T00:00:00+00:00",
+    "publisher": "Smile Digital Health",
+    "description": "A questionnaire for expedited prior authorization of metabolic formula for clients 20 years of age and younger.",
+    "item": [
+      {
+        "linkId": "client-info",
+        "text": "Client Information",
+        "type": "group",
+        "item": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Client Name"
+                }
+              }
+            ],
+            "linkId": "client-info|name",
+            "text": "Client name",
+            "type": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Client ID"
+                }
+              }
+            ],
+            "linkId": "client-info|id",
+            "text": "Client ID",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "linkId": "vendor-info",
+        "text": "Vendor Information",
+        "type": "group",
+        "item": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Vendor Name"
+                }
+              }
+            ],
+            "linkId": "vendor-info|name",
+            "text": "Vendor name",
+            "type": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Vendor NPI"
+                }
+              }
+            ],
+            "linkId": "vendor-info|npi",
+            "text": "Provider NPI",
+            "type": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Vendor Phone"
+                }
+              }
+            ],
+            "linkId": "vendor-info|phone",
+            "text": "Vendor telephone number",
+            "type": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Vendor Fax"
+                }
+              }
+            ],
+            "linkId": "vendor-info|fax",
+            "text": "Fax number",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "linkId": "service-request-info",
+        "text": "Service Request Information",
+        "type": "group",
+        "item": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Requested Metabolic Product"
+                }
+              }
+            ],
+            "linkId": "service-request-info|product",
+            "text": "Metabolic product requested",
+            "type": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Quantity of Metabolic Product"
+                }
+              }
+            ],
+            "linkId": "service-request-info|quantity",
+            "text": "Quantity in HCPCS units per day",
+            "type": "decimal"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "HCPCS code"
+                }
+              }
+            ],
+            "linkId": "service-request-info|hcpcs-code",
+            "text": "HCPCS code",
+            "type": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Diagnosis"
+                }
+              }
+            ],
+            "linkId": "service-request-info|diagnosis",
+            "text": "Medical diagnosis",
+            "type": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Diagnosis ICD-10 Code"
+                }
+              }
+            ],
+            "linkId": "service-request-info|icd-code",
+            "text": "ICD 10 code",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "linkId": "prescriber-info",
+        "text": "Prescribing Provider Information",
+        "type": "group",
+        "item": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Prescribing Provider Name"
+                }
+              }
+            ],
+            "linkId": "prescriber-info|name",
+            "text": "Prescribing provider name",
+            "type": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Prescribing Provider Phone"
+                }
+              }
+            ],
+            "linkId": "prescriber-info|phone",
+            "text": "Telephone number",
+            "type": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                "valueExpression": {
+                  "language": "text/cql-identifier",
+                  "expression": "Prescribing Provider NPI"
+                }
+              }
+            ],
+            "linkId": "prescriber-info|npi",
+            "text": "Provider NPI",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  }
