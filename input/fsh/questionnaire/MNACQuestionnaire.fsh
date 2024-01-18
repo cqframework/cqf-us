@@ -49,7 +49,7 @@ InstanceOf: Questionnaire
 Usage: #example
 * extension[+]
   * url = "http://hl7.org/fhir/StructureDefinition/cqf-library"
-  * valueCanonical = "http://fhir.org/guides/cqf/us/common/Library/MNACQuestionnaire"
+  * valueCanonical = "http://fhir.org/guides/cqf/us/common/Library/MNACInitialExpressions"
 * url = "http://fhir.org/guides/cqf/us/common/Questionnaire/MNACQuestionnaire"
 * version = "0.1.0"
 * name = "MNACQuestionnaire"

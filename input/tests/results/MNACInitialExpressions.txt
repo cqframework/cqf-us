@@ -1,0 +1,485 @@
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=null
+Client ID=null
+Patient Name=Chalmers
+
+
+Evaluation logs:
+10:25:08.405 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.096 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=null
+Client ID=null
+Patient Name=Chalmers
+
+
+Evaluation logs:
+10:25:44.489 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.097 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=null
+MRR=null
+Client ID=null
+Patient Name=Chalmers
+
+
+Evaluation logs:
+10:26:08.644 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.097 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+MRR=MedicationRequest(id=reference-nizatidine)
+Client ID=null
+Patient Name=Chalmers
+
+
+Evaluation logs:
+10:26:25.782 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.097 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+MRR=MedicationRequest(id=reference-nizatidine)
+Client ID=null
+Patient Name=Chalmers
+
+
+Evaluation logs:
+10:26:57.056 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.096 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=null
+Patient Name=Chalmers
+
+
+Evaluation logs:
+10:28:01.638 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.098 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+
+
+Evaluation logs:
+10:28:21.227 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.247 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+
+Evaluation logs:
+10:28:48.841 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+Translation of library MNACInitialExpressions failed with the following message: Syntax error
+elapsed: 0.098 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+
+Evaluation logs:
+10:38:33.241 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+Translation of library MNACInitialExpressions failed with the following message: Syntax error
+elapsed: 0.098 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+
+Evaluation logs:
+10:38:47.734 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+Translation of library MNACInitialExpressions failed with the following message: Syntax error
+elapsed: 0.097 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+
+Evaluation logs:
+10:39:05.809 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+Translation of library MNACInitialExpressions failed with the following message: Syntax error
+elapsed: 0.092 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+Diagnosis=null
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+All ServiceRequests=[]
+Most Recent ServiceRequest=null
+Test Related Condition=[]
+All related conditions=null
+
+
+Evaluation logs:
+10:40:00.869 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.095 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+Diagnosis=null
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+Test Related Condition=[Condition(id=related-Condition)]
+All related conditions=null
+
+
+Evaluation logs:
+10:42:16.724 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.095 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=[CodeableConcept]
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+
+
+Evaluation logs:
+10:43:23.547 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.108 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=[]
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+
+
+Evaluation logs:
+10:43:45.370 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.091 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=[Coding]
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+
+
+Evaluation logs:
+10:43:55.644 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.092 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=[code]
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+
+
+Evaluation logs:
+10:44:08.269 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.097 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=[]
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+
+
+Evaluation logs:
+10:44:42.317 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.098 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=[string]
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+
+
+Evaluation logs:
+10:45:16.147 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.094 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=[Type 2 diabetes mellitus with other diabetic arthropathy]
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+
+
+Evaluation logs:
+10:45:35.149 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.097 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=Type 2 diabetes mellitus with other diabetic arthropathy
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+
+
+Evaluation logs:
+10:46:07.473 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.094 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=Type 2 diabetes mellitus with other diabetic arthropathy
+Item Requested=null
+UTI in Last Year=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+UTI by Catheterization Past 12 Months=[]
+
+
+Evaluation logs:
+12:51:27.143 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.109 seconds
+
