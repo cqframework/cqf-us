@@ -26,6 +26,11 @@ RuleSet: QuestionnaireEnableWhenEqualsCoding(question, coding)
   * question = {question}
   * operator = #=
   * answerCoding = {coding}
+RuleSet: QuestionnaireEnableWhenEqualsBoolean(question)
+  * enableWhen[+]
+  * question = {question}
+  * operator = #=
+  * answerBoolean = true
 RuleSet: QuestionnaireUnitOption(code, display)
 * extension[+]
   * url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
@@ -90,22 +95,20 @@ Usage: #example
   * insert QuestionnaireItem(#group, "uti-history", "UTI History")
   * item[+]
     * insert QuestionnaireItemInitialExpression("UTI in Last Year")
-    * insert QuestionnaireItem(#choice, "uti-history|uti-last-year", "The patient has|had documented recurrent urinary tract infections while on a program of clean cathing\, twice within a 12 month period prior to beginning sterile cathing")
-    * answerOption[+]
-      * valueCoding.code = #Yes
-      * valueCoding.display = "Yes"
-    * answerOption[+]
-      * valueCoding.code = #No
-      * valueCoding.display = "No"
-    
+    * insert QuestionnaireItem(#boolean, "uti-history|uti-last-year", "The patient has|had documented recurrent urinary tract infections while on a program of clean cathing\, twice within a 12 month period prior to beginning sterile cathing")
+
+  * item[+]
+    * insert QuestionnaireItemInitialExpression("Lab Reports UTIs")
+    * insert QuestionnaireEnableWhenEqualsBoolean("uti-history|uti-last-year")
+    * insert QuestionnaireItemRepeats(#string, "uti-history|uti-reports", "Lab reports of UTIs in the last year")
   * item[+]
     * insert QuestionnaireItemInitialExpression("Dates of UTIs")
-    * insert QuestionnaireEnableWhenEqualsCoding("uti-history|uti-last-year", #true)
-    * insert QuestionnaireItem(#string, "uti-history|uti-dates", "Dates of UTIs in the last year")
+    * insert QuestionnaireEnableWhenEqualsBoolean("uti-history|uti-last-year")
+    * insert QuestionnaireItemRepeats(#string, "uti-history|uti-dates", "Dates of UTIs in the last year")
   * item[+]
     * insert QuestionnaireItemInitialExpression("Antibiotics Used")
-    * insert QuestionnaireEnableWhenEqualsCoding("uti-history|uti-last-year", #true)
-    * insert QuestionnaireItem(#string, "uti-history|antibiotics-used", "Antibiotics used for UTIs in the last year")
+    * insert QuestionnaireEnableWhenEqualsBoolean("uti-history|uti-last-year")
+    * insert QuestionnaireItemRepeats(#string, "uti-history|antibiotics-used", "Antibiotics used for UTIs in the last year")
 
 * item[+]
   * insert QuestionnaireItem(#group, "symptoms-info", "Symptoms Information")

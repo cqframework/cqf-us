@@ -38,10 +38,10 @@
       {
         "code": "T83.5",
         "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "display": "Infection and inflammatory reaction due to prosthetic device, implant and graft in urinary system"
+        "display": "UTI"
       }
     ],
-    "text": "Infection and inflammatory reaction due to prosthetic device, implant and graft in urinary system"
+    "text": "UTI"
   },
   "subject": {
     "reference": "Patient/example"
