@@ -1,0 +1,8 @@
+{
+  "http://hl7.org/fhir/sid/icd-10" : null,
+  "http://www.ama-assn.org/go/cpt" : null,
+  "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "vs-98fa353c-926f-4fed-8968-4bd7fa3338f7.json"
+  }
+}
