@@ -49,8 +49,15 @@ RuleSet: QuestionnaireItemSignatureRequired(code, display)
 Instance: MDOENQuestionnaire
 InstanceOf: Questionnaire
 Usage: #example
+* extension[+]
+  * url = "http://hl7.org/fhir/StructureDefinition/cqf-library"
+  * valueCanonical = "http://fhir.org/guides/cqf/us/common/Library/MDOENInitialExpressions"
+* url = "http://fhir.org/guides/cqf/us/common/Questionnaire/MDOENQuestionnaire"
+* version = "0.1.0"
+* name = "MDOENQuestionnaire"
 * title = "Metabolic Disorders-Oral Enteral Nutrition Prior Authorization"
 * status = #active
+* experimental = true
 * date = "2024-01-17T00:00:00+00:00"
 * publisher = "Smile Digital Health"
 * description = "A questionnaire for expedited prior authorization of metabolic formula for clients 20 years of age and younger."
@@ -96,7 +103,6 @@ Usage: #example
   * item[+]    
     * insert QuestionnaireItemInitialExpression("Diagnosis ICD-10 Code")
     * insert QuestionnaireItem(#string, "service-request-info|icd-code", "ICD 10 code")
-
 * item[+]
   * insert QuestionnaireItem(#group, "prescriber-info", "Prescribing Provider Information")
   * item[+]
