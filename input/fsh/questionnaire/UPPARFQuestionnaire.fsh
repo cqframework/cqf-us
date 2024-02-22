@@ -1,34 +1,3 @@
-RuleSet: QuestionnaireItem(type, linkId, text)
-* linkId = {linkId}
-* text = {text}
-* type = {type}
-RuleSet: QuestionnaireItemRepeats(type, linkId, text)
-* linkId = {linkId}
-* text = {text}
-* type = {type}
-* repeats = true
-RuleSet: QuestionnaireItemInitialExpression(expression)
-* extension[+]
-  * url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression"
-  * valueExpression
-    * language = #text/cql-identifier
-    * expression = {expression}
-RuleSet: QuestionnaireItemSignatureRequired(code, display)
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/questionnaire-signatureRequired"
-  * valueCoding
-    * system = "urn:iso-astm:E1762-95:2013"
-    * code = {code}
-    * display = {display}
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/questionnaire-usageMode"
-  * valueCode = #capture
-RuleSet: QuestionnaireEnableWhenBoolean(question, boolean)
-* enableWhen[+]
-  * question = {question}
-  * operator = #=
-  * answerBoolean = {boolean}
-
 Instance: UPPARFQuestionnaire
 InstanceOf: Questionnaire
 Usage: #example
@@ -160,7 +129,7 @@ Usage: #example
     * item[+]
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|drugs", "Drugs Requested with J-Code; if applicable")
       * repeats = true
-   * item[+]
+    * item[+]
       * insert QuestionnaireItemInitialExpression("Unit Volume of Named Drugs")
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|unit-volume", "Unit/Volume of Named Drugs")
     * item[+]
