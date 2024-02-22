@@ -1,66 +1,3 @@
-Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
-Alias: $v3-MaritalStatus = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus
-Alias: $v2-0131 = http://terminology.hl7.org/CodeSystem/v2-0131
-
-RuleSet: USCoreBirthSexExtension(valueCode)
-* extension[+]
-  * insert USCoreBirthSex
-  * insert USCoreBirthSexCode({valueCode})
-
-RuleSet: USCoreBirthSex
-* url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"
-
-RuleSet: USCoreBirthSexCode(valueCode)
-* valueCode = {valueCode}
-
-RuleSet: USCoreBirthTimeExtension2
-* extension
-  * url = "http://hl7.org/fhir/StructureDefinition/patient-birthTime"
-  * valueDateTime = "1974-12-25T14:35:45-05:00"
-  
-RuleSet: USCoreBirthTimeExtension(valueDateTime)
-* extension
-  * insert USCoreBirthTime
-  * insert USCoreBirthTimeValue({valueDateTime})
-
-RuleSet: USCoreBirthTime
-* url = "http://hl7.org/fhir/StructureDefinition/patient-birthTime"
-
-RuleSet: USCoreBirthTimeValue(valueDateTime)
-* valueDateTime = {valueDateTime}
-
-RuleSet: USCoreRace
-* url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
-
-RuleSet: USCoreEthnicity
-* url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
-
-RuleSet: USCoreRaceEthnicityCategory(code, display)
-* extension[+]
-  * url = "ombCategory"
-  * valueCoding = urn:oid:2.16.840.1.113883.6.238{code} {display}
-  
-RuleSet: USCoreRaceEthnicityDetailed(code, display)
-* extension[+]
-  * url = "detailed"
-  * valueCoding = urn:oid:2.16.840.1.113883.6.238{code} {display}
-  
-RuleSet: USCoreRaceEthnicityText(description)
-* extension[+]
-  * url = "text"
-  * valueString = {description}
-  
-RuleSet: USCorePhone(code, value)
-* system = #phone
-* value = {value}
-* use = {code}
-
-RuleSet: USCoreName(use, last, first)
-* use = {use}
-* family = {last}
-* given[+] = {first}
-
-
 Instance: USCorePatient-3
 InstanceOf: USCorePatientProfile
 Usage: #example
@@ -164,10 +101,7 @@ Usage: #example
  */ 
 // * managingOrganization = Reference(Organization/example)
 
-Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
-Alias: $loinc = http://loinc.org
-
-Instance: example-height
+Instance: USCorePatient-3-height
 InstanceOf: Observation
 Usage: #example
 * meta.profile[+] = "http://hl7.org/fhir/StructureDefinition/bodyheight"
@@ -178,7 +112,7 @@ Usage: #example
 * effectiveDateTime = "2023-02-28T00:00:00-00:00"
 //* category = $observation-category#vital-signs "Vital Signs"
 
-Instance: example-weight
+Instance: USCorePatient-3-weight
 InstanceOf: Observation
 Usage: #example
 * meta.profile[+] = "http://hl7.org/fhir/StructureDefinition/bodyweight"
@@ -209,10 +143,6 @@ Usage: #example
 * component[=].code.text = "Diastolic blood pressure"
 * component[=].valueQuantity = 44 'mm[Hg]' "mmHg"
 */
-
-Alias: $v3-ActCode = http://terminology.hl7.org/CodeSystems/v3-ActCode
-Alias: $v3-Participant = http://terminology.hl7.org/CodeSystem/v3-ParticipationType
-Alias: $cpt = http://www.ama-assn.org/go/cpt
 
 Instance: encounter-outpatient-USCorePatient-3
 InstanceOf: Encounter
@@ -252,12 +182,6 @@ Usage: #example
   * state = "NY"
   * postalCode = "114183135"
   * country = "US"
-  
-Alias: $condition-clinical = http://terminology.hl7.org/CodeSystem/condition-clinical
-Alias: $condition-ver-status = http://terminology.hl7.org/CodeSystem/condition-ver-status
-Alias: $condition-category = http://terminology.hl7.org/CodeSystem/condition-category
-Alias: $sct = http://snomed.info/sct
-Alias: $icd = http://hl7.org/fhir/sid/icd-10-cm
 
 Instance: condition-t2dm
 InstanceOf: Condition
@@ -272,15 +196,12 @@ Usage: #example
 * onsetDateTime = "2012-05-24T00:00:00+00:00"
 * recordedDate = "2012-05-24T00:00:00+00:00"
 
-Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
-
 /*Instance: uscore-med2
 InstanceOf: USCoreMedicationProfile
 Usage: #example
 * code = $rxnorm#92880 "Humulin N"
 * code.text = "Humulin N"
 */
-Alias: $dose-rate-type = http://terminology.hl7.org/CodeSystem/dose-rate-type
 
 Instance: MedRequest-insulin
 InstanceOf: MedicationRequest
