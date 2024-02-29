@@ -483,3 +483,1187 @@ Evaluation logs:
 12:51:27.143 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
 elapsed: 0.109 seconds
 
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+
+Evaluation logs:
+09:52:27.924 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+Translation of library MNACInitialExpressions failed with the following message: Could not resolve identifier USCore in the current library.
+elapsed: 0.151 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+
+Evaluation logs:
+09:52:40.434 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+Translation of library MNACInitialExpressions failed with the following message: Could not resolve identifier USCore in the current library.
+elapsed: 0.116 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[]
+
+
+Evaluation logs:
+12:38:37.156 [pool-2-thread-1] INFO  ca.uhn.fhir.util.VersionUtil - HAPI FHIR version 6.0.1 - Rev 2a70df1a11
+12:38:37.159 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+12:38:37.359 [pool-2-thread-1] INFO  ca.uhn.fhir.util.XmlUtil - Unable to determine StAX implementation: java.xml/META-INF/MANIFEST.MF not found
+12:38:37.533 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-resources.xml
+12:38:37.939 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-types.xml
+12:38:37.968 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-others.xml
+12:38:38.069 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/extension/extension-definitions.xml
+12:38:38.155 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 1.864 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[DiagnosticReport(id=note-example), DiagnosticReport(id=metabolic-panel), DiagnosticReport(id=cardiology-report), DiagnosticReport(id=urinalysis), DiagnosticReport(id=cbc), DiagnosticReport(id=example), DiagnosticReport(id=chest-xray-report)]
+
+
+Evaluation logs:
+12:39:34.750 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.202 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[]
+
+
+Evaluation logs:
+13:31:37.598 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.148 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[]
+
+
+Evaluation logs:
+13:33:27.148 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.124 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[null, [Coding]]
+
+
+Evaluation logs:
+13:34:42.133 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.115 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[null, [code]]
+
+
+Evaluation logs:
+13:34:52.420 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.104 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[null, [string]]
+
+
+Evaluation logs:
+13:35:04.970 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.113 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[null, [Abnormal urine (finding)]]
+
+
+Evaluation logs:
+13:35:12.846 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.106 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[]
+
+
+Evaluation logs:
+13:36:02.179 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.101 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[]
+
+
+Evaluation logs:
+13:38:10.671 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.113 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[]
+
+
+Evaluation logs:
+14:10:56.855 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.115 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[]
+
+
+Evaluation logs:
+14:11:05.915 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.103 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[]
+
+
+Evaluation logs:
+14:11:30.450 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.106 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[null, [Abnormal urine (finding)]]
+
+
+Evaluation logs:
+14:11:40.039 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.098 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[DiagnosticReport(id=urinalysis)]
+
+
+Evaluation logs:
+14:18:10.170 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.105 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[]
+
+
+Evaluation logs:
+14:19:26.430 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 0.101 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[[Attachment]]
+
+
+Evaluation logs:
+14:21:00.352 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:21:00.405 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected OBJECT and found SCALAR (STRING)
+elapsed: 0.108 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[Attachment]
+
+
+Evaluation logs:
+14:21:40.054 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:21:40.104 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected OBJECT and found SCALAR (STRING)
+elapsed: 0.1 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[Attachment]
+
+
+Evaluation logs:
+14:25:12.956 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:25:13.006 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.102 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[base64Binary]
+
+
+Evaluation logs:
+14:25:55.778 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:25:55.828 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.1 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[]
+
+
+Evaluation logs:
+14:37:47.028 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:37:47.076 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.114 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+Lab Reports UTIs=null
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+UTI Diagnostic Report Last Year=[Attachment]
+
+
+Evaluation logs:
+14:38:05.277 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:38:05.325 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.103 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+UTI Diagnostic Report Last Year=[DiagnosticReport(id=urinalysis)]
+Lab Reports UTIs=[Attachment]
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+
+
+Evaluation logs:
+14:39:45.444 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:39:45.492 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.099 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+UTI Diagnostic Report Last Year=[DiagnosticReport(id=urinalysis), DiagnosticReport(id=urinalysis)]
+Lab Reports UTIs=[Attachment]
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+
+
+Evaluation logs:
+14:40:30.426 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:40:30.476 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+14:40:30.478 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.105 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+UTI Diagnostic Report Last Year=[DiagnosticReport(id=urinalysis), DiagnosticReport(id=urinalysis)]
+Lab Reports UTIs=[[Attachment]]
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+
+
+Evaluation logs:
+14:41:11.521 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:41:11.569 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+14:41:11.571 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.099 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+
+Evaluation logs:
+14:41:53.076 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:41:53.126 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+14:41:53.128 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+Translation of library MNACInitialExpressions failed with the following message: Could not resolve identifier UTI Diagnostic Report Last Year in the current library.
+elapsed: 0.098 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+UTI Diagnostic Reports Last Year=[DiagnosticReport(id=urinalysis), DiagnosticReport(id=urinalysis)]
+Lab Reports UTIs=[[Attachment]]
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+
+
+Evaluation logs:
+14:42:46.524 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:42:46.571 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+14:42:46.573 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.102 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+UTI Diagnostic Reports Last Year=[DiagnosticReport(id=urinalysis-xy), DiagnosticReport(id=urinalysis)]
+Lab Reports UTIs=[[Attachment]]
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+
+
+Evaluation logs:
+14:43:34.631 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:43:34.680 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+14:43:34.680 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.101 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+UTI Diagnostic Reports Last Year=[DiagnosticReport(id=urinalysis-xy), DiagnosticReport(id=urinalysis)]
+Lab Reports UTIs=[Attachment, Attachment]
+Dates of UTIs=null
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+
+
+Evaluation logs:
+14:44:17.903 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:44:17.952 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+14:44:17.952 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.099 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+UTI Diagnostic Reports Last Year=[DiagnosticReport(id=urinalysis-xy), DiagnosticReport(id=urinalysis)]
+Lab Reports UTIs=[Attachment, Attachment]
+Dates of UTIs=[dateTime, dateTime]
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+
+
+Evaluation logs:
+14:44:35.667 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:44:35.714 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+14:44:35.714 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.099 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI in Last Year=null
+UTI Diagnostic Reports Last Year=[DiagnosticReport(id=urinalysis-xy), DiagnosticReport(id=urinalysis)]
+Lab Reports UTIs=[Attachment, Attachment]
+Dates of UTIs=[2023-07-05, 2023-07-05]
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+
+
+Evaluation logs:
+14:44:52.580 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:44:52.628 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+14:44:52.629 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.1 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI Diagnostic Reports Last Year=[DiagnosticReport(id=urinalysis-xy), DiagnosticReport(id=urinalysis)]
+UTI in Last Year=true
+Lab Reports UTIs=[Attachment, Attachment]
+Dates of UTIs=[2023-07-05, 2023-07-05]
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+
+
+Evaluation logs:
+14:45:22.670 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:45:22.717 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+14:45:22.717 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.099 seconds
+
+Executing CQL...
+CQL path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/cql
+Data path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /Users/anna/Documents/MBI/Forschung/cql/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+Date of Request=2023-04-05T00:00:00.000
+Client ID=member-id-from-identifier-slice-example-patient
+Patient Name=Chalmers
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=null
+UTI Diagnostic Reports Last Year=[]
+UTI in Last Year=false
+Lab Reports UTIs=[]
+Dates of UTIs=[]
+Antibiotics Used=null
+Check Symptoms=null
+Fever Temperature=null
+Catheterization Frequency=null
+Additional Comment=null
+Physician’s Name=null
+Physician’s Telephone=null
+Physician’s Fax=null
+Referring Physician’s Telephone=null
+Date=null
+SR Condition Coding=false
+UTI by Catheterization Past 12 Months=false
+
+
+Evaluation logs:
+14:45:36.340 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:45:36.386 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+14:45:36.387 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.097 seconds
+

@@ -20,7 +20,7 @@ code "Abnormal Urine Finding": '102866000' from "SNOMED CT"
 context Patient
 
 define "Date of Request":
-UCE."Most Recent Medication Request".authoredOn
+"Most Recent ServiceRequest".authoredOn
 
 //assuming that client id is the coverage member id
 define "Client ID":
@@ -44,8 +44,7 @@ define "Diagnosis":
 First("SR Related Condition".code).text.value
 
 define "Item Requested":
-null
-//Service Request?
+"Most Recent ServiceRequest".code.coding.display.value
 
 define "UTI in Last Year":
 Exists("UTI Diagnostic Reports Last Year")
@@ -56,38 +55,37 @@ define "Lab Reports UTIs":
 define "Dates of UTIs":
 "UTI Diagnostic Reports Last Year".effective.value
 
+//TODO: create example MedicationStatement
 define "Antibiotics Used":
 [FHIR.MedicationStatement] MS
-//TODO
-//where MS.reasonReference in "UTI Diagnostic Reports Last Year"
-//MedicationStatement with reasonReference DiagnosticReport
+where First(MS.reasonReference.reference) in "UTI Diagnostic Reports Last Year".id
 
 define "Check Symptoms":
-null
+'TBD'
 
 define "Fever Temperature":
-null
+'TBD'
 
 define "Catheterization Frequency":
-null
+'TBD'
 
 define "Additional Comment":
-null
+'TBD'
 
 define "Physician’s Name":
-null
+"Requesting Physician".name.family 
 
 define "Physician’s Telephone":
-null
+UC.Mobile("Requesting Physician".telecom).value
 
 define "Physician’s Fax":
-null
+Fax("Requesting Physician".telecom).value
 
 define "Referring Physician’s Telephone":
-null
+'TBD'
 
 define "Date":
-null
+Today()
 
 //helper definitions
 define "All ServiceRequests":
@@ -99,14 +97,16 @@ define "Most Recent ServiceRequest":
 define "SR Related Condition":
   [FHIR.Condition] C
   where EndsWith(First("Most Recent ServiceRequest".reasonReference.reference.value), C.id)
-  
-define "SR Condition Coding":
-"UTI" in "SR Related Condition".code.coding
-
-define "UTI by Catheterization Past 12 Months":
- "UTI" in "SR Related Condition".code.coding
 
 define "UTI Diagnostic Reports Last Year":
   [FHIR.DiagnosticReport] C
   where "Abnormal Urine Finding".code in C.conclusionCode.coding.code
   and C.effective	> (Today() - 1 year)
+
+define "Requesting Physician":
+singleton from (
+  [USCore.PractitionerProfile] P
+where EndsWith("Most Recent ServiceRequest".requester.reference, P.id))
+
+define function Fax(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.system = 'fax')
