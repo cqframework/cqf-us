@@ -4,10 +4,10 @@
     "extension": [
       {
         "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
-        "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/MNACQuestionnaire"
+        "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/MNACInitialExpressions"
       }
     ],
-    "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/MNACQuestionnaire",
+    "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/MBODAQuestionnaire",
     "version": "0.1.0",
     "name": "MNACQuestionnaire",
     "title": "Medical Necessity For Authorization Of Catheters",
@@ -390,7 +390,7 @@
                 }
               }
             ],
-            "linkId": "physician-info|phone",
+            "linkId": "physician-info|mobile",
             "text": "Telephone",
             "type": "string"
           },
@@ -423,7 +423,7 @@
                 }
               }
             ],
-            "linkId": "physician-info|phone",
+            "linkId": "physician-info|phone-referring",
             "text": "Referring Physician Telephone",
             "type": "string"
           },
