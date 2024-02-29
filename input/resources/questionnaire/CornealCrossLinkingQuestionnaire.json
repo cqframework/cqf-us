@@ -1,0 +1,464 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "CornealCrossLinkingQuestionnaire",
+  "url": "http://example.org/fhir/Questionnaire/CornealCrossLinkingQuestionnaire",
+  "name": "CornealCrossLinkingQuestionnaire",
+  "title": "Corneal Cross-linking Prior Authorization Form",
+  "status": "active",
+  "experimental": true,
+  "date": "2024-02-29",
+  "publisher": "Smile Digital Health",
+  "item": [
+    {
+      "linkId": "clinician-info",
+      "text": "To be completed by clinician",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Contact name"
+              }
+            }
+          ],
+          "linkId": "clinician-info|contact-name",
+          "text": "Contact name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Phone number"
+              }
+            }
+          ],
+          "linkId": "clinician-info|phone-number",
+          "text": "Phone number xxx-xxx-xxxx",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Fax number"
+              }
+            }
+          ],
+          "linkId": "clinician-info|fax-number",
+          "text": "Fax number xxx-xxx-xxxx",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Provider name"
+              }
+            }
+          ],
+          "linkId": "clinician-info|provider-name",
+          "text": "Provider name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Provider NPI number"
+              }
+            }
+          ],
+          "linkId": "clinician-info|provider-npi",
+          "text": "Provider NPI number",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Clinician contact"
+              }
+            }
+          ],
+          "linkId": "clinician-info|contact",
+          "text": "Clinician contact",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Clinician phone number"
+              }
+            }
+          ],
+          "linkId": "clinician-info|phone",
+          "text": "Clinician phone number xxx-xxx-xxxx",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Clinician fax number"
+              }
+            }
+          ],
+          "linkId": "clinician-info|fax",
+          "text": "Clinician fax number xxx-xxx-xxxx",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Client name"
+              }
+            }
+          ],
+          "linkId": "clinician-info|client-name",
+          "text": "Client name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Client ID"
+              }
+            }
+          ],
+          "linkId": "clinician-info|client-id",
+          "text": "Client ID",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "corneal-info",
+      "text": "Corneal Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Is the patient pregnant?"
+              }
+            }
+          ],
+          "linkId": "corneal-info|patient-pregnant",
+          "text": "Is the patient pregnant?",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "yes",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "no",
+                "display": "No"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "na",
+                "display": "N/A"
+              }
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Corneal thickness"
+              }
+            }
+          ],
+          "linkId": "corneal-info|corneal-thickness",
+          "text": "Corneal thickness at thinnest point - microns",
+          "type": "decimal"
+        },
+        {
+          "linkId": "corneal-info|visual-acuity-os",
+          "text": "Best corrected visual acuity OS",
+          "type": "decimal",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Best corrected visual acuity OS in LogMAR"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "corneal-info|visual-acuity-od",
+          "text": "Best corrected visual acuity OD",
+          "type": "decimal",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Best corrected visual acuity OD in LogMAR"
+              }
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Keratometry increase in last 12 months"
+              }
+            }
+          ],
+          "linkId": "corneal-info|keratometry-increase",
+          "text": "In the last 12 mo has the patient had an increase of 1 diopter or more in the steepest keratometry measurement?",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "yes",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "no",
+                "display": "No"
+              }
+            }
+          ],
+          "item": [
+            {
+              "enableWhen": [
+                {
+                  "question": "corneal-info|keratometry-increase",
+                  "operator": "=",
+                  "answerCoding": {
+                    "code": "yes"
+                  }
+                }
+              ],
+              "linkId": "corneal-info|keratometry-increases",
+              "text": "Keratometry Increases",
+              "type": "group",
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                      "valueExpression": {
+                        "language": "text/cql-identifier",
+                        "expression": "Date of keratometry increase"
+                      }
+                    }
+                  ],
+                  "linkId": "corneal-info|keratometry-increases|date",
+                  "text": "Date of increase",
+                  "type": "date"
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                      "valueExpression": {
+                        "language": "text/cql-identifier",
+                        "expression": "Diopter measurement of keratometry increase"
+                      }
+                    }
+                  ],
+                  "linkId": "corneal-info|keratometry-increases|diopter",
+                  "text": "Diopter measurement",
+                  "type": "decimal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Astigmatism increase in last 12 months"
+              }
+            }
+          ],
+          "linkId": "corneal-info|astigmatism-increase",
+          "text": "In last 12 mo has the patient had an increase of 1 diopter or more in astigmatism?",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "yes",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "no",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "enableWhen": [
+            {
+              "question": "corneal-info|astigmatism-increase",
+              "operator": "=",
+              "answerCoding": {
+                "code": "yes"
+              }
+            }
+          ],
+          "linkId": "corneal-info|astigmatism-increases",
+          "text": "Astigmatism Increases",
+          "type": "group",
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "Date of astigmatism increase"
+                  }
+                }
+              ],
+              "linkId": "corneal-info|astigmatism-increases|date",
+              "text": "Date of increase",
+              "type": "date"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "Diopter measurement of astigmatism increase"
+                  }
+                }
+              ],
+              "linkId": "corneal-info|astigmatism-increases|diopter",
+              "text": "Diopter measurement",
+              "type": "decimal"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Myopic shift in last 12 months"
+              }
+            }
+          ],
+          "linkId": "corneal-info|myopic-shift",
+          "text": "In last 12 mo has the patient had a myopic shift of 0.5 diopter on subjective manifest refraction?",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "yes",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "no",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "enableWhen": [
+            {
+              "question": "corneal-info|myopic-shift",
+              "operator": "=",
+              "answerCoding": {
+                "code": "yes"
+              }
+            }
+          ],
+          "linkId": "corneal-info|myopic-shifts",
+          "text": "Myopic Shifts",
+          "type": "group",
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "Date of myopic shift"
+                  }
+                }
+              ],
+              "linkId": "corneal-info|myopic-shifts|date",
+              "text": "Date of shift",
+              "type": "date"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "Diopter measurement of myopic shift"
+                  }
+                }
+              ],
+              "linkId": "corneal-info|myopic-shifts|diopter",
+              "text": "Diopter measurement",
+              "type": "decimal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

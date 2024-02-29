@@ -1,0 +1,462 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "PharmacyQuestionnaire",
+  "url": "http://example.org/fhir/Questionnaire/PharmacyPriorAuth",
+  "name": "PharmacyPriorAuthQuestionnaire",
+  "title": "Pharmacy Prior Authorization Form",
+  "status": "draft",
+  "date": "2024-02-15",
+  "publisher": "Smile Digital Health",
+  "description": "A questionnaire representing a pharmacy prior authorization form.",
+  "item": [
+    {
+      "linkId": "general-info",
+      "text": "General Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Organization"
+              }
+            }
+          ],
+          "linkId": "general-info|org",
+          "text": "Org",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "AuthorizationType"
+              }
+            }
+          ],
+          "linkId": "general-info|auth-type",
+          "text": "Authorization Type",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "client-info",
+      "text": "Client Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Client Name"
+              }
+            }
+          ],
+          "linkId": "client-info|name",
+          "text": "Name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Client ID"
+              }
+            }
+          ],
+          "linkId": "client-info|client-id",
+          "text": "Client ID",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Reference Authorization Number"
+              }
+            }
+          ],
+          "linkId": "client-info|reference-auth",
+          "text": "Reference Auth #",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "provider-info",
+      "text": "Provider Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Pharmacy NPI"
+              }
+            }
+          ],
+          "linkId": "provider-info|pharmacy-npi",
+          "text": "Pharmacy NPI #",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Prescriber NPI"
+              }
+            }
+          ],
+          "linkId": "provider-info|prescriber-npi",
+          "text": "Prescriber NPI #",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Pharmacy Fax Number"
+              }
+            }
+          ],
+          "linkId": "provider-info|pharmacy-fax",
+          "text": "Pharmacy Fax #",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Prescriber Specialty"
+              }
+            }
+          ],
+          "linkId": "provider-info|prescriber-specialty",
+          "text": "Prescriber Specialty",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Prescriber Phone Number"
+              }
+            }
+          ],
+          "linkId": "provider-info|prescriber-phone",
+          "text": "Prescriber Phone #",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Prescriber Fax Number"
+              }
+            }
+          ],
+          "linkId": "provider-info|prescriber-fax",
+          "text": "Prescriber Fax #",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Date Of Fill"
+              }
+            }
+          ],
+          "linkId": "provider-info|date-of-fill",
+          "text": "Date of Fill:",
+          "type": "date"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Dispense As Written"
+              }
+            }
+          ],
+          "linkId": "service-request-info|dispense-as-written",
+          "text": "Dispense as Written Yes/No",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "Yes",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "No",
+                "display": "No"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "service-request-info",
+      "text": "Service Request Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Drug Name Strength And Form"
+              }
+            }
+          ],
+          "linkId": "service-request-info|drug-name-strength-form",
+          "text": "Drug Name, Strength and Form:",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Actual Per Unit Cost"
+              }
+            }
+          ],
+          "linkId": "service-request-info|actual-per-unit-cost",
+          "text": "Actual per unit cost",
+          "type": "decimal"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "AWP Per Unit Cost"
+              }
+            }
+          ],
+          "linkId": "service-request-info|awp-per-unit-cost",
+          "text": "AWP per unit cost",
+          "type": "decimal"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Wholesaler"
+              }
+            }
+          ],
+          "linkId": "service-request-info|wholesaler",
+          "text": "Wholesaler",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Prescription Number"
+              }
+            }
+          ],
+          "linkId": "service-request-info|rx-number",
+          "text": "RX#",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "service-request-info-repeat",
+      "text": "Service Request Information",
+      "type": "group",
+      "repeats": true,
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Code Qualifier"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|code-qualifier",
+          "text": "Code Qualifier",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Product ID"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|product-id",
+          "text": "Product ID",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Quantity"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|quantity",
+          "text": "Qty",
+          "type": "integer"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Days Supply"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|days-supply",
+          "text": "Days Supply",
+          "type": "integer"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Directions For Use"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|directions-for-use",
+          "text": "Directions for Use SIG",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Product Selection Code"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|product-selection-code",
+          "text": "Prod Select Cd",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "medical-info",
+      "text": "Medical Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Diagnosis Code"
+              }
+            }
+          ],
+          "linkId": "medical-info|diagnosis-code",
+          "text": "Diagnosis Code",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Diagnosis Name"
+              }
+            }
+          ],
+          "linkId": "medical-info|diagnosis-name",
+          "text": "Diagnosis name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Patient Residence"
+              }
+            }
+          ],
+          "linkId": "medical-info|patient-residence",
+          "text": "Patient Residence",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Comments"
+              }
+            }
+          ],
+          "linkId": "medical-info|comments",
+          "text": "Comments:",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}

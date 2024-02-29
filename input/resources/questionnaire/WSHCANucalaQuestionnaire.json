@@ -1,0 +1,643 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "NucalaQuestionnaire",
+  "title": "Nucala (mepolizumab) Request Form",
+  "status": "draft",
+  "date": "2024-02-29",
+  "publisher": "Smile Digital Health",
+  "item": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Date of Request"
+          }
+        }
+      ],
+      "linkId": "date-of-request",
+      "text": "Date of Request",
+      "type": "date"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Patient Name"
+          }
+        }
+      ],
+      "linkId": "patient-name",
+      "text": "Patient Name",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Date of Birth"
+          }
+        }
+      ],
+      "linkId": "patient-dob",
+      "text": "Date of Birth",
+      "type": "date"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "ProviderOne Client ID"
+          }
+        }
+      ],
+      "linkId": "providerone-client-id",
+      "text": "ProviderOne Client ID",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Prescriber Name"
+          }
+        }
+      ],
+      "linkId": "prescriber-name",
+      "text": "Prescriber Name",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Billing Provider NPI Number"
+          }
+        }
+      ],
+      "linkId": "billing-provider-npi",
+      "text": "Billing Provider NPI Number",
+      "type": "integer"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Telephone Number"
+          }
+        }
+      ],
+      "linkId": "prescriber-phone",
+      "text": "Telephone Number",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Fax Number"
+          }
+        }
+      ],
+      "linkId": "prescriber-fax",
+      "text": "Fax Number",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Medication Details"
+          }
+        }
+      ],
+      "linkId": "medication-details",
+      "text": "Drug/Strength/Dose/Frequency",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Diagnosed with Severe Asthma"
+          }
+        }
+      ],
+      "linkId": "diagnosed-with-severe-asthma",
+      "text": "Is patient diagnosed with severe asthma?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "no",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Eosinophilic Phenotype"
+          }
+        }
+      ],
+      "linkId": "eosinophilic-phenotype",
+      "text": "If yes, is the asthma diagnosis the eosinophilic phenotype?",
+      "type": "choice",
+      "enableWhen": [
+        {
+          "question": "diagnosed-with-severe-asthma",
+          "operator": "=",
+          "answerCoding": {
+            "code": "yes"
+          }
+        }
+      ],
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "no",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Other Diagnosis"
+          }
+        }
+      ],
+      "linkId": "other-diagnosis",
+      "text": "If no, what is patient’s diagnosis?",
+      "type": "string",
+      "enableWhen": [
+        {
+          "question": "diagnosed-with-severe-asthma",
+          "operator": "=",
+          "answerCoding": {
+            "code": "no"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Eosinophil Count ≥ 150"
+          }
+        }
+      ],
+      "linkId": "eosinophil-count-150",
+      "text": "Blood eosinophil count ≥ 150 cells/μL in the past 6 weeks?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "no",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Eosinophil Count ≥ 300"
+          }
+        }
+      ],
+      "linkId": "eosinophil-count-300",
+      "text": "Blood eosinophil count ≥ 300 cells/μL in the past 12 months?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "no",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "High-Dose Corticosteroid Use"
+          }
+        }
+      ],
+      "linkId": "high-dose-corticosteroid-use",
+      "text": "Is patient using a high-dose inhaled corticosteroid and additional controllers?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "no",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Inhaled Corticosteroid Strength"
+          }
+        }
+      ],
+      "linkId": "inhaled-corticosteroid-strength",
+      "text": "Which inhaled corticosteroid and strength was used?",
+      "type": "string",
+      "enableWhen": [
+        {
+          "question": "high-dose-corticosteroid-use",
+          "operator": "=",
+          "answerCoding": {
+            "code": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Symptomatic after Regular Inhaled Corticosteroid Use"
+          }
+        }
+      ],
+      "linkId": "symptomatic-after-regular-use",
+      "text": "Did patient remain symptomatic after 2-6 weeks of regular use?",
+      "type": "choice",
+      "enableWhen": [
+        {
+          "question": "high-dose-corticosteroid-use",
+          "operator": "=",
+          "answerCoding": {
+            "code": "yes"
+          }
+        }
+      ],
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "no",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "2 or more exacerbations in past 12 months despite regular inhaled Corticosteroid use"
+          }
+        }
+      ],
+      "linkId": "exacerbations-in-past-year",
+      "text": "Has patient had 2 or more exacerbations in past 12 months despite regular use?",
+      "type": "choice",
+      "enableWhen": [
+        {
+          "question": "high-dose-corticosteroid-use",
+          "operator": "=",
+          "answerCoding": {
+            "code": "yes"
+          }
+        }
+      ],
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "no",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "vaccinated-against-varicella",
+      "text": "Has patient been vaccinated against varicella zoster virus - shingles?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "no",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Reason for no vaccination"
+          }
+        }
+      ],
+      "linkId": "reason-for-no-vaccination",
+      "text": "If no, please provide a reason:",
+      "type": "string",
+      "enableWhen": [
+        {
+          "question": "vaccinated-against-varicella",
+          "operator": "=",
+          "answerCoding": {
+            "code": "no"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Taking Xolair or Cinqair concurrently with Nucala"
+          }
+        }
+      ],
+      "linkId": "taking-xolair-or-cinqair",
+      "text": "Will patient be taking Xolair - omalizumab - or Cinqair - reslizumab - concurrently with Nucala - mepolizumab?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "no",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "already-taking-nucala",
+      "text": "For patients who have already been taking Nucala - mepolizumab:",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Decreased Use of Rescue Medications"
+              }
+            }
+          ],
+          "linkId": "already-taking-nucala|improvement-with-nucala-rescue-medications",
+          "text": "Decreased use of rescue medications?",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "yes",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "no",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Decreased Frequency of Exacerbations"
+              }
+            }
+          ],
+          "linkId": "already-taking-nucala|improvement-with-nucala-exacerbations",
+          "text": "Decreased frequency of exacerbations?",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "yes",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "no",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Increased FEV1%"
+              }
+            }
+          ],
+          "linkId": "already-taking-nucala|improvement-with-nucala-fev1",
+          "text": "Increased FEV1% to at least 70% predicted FEV1%?",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "yes",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "no",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Signs of Anaphylaxis"
+              }
+            }
+          ],
+          "linkId": "already-taking-nucala|anaphylaxis-during-treatment",
+          "text": "Did patient show any signs of anaphylaxis during treatment?",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "yes",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "no",
+                "display": "No"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "chart-notes",
+      "text": "Chart Notes",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Prescriber's Signature"
+              }
+            }
+          ],
+          "linkId": "chart-notes|prescriber-signature",
+          "text": "Prescriber's Signature",
+          "type": "attachment"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Prescriber's Specialty"
+              }
+            }
+          ],
+          "linkId": "chart-notes|prescriber-specialty",
+          "text": "Prescriber's Specialty",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Signature Date"
+              }
+            }
+          ],
+          "linkId": "chart-notes|signature-date",
+          "text": "Date",
+          "type": "date"
+        }
+      ]
+    }
+  ]
+}

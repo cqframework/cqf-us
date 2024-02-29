@@ -1,0 +1,420 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "WSHCAGeneralInformationQuestionnaire",
+  "url": "http://example.org/fhir/Questionnaire/GeneralInformationQuestionnaire",
+  "name": "WSHCAGeneralInformationQuestionnaire",
+  "title": "General Information for Authorization",
+  "status": "draft",
+  "date": "2024-02-15",
+  "publisher": "Smile Digital Health",
+  "description": "A questionnaire representing a general information prior authorization form.",
+  "item": [
+    {
+      "linkId": "general-info",
+      "text": "General Information for Authorization",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Organization"
+              }
+            }
+          ],
+          "linkId": "general-info|org",
+          "text": "Org",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Service Type"
+              }
+            }
+          ],
+          "linkId": "general-info|service-type",
+          "text": "Service Type",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "client-info",
+      "text": "Client Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Client Name"
+              }
+            }
+          ],
+          "linkId": "client-info|name",
+          "text": "Name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Client ID"
+              }
+            }
+          ],
+          "linkId": "client-info|client-id",
+          "text": "Client ID",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Living Arrangements"
+              }
+            }
+          ],
+          "linkId": "client-info|living-arrangements",
+          "text": "Living Arrangements",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Reference Authorization Number"
+              }
+            }
+          ],
+          "linkId": "client-info|reference-auth",
+          "text": "Reference Auth #",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "linkId": "provider-info",
+      "text": "Provider Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Requesting NPI"
+              }
+            }
+          ],
+          "linkId": "provider-info|requesting-npi",
+          "text": "Requesting NPI #",
+          "type": "integer"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Billing NPI"
+              }
+            }
+          ],
+          "linkId": "provider-info|billing-npi",
+          "text": "Billing NPI #",
+          "type": "integer"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Referring NPI"
+              }
+            }
+          ],
+          "linkId": "provider-info|referring-npi",
+          "text": "Referring NPI #",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Requesting Fax Number"
+              }
+            }
+          ],
+          "linkId": "provider-info|requesting-fax",
+          "text": "Requesting Fax #",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Provider Name"
+              }
+            }
+          ],
+          "linkId": "provider-info|name",
+          "text": "Name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Referring Fax Number"
+              }
+            }
+          ],
+          "linkId": "provider-info|referring-fax",
+          "text": "Referring Fax #",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Service Start Date"
+              }
+            }
+          ],
+          "linkId": "provider-info|service-start-date",
+          "text": "Service Start Date",
+          "type": "date"
+        }
+      ]
+    },
+    {
+      "linkId": "service-request-info",
+      "text": "Service Request Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Description of Service"
+              }
+            }
+          ],
+          "linkId": "service-request-info|description-of-service",
+          "text": "Description of service being requested",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Serial Number or MEA Number"
+              }
+            }
+          ],
+          "linkId": "service-request-info|serial-mea-number",
+          "text": "Serial/NEA or MEA #",
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "linkId": "service-request-info-repeat",
+      "text": "Service Request Information",
+      "type": "group",
+      "repeats": true,
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Code Qualifier"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|code-qualifier",
+          "text": "Code Qualifier",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "National Code"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|national-code",
+          "text": "National Code",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Modifier"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|mod",
+          "text": "Mod",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Units or Days Requested"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|units-days-requested",
+          "text": "# Units/Days Requested",
+          "type": "integer"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Dollar Amount Requested"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|amount-requested",
+          "text": "$ Amount Requested",
+          "type": "decimal"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Part Number"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|part-number",
+          "text": "Part # - DME Only",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Tooth or Quadrant Number"
+              }
+            }
+          ],
+          "linkId": "service-request-info-repeat|tooth-quad-number",
+          "text": "Tooth or Quad #",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "medical-info",
+      "text": "Medical Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Diagnosis Code"
+              }
+            }
+          ],
+          "linkId": "medical-info|diagnosis-code",
+          "text": "Diagnosis Code",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Diagnosis Name"
+              }
+            }
+          ],
+          "linkId": "medical-info|diagnosis-name",
+          "text": "Diagnosis name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Place of Service Code"
+              }
+            }
+          ],
+          "linkId": "medical-info|place-of-service-code",
+          "text": "Place of Service Code",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Comments"
+              }
+            }
+          ],
+          "linkId": "medical-info|comments",
+          "text": "Comments:",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}

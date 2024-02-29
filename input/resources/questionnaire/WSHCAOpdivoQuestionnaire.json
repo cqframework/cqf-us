@@ -1,0 +1,370 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "OpdivoQuestionnaire",
+  "title": "Opdivo (nivolumab) Request Form",
+  "status": "draft",
+  "date": "2024-02-22",
+  "publisher": "Smile Digital Health",
+  "item": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Date of Request"
+          }
+        }
+      ],
+      "linkId": "date-of-request",
+      "text": "Date of Request",
+      "type": "dateTime"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Patient Name"
+          }
+        }
+      ],
+      "linkId": "patient-name",
+      "text": "Patient Name",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Patient Date of Birth"
+          }
+        }
+      ],
+      "linkId": "patient-dob",
+      "text": "Patient Date of Birth",
+      "type": "date"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "ProviderOne Client ID"
+          }
+        }
+      ],
+      "linkId": "providerone-client-id",
+      "text": "ProviderOne Client ID",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Prescriber Name"
+          }
+        }
+      ],
+      "linkId": "prescriber-name",
+      "text": "Prescriber Name",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Billing Provider NPI Number"
+          }
+        }
+      ],
+      "linkId": "billing-provider-npi",
+      "text": "Billing Provider NPI Number",
+      "type": "integer"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Telephone Number"
+          }
+        }
+      ],
+      "linkId": "telephone-number",
+      "text": "Telephone Number",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Fax Number"
+          }
+        }
+      ],
+      "linkId": "fax-number",
+      "text": "Fax Number",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Drug/Strength/Dose/Frequency"
+          }
+        }
+      ],
+      "linkId": "drug-strength-dose-frequency",
+      "text": "Drug/Strength/Dose/Frequency",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Patient’s diagnosis"
+          }
+        }
+      ],
+      "linkId": "patient-diagnosis",
+      "text": "What is patient’s diagnosis?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "MetasticMelanoma",
+            "display": "Metastic Melanoma"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "MetasticNSCLC",
+            "display": "Metastic non-small cell lung cancer (NSCLC)"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "OtherDiagnosis",
+            "display": "Other"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "EGFR or ALK positive if NSCLC"
+          }
+        }
+      ],
+      "linkId": "nsclc-egfr-alk-positive",
+      "text": "If diagnosis is NSCLC, is patient EGFR or ALK positive?",
+      "type": "choice",
+      "enableWhen": [
+        {
+          "question": "patient-diagnosis",
+          "operator": "=",
+          "answerCoding": {
+            "code": "MetasticNSCLC"
+          }
+        }
+      ],
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "Yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "No",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Other treatments tried"
+          }
+        }
+      ],
+      "linkId": "other-treatments-tried",
+      "text": "What other treatments have been tried?",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Prescribed for monotherapy"
+          }
+        }
+      ],
+      "linkId": "prescribed-for-monotherapy",
+      "text": "Is this prescribed for monotherapy use?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "Yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "No",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Other anti-cancer drugs with Opdivo"
+          }
+        }
+      ],
+      "linkId": "other-anticancer-drugs",
+      "text": "If no, what other anti-cancer drugs will be prescribed with Opdivo?",
+      "type": "string",
+      "enableWhen": [
+        {
+          "question": "prescribed-for-monotherapy",
+          "operator": "=",
+          "answerCoding": {
+            "code": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Opdivo disease progression"
+          }
+        }
+      ],
+      "linkId": "opdivo-disease-progression",
+      "text": "For patients already taking Opdivo, has the patient had disease progression?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "Yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "No",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Opdivo unacceptable toxicity"
+          }
+        }
+      ],
+      "linkId": "opdivo-unacceptable-toxicity",
+      "text": "For patients already taking Opdivo, has the patient had unacceptable toxicity?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "Yes",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "No",
+            "display": "No"
+          }
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Prescriber's Signature"
+          }
+        }
+      ],
+      "linkId": "prescriber-signature",
+      "text": "Prescriber's Signature",
+      "type": "attachment"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Prescriber's Specialty"
+          }
+        }
+      ],
+      "linkId": "prescriber-specialty",
+      "text": "Prescriber's Specialty",
+      "type": "string"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/cql-identifier",
+            "expression": "Signature Date"
+          }
+        }
+      ],
+      "linkId": "signature-date",
+      "text": "Date",
+      "type": "date"
+    }
+  ]
+}
