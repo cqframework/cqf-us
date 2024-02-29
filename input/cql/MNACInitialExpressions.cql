@@ -1,10 +1,9 @@
 library MNACInitialExpressions version '0.1.0'
 
-//https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf
-
-using FHIR version '4.0.1'
 using USCore version '3.1.1'
+using FHIR version '4.0.1'
 
+include FHIRHelpers version '4.1.000'
 include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
 
@@ -20,6 +19,8 @@ context Patient
 
 define "Date of Request":
 "Most Recent ServiceRequest".authoredOn
+
+//https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf
 
 //assuming that client id is the coverage member id
 define "Client ID":
@@ -71,16 +72,16 @@ define "Catheterization Frequency":
 define "Additional Comment":
 'TBD'
 
-define "Physician’s Name":
+define "Physician Name":
 "Requesting Physician".name.family 
 
-define "Physician’s Telephone":
+define "Physician Telephone":
 UC.Mobile("Requesting Physician".telecom).value
 
-define "Physician’s Fax":
+define "Physician Fax":
 Fax("Requesting Physician".telecom).value
 
-define "Referring Physician’s Telephone":
+define "Referring Physician Telephone":
 'TBD'
 
 define "Date":
