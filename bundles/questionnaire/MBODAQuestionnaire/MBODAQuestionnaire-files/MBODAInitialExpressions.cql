@@ -12,16 +12,26 @@ include USCoreElements version '0.1.0' called UCE
 include CumulativeMedicationDuration version '3.1.000' called CMD
 
 codesystem "LOINC": 'http://loinc.org'
+codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
+code "Member Number": 'MB' from "Identifier Type"
 
 context Patient
 
 define "Member ID":
-  singleton from (
-    [FHIR.Coverage] C
-    where EndsWith(C.subscriber.reference, Patient.id)
-    return C.subscriberId.value
-  )
+  singleton from
+    (
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
+    where "Member Number".code in valuesByTypes.type
+    return valuesByTypes.value
+    )
+
 
 define "Patient Name":
   UCE."Name - First Middle(s) Last"
