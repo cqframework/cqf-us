@@ -32,10 +32,6 @@
     "resource": "http://fhir.org/guides/cqf/us/common/Library/USCoreElements|0.1.0"
   }, {
     "type": "depends-on",
-    "display": "Library UC",
-    "resource": "http://fhir.org/guides/cqf/us/common/Library/USCoreCommon|0.1.0"
-  }, {
-    "type": "depends-on",
     "display": "Code system Identifier Type",
     "resource": "http://terminology.hl7.org/CodeSystem/v2-0203"
   }, {

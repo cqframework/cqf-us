@@ -138,10 +138,23 @@ define fluent function active(conditions List<USCore.Condition>):
       or C.clinicalStatus ~ "recurrence"
       or C.clinicalStatus ~ "relapse"
 
+define fluent function active(conditions List<FHIR.Condition>)://FHIR Version
+  conditions C
+    where C.clinicalStatus ~ "active"
+      or C.clinicalStatus ~ "recurrence"
+      or C.clinicalStatus ~ "relapse"
+
 define fluent function isAllergyActive(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.clinicalStatus ~ "allergy-active"
 
+define fluent function isAllergyActive(allergyIntolerance FHIR.AllergyIntolerance)://FHIR Version
+  allergyIntolerance.clinicalStatus ~ "allergy-active"
+
 define fluent function allergyActive(allergyIntolerances List<USCore.AllergyIntolerance>):
+  allergyIntolerances A
+    where A.clinicalStatus ~ "allergy-active"
+
+define fluent function allergyActive(allergyIntolerances List<FHIR.AllergyIntolerance>)://FHIR Version
   allergyIntolerances A
     where A.clinicalStatus ~ "allergy-active"
 
@@ -162,11 +175,21 @@ define fluent function allergyResolved(allergyIntolerances List<USCore.AllergyIn
 define fluent function isAllergyConfirmed(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.verificationStatus ~ "allergy-confirmed"
 
+define fluent function isAllergyConfirmed(allergyIntolerance FHIR.AllergyIntolerance)://FHIR Version
+  allergyIntolerance.verificationStatus ~ "allergy-confirmed"
+
 define fluent function allergyConfirmed(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.verificationStatus ~ "allergy-confirmed"
 
+define fluent function allergyConfirmed(allergyIntolerances List<FHIR.AllergyIntolerance>)://FHIR Version
+  allergyIntolerances A
+    where A.verificationStatus ~ "allergy-confirmed"
+
 define fluent function isAllergyUnconfirmed(allergyIntolerance USCore.AllergyIntolerance):
+  allergyIntolerance.verificationStatus ~ "allergy-unconfirmed"
+
+define fluent function isAllergyUnconfirmed(allergyIntolerance FHIR.AllergyIntolerance)://FHIR Version
   allergyIntolerance.verificationStatus ~ "allergy-unconfirmed"
 
 define fluent function allergyUnconfirmed(allergyIntolerances USCore.AllergyIntolerance):
@@ -196,6 +219,12 @@ define fluent function isProblemListItem(condition USCore.Condition):
     where C ~ "problem-list-item"
   )
 
+//FHIR Version
+define fluent function isProblemListItem(condition FHIR.Condition):
+  exists (condition.category C
+    where C ~ "problem-list-item"
+  )
+
 /*
 @description: Returns true if the given condition is an encounter diagnosis
 */
@@ -204,10 +233,22 @@ define fluent function isEncounterDiagnosis(condition USCore.Condition):
     where C ~ "encounter-diagnosis"
   )
 
+//FHIR Version
+define fluent function isEncounterDiagnosis(condition FHIR.Condition):
+  exists (condition.category C
+    where C ~ "encounter-diagnosis"
+  )
+
 /*
 @description: Returns true if the given condition is a health concern
 */
 define fluent function isHealthConcern(condition USCore.Condition):
+  exists (condition.category C
+    where C ~ "health-concern"
+  )
+
+//FHIR Version
+define fluent function isHealthConcern(condition FHIR.Condition):
   exists (condition.category C
     where C ~ "health-concern"
   )
@@ -237,6 +278,10 @@ define fluent function isConfirmed(condition USCore.Condition):
   condition.verificationStatus ~ "confirmed"
 
 define fluent function confirmed(conditions List<USCore.Condition>):
+  conditions C
+    where C.verificationStatus ~ "confirmed"
+
+define fluent function confirmed(conditions List<FHIR.Condition>)://FHIR Version
   conditions C
     where C.verificationStatus ~ "confirmed"
 
@@ -290,6 +335,39 @@ define fluent function corrected(observations List<LaboratoryResultObservationPr
   observations observation
     where observation.status ~ "observation-corrected".code
 
+
+define fluent function isResulted(observation FHIR.Observation):
+  observation.status ~ "observation-final".code
+    or observation.status ~ "observation-amended".code
+    or observation.status ~ "observation-corrected".code
+
+define fluent function resulted(observations List<FHIR.Observation>):
+  observations observation
+    where observation.status ~ "observation-final".code
+      or observation.status ~ "observation-amended".code
+      or observation.status ~ "observation-corrected".code
+
+define fluent function isFinal(observation FHIR.Observation):
+  observation.status ~ "observation-final".code
+
+define fluent function final(observations List<FHIR.Observation>):
+  observations observation
+    where observation.status ~ "observation-final".code
+
+define fluent function isAmended(observation FHIR.Observation):
+  observation.status ~ "observation-amended".code
+
+define fluent function amended(observations List<FHIR.Observation>):
+  observations observation
+    where observation.status ~ "observation-amended".code
+
+define fluent function isCorrected(observation FHIR.Observation):
+  observation.status ~ "observation-corrected".code
+
+define fluent function corrected(observations List<FHIR.Observation>):
+  observations observation
+    where observation.status ~ "observation-corrected".code
+    
 
 define fluent function isResulted(observation "observation-bodyweight"):
   observation.status ~ "observation-final".code

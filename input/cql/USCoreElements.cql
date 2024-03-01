@@ -1,13 +1,19 @@
 library USCoreElements version '0.1.0'
 
 using USCore version '3.1.1'
+using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.1.000'
 include USCoreCommon version '0.1.0' called UC
 
+codesystem "LOINC": 'http://loinc.org'
+codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
+
 valueset "Common allergy substances": 'http://hl7.org/fhir/us/core/ValueSet/us-core-allergy-substance'
 
 code "No known allergy (situation)": '716186003' from UC.SNOMEDCT
+code "Member Number": 'MB' from "Identifier Type"
+code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
 
 context Patient
 
@@ -381,4 +387,64 @@ define "Systolic Blood Pressure":
 define "Diastolic Blood Pressure":
   "All Blood Pressure Measurements".DiastolicBP.value
 
+
+/* MBODAInitialExpressions */
+define "Member ID":
+  singleton from
+    (
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
+    where "Member Number".code in valuesByTypes.type
+    return valuesByTypes.value
+    )
+
+define "Medical Record Number":
+  singleton from 
+  (
+    (Patient.identifier I
+      return {value: I.value, type: I.type.codes.code}
+    ) valueByTypes
+    // TODO: create code for MR (medical record number)
+    where UC."MedicalRecordNumber".code in valueByTypes.type
+    return valueByTypes.value
+  )
+
+define function CalculateBSA(alg System.String, height System.Quantity, weight System.Quantity):
+  System.Quantity { value: 
+    // Mosteller formula using lbs and inches
+    if (alg = 'Mosteller') then
+      ((((convert(height) to '[in_i]') * (convert(weight) to '[lb_av]'))/3131).value)^0.5
+    
+    // DuBois and DuBois formula using cm and kg
+    // NOTE: never to be used for newborn calculation
+    else if (alg = 'DuBois and DuBois') then
+      0.007184 * ((convert(height) to 'cm').value^0.725) * ((convert(weight) to 'kg').value^0.425)
+    
+    // No matching algorithm found
+    else null,
+    unit: 'm2'
+  }
+
+define "Most Recent BSA":
+  convert(
+    (
+      (
+      ([FHIR.Observation: "Body surface area"]).resulted()
+      ).mostRecent()
+    ).value
+  ) to 'm2'
+  // convert(
+  //   (
+  //     ([FHIR.Observation: "Body surface area"] observation
+  //       where observation.status ~ UC."observation-final".code
+  //         or observation.status ~ UC."observation-amended".code
+  //         or observation.status ~ UC."observation-corrected".code
+  //     ).mostRecent()
+  //   ).value
+  // ) to 'm2'
 
