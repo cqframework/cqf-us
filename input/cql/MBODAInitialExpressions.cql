@@ -81,9 +81,11 @@ define "Zip":
 
 define "Height":
   convert(
-    UC.MostRecent(
-      UCE."All Body Height Measurements".resulted()
-    ).value 
+    (
+      (
+        (UCE."All Body Height Measurements").resulted()
+      ).mostRecent()
+    ).value
   ) to '[in_i]'
 
 define "Height in [in_i]":
@@ -91,23 +93,25 @@ define "Height in [in_i]":
 
 define "Weight":
   convert(
-    UC.MostRecent(
-      UCE."All Body Weight Measurements".resulted()
-    ).value 
+    (
+      (
+        (UCE."All Body Weight Measurements").resulted()
+      ).mostRecent()
+    ).value
   ) to '[lb_av]'
 
 define "Weight in [lb_av]":
   "Weight".value
 
 define "Most Recent BSA":
-  convert( 
-    UC.MostRecent(
+  convert(
+    (
       ([FHIR.Observation: "Body surface area"] observation
         where observation.status ~ UC."observation-final".code
           or observation.status ~ UC."observation-amended".code
           or observation.status ~ UC."observation-corrected".code
-      )
-    ).value 
+      ).mostRecent()
+    ).value
   ) to 'm2'
 
 define "BSA":

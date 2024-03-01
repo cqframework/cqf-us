@@ -520,7 +520,20 @@ define function MostRecent(observations List<Observation>):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<Observation>):
+  Last(
+    observations O
+      sort by issued
+  )
+
+
 define function MostRecent(observations List<"SmokingStatusProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"SmokingStatusProfile">):
   Last(
     observations O
       sort by issued
@@ -532,13 +545,32 @@ define function MostRecent(observations List<"PulseOximetryProfile">):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"PulseOximetryProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+
 define function MostRecent(observations List<"PediatricWeightForHeightObservationProfile">):
   Last(
     observations O
       sort by issued
   )
 
-  define function MostRecent(observations List<"PediatricBMIforAgeObservationProfile">):
+define fluent function mostRecent(observations List<"PediatricWeightForHeightObservationProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define function MostRecent(observations List<"PediatricBMIforAgeObservationProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"PediatricBMIforAgeObservationProfile">):
   Last(
     observations O
       sort by issued
@@ -550,7 +582,19 @@ define function MostRecent(observations List<"LaboratoryResultObservationProfile
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"LaboratoryResultObservationProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
 define function MostRecent(observations List<"observation-vitalspanel">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"observation-vitalspanel">):
   Last(
     observations O
       sort by issued
@@ -562,7 +606,19 @@ define function MostRecent(observations List<"observation-resprate">):
       sort by issued
   )
   
+define fluent function mostRecent(observations List<"observation-resprate">):
+  Last(
+    observations O
+      sort by issued
+  )
+
   define function MostRecent(observations List<"observation-heartrate">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"observation-heartrate">):
   Last(
     observations O
       sort by issued
@@ -574,7 +630,19 @@ define function MostRecent(observations List<"observation-resprate">):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"observation-oxygensat">):
+  Last(
+    observations O
+      sort by issued
+  )
+
   define function MostRecent(observations List<"observation-bodytemp">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"observation-bodytemp">):
   Last(
     observations O
       sort by issued
@@ -586,7 +654,19 @@ define function MostRecent(observations List<"observation-resprate">):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"observation-headcircum">):
+  Last(
+    observations O
+      sort by issued
+  )
+
   define function MostRecent(observations List<"observation-bp">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"observation-bp">):
   Last(
     observations O
       sort by issued
@@ -598,7 +678,19 @@ define function MostRecent(observations List<"observation-bmi">):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"observation-bmi">):
+  Last(
+    observations O
+      sort by issued
+  )
+
 define function MostRecent(observations List<"observation-bodyheight">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"observation-bodyheight">):
   Last(
     observations O
       sort by issued
@@ -610,13 +702,31 @@ define function MostRecent(observations List<"observation-bodyweight">):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"observation-bodyweight">):
+  Last(
+    observations O
+      sort by issued
+  )
+
 define function MostRecentMR(medicationRequests List<"MedicationRequestProfile">):
   Last(
     medicationRequests MR
       sort by authoredOn
   )
 
+define fluent function mostRecentMR(medicationRequests List<"MedicationRequestProfile">):
+  Last(
+    medicationRequests MR
+      sort by authoredOn
+  )
+
 define function MostRecentSR(serviceRequests List<FHIR.ServiceRequest>):
+  Last(
+    serviceRequests SR
+      sort by (FHIRHelpers.ToDateTime(authoredOn) as DateTime)
+  )
+
+define fluent function mostRecentSR(serviceRequests List<FHIR.ServiceRequest>):
   Last(
     serviceRequests SR
       sort by (FHIRHelpers.ToDateTime(authoredOn) as DateTime)
