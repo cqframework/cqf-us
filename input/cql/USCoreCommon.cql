@@ -369,39 +369,40 @@ define fluent function corrected(observations List<FHIR.Observation>):
     where observation.status ~ "observation-corrected".code
     
 
-define fluent function isResulted(observation "observation-bodyweight"):
+
+define fluent function isResulted(observation Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>):
   observation.status ~ "observation-final".code
     or observation.status ~ "observation-amended".code
     or observation.status ~ "observation-corrected".code
 
-define fluent function resulted(observations List<"observation-bodyweight">):
+define fluent function resulted(observations List<Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>>):
   observations observation
     where observation.status ~ "observation-final".code
       or observation.status ~ "observation-amended".code
       or observation.status ~ "observation-corrected".code
 
-define fluent function isFinal(observation "observation-bodyweight"):
+define fluent function isFinal(observation Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>):
   observation.status ~ "observation-final".code
 
-define fluent function final(observations List<"observation-bodyweight">):
+define fluent function final(observations List<Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>>):
   observations observation
     where observation.status ~ "observation-final".code
 
-define fluent function isAmended(observation "observation-bodyweight"):
+define fluent function isAmended(observation Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>):
   observation.status ~ "observation-amended".code
 
-define fluent function amended(observations List<"observation-bodyweight">):
+define fluent function amended(observations List<Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>>):
   observations observation
     where observation.status ~ "observation-amended".code
 
-define fluent function isCorrected(observation "observation-bodyweight"):
+define fluent function isCorrected(observation Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>):
   observation.status ~ "observation-corrected".code
 
-define fluent function corrected(observations List<"observation-bodyweight">):
+define fluent function corrected(observations List<Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>>):
   observations observation
     where observation.status ~ "observation-corrected".code
 
-
+//Had to keep "observation-bodyheight" as it's own function as it does not work if its in the list of choices above:(
 define fluent function isResulted(observation "observation-bodyheight"):
   observation.status ~ "observation-final".code
     or observation.status ~ "observation-amended".code

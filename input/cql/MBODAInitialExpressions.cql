@@ -64,7 +64,7 @@ define "Height":
   convert(
     (
       (
-        (UCE."All Body Height Measurements").resulted()
+        UCE."All Body Height Measurements"
       ).mostRecent()
     ).value
   ) to '[in_i]'
@@ -76,13 +76,16 @@ define "Weight":
   convert(
     (
       (
-        (UCE."All Body Weight Measurements").resulted()
+        UCE."All Body Weight Measurements"
       ).mostRecent()
     ).value
   ) to '[lb_av]'
 
 define "Weight in [lb_av]":
   "Weight".value
+
+define "BMI":
+  (UCE."All Body Mass Index Measurements").value
 
 define "Most Recent BSA":
   UCE."Most Recent BSA"

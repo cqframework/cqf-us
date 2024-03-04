@@ -219,6 +219,10 @@ define "All Medications":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age
 */
 define "Pediatric BMI for Age":
+  ((["PediatricBMIforAgeObservationProfile"]).resulted()) O 
+    return O as "PediatricBMIforAgeObservationProfile"
+
+define "Pediatric BMI for Age All Statuses":
   ["PediatricBMIforAgeObservationProfile"]
 
 // Pediatric Head Circumference Percentile
@@ -239,6 +243,10 @@ define "Pediatric BMI for Age":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height
 */
 define "Pediatric Weight for Height":
+  ((["PediatricWeightForHeightObservationProfile"]).resulted()) O 
+    return O as "PediatricWeightForHeightObservationProfile"
+
+define "Pediatric Weight for Height All Statuses":
   ["PediatricWeightForHeightObservationProfile"]
 
 // Procedure
@@ -262,6 +270,10 @@ define "All Performed Procedures":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry
 */
 define "Pulse Oximetry":
+  ((["PulseOximetryProfile"]).resulted()) O 
+    return O as "PulseOximetryProfile"
+
+define "Pulse Oximetry All Statuses":
   ["PulseOximetryProfile"]
 
 // Smoking Status
@@ -274,6 +286,10 @@ profile.
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus
 */
 define "Smoking Status":
+  ((["SmokingStatusProfile"]).resulted()) O 
+    return O as "SmokingStatusProfile"
+
+define "Smoking Status All Statuses":
   ["SmokingStatusProfile"]
 
 /*
@@ -296,6 +312,10 @@ define "Most Recent Smoking Status":
 @profile: http://hl7.org/fhir/StructureDefinition/vitalspanel
 */
 define "All Vital Signs Panels":
+  ((["observation-vitalspanel"]).resulted()) O 
+    return O as "observation-vitalspanel"
+
+define "All Vital Signs Panels All Statuses":
   ["observation-vitalspanel"]
 
 // Respiratory Rate
@@ -305,6 +325,10 @@ define "All Vital Signs Panels":
 @profile: http://hl7.org/fhir/StructureDefinition/resprate
 */
 define "All Respiratory Rate Measurements":
+  ((["observation-resprate"]).resulted()) O 
+    return O as "observation-resprate"
+
+define "All Respiratory Rate Measurements All Statuses":
   ["observation-resprate"]
 
 // Heart Rate
@@ -314,6 +338,10 @@ define "All Respiratory Rate Measurements":
 @profile:http://hl7.org/fhir/StructureDefinition/heartrate
 */
 define "All Heart Rate Measurements":
+  ((["observation-heartrate"]).resulted()) O 
+    return O as "observation-heartrate"
+
+define "All Heart Rate Measurements All Statuses":
   ["observation-heartrate"]
 
 // Oxygen Saturation
@@ -323,6 +351,10 @@ define "All Heart Rate Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/oxygensat
 */
 define "All Oxygen Saturation Measurements":
+  ((["observation-oxygensat"]).resulted()) O 
+    return O as "observation-oxygensat"
+
+define "All Oxygen Saturation Measurements All Statuses":
   ["observation-oxygensat"]
 
 // Body Temperature
@@ -332,6 +364,10 @@ define "All Oxygen Saturation Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/bodytemp
 */
 define "All Body Temperature Measurements":
+  ((["observation-bodytemp"]).resulted()) O 
+    return O as "observation-bodytemp"
+
+define "All Body Temperature Measurements All Statuses":
   ["observation-bodytemp"]
 
 // Body Height
@@ -341,6 +377,9 @@ define "All Body Temperature Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/bodyheight
 */
 define "All Body Height Measurements":
+   (["observation-bodyheight"]).resulted()
+
+define "All Body Height Measurements All Statuses":
   ["observation-bodyheight"]
 
 // Head Circumference
@@ -350,6 +389,10 @@ define "All Body Height Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/headcircum
 */
 define "All Head Circumference Measurements":
+  ((["observation-headcircum"]).resulted()) O 
+    return O as "observation-headcircum"
+
+define "All Head Circumference Measurements All Statuses":
   ["observation-headcircum"]
 
 // Body Weight
@@ -359,6 +402,10 @@ define "All Head Circumference Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/bodyweight
 */
 define "All Body Weight Measurements":
+  ((["observation-bodyweight"]).resulted()) O 
+    return O as "observation-bodyweight"
+
+define "All Body Weight Measurements All Statuses":
   ["observation-bodyweight"]
 
 // Body Mass Index
@@ -368,6 +415,10 @@ define "All Body Weight Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/bmi
 */
 define "All Body Mass Index Measurements":
+  ((["observation-bmi"]).resulted()) O 
+    return O as "observation-bmi"
+
+define "All Body Mass Index Measurements All Statuses":
   ["observation-bmi"]
 
 // Blood Pressure
@@ -377,6 +428,10 @@ define "All Body Mass Index Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/bp
 */
 define "All Blood Pressure Measurements":
+  ((["observation-bp"]).resulted()) O 
+    return O as "observation-bp"
+
+define "All Blood Pressure Measurements All Statuses":
   ["observation-bp"]
 
 // Systolic Blood Pressure
@@ -386,6 +441,7 @@ define "Systolic Blood Pressure":
 // Diastolic Blood Pressure
 define "Diastolic Blood Pressure":
   "All Blood Pressure Measurements".DiastolicBP.value
+
 
 
 /* MBODAInitialExpressions */
@@ -438,6 +494,8 @@ define "Most Recent BSA":
       ).mostRecent()
     ).value
   ) to 'm2'
+
+
   // convert(
   //   (
   //     ([FHIR.Observation: "Body surface area"] observation
