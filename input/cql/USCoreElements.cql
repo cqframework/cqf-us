@@ -379,9 +379,13 @@ define "All Body Temperature Measurements All Statuses":
 define "All Body Height Measurements":
    (["observation-bodyheight"]).resulted()
 
+/*define "All Body Height Measurements":
+   ((["observation-bodyheight"]).resulted()) O 
+     return O as "observation-bodyheight" */
+// bug req: "observation-bodyheight" does not work in list of choices in USCoreCommons when all others do.
+
 define "All Body Height Measurements All Statuses":
   ["observation-bodyheight"] 
-  // bug req: "observation-bodyheight" does not work in list of choices in USCoreCommons when all others do.
 
 // Head Circumference
 
