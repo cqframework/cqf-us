@@ -380,7 +380,8 @@ define "All Body Height Measurements":
    (["observation-bodyheight"]).resulted()
 
 define "All Body Height Measurements All Statuses":
-  ["observation-bodyheight"]
+  ["observation-bodyheight"] 
+  // bug req: "observation-bodyheight" does not work in list of choices in USCoreCommons when all others do.
 
 // Head Circumference
 
@@ -444,7 +445,7 @@ define "Diastolic Blood Pressure":
 
 
 
-/* MBODAInitialExpressions */
+/* MBODA InitialExpressions */
 define "Member ID":
   singleton from
     (
@@ -495,14 +496,71 @@ define "Most Recent BSA":
     ).value
   ) to 'm2'
 
+/* GMTP Initial Expressions */
+define "Humana ID": // Similar to Member ID from MBODA Initial expressions?
+  singleton from
+    (
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
+    where "Member Number".code in valuesByTypes.type
+    return valuesByTypes.value
+    )
 
-  // convert(
-  //   (
-  //     ([FHIR.Observation: "Body surface area"] observation
-  //       where observation.status ~ UC."observation-final".code
-  //         or observation.status ~ UC."observation-amended".code
-  //         or observation.status ~ UC."observation-corrected".code
-  //     ).mostRecent()
-  //   ).value
-  // ) to 'm2'
+define "All ServiceRequests":
+  [FHIR.ServiceRequest]
 
+define "Most Recent ServiceRequest":
+  UC.MostRecentSR("All ServiceRequests")
+
+define "Requesting Provider Practitioner"://assuming the requester is a practitioner
+  [PractitionerProfile] P
+    where EndsWith("Most Recent ServiceRequest".requester.reference.value, P.id)
+/*
+define "Requesting Provider Organization":
+  [OrganizationProfile] O
+    where EndsWith("Most Recent ServiceRequest".requester.reference.value, O.id)
+*/
+
+define "Servicing Provider"://assuming the servicing provider is a lab - (molecular/genetic testing)
+  singleton from ([OrganizationProfile] O
+    where EndsWith(First("Most Recent ServiceRequest".performer.reference.value), O.id))
+
+define "Test Coverage":
+  [FHIR.Coverage] C
+    with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
+
+define "Billing Provider":
+  singleton from([OrganizationProfile] O
+    where EndsWith(First("Test Coverage".payor.reference.value), O.id))
+
+define "Test Related Condition":
+  [FHIR.Condition] C
+    where EndsWith(First("Most Recent ServiceRequest".reasonReference.reference.value), C.id)
+  //.reasonReference changed to .reason in FHIR R5
+
+define "Research Subject":
+  [FHIR.ResearchSubject] R
+    where  EndsWith(R.individual.reference, Patient.id)
+    //ResearchSubject.individual is from FHIR version v4.0.1 and has been replaced by R.subject in FHIR R5
+
+define "All Clinical Trials":
+  [FHIR.ResearchStudy] 
+
+//bug req (does not work if full statement is in USCoreElements and referenced in GMTPInitialExpressions)
+/*define "Clinical Trial":
+  [FHIR.ResearchStudy] R 
+    with "Research Subject" S such that EndsWith(S.study.reference, R.id)
+    with  "Test Related Condition" C such that C.code in R.condition */
+
+define "Clinical Trial Organization":
+  [OrganizationProfile] O
+  
+define function "GetServiceRequestReasonCondition"(S ServiceRequest):
+  [FHIR.Condition] C
+  with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
+  return C

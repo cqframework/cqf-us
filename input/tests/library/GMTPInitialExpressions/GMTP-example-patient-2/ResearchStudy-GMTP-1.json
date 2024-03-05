@@ -1,0 +1,30 @@
+{
+  "resourceType": "ResearchStudy",
+  "id": "ResearchStudy-GMTP-1",
+  "identifier": [
+    {
+      "system": "https://clinicaltrials.gov",
+      "value": "NCT02326129"
+    }
+  ],
+  "title": "Clinical Study on Treatment X",
+  "status": "active",
+  "period": {
+    "start": "2023-11-01",
+    "end": "2025-11-30"
+  },
+  "sponsor": {
+    "reference": "Organization/Organization-example-2-GMTP"
+  },
+  "condition": [
+    {
+      "coding": [
+        {
+          "code": "74400008",
+          "system": "http://snomed.info/sct",
+          "display": "Appendicitis (disorder)"
+        }
+      ]
+    }
+  ]
+}
