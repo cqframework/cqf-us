@@ -1,0 +1,71 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "ServiceRequest-example-1-GMTP",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
+    ]
+  }, 
+  "status": "completed",
+  "intent": "order",
+  "priority": "urgent",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "80146002",
+        "display": "Excision of appendix (procedure)"
+      }
+    ],
+    "text": "Excision of appendix (procedure)"
+  },
+  "subject": {
+    "reference": "Patient/GMTP-example-patient-2"
+  },
+  "encounter": {
+    "reference": "Encounter/Encounter-example-1-GMTP"
+  },
+  "requester": {
+    "reference": "Practitioner/Practitioner-example-GMTP"
+  },
+  "performer": [
+    {
+      "reference": "Organization/Organization-example-1-GMTP"
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/Coverage-example-GMTP"
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/appendicitis-GMTP-1"
+    }
+  ],
+  "occurrenceDateTime": "2013-04-05",
+  "asNeededBoolean": true,
+  "authoredOn": "2013-04-04",
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "163220003",
+          "display": "On examination - abdominal pain - right iliac"
+        }
+      ]
+    }
+  ],
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "66754008",
+          "display": "Appendix structure"
+        }
+      ]
+    }
+  ]
+}

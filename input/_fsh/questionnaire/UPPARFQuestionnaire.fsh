@@ -121,7 +121,7 @@ Usage: #example
       * insert QuestionnaireItemInitialExpression("ICD-10 Codes")
       * insert QuestionnaireItem(#open-choice, "completing-form|drug-benefit|diagnosis-codes", "Patient ICD Diagnostic Codes")
       * repeats = true
-      * answerValueSet = "http://hl7.org/fhir/sid/icd-10"
+      * answerValueSet = "http://hl7.org/fhir/sid/icd-10-cm"
     * item[+]
       * insert QuestionnaireItemInitialExpression("Diagnosis Descriptions")
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|diagnosis-descriptions", "Patient Diagnosis")

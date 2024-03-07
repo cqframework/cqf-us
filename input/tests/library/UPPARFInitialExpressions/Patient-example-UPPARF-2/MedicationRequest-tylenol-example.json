@@ -1,0 +1,42 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "MedicationRequest-tylenol-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+    ]
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://acme.org/prescriptions",
+      "value": "12345689"
+    }
+  ],
+  "status": "active",
+  "priority": "routine",
+  "intent": "order",
+  "reportedBoolean": true,
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1187314",
+        "display": "Tylenol PM Pill"
+      }
+    ],
+    "text": "Tylenol PM Pill"
+  },
+  "subject": {
+    "reference": "Patient/Patient-example-UPPARF-2"
+  },
+  "authoredOn": "2019-06-24",
+  "requester": {
+    "reference": "Patient/Patient-example-UPPARF-2"
+  },
+  "dosageInstruction": [
+    {
+      "text": "Takes 1-2 tablets once daily at bedtime as needed for restless legs"
+    }
+  ]
+}

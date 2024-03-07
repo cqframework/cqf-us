@@ -1,0 +1,80 @@
+{
+  "resourceType": "Encounter",
+  "id": "Encounter-example-1-GMTP",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-procedure",
+      "extension": [
+        {
+          "url": "type",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "80146002",
+                "display": "Excision of appendix (procedure)"
+              }
+            ],
+            "text": "Excision of appendix (procedure)"
+          }
+        },
+        {
+          "url": "rank",
+          "valuePositiveInt": 1
+        },
+        {
+          "url": "procedure",
+          "valueReference": {
+            "reference": "Procedure/example"
+          }
+        }
+      ]
+    }
+  ],
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "IMP",
+    "display": "inpatient encounter"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://www.ama-assn.org/go/cpt",
+          "code": "99223",
+          "display": "Inpatient Hospital Care"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/GMTP-example-patient-2"
+  },
+  "diagnosis": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ex-diagnosis-on-admission",
+                "code": "y",
+                "display": "Yes"
+              }
+            ]
+          }
+        }
+      ],
+      "condition": {
+        "reference": "Condition/appendicitis-GMTP-1"
+      }
+    }
+  ]
+}

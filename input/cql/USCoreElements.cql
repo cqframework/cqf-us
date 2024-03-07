@@ -1,13 +1,24 @@
 library USCoreElements version '0.1.0'
 
 using USCore version '3.1.1'
+using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.1.000'
 include USCoreCommon version '0.1.0' called UC
 
+codesystem "LOINC": 'http://loinc.org'
+codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
+codesystem "Verification Status": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
+codesystem "Condition Clinical": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
+
 valueset "Common allergy substances": 'http://hl7.org/fhir/us/core/ValueSet/us-core-allergy-substance'
 
 code "No known allergy (situation)": '716186003' from UC.SNOMEDCT
+code "Member Number": 'MB' from "Identifier Type"
+code "Subscriber Number": 'SN' from "Identifier Type"
+code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
+code "Confirmed": 'confirmed' from "Verification Status"
+code "Active": 'active' from "Condition Clinical"
 
 context Patient
 
@@ -64,7 +75,7 @@ and any verification status (including none).
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
 */
 define "All Allergies and Intolerances":
-  ["AllergyIntolerance"]
+  [USCore."AllergyIntolerance"]
 
 define "Active Confirmed Allergies and Intolerances":
   "All Allergies and Intolerances".allergyActive().allergyConfirmed()
@@ -101,7 +112,7 @@ any verification status (including none).
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition
 */
 define "All Conditions":
-  ["Condition"]
+  [USCore."Condition"]
 
 define "All Problem List Items":
   "All Conditions" C
@@ -213,6 +224,10 @@ define "All Medications":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age
 */
 define "Pediatric BMI for Age":
+  ((["PediatricBMIforAgeObservationProfile"]).resulted()) O 
+    return O as "PediatricBMIforAgeObservationProfile"
+
+define "Pediatric BMI for Age All Statuses":
   ["PediatricBMIforAgeObservationProfile"]
 
 // Pediatric Head Circumference Percentile
@@ -233,6 +248,10 @@ define "Pediatric BMI for Age":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height
 */
 define "Pediatric Weight for Height":
+  ((["PediatricWeightForHeightObservationProfile"]).resulted()) O 
+    return O as "PediatricWeightForHeightObservationProfile"
+
+define "Pediatric Weight for Height All Statuses":
   ["PediatricWeightForHeightObservationProfile"]
 
 // Procedure
@@ -256,6 +275,10 @@ define "All Performed Procedures":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry
 */
 define "Pulse Oximetry":
+  ((["PulseOximetryProfile"]).resulted()) O 
+    return O as "PulseOximetryProfile"
+
+define "Pulse Oximetry All Statuses":
   ["PulseOximetryProfile"]
 
 // Smoking Status
@@ -268,6 +291,10 @@ profile.
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus
 */
 define "Smoking Status":
+  ((["SmokingStatusProfile"]).resulted()) O 
+    return O as "SmokingStatusProfile"
+
+define "Smoking Status All Statuses":
   ["SmokingStatusProfile"]
 
 /*
@@ -290,6 +317,10 @@ define "Most Recent Smoking Status":
 @profile: http://hl7.org/fhir/StructureDefinition/vitalspanel
 */
 define "All Vital Signs Panels":
+  ((["observation-vitalspanel"]).resulted()) O 
+    return O as "observation-vitalspanel"
+
+define "All Vital Signs Panels All Statuses":
   ["observation-vitalspanel"]
 
 // Respiratory Rate
@@ -299,6 +330,10 @@ define "All Vital Signs Panels":
 @profile: http://hl7.org/fhir/StructureDefinition/resprate
 */
 define "All Respiratory Rate Measurements":
+  ((["observation-resprate"]).resulted()) O 
+    return O as "observation-resprate"
+
+define "All Respiratory Rate Measurements All Statuses":
   ["observation-resprate"]
 
 // Heart Rate
@@ -308,6 +343,10 @@ define "All Respiratory Rate Measurements":
 @profile:http://hl7.org/fhir/StructureDefinition/heartrate
 */
 define "All Heart Rate Measurements":
+  ((["observation-heartrate"]).resulted()) O 
+    return O as "observation-heartrate"
+
+define "All Heart Rate Measurements All Statuses":
   ["observation-heartrate"]
 
 // Oxygen Saturation
@@ -317,6 +356,10 @@ define "All Heart Rate Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/oxygensat
 */
 define "All Oxygen Saturation Measurements":
+  ((["observation-oxygensat"]).resulted()) O 
+    return O as "observation-oxygensat"
+
+define "All Oxygen Saturation Measurements All Statuses":
   ["observation-oxygensat"]
 
 // Body Temperature
@@ -326,6 +369,10 @@ define "All Oxygen Saturation Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/bodytemp
 */
 define "All Body Temperature Measurements":
+  ((["observation-bodytemp"]).resulted()) O 
+    return O as "observation-bodytemp"
+
+define "All Body Temperature Measurements All Statuses":
   ["observation-bodytemp"]
 
 // Body Height
@@ -335,7 +382,15 @@ define "All Body Temperature Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/bodyheight
 */
 define "All Body Height Measurements":
-  ["observation-bodyheight"]
+   (["observation-bodyheight"]).resulted()
+
+/*define "All Body Height Measurements":
+   ((["observation-bodyheight"]).resulted()) O 
+     return O as "observation-bodyheight" */
+// bug req: "observation-bodyheight" does not work in list of choices in USCoreCommons when all others do.
+
+define "All Body Height Measurements All Statuses":
+  ["observation-bodyheight"] 
 
 // Head Circumference
 
@@ -344,6 +399,10 @@ define "All Body Height Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/headcircum
 */
 define "All Head Circumference Measurements":
+  ((["observation-headcircum"]).resulted()) O 
+    return O as "observation-headcircum"
+
+define "All Head Circumference Measurements All Statuses":
   ["observation-headcircum"]
 
 // Body Weight
@@ -353,6 +412,10 @@ define "All Head Circumference Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/bodyweight
 */
 define "All Body Weight Measurements":
+  ((["observation-bodyweight"]).resulted()) O 
+    return O as "observation-bodyweight"
+
+define "All Body Weight Measurements All Statuses":
   ["observation-bodyweight"]
 
 // Body Mass Index
@@ -362,6 +425,10 @@ define "All Body Weight Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/bmi
 */
 define "All Body Mass Index Measurements":
+  ((["observation-bmi"]).resulted()) O 
+    return O as "observation-bmi"
+
+define "All Body Mass Index Measurements All Statuses":
   ["observation-bmi"]
 
 // Blood Pressure
@@ -371,6 +438,10 @@ define "All Body Mass Index Measurements":
 @profile: http://hl7.org/fhir/StructureDefinition/bp
 */
 define "All Blood Pressure Measurements":
+  ((["observation-bp"]).resulted()) O 
+    return O as "observation-bp"
+
+define "All Blood Pressure Measurements All Statuses":
   ["observation-bp"]
 
 // Systolic Blood Pressure
@@ -382,3 +453,170 @@ define "Diastolic Blood Pressure":
   "All Blood Pressure Measurements".DiastolicBP.value
 
 
+
+/* MBODA InitialExpressions */
+define "Member ID":
+  singleton from
+    (
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
+    where "Member Number".code in valuesByTypes.type
+    return valuesByTypes.value
+    )
+
+define "Medical Record Number":
+  singleton from 
+  (
+    (Patient.identifier I
+      return {value: I.value, type: I.type.codes.code}
+    ) valueByTypes
+    // TODO: create code for MR (medical record number)
+    where UC."MedicalRecordNumber".code in valueByTypes.type
+    return valueByTypes.value
+  )
+
+define "Most Recent BSA":
+  convert(
+    (
+      (
+      ([FHIR.Observation: "Body surface area"]).resulted()
+      ).mostRecent()
+    ).value
+  ) to 'm2'
+
+define function CalculateBSA(alg System.String, height System.Quantity, weight System.Quantity):
+  System.Quantity { value: 
+    // Mosteller formula using lbs and inches
+    if (alg = 'Mosteller') then
+      ((((convert(height) to '[in_i]') * (convert(weight) to '[lb_av]'))/3131).value)^0.5
+    
+    // DuBois and DuBois formula using cm and kg
+    // NOTE: never to be used for newborn calculation
+    else if (alg = 'DuBois and DuBois') then
+      0.007184 * ((convert(height) to 'cm').value^0.725) * ((convert(weight) to 'kg').value^0.425)
+    
+    // No matching algorithm found
+    else null,
+    unit: 'm2'
+  }
+
+/* GMTP Initial Expressions */
+define "Humana ID": // Similar to Member ID from MBODA Initial expressions?
+  singleton from
+    (
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
+    where "Member Number".code in valuesByTypes.type
+    return valuesByTypes.value
+    )
+
+define "All ServiceRequests":
+  [FHIR.ServiceRequest]
+
+define "Most Recent ServiceRequest":
+  UC.MostRecentSR("All ServiceRequests")
+
+define "Requesting Provider Practitioner"://assuming the requester is a practitioner
+  [PractitionerProfile] P
+    where EndsWith("Most Recent ServiceRequest".requester.reference.value, P.id)
+/*
+define "Requesting Provider Organization":
+  [OrganizationProfile] O
+    where EndsWith("Most Recent ServiceRequest".requester.reference.value, O.id)
+*/
+
+define "Servicing Provider"://assuming the servicing provider is a lab - (molecular/genetic testing)
+  singleton from ([OrganizationProfile] O
+    where EndsWith(First("Most Recent ServiceRequest".performer.reference.value), O.id))
+
+define "Test Coverage":
+  [FHIR.Coverage] C
+    with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
+
+define "Billing Provider":
+  singleton from([OrganizationProfile] O
+    where EndsWith(First("Test Coverage".payor.reference.value), O.id))
+
+define "Test Related Condition":
+  [FHIR.Condition] C
+    where EndsWith(First("Most Recent ServiceRequest".reasonReference.reference.value), C.id)
+  //.reasonReference changed to .reason in FHIR R5
+
+define "Research Subject":
+  [FHIR.ResearchSubject] R
+    where  EndsWith(R.individual.reference, Patient.id)
+    //ResearchSubject.individual is from FHIR version v4.0.1 and has been replaced by R.subject in FHIR R5
+
+define "All Clinical Trials":
+  [FHIR.ResearchStudy] 
+
+//bug req (does not work if full statement is in USCoreElements and referenced in GMTPInitialExpressions)
+/*define "Clinical Trial":
+  [FHIR.ResearchStudy] R 
+    with "Research Subject" S such that EndsWith(S.study.reference, R.id)
+    with  "Test Related Condition" C such that C.code in R.condition */
+
+define "Clinical Trial Organization":
+  [OrganizationProfile] O
+  
+define function "GetServiceRequestReasonCondition"(S ServiceRequest):
+  [FHIR.Condition] C
+  with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
+  return C
+
+/* UPPARFInitialExpressions */
+/*
+define "Member ID":
+  singleton from
+    (
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
+    where "Member Number".code in valuesByTypes.type
+    return valuesByTypes.value
+    )
+*/
+
+define "Policy Number":
+singleton from
+    (
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
+    where "Subscriber Number".code in valuesByTypes.type
+    return valuesByTypes.value
+    )
+
+define "All Patients Confirmed Active Diagnosis":
+  [USCore.Condition] C
+    where EndsWith(C.subject.reference, Patient.id)
+    and "Confirmed" in C.verificationStatus.codes
+    and "Active" in C.clinicalStatus.codes
+
+define "Requester":
+  singleton from (
+    [USCore.PractitionerProfile] P
+      where EndsWith("Most Recent Medication Request".requester.reference, P.id))
+
+define "RequesterRole":
+  singleton from (
+    [USCore.PractitionerRoleProfile] R
+      where EndsWith(R.practitioner.reference, "Requester".id))

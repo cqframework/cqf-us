@@ -138,10 +138,23 @@ define fluent function active(conditions List<USCore.Condition>):
       or C.clinicalStatus ~ "recurrence"
       or C.clinicalStatus ~ "relapse"
 
+define fluent function active(conditions List<FHIR.Condition>)://FHIR Version
+  conditions C
+    where C.clinicalStatus ~ "active"
+      or C.clinicalStatus ~ "recurrence"
+      or C.clinicalStatus ~ "relapse"
+
 define fluent function isAllergyActive(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.clinicalStatus ~ "allergy-active"
 
+define fluent function isAllergyActive(allergyIntolerance FHIR.AllergyIntolerance)://FHIR Version
+  allergyIntolerance.clinicalStatus ~ "allergy-active"
+
 define fluent function allergyActive(allergyIntolerances List<USCore.AllergyIntolerance>):
+  allergyIntolerances A
+    where A.clinicalStatus ~ "allergy-active"
+
+define fluent function allergyActive(allergyIntolerances List<FHIR.AllergyIntolerance>)://FHIR Version
   allergyIntolerances A
     where A.clinicalStatus ~ "allergy-active"
 
@@ -162,11 +175,21 @@ define fluent function allergyResolved(allergyIntolerances List<USCore.AllergyIn
 define fluent function isAllergyConfirmed(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.verificationStatus ~ "allergy-confirmed"
 
+define fluent function isAllergyConfirmed(allergyIntolerance FHIR.AllergyIntolerance)://FHIR Version
+  allergyIntolerance.verificationStatus ~ "allergy-confirmed"
+
 define fluent function allergyConfirmed(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.verificationStatus ~ "allergy-confirmed"
 
+define fluent function allergyConfirmed(allergyIntolerances List<FHIR.AllergyIntolerance>)://FHIR Version
+  allergyIntolerances A
+    where A.verificationStatus ~ "allergy-confirmed"
+
 define fluent function isAllergyUnconfirmed(allergyIntolerance USCore.AllergyIntolerance):
+  allergyIntolerance.verificationStatus ~ "allergy-unconfirmed"
+
+define fluent function isAllergyUnconfirmed(allergyIntolerance FHIR.AllergyIntolerance)://FHIR Version
   allergyIntolerance.verificationStatus ~ "allergy-unconfirmed"
 
 define fluent function allergyUnconfirmed(allergyIntolerances USCore.AllergyIntolerance):
@@ -196,6 +219,12 @@ define fluent function isProblemListItem(condition USCore.Condition):
     where C ~ "problem-list-item"
   )
 
+//FHIR Version
+define fluent function isProblemListItem(condition FHIR.Condition):
+  exists (condition.category C
+    where C ~ "problem-list-item"
+  )
+
 /*
 @description: Returns true if the given condition is an encounter diagnosis
 */
@@ -204,10 +233,22 @@ define fluent function isEncounterDiagnosis(condition USCore.Condition):
     where C ~ "encounter-diagnosis"
   )
 
+//FHIR Version
+define fluent function isEncounterDiagnosis(condition FHIR.Condition):
+  exists (condition.category C
+    where C ~ "encounter-diagnosis"
+  )
+
 /*
 @description: Returns true if the given condition is a health concern
 */
 define fluent function isHealthConcern(condition USCore.Condition):
+  exists (condition.category C
+    where C ~ "health-concern"
+  )
+
+//FHIR Version
+define fluent function isHealthConcern(condition FHIR.Condition):
   exists (condition.category C
     where C ~ "health-concern"
   )
@@ -237,6 +278,10 @@ define fluent function isConfirmed(condition USCore.Condition):
   condition.verificationStatus ~ "confirmed"
 
 define fluent function confirmed(conditions List<USCore.Condition>):
+  conditions C
+    where C.verificationStatus ~ "confirmed"
+
+define fluent function confirmed(conditions List<FHIR.Condition>)://FHIR Version
   conditions C
     where C.verificationStatus ~ "confirmed"
 
@@ -291,39 +336,73 @@ define fluent function corrected(observations List<LaboratoryResultObservationPr
     where observation.status ~ "observation-corrected".code
 
 
-define fluent function isResulted(observation "observation-bodyweight"):
+define fluent function isResulted(observation FHIR.Observation):
   observation.status ~ "observation-final".code
     or observation.status ~ "observation-amended".code
     or observation.status ~ "observation-corrected".code
 
-define fluent function resulted(observations List<"observation-bodyweight">):
+define fluent function resulted(observations List<FHIR.Observation>):
   observations observation
     where observation.status ~ "observation-final".code
       or observation.status ~ "observation-amended".code
       or observation.status ~ "observation-corrected".code
 
-define fluent function isFinal(observation "observation-bodyweight"):
+define fluent function isFinal(observation FHIR.Observation):
   observation.status ~ "observation-final".code
 
-define fluent function final(observations List<"observation-bodyweight">):
+define fluent function final(observations List<FHIR.Observation>):
   observations observation
     where observation.status ~ "observation-final".code
 
-define fluent function isAmended(observation "observation-bodyweight"):
+define fluent function isAmended(observation FHIR.Observation):
   observation.status ~ "observation-amended".code
 
-define fluent function amended(observations List<"observation-bodyweight">):
+define fluent function amended(observations List<FHIR.Observation>):
   observations observation
     where observation.status ~ "observation-amended".code
 
-define fluent function isCorrected(observation "observation-bodyweight"):
+define fluent function isCorrected(observation FHIR.Observation):
   observation.status ~ "observation-corrected".code
 
-define fluent function corrected(observations List<"observation-bodyweight">):
+define fluent function corrected(observations List<FHIR.Observation>):
+  observations observation
+    where observation.status ~ "observation-corrected".code
+    
+
+
+define fluent function isResulted(observation Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>):
+  observation.status ~ "observation-final".code
+    or observation.status ~ "observation-amended".code
+    or observation.status ~ "observation-corrected".code
+
+define fluent function resulted(observations List<Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>>):
+  observations observation
+    where observation.status ~ "observation-final".code
+      or observation.status ~ "observation-amended".code
+      or observation.status ~ "observation-corrected".code
+
+define fluent function isFinal(observation Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>):
+  observation.status ~ "observation-final".code
+
+define fluent function final(observations List<Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>>):
+  observations observation
+    where observation.status ~ "observation-final".code
+
+define fluent function isAmended(observation Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>):
+  observation.status ~ "observation-amended".code
+
+define fluent function amended(observations List<Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>>):
+  observations observation
+    where observation.status ~ "observation-amended".code
+
+define fluent function isCorrected(observation Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>):
+  observation.status ~ "observation-corrected".code
+
+define fluent function corrected(observations List<Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>>):
   observations observation
     where observation.status ~ "observation-corrected".code
 
-
+//Had to keep "observation-bodyheight" as it's own function as it does not work if its in the list of choices above:(
 define fluent function isResulted(observation "observation-bodyheight"):
   observation.status ~ "observation-final".code
     or observation.status ~ "observation-amended".code
@@ -520,7 +599,20 @@ define function MostRecent(observations List<Observation>):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<Observation>):
+  Last(
+    observations O
+      sort by issued
+  )
+
+
 define function MostRecent(observations List<"SmokingStatusProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"SmokingStatusProfile">):
   Last(
     observations O
       sort by issued
@@ -532,13 +624,32 @@ define function MostRecent(observations List<"PulseOximetryProfile">):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"PulseOximetryProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+
 define function MostRecent(observations List<"PediatricWeightForHeightObservationProfile">):
   Last(
     observations O
       sort by issued
   )
 
-  define function MostRecent(observations List<"PediatricBMIforAgeObservationProfile">):
+define fluent function mostRecent(observations List<"PediatricWeightForHeightObservationProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define function MostRecent(observations List<"PediatricBMIforAgeObservationProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"PediatricBMIforAgeObservationProfile">):
   Last(
     observations O
       sort by issued
@@ -550,7 +661,19 @@ define function MostRecent(observations List<"LaboratoryResultObservationProfile
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"LaboratoryResultObservationProfile">):
+  Last(
+    observations O
+      sort by issued
+  )
+
 define function MostRecent(observations List<"observation-vitalspanel">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"observation-vitalspanel">):
   Last(
     observations O
       sort by issued
@@ -562,7 +685,19 @@ define function MostRecent(observations List<"observation-resprate">):
       sort by issued
   )
   
+define fluent function mostRecent(observations List<"observation-resprate">):
+  Last(
+    observations O
+      sort by issued
+  )
+
   define function MostRecent(observations List<"observation-heartrate">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"observation-heartrate">):
   Last(
     observations O
       sort by issued
@@ -574,7 +709,19 @@ define function MostRecent(observations List<"observation-resprate">):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"observation-oxygensat">):
+  Last(
+    observations O
+      sort by issued
+  )
+
   define function MostRecent(observations List<"observation-bodytemp">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"observation-bodytemp">):
   Last(
     observations O
       sort by issued
@@ -586,7 +733,19 @@ define function MostRecent(observations List<"observation-resprate">):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"observation-headcircum">):
+  Last(
+    observations O
+      sort by issued
+  )
+
   define function MostRecent(observations List<"observation-bp">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"observation-bp">):
   Last(
     observations O
       sort by issued
@@ -598,7 +757,19 @@ define function MostRecent(observations List<"observation-bmi">):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"observation-bmi">):
+  Last(
+    observations O
+      sort by issued
+  )
+
 define function MostRecent(observations List<"observation-bodyheight">):
+  Last(
+    observations O
+      sort by issued
+  )
+
+define fluent function mostRecent(observations List<"observation-bodyheight">):
   Last(
     observations O
       sort by issued
@@ -610,7 +781,19 @@ define function MostRecent(observations List<"observation-bodyweight">):
       sort by issued
   )
 
+define fluent function mostRecent(observations List<"observation-bodyweight">):
+  Last(
+    observations O
+      sort by issued
+  )
+
 define function MostRecentMR(medicationRequests List<"MedicationRequestProfile">):
+  Last(
+    medicationRequests MR
+      sort by authoredOn
+  )
+
+define fluent function mostRecentMR(medicationRequests List<"MedicationRequestProfile">):
   Last(
     medicationRequests MR
       sort by authoredOn
@@ -622,7 +805,23 @@ define function MostRecentSR(serviceRequests List<FHIR.ServiceRequest>):
       sort by (FHIRHelpers.ToDateTime(authoredOn) as DateTime)
   )
 
+define fluent function mostRecentSR(serviceRequests List<FHIR.ServiceRequest>):
+  Last(
+    serviceRequests SR
+      sort by (FHIRHelpers.ToDateTime(authoredOn) as DateTime)
+  )
 
+//Should these be singletons?
 define function Mobile(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.use = 'mobile')
 
+define function Email(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.system = 'email')
+
+  //TBD: is this better as part of us common?
+define function Fax(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.system = 'fax')
+
+    //TBD: is this better as part of us common?
+define function Pager(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.system = 'pager')

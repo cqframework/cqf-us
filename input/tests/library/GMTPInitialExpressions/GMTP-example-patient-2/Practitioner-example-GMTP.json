@@ -1,0 +1,53 @@
+{
+  "resourceType": "Practitioner",
+  "id": "Practitioner-example-GMTP",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner",
+      "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi'",
+      "value": "1245319599"
+    },
+    {
+      "system": "http://www.acme.org/practitioners",
+      "value": "456789"
+    }
+  ],
+  "name": [
+    {
+      "family": "Kathy",
+      "given": [
+        "Fielding"
+      ],
+      "prefix": [
+        "Dr"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "555-555-5672",
+      "use": "mobile"
+    },
+    {
+      "system": "fax",
+      "value": "555-555-5672"
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": [
+        "1080 FIRST COLONIAL RD"
+      ],
+      "city": "Virginia Beach",
+      "state": "VA",
+      "postalCode": "21454-2406"
+    }
+  ]
+}

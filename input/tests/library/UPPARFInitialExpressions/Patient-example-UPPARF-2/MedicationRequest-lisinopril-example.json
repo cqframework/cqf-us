@@ -1,0 +1,86 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "MedicationRequest-lisinopril-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+    ]
+  },
+  "status": "active",
+  "priority": "routine",
+  "intent": "order",
+  "reportedBoolean": true,
+  "medicationReference": {
+    "reference": "Medication/Medication-lisinopril-example",
+    "display": "Lisinopril 10 MG Oral Tablet [Prinivil]"
+  },
+  "subject": {
+    "reference": "Patient/Patient-example-UPPARF-2"
+  },
+  "authoredOn": "2021-06-24",
+  "requester": {
+    "reference": "Practitioner/Practitioner-example"
+  },
+  "dispenseRequest": {
+    "numberOfRepeatsAllowed": 1,
+    "quantity": {
+      "value": 10,
+      "code": "mg",
+      "system": "http://unitsofmeasure.org",
+      "unit": "mg"
+    },
+    "expectedSupplyDuration": {
+      "value": 15,
+      "code": "d",
+      "system": "http://unitsofmeasure.org",
+      "unit": "days"
+    }
+  },
+  "dosageInstruction": [
+    {
+      "timing": {
+        "repeat": {
+          "frequency": 1,
+          "period": 1,
+          "periodUnit": "d"
+        }
+      },
+      "site": {
+        "coding": [
+          {
+            "code": "447964005",
+            "system": "http://snomed.info/sct"
+          }
+        ]
+      },
+      "route": {
+        "coding": [
+          {
+            "code": "394899003",
+            "system": "http://snomed.info/sct",
+            "display": "oral administration of treatment"
+          }
+        ]
+      },
+      "doseAndRate": [
+        {
+          "type": {
+            "coding": [
+              {
+                "code": "ordered",
+                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                "display": "Ordered"
+              }
+            ]
+          },
+          "doseQuantity": {
+            "value": 10,
+            "code": "mg",
+            "system": "http://unitsofmeasure.org",
+            "unit": "mg"
+          }
+        }
+      ]
+    }
+  ]
+}
