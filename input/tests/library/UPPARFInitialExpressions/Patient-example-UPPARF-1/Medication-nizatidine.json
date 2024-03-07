@@ -1,0 +1,19 @@
+{
+  "resourceType": "Medication",
+  "id": "Medication-nizatidine",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication"
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "code": "582620",
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "display": "Nizatidine 15 MG/ML Oral Solution [Axid]"
+      }
+    ],
+    "text": "Nizatidine 15 MG/ML Oral Solution [Axid]"
+  }
+}

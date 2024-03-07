@@ -144,10 +144,13 @@ define "Requested Test":
   return SR.code
 
 define "Test ID":
-  Combine("Requested Test".coding.code.value, ', ')
+  Combine("Requested Test".coding.code.value, ', ') 
+  //"Requested Test".coding.code.value 
+  /* feature req */
 
 define "Test name":
    Combine("Requested Test".coding.display.value, ', ')
+   //"Requested Test".coding.display.valu
 
 define "ALL ICD and CPT Test Codes":
    "Test ICD Codes" union "Test CPT Codes" as List<FHIR.Coding>
@@ -201,11 +204,14 @@ define "All clinical Trials":
   UCE."All Clinical Trials" 
 
 define "Clinical Trial":
-  //[FHIR.ResearchStudy] R
   UCE."All Clinical Trials" R 
     with "Research Subject" S such that EndsWith(S.study.reference, R.id)
     with  "Test Related Condition" C such that C.code in R.condition
-  //UCE."Clinical Trial" does not work, but using UCE."All Clinical Trials" instead of [FHIR.ResearchStudy] works
+  //UCE."Clinical Trial" 
+
+/*define "Clinical Trial":
+  UCE."Clinical Trial" */
+
 
 define "Clinical Trial ID":
   "Clinical Trial".identifier C

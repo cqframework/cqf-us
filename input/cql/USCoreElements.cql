@@ -8,12 +8,17 @@ include USCoreCommon version '0.1.0' called UC
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
+codesystem "Verification Status": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
+codesystem "Condition Clinical": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
 
 valueset "Common allergy substances": 'http://hl7.org/fhir/us/core/ValueSet/us-core-allergy-substance'
 
 code "No known allergy (situation)": '716186003' from UC.SNOMEDCT
 code "Member Number": 'MB' from "Identifier Type"
+code "Subscriber Number": 'SN' from "Identifier Type"
 code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
+code "Confirmed": 'confirmed' from "Verification Status"
+code "Active": 'active' from "Condition Clinical"
 
 context Patient
 
@@ -475,6 +480,15 @@ define "Medical Record Number":
     return valueByTypes.value
   )
 
+define "Most Recent BSA":
+  convert(
+    (
+      (
+      ([FHIR.Observation: "Body surface area"]).resulted()
+      ).mostRecent()
+    ).value
+  ) to 'm2'
+
 define function CalculateBSA(alg System.String, height System.Quantity, weight System.Quantity):
   System.Quantity { value: 
     // Mosteller formula using lbs and inches
@@ -490,15 +504,6 @@ define function CalculateBSA(alg System.String, height System.Quantity, weight S
     else null,
     unit: 'm2'
   }
-
-define "Most Recent BSA":
-  convert(
-    (
-      (
-      ([FHIR.Observation: "Body surface area"]).resulted()
-      ).mostRecent()
-    ).value
-  ) to 'm2'
 
 /* GMTP Initial Expressions */
 define "Humana ID": // Similar to Member ID from MBODA Initial expressions?
@@ -568,3 +573,50 @@ define function "GetServiceRequestReasonCondition"(S ServiceRequest):
   [FHIR.Condition] C
   with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
   return C
+
+/* UPPARFInitialExpressions */
+/*
+define "Member ID":
+  singleton from
+    (
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
+    where "Member Number".code in valuesByTypes.type
+    return valuesByTypes.value
+    )
+*/
+
+define "Policy Number":
+singleton from
+    (
+      (
+        (
+          ([FHIR.Coverage] C 
+              where EndsWith(C.beneficiary.reference, Patient.id))
+          .identifier) I
+        return {value: I.value.value, type: I.type.coding.code}
+      ) valuesByTypes
+    where "Subscriber Number".code in valuesByTypes.type
+    return valuesByTypes.value
+    )
+
+define "All Patients Confirmed Active Diagnosis":
+  [USCore.Condition] C
+    where EndsWith(C.subject.reference, Patient.id)
+    and "Confirmed" in C.verificationStatus.codes
+    and "Active" in C.clinicalStatus.codes
+
+define "Requester":
+  singleton from (
+    [USCore.PractitionerProfile] P
+      where EndsWith("Most Recent Medication Request".requester.reference, P.id))
+
+define "RequesterRole":
+  singleton from (
+    [USCore.PractitionerRoleProfile] R
+      where EndsWith(R.practitioner.reference, "Requester".id))

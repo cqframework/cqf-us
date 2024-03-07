@@ -811,7 +811,17 @@ define fluent function mostRecentSR(serviceRequests List<FHIR.ServiceRequest>):
       sort by (FHIRHelpers.ToDateTime(authoredOn) as DateTime)
   )
 
-
+//Should these be singletons?
 define function Mobile(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.use = 'mobile')
 
+define function Email(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.system = 'email')
+
+  //TBD: is this better as part of us common?
+define function Fax(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.system = 'fax')
+
+    //TBD: is this better as part of us common?
+define function Pager(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.system = 'pager')

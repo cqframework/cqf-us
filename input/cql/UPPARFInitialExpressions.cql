@@ -6,11 +6,12 @@ using FHIR version '4.0.1'
 include FHIRHelpers version '4.1.000'
 include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
+include CumulativeMedicationDuration called CMD 
 
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 codesystem "Verification Status": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
 codesystem "Condition Clinical": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
-codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10-cm'
+codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10-cm' 
 code "Member Number": 'MB' from "Identifier Type"
 code "Subscriber Number": 'SN' from "Identifier Type"
 code "Confirmed": 'confirmed' from "Verification Status"
@@ -58,33 +59,11 @@ define "Patient Name":
 
 //TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form? 
 define "Member ID":
-  singleton from
-    (
-      (
-        (
-          ([FHIR.Coverage] C 
-              where EndsWith(C.beneficiary.reference, Patient.id))
-          .identifier) I
-        return {value: I.value.value, type: I.type.coding.code}
-      ) valuesByTypes
-    where "Member Number".code in valuesByTypes.type
-    return valuesByTypes.value
-    )
+  UCE."Member ID"
 
 //TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form? 
 define "Policy Number":
-singleton from
-    (
-      (
-        (
-          ([FHIR.Coverage] C 
-              where EndsWith(C.beneficiary.reference, Patient.id))
-          .identifier) I
-        return {value: I.value.value, type: I.type.coding.code}
-      ) valuesByTypes
-    where "Subscriber Number".code in valuesByTypes.type
-    return valuesByTypes.value
-    )
+  UCE."Policy Number"
 
 define "Date of Birth":
   Patient.birthDate
@@ -96,7 +75,7 @@ define "Phone Number":
   UC.Mobile(Patient.telecom).value
 
 define "Email Address":
-  Email(Patient.telecom).value
+  UC.Email(Patient.telecom).value
 
 define "Prescription Date":
 "Most Recent Medication Request".authoredOn
@@ -106,13 +85,13 @@ define "Prescriber Name":
    //TODO: prefix, suffix and given do not work as expected.
 
 define "Prescriber Fax":
-  Fax(Requester.telecom).value
+  UC.Fax(Requester.telecom).value
 
 define "Prescriber Phone":
   UC.Mobile(Requester.telecom).value
 
 define "Prescriber Pager":
-  Pager(Requester.telecom).value
+  UC.Pager(Requester.telecom).value
 
 define "Prescriber Address":
 'TODO: remove hard coded address'
@@ -141,7 +120,7 @@ define "Prescriber Specialty":
 First(RequesterRole.specialty.codes).display
 
 define "Prescriber Email Address":
-Email(Requester.telecom).value
+  UC.Email(Requester.telecom).value
 
 define "Request Type":
 //TODO: is this logic correct?
@@ -149,12 +128,13 @@ if "Is First Prior Authentication" then
 'New Request' else 'Reauthorization'
 
 define "ICD-10 Codes":
- "All Patients Confirmed Active Diagnosis".code.codes C
- where C.system = "ICD10".id
- return C.code
+  First("All Patients Confirmed Active Diagnosis".code.codes C
+  where C.system = "ICD10".id
+  return C.code)
+
 
 define "Diagnosis Descriptions":
- "All Patients Confirmed Active Diagnosis".code.display
+  "All Patients Confirmed Active Diagnosis".code.display
 
 define "Unit Volume of Named Drugs":
 "Dosage Value as String" + "Dosage Unit"
@@ -188,7 +168,7 @@ define "Most Recent Medication":
 singleton from (
   UCE."All Medications" M
     where EndsWith((UCE."Most Recent Medication Request".medication as USCore.Reference).reference, M.id))
-
+ 
 define "Most Recent Medication Request":
   UCE."Most Recent Medication Request"
 
@@ -196,30 +176,16 @@ define "Prior Prescription":
   "Most Recent Medication Request".priorPrescription
 
 define "All Patients Confirmed Active Diagnosis":
-[USCore.Condition] C
-  where EndsWith(C.subject.reference, Patient.id)
-  and "Confirmed" in C.verificationStatus.codes
-  and "Active" in C.clinicalStatus.codes
+  UCE."All Patients Confirmed Active Diagnosis"
 
-//TBD: is this better as part of us common?
-define function Email(contactPoints List<USCore.ContactPoint>):
-  singleton from (contactPoints P where P.system = 'email')
-
-  //TBD: is this better as part of us common?
-define function Fax(contactPoints List<USCore.ContactPoint>):
-  singleton from (contactPoints P where P.system = 'fax')
-
-    //TBD: is this better as part of us common?
-define function Pager(contactPoints List<USCore.ContactPoint>):
-  singleton from (contactPoints P where P.system = 'pager')
-
-  define "Requester":
-singleton from (
-[USCore.PractitionerProfile] P
-              where EndsWith("Most Recent Medication Request".requester.reference, P.id))
+define "Requester":
+  UCE."Requester"
 
 define "RequesterRole":
-singleton from (
-[USCore.PractitionerRoleProfile] R
-              where EndsWith(R.practitioner.reference, "Requester".id))
+  UCE."RequesterRole"
 
+//email, pager, and fax functions moved to USCoreCommon.cql
+
+//IMPORTANT NOTE: Missing the entire (or majority) of the "Prior Authorization Request for Drug Benefit" section of the quesstionnaire. Expect errors on Postman regarding the items in this section.
+define "Start Date and Length":
+  null as System.String

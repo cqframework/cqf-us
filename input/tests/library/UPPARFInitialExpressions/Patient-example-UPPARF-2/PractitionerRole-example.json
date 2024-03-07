@@ -1,0 +1,54 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "PractitionerRole-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "http://www.acme.org/practitionerroles",
+      "value": "31"
+    }
+  ],
+  "active": true,
+  "period": {
+    "start": "1995"
+  },
+  "practitioner": {
+    "reference": "Practitioner/Practitioner-example",
+    "display": "Dr Kathy Fielding"
+  },
+  "organization": {
+    "reference":  "Organization/Organization-example"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "261QP2300X",
+          "display": "Primary Care"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223G0001X",
+          "display": "General Practice"
+        }
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(55) 123 645"
+    }
+  ]
+}
