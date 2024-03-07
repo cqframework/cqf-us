@@ -12,6 +12,10 @@ codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 codesystem "Verification Status": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
 codesystem "Condition Clinical": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
 codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10-cm' 
+
+valueset "ICD10 vs": 'http://hl7.org/fhir/sid/icd-10-cm/ValueSet'
+
+code "ICD10 example code": 'example' from "ICD10"
 code "Member Number": 'MB' from "Identifier Type"
 code "Subscriber Number": 'SN' from "Identifier Type"
 code "Confirmed": 'confirmed' from "Verification Status"
@@ -127,10 +131,10 @@ define "Request Type":
 if "Is First Prior Authentication" then
 'New Request' else 'Reauthorization'
 
-define "ICD-10 Codes":
-  First("All Patients Confirmed Active Diagnosis".code.codes C
-  where C.system = "ICD10".id
-  return C.code)
+define "ICD 10 Codes":
+  "All Patients Confirmed Active Diagnosis".code.codes C
+  where C.system ~ "ICD10 example code".system //"ICD10".id
+  return C.code
 
 
 define "Diagnosis Descriptions":

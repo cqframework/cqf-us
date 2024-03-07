@@ -476,7 +476,7 @@
                   "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
                   "valueExpression": {
                     "language": "text/cql-identifier",
-                    "expression": "ICD-10 Codes"
+                    "expression": "ICD 10 Codes"
                   }
                 }
               ],
@@ -484,7 +484,7 @@
               "text": "Patient ICD Diagnostic Codes",
               "type": "open-choice",
               "repeats": true,
-              "answerValueSet": "http://hl7.org/fhir/sid/icd-10-cm"
+              "answerValueSet": "http://hl7.org/fhir/sid/icd-10-cm/ValueSet"
             },
             {
               "extension": [
