@@ -75,7 +75,7 @@ and any verification status (including none).
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
 */
 define "All Allergies and Intolerances":
-  ["AllergyIntolerance"]
+  [USCore."AllergyIntolerance"]
 
 define "Active Confirmed Allergies and Intolerances":
   "All Allergies and Intolerances".allergyActive().allergyConfirmed()
@@ -112,7 +112,7 @@ any verification status (including none).
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition
 */
 define "All Conditions":
-  ["Condition"]
+  [USCore."Condition"]
 
 define "All Problem List Items":
   "All Conditions" C

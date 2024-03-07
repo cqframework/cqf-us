@@ -42,8 +42,7 @@ define "Phone Number":
   UC.Mobile(Patient.telecom).value
 
 define "Allergies":
-  UCE."Active Confirmed Allergies and Intolerances" A
-    return A.code
+  UCE."Active Confirmed Allergies and Intolerances".code.codes.display 
 
 // TODO: Error: Could not resolve data provider for package 'java.util'.
 // define "Address":
@@ -122,7 +121,7 @@ define "Diagnosis Codes":
 
 define "Diagnosis Descriptions":
   "Diagnosis Codes" ConceptItem
-    return Combine(((ConceptItem.coding) C return C.display), '|')
+    return Combine(((ConceptItem.codes) C return C.display), '|')
 
 define "Medication Requested":
   UCE."All Medications" M
