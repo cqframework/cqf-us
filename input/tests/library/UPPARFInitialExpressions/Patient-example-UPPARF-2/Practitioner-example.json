@@ -1,0 +1,60 @@
+{
+  "resourceType": "Practitioner",
+  "id": "Practitioner-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "http://hl7.org.fhir/sid/us-npi",
+      "value": "1245319599"
+    },
+    {
+      "system": "urn:oid:2.16.840.1.113883.4.4",
+      "value": "1tg1556"
+    }
+  ],
+  "name": [
+    {
+      "family": "Kathy",
+      "given": [
+        "Fielding"
+      ],
+      "prefix": [
+        "Dr"
+      ]
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": [
+        "1080 FIRST COLONIAL RD"
+      ],
+      "city": "Virginia Beach",
+      "state": "VA",
+      "postalCode": "21454-2406"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(55) 123 645",
+      "use": "mobile"
+    },
+    {
+      "system": "pager",
+      "value": "111111"
+    },
+    {
+      "system": "fax",
+      "value": "(55) 123 654 234"
+    },
+    {
+      "system": "email",
+      "value": "practitioner.example@gmail.com"
+    }
+  ]
+}

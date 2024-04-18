@@ -12,16 +12,15 @@ include USCoreElements version '0.1.0' called UCE
 include CumulativeMedicationDuration version '3.1.000' called CMD
 
 codesystem "LOINC": 'http://loinc.org'
+codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
+code "Member Number": 'MB' from "Identifier Type"
 
 context Patient
 
 define "Member ID":
-  singleton from (
-    [FHIR.Coverage] C
-    where EndsWith(C.subscriber.reference, Patient.id)
-    return C.subscriberId.value
-  )
+  UCE."Member ID"
+
 
 define "Patient Name":
   UCE."Name - First Middle(s) Last"
@@ -37,22 +36,13 @@ define "Date of Birth":
   Patient.birthDate
   
 define "Medical Record Number":
-  singleton from 
-  (
-    (Patient.identifier I
-      return {value: I.value, type: I.type.codes.code}
-    ) valueByTypes
-    // TODO: create code for MR (medical record number)
-    where UC."MedicalRecordNumber".code in valueByTypes.type
-    return valueByTypes.value
-  )
+  UCE."Medical Record Number"
 
 define "Phone Number":
   UC.Mobile(Patient.telecom).value
 
 define "Allergies":
-  UCE."Active Confirmed Allergies and Intolerances" A
-    return A.code
+  UCE."Active Confirmed Allergies and Intolerances".code.codes.display 
 
 // TODO: Error: Could not resolve data provider for package 'java.util'.
 // define "Address":
@@ -71,9 +61,11 @@ define "Zip":
 
 define "Height":
   convert(
-    UC.MostRecent(
-      UCE."All Body Height Measurements".resulted()
-    ).value 
+    (
+      (
+        UCE."All Body Height Measurements"
+      ).mostRecent()
+    ).value
   ) to '[in_i]'
 
 define "Height in [in_i]":
@@ -81,24 +73,21 @@ define "Height in [in_i]":
 
 define "Weight":
   convert(
-    UC.MostRecent(
-      UCE."All Body Weight Measurements".resulted()
-    ).value 
+    (
+      (
+        UCE."All Body Weight Measurements"
+      ).mostRecent()
+    ).value
   ) to '[lb_av]'
 
 define "Weight in [lb_av]":
   "Weight".value
 
+define "BMI":
+  (UCE."All Body Mass Index Measurements").value
+
 define "Most Recent BSA":
-  convert( 
-    UC.MostRecent(
-      ([FHIR.Observation: "Body surface area"] observation
-        where observation.status ~ UC."observation-final".code
-          or observation.status ~ UC."observation-amended".code
-          or observation.status ~ UC."observation-corrected".code
-      )
-    ).value 
-  ) to 'm2'
+  UCE."Most Recent BSA"
 
 define "BSA":
   Coalesce("Most Recent BSA", "Calculated BSA - Mosteller")
@@ -108,7 +97,7 @@ define "BSA in m2":
 
 // Mosteller formula using lbs and inches
 define "Calculated BSA - Mosteller":
-  CalculateBSA('Mosteller', "Height", "Weight")
+  UCE.CalculateBSA('Mosteller', "Height", "Weight")
   //((("Weight"*"Height")/3131).value)^0.5
 
 define "Height in cm":
@@ -118,23 +107,9 @@ define "Weight in kg":
   convert("Weight") to 'kg'
 
 define "Calculated BSA - DuBois and DuBois":
-  CalculateBSA('DuBois and DuBois', "Height", "Weight")
+  UCE.CalculateBSA('DuBois and DuBois', "Height", "Weight")
 
-define function CalculateBSA(alg System.String, height System.Quantity, weight System.Quantity):
-  System.Quantity { value: 
-    // Mosteller formula using lbs and inches
-    if (alg = 'Mosteller') then
-      ((((convert(height) to '[in_i]') * (convert(weight) to '[lb_av]'))/3131).value)^0.5
-    
-    // DuBois and DuBois formula using cm and kg
-    // NOTE: never to be used for newborn calculation
-    else if (alg = 'DuBois and DuBois') then
-      0.007184 * ((convert(height) to 'cm').value^0.725) * ((convert(weight) to 'kg').value^0.425)
-    
-    // No matching algorithm found
-    else null,
-    unit: 'm2'
-  }
+
 
 // QUESTION: do we want to use Patient.gender as a backup? If so we'll need a ConceptMap or translation
 define "Birth Sex":
