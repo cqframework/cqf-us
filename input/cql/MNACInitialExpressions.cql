@@ -24,18 +24,7 @@ define "Date of Request":
 
 //assuming that client id is the coverage member id
 define "Client ID":
-  singleton from
-    (
-      (
-        (
-          ([FHIR.Coverage] C 
-              where EndsWith(C.beneficiary.reference, Patient.id))
-          .identifier) I
-        return {value: I.value.value, type: I.type.coding.code}
-      ) valuesByTypes
-    where "Member Number".code in valuesByTypes.type
-    return valuesByTypes.value
-    )
+  UCE."Member ID"
 
 define "Patient Name":
   UCE."Name - First Middle(s) Last"

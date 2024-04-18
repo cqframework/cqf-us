@@ -909,7 +909,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -932,7 +931,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -955,7 +953,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -978,7 +975,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1001,7 +997,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1024,7 +1019,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1047,7 +1041,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1070,7 +1063,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1093,7 +1085,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1116,7 +1107,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1139,7 +1129,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1163,7 +1152,6 @@ v: {
   "error" : "The provided code 'http://unitsofmeasure.org#l/min' was not found in the value set 'http://hl7.org/fhir/ValueSet/ucum-vitals-common|4.0.1'",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -1203,7 +1191,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1226,7 +1213,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1249,7 +1235,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1272,7 +1257,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1295,7 +1279,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1318,7 +1301,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1341,7 +1323,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1364,7 +1345,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1387,7 +1367,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1410,7 +1389,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1433,7 +1411,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1456,7 +1433,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1479,7 +1455,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1502,7 +1477,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1525,7 +1499,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1548,7 +1521,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1571,7 +1543,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1594,7 +1565,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1617,7 +1587,6 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1640,9 +1609,66 @@ v: {
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unitsofmeasure.org",
+  "code" : "[deg]",
+  "display" : "deg"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "[deg]",
+  "severity" : "error",
+  "error" : "Unknown code '[deg]' in the CodeSystem 'http://unitsofmeasure.org' version '2.0.1'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '[deg]' in the CodeSystem 'http://unitsofmeasure.org' version '2.0.1'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "information",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Error processing Unit: '[deg]': The unit \"[deg]\" is unknown at character 1"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
 }
 
 }

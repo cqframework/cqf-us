@@ -22,48 +22,6 @@ code "Active": 'active' from "Condition Clinical"
 
 context Patient
 
-define "Usual Name":
-  First(
-    Patient.name name
-      where name.use ~ 'usual'
-  )
-
-define "Official Name":
-  First(
-    Patient.name name
-      where name.use ~ 'official'
-  )
-
-define "First Occurrence of Non-Official, Non-Usual Name":
-  First(
-    Patient.name name
-      where not(name.use ~ 'official') and not(name.use ~ 'usual')
-  )
-
-define "Name":
-  Coalesce("Official Name", "Usual Name", "First Occurrence of Non-Official, Non-Usual Name")
-
-// TODO: Correct this once USCore.HumanName.given works as expected
-// define "First Name":
-//   "Name".given[0]
-
-// TODO: Correct this once USCore.HumanName.given works as expected
-// define "Middle Names":
-//   Combine(Skip("Name".given, 1), ' ')
-
-define "Last Name":
-  "Name".family
-
-// TODO: Correct this once USCore.HumanName.given works as expected
-define "Name - First Middle(s) Last":
-  //Combine("Name".given, ' ') + ' ' + "Name".family
-  "Name".family
-
-// TODO: Correct this once USCore.HumanName.given works as expected
-define "Name - Last, First Middle(s)":
-  //"Name".family + ', ' + Combine("Name".given, ' ')
-  "Name".family
-
 // Allergy/Intolerance
 
 /*
@@ -452,42 +410,31 @@ define "Systolic Blood Pressure":
 define "Diastolic Blood Pressure":
   "All Blood Pressure Measurements".DiastolicBP.value
 
-
-
 /* MBODA InitialExpressions */
-define "Member ID":
-  singleton from
-    (
-      (
-        (
-          ([FHIR.Coverage] C 
-              where EndsWith(C.beneficiary.reference, Patient.id))
-          .identifier) I
-        return {value: I.value.value, type: I.type.coding.code}
-      ) valuesByTypes
-    where "Member Number".code in valuesByTypes.type
-    return valuesByTypes.value
-    )
 
-define "Medical Record Number":
-  singleton from 
-  (
-    (Patient.identifier I
-      return {value: I.value, type: I.type.codes.code}
-    ) valueByTypes
-    // TODO: create code for MR (medical record number)
-    where UC."MedicalRecordNumber".code in valueByTypes.type
-    return valueByTypes.value
+// TODO: Need to address how to identify which coverage is in use
+define "Coverage":
+  First(
+    [FHIR.Coverage] C
+      where EndsWith(C.beneficiary.reference, Patient.id)
+        and C.period includes Today()
+      sort by Coalesce(period.end, period.start) desc
   )
 
+define "Member ID":
+  singleton from (
+    Coverage.identifier I
+      where I.type ~ "Member Number"
+  )
+
+define "Medical Record Number":
+  singleton from (
+    Patient.identifier I
+      where I.type ~ UC.MedicalRecordNumber
+  ).value
+
 define "Most Recent BSA":
-  convert(
-    (
-      (
-      ([FHIR.Observation: "Body surface area"]).resulted()
-      ).mostRecent()
-    ).value
-  ) to 'm2'
+  convert ([FHIR.Observation: "Body surface area"]).resulted().mostRecent().value to 'm2'
 
 define function CalculateBSA(alg System.String, height System.Quantity, weight System.Quantity):
   System.Quantity { value: 
@@ -505,21 +452,6 @@ define function CalculateBSA(alg System.String, height System.Quantity, weight S
     unit: 'm2'
   }
 
-/* GMTP Initial Expressions */
-define "Humana ID": // Similar to Member ID from MBODA Initial expressions?
-  singleton from
-    (
-      (
-        (
-          ([FHIR.Coverage] C 
-              where EndsWith(C.beneficiary.reference, Patient.id))
-          .identifier) I
-        return {value: I.value.value, type: I.type.coding.code}
-      ) valuesByTypes
-    where "Member Number".code in valuesByTypes.type
-    return valuesByTypes.value
-    )
-
 define "All ServiceRequests":
   [FHIR.ServiceRequest]
 
@@ -535,13 +467,16 @@ define "Requesting Provider Organization":
     where EndsWith("Most Recent ServiceRequest".requester.reference.value, O.id)
 */
 
+define "Requesting Provider":
+  "Requesting Provider Practitioner"
+
 define "Servicing Provider"://assuming the servicing provider is a lab - (molecular/genetic testing)
   singleton from ([OrganizationProfile] O
     where EndsWith(First("Most Recent ServiceRequest".performer.reference.value), O.id))
 
 define "Test Coverage":
   [FHIR.Coverage] C
-    with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
+    with "Most Recent ServiceRequest" SR such that EndsWith(First(SR.insurance.reference), C.id)
 
 define "Billing Provider":
   singleton from([OrganizationProfile] O
@@ -574,49 +509,64 @@ define function "GetServiceRequestReasonCondition"(S ServiceRequest):
   with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
   return C
 
-/* UPPARFInitialExpressions */
-/*
-define "Member ID":
-  singleton from
-    (
-      (
-        (
-          ([FHIR.Coverage] C 
-              where EndsWith(C.beneficiary.reference, Patient.id))
-          .identifier) I
-        return {value: I.value.value, type: I.type.coding.code}
-      ) valuesByTypes
-    where "Member Number".code in valuesByTypes.type
-    return valuesByTypes.value
-    )
-*/
-
 define "Policy Number":
-singleton from
-    (
-      (
-        (
-          ([FHIR.Coverage] C 
-              where EndsWith(C.beneficiary.reference, Patient.id))
-          .identifier) I
-        return {value: I.value.value, type: I.type.coding.code}
-      ) valuesByTypes
-    where "Subscriber Number".code in valuesByTypes.type
-    return valuesByTypes.value
-    )
+  singleton from (
+    Coverage.identifier I
+      where I.type ~ "Subscriber Number"
+  )
 
-define "All Patients Confirmed Active Diagnosis":
-  [USCore.Condition] C
-    where EndsWith(C.subject.reference, Patient.id)
-    and "Confirmed" in C.verificationStatus.codes
-    and "Active" in C.clinicalStatus.codes
-
+// May not be appropriate for the Elements library, this is based on identifying a medication request...
 define "Requester":
   singleton from (
     [USCore.PractitionerProfile] P
-      where EndsWith("Most Recent Medication Request".requester.reference, P.id))
+      where EndsWith("Most Recent Medication Request".requester.reference, P.id)
+  )
 
 define "RequesterRole":
   singleton from (
     [USCore.PractitionerRoleProfile] R
-      where EndsWith(R.practitioner.reference, "Requester".id))
+      where EndsWith(R.practitioner.reference, "Requester".id)
+  )
+
+define "Usual Name":
+  First(
+    Patient.name name
+      where name.use ~ 'usual'
+  )
+
+define "Official Name":
+  First(
+    Patient.name name
+      where name.use ~ 'official'
+  )
+
+define "First Occurrence of Non-Official, Non-Usual Name":
+  First(
+    Patient.name name
+      where not(name.use ~ 'official') and not(name.use ~ 'usual')
+  )
+
+define "Name":
+  Coalesce("Official Name", "Usual Name", "First Occurrence of Non-Official, Non-Usual Name")
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+// define "First Name":
+//   "Name".given[0]
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+// define "Middle Names":
+//   Combine(Skip("Name".given, 1), ' ')
+
+define "Last Name":
+  "Name".family
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+define "Name - First Middle(s) Last":
+  //Combine("Name".given, ' ') + ' ' + "Name".family
+  "Name".family
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+define "Name - Last, First Middle(s)":
+  //"Name".family + ', ' + Combine("Name".given, ' ')
+  "Name".family
+
