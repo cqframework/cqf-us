@@ -21,7 +21,6 @@ context Patient
 define "Member ID":
   UCE."Member ID"
 
-
 define "Patient Name":
   UCE."Name - First Middle(s) Last"
 
@@ -108,8 +107,6 @@ define "Weight in kg":
 
 define "Calculated BSA - DuBois and DuBois":
   UCE.CalculateBSA('DuBois and DuBois', "Height", "Weight")
-
-
 
 // QUESTION: do we want to use Patient.gender as a backup? If so we'll need a ConceptMap or translation
 define "Birth Sex":

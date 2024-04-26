@@ -126,6 +126,11 @@
       "candidates" : ["http://tx.fhir.org/r4"]
     },
     {
+      "system" : "http://www.ada.org/cdt",
+      "authoritative" : [],
+      "candidates" : []
+    },
+    {
       "system" : "http://www.ama-assn.org/go/cpt",
       "authoritative" : [],
       "candidates" : ["http://tx.fhir.org/r4"]
@@ -144,6 +149,11 @@
       "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
       "authoritative" : [],
       "candidates" : ["http://tx.fhir.org/r4"]
+    },
+    {
+      "system" : "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+      "authoritative" : [],
+      "candidates" : []
     },
     {
       "system" : "https://www.usps.com/",

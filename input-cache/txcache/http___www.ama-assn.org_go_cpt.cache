@@ -225,7 +225,6 @@ v: {
   "error" : "Wrong Display Name 'Inpatient Hospital Care' for http://www.ama-assn.org/go/cpt#99223. Valid display is 'Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.' (en) (for the language(s) '--')",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -267,7 +266,6 @@ v: {
   "error" : "Wrong Display Name 'Inpatient Hospital Care' for http://www.ama-assn.org/go/cpt#99223. Valid display is 'Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.' (en) (for the language(s) 'en')",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -307,7 +305,6 @@ v: {
   "error" : "Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -364,7 +361,6 @@ v: {
   "error" : "Code '99201' not found in CPT; The provided code 'http://www.ama-assn.org/go/cpt#99201' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1|3.1.1'; Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -440,7 +436,6 @@ v: {
   "error" : "Wrong Display Name 'CT, head, wo iv contrast' for http://www.ama-assn.org/go/cpt#70450. Valid display is 'Computed tomography, head or brain; without contrast material' (en) (for the language(s) 'en')",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -480,7 +475,6 @@ v: {
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -503,7 +497,6 @@ v: {
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -524,6 +517,759 @@ v: {
 v: {
   "display" : "Unlisted molecular pathology procedure",
   "code" : "81479",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99223",
+  "display" : "Inpatient Hospital Care"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.",
+  "code" : "99223",
+  "severity" : "error",
+  "error" : "Wrong Display Name 'Inpatient Hospital Care' for http://www.ama-assn.org/go/cpt#99223. Valid display is 'Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.' (en) (for the language(s) '--')",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-display"
+      }],
+      "text" : "Wrong Display Name 'Inpatient Hospital Care' for http://www.ama-assn.org/go/cpt#99223. Valid display is 'Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.' (en) (for the language(s) '--')"
+    },
+    "location" : ["CodeableConcept.coding[0].display"],
+    "expression" : ["CodeableConcept.coding[0].display"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99201"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "99201",
+  "severity" : "error",
+  "error" : "Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'"
+    },
+    "location" : ["CodeableConcept.coding[0].code"],
+    "expression" : ["CodeableConcept.coding[0].code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "information",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Code '99201' not found in CPT"
+    },
+    "location" : ["CodeableConcept.coding[0].code"],
+    "expression" : ["CodeableConcept.coding[0].code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99201"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "99201",
+  "severity" : "error",
+  "error" : "Code '99201' not found in CPT; The provided code 'http://www.ama-assn.org/go/cpt#99201' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1|3.1.1'; Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "information",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Code '99201' not found in CPT"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "not-in-vs"
+      }],
+      "text" : "The provided code 'http://www.ama-assn.org/go/cpt#99201' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1|3.1.1'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99223",
+  "display" : "Inpatient Hospital Care"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.",
+  "code" : "99223",
+  "severity" : "error",
+  "error" : "Wrong Display Name 'Inpatient Hospital Care' for http://www.ama-assn.org/go/cpt#99223. Valid display is 'Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.' (en) (for the language(s) 'en')",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-display"
+      }],
+      "text" : "Wrong Display Name 'Inpatient Hospital Care' for http://www.ama-assn.org/go/cpt#99223. Valid display is 'Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.' (en) (for the language(s) 'en')"
+    },
+    "location" : ["CodeableConcept.coding[0].display"],
+    "expression" : ["CodeableConcept.coding[0].display"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99201"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "99201",
+  "severity" : "error",
+  "error" : "Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'"
+    },
+    "location" : ["CodeableConcept.coding[0].code"],
+    "expression" : ["CodeableConcept.coding[0].code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "information",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Code '99201' not found in CPT"
+    },
+    "location" : ["CodeableConcept.coding[0].code"],
+    "expression" : ["CodeableConcept.coding[0].code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99201"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1", "version": "3.1.1", "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "99201",
+  "severity" : "error",
+  "error" : "Code '99201' not found in CPT; The provided code 'http://www.ama-assn.org/go/cpt#99201' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1|3.1.1'; Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "information",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Code '99201' not found in CPT"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "not-in-vs"
+      }],
+      "text" : "The provided code 'http://www.ama-assn.org/go/cpt#99201' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1|3.1.1'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "70450",
+  "display" : "CT, head, wo iv contrast"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Computed tomography, head or brain; without contrast material",
+  "code" : "70450",
+  "severity" : "error",
+  "error" : "Wrong Display Name 'CT, head, wo iv contrast' for http://www.ama-assn.org/go/cpt#70450. Valid display is 'Computed tomography, head or brain; without contrast material' (en) (for the language(s) 'en')",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-display"
+      }],
+      "text" : "Wrong Display Name 'CT, head, wo iv contrast' for http://www.ama-assn.org/go/cpt#70450. Valid display is 'Computed tomography, head or brain; without contrast material' (en) (for the language(s) 'en')"
+    },
+    "location" : ["CodeableConcept.coding[0].display"],
+    "expression" : ["CodeableConcept.coding[0].display"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "33249"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Insertion or replacement of permanent implantable defibrillator system, with transvenous lead(s), single or dual chamber",
+  "code" : "33249",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "33249"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code--0", "version": "3.1.1", "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Insertion or replacement of permanent implantable defibrillator system, with transvenous lead(s), single or dual chamber",
+  "code" : "33249",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "81479",
+  "display" : "Unlisted molecular pathology procedure"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Unlisted molecular pathology procedure",
+  "code" : "81479",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99223"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1", "version": "6.1.0", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.",
+  "code" : "99223",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99201"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1", "version": "6.1.0", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "99201",
+  "severity" : "error",
+  "error" : "Code '99201' not found in CPT; The provided code 'http://www.ama-assn.org/go/cpt#99201' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1|6.1.0'; Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "information",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Code '99201' not found in CPT"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "not-in-vs"
+      }],
+      "text" : "The provided code 'http://www.ama-assn.org/go/cpt#99201' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1|6.1.0'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99223"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1", "version": "6.1.0", "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.",
+  "code" : "99223",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99201"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1", "version": "6.1.0", "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "99201",
+  "severity" : "error",
+  "error" : "Code '99201' not found in CPT; The provided code 'http://www.ama-assn.org/go/cpt#99201' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1|6.1.0'; Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '99201' in the CodeSystem 'http://www.ama-assn.org/go/cpt' version '2023'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "information",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Code '99201' not found in CPT"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  },
+  {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "not-in-vs"
+      }],
+      "text" : "The provided code 'http://www.ama-assn.org/go/cpt#99201' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1|6.1.0'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "33249"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code--0", "version": "6.1.0", "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Insertion or replacement of permanent implantable defibrillator system, with transvenous lead(s), single or dual chamber",
+  "code" : "33249",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99223",
+  "display" : "Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded."
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Initial hospital inpatient or observation care, per day, for the evaluation and management of a patient, which requires a medically appropriate history and/or examination and high level of medical decision making. When using total time on the date of the encounter for code selection, 75 minutes must be met or exceeded.",
+  "code" : "99223",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99202"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and straightforward medical decision making. When using time for code selection, 15-29 minutes of total time is spent on the date of the encounter.",
+  "code" : "99202",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "99202"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type--1", "version": "6.1.0", "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and straightforward medical decision making. When using time for code selection, 15-29 minutes of total time is spent on the date of the encounter.",
+  "code" : "99202",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "70450",
+  "display" : "Computed tomography, head or brain; without contrast material"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Computed tomography, head or brain; without contrast material",
+  "code" : "70450",
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "http://tx.fhir.org/r4",
