@@ -179,7 +179,6 @@ v: {
   "error" : "Wrong Display Name 'USA' for http://unstats.un.org/unsd/methods/m49/m49.htm#840. Valid display is 'United States of America (USA)' (for the language(s) '--')",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -220,7 +219,6 @@ v: {
   "error" : "The provided code 'http://unstats.un.org/unsd/methods/m49/m49.htm#840' was not found in the value set 'http://hl7.org/fhir/ValueSet/jurisdiction--2|4.0.1'",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -262,7 +260,6 @@ v: {
   "error" : "Wrong Display Name 'USA' for http://unstats.un.org/unsd/methods/m49/m49.htm#840. Valid display is 'United States of America (USA)' (for the language(s) 'en-US')",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -303,7 +300,6 @@ v: {
   "error" : "The provided code 'http://unstats.un.org/unsd/methods/m49/m49.htm#840' was not found in the value set 'http://hl7.org/fhir/ValueSet/jurisdiction--2|4.0.1'",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -323,6 +319,52 @@ v: {
     "location" : ["Coding.code"],
     "expression" : ["Coding.code"]
   }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "code" : "840",
+  "display" : "United States of America (USA)"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "United States of America (USA)",
+  "code" : "840",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "code" : "840",
+  "display" : "United States of America (USA)"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "United States of America (USA)",
+  "code" : "840",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
 }
 
 }
