@@ -454,7 +454,6 @@ v: {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "version" : "2024",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -477,7 +476,6 @@ v: {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "version" : "2024",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -502,7 +500,6 @@ v: {
   "error" : "Wrong Display Name 'Burn of ear' for http://hl7.org/fhir/sid/icd-10-cm#T20.21. Valid display is 'Burn of second degree of ear [any part, except ear drum]' (for the language(s) '--')",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -542,7 +539,6 @@ v: {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "version" : "2024",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -567,7 +563,6 @@ v: {
   "error" : "Wrong whitespace in Display Name ' Encounter for screening for other disorder' for http://hl7.org/fhir/sid/icd-10-cm#Z13.89. Valid display is 'Encounter for screening for other disorder' (for the language(s) 'en')",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -608,7 +603,6 @@ v: {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "version" : "2024",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -631,7 +625,6 @@ v: {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "version" : "2024",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -652,6 +645,74 @@ v: {
 v: {
   "display" : "Encounter for screening for other disorder",
   "code" : "Z13.89",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "T20.21",
+  "display" : "Burn of second degree of ear [any part, except ear drum]"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Burn of second degree of ear [any part, except ear drum]",
+  "code" : "T20.21",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "K35"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--4", "version": "6.1.0", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Acute appendicitis",
+  "code" : "K35",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "T20.21"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--4", "version": "6.1.0", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Burn of second degree of ear [any part, except ear drum]",
+  "code" : "T20.21",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "version" : "2024",
   "server" : "http://tx.fhir.org/r4",
