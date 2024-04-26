@@ -832,7 +832,7 @@
       "code": [ {
         "system": "http://loinc.org",
         "code": "8277-6",
-        "display": "Intensive care unit"
+        "display": "Body surface area"
       } ]
     } ]
   }, {

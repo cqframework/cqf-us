@@ -11755,7 +11755,6 @@ v: {
   "error" : "Wrong Display Name 'Head Occipital-frontal circumference by Tape measure' for http://loinc.org#9843-4. Valid display is one of 2 choices: 'Head Occipital-frontal circumference' or 'Head Circumf OFC' (en-US) (for the language(s) 'en')",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -11795,7 +11794,6 @@ v: {
   "system" : "http://loinc.org",
   "version" : "2.77",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -11819,7 +11817,6 @@ v: {
   "system" : "http://loinc.org",
   "version" : "2.77",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -11840,6 +11837,75 @@ v: {
 v: {
   "display" : "BMI Prctl Per age+sex",
   "code" : "59576-9",
+  "system" : "http://loinc.org",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "9843-4",
+  "display" : "Head Occipital-frontal circumference"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Head Circumf OFC",
+  "code" : "9843-4",
+  "system" : "http://loinc.org",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "9843-4",
+  "display" : "Head Occipital-frontal circumference"
+}, "url": "http://hl7.org/fhir/ValueSet/observation-vitalsignresult", "version": "4.0.1", "langs":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Head Circumf OFC",
+  "code" : "9843-4",
+  "system" : "http://loinc.org",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "8277-6",
+  "display" : "Body surface area"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Body surface area",
+  "code" : "8277-6",
   "system" : "http://loinc.org",
   "version" : "2.77",
   "server" : "http://tx.fhir.org/r4",
