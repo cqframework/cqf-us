@@ -22,7 +22,7 @@
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
       <code value="840"/>
-      <display value="USA"/>
+      <display value="United States of America (USA)"/>
     </coding>
   </jurisdiction>
   <packageId value="fhir.cqf.us.common"/>
