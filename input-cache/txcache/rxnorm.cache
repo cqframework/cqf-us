@@ -813,9 +813,50 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "version" : "??rx1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "code" : "2177491",
+  "display" : "FLUZONE QUADRIVALENT"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Fluzone Quadrivalent 2019-2020",
+  "code" : "2177491",
+  "severity" : "error",
+  "error" : "Wrong Display Name 'FLUZONE QUADRIVALENT' for http://www.nlm.nih.gov/research/umls/rxnorm#2177491. Valid display is 'Fluzone Quadrivalent 2019-2020' (for the language(s) 'en')",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-display"
+      }],
+      "text" : "Wrong Display Name 'FLUZONE QUADRIVALENT' for http://www.nlm.nih.gov/research/umls/rxnorm#2177491. Valid display is 'Fluzone Quadrivalent 2019-2020' (for the language(s) 'en')"
+    },
+    "location" : ["Coding.display"],
+    "expression" : ["Coding.display"]
+  }]
 }
 
 }
