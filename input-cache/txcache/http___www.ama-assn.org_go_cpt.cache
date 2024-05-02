@@ -1349,7 +1349,6 @@ v: {
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1372,7 +1371,6 @@ v: {
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1392,6 +1390,29 @@ v: {
 v: {
   "display" : "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and straightforward medical decision making. When using time for code selection, 15-29 minutes of total time is spent on the date of the encounter.",
   "code" : "99202",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "81479",
+  "display" : "Unlisted molecular pathology procedure"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Unlisted molecular pathology procedure",
+  "code" : "81479",
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "http://tx.fhir.org/r4",

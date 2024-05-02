@@ -7280,7 +7280,6 @@ v: {
   "error" : "The provided code 'http://snomed.info/sct#39065001' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0|6.1.0'",
   "class" : "UNKNOWN",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -7317,6 +7316,29 @@ v: {
 v: {
   "display" : "Burn of ear",
   "code" : "39065001",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/900000000000207008/version/20240201",
+  "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "405825005",
+  "display" : "Molecular genetic test (procedure)"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Molecular genetic test (procedure)",
+  "code" : "405825005",
   "system" : "http://snomed.info/sct",
   "version" : "http://snomed.info/sct/900000000000207008/version/20240201",
   "server" : "http://tx.fhir.org/r4",
