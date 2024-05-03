@@ -2,7 +2,7 @@
   "resourceType": "Library",
   "id": "CumulativeMedicationDuration",
   "extension": [ {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "url": "http://terminology.hl7.org/ValueSet/software-system-type",
     "valueReference": {
       "reference": "Device/cqf-tooling"
     }
@@ -10,6 +10,11 @@
   "url": "http://fhir.org/guides/cqf/us/common/Library/CumulativeMedicationDuration",
   "version": "3.1.000",
   "name": "CumulativeMedicationDuration",
+  "type": {
+    "coding": [{
+      "code": "logic-library"
+    }]
+  },
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "USCore model information",
@@ -21,7 +26,7 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://fhir.org/guides/cqf/us/common/Library/FHIRHelpers|4.1.000"
+    "resource": "http://fhir.org/guides/cqf/common/Library-FHIRHelpers.html"
   }, {
     "type": "depends-on",
     "display": "Library USCoreCommon",
