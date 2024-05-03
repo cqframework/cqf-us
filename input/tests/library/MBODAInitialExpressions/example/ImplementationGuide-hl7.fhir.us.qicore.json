@@ -73,6 +73,7 @@
         "reference": {
           "reference": "AdverseEvent/example"
         },
+        "name": "AdverseEventExample",
         "exampleBoolean": true
       },
       {
@@ -89,6 +90,7 @@
         "reference": {
           "reference": "AllergyIntolerance/example"
         },
+        "name": "AllergyIntoleranceExample",
         "exampleBoolean": true
       },
       {
@@ -105,6 +107,7 @@
         "reference": {
           "reference": "AllergyIntolerance/example-refuted"
         },
+        "name": "AllergyIntoleranceExampleRefuted",
         "exampleBoolean": true
       },
       {
@@ -121,6 +124,7 @@
         "reference": {
           "reference": "BodyStructure/example"
         },
+        "name": "BodyStructureExample",
         "exampleBoolean": true
       },
       {
@@ -137,6 +141,7 @@
         "reference": {
           "reference": "CarePlan/example"
         },
+        "name": "CarePlanExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan"
       },
       {
@@ -153,6 +158,7 @@
         "reference": {
           "reference": "CareTeam/example"
         },
+        "name": "CareTeamExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careteam"
       },
       {
@@ -169,6 +175,7 @@
         "reference": {
           "reference": "Claim/example"
         },
+        "name": "ClaimExample",
         "exampleBoolean": true
       },
       {
@@ -185,6 +192,7 @@
         "reference": {
           "reference": "Communication/example"
         },
+        "name": "CommunicationExample",
         "exampleBoolean": true
       },
       {
@@ -201,6 +209,7 @@
         "reference": {
           "reference": "Communication/negation-example"
         },
+        "name": "CommunicationNegationExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationnotdone"
       },
       {
@@ -217,6 +226,7 @@
         "reference": {
           "reference": "CommunicationRequest/example"
         },
+        "name": "CommunicationRequestExample",
         "exampleBoolean": true
       },
       {
@@ -233,6 +243,7 @@
         "reference": {
           "reference": "Condition/example"
         },
+        "name": "ConditionExample",
         "exampleBoolean": true
       },
       {
@@ -248,7 +259,8 @@
         ],
         "reference": {
           "reference": "Condition/appendicitis-example"
-        }
+        },
+        "name": "AppendicitisExample"
       },
       {
         "extension": [
@@ -264,6 +276,7 @@
         "reference": {
           "reference": "Coverage/example"
         },
+        "name": "CoverageExample",
         "exampleBoolean": true
       },
       {
@@ -280,6 +293,7 @@
         "reference": {
           "reference": "Device/example"
         },
+        "name": "DeviceExample",
         "exampleBoolean": true
       },
       {
@@ -296,6 +310,7 @@
         "reference": {
           "reference": "DeviceRequest/example"
         },
+        "name": "DeviceRequestExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicerequest"
       },
       {
@@ -312,6 +327,7 @@
         "reference": {
           "reference": "DeviceRequest/negation-example"
         },
+        "name": "DeviceRequestNegationExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicenotrequested"
       },
       {
@@ -328,6 +344,7 @@
         "reference": {
           "reference": "DeviceUseStatement/example"
         },
+        "name": "DeviceUseStatementExample",
         "exampleBoolean": true
       },
       {
@@ -344,6 +361,7 @@
         "reference": {
           "reference": "DiagnosticReport/example"
         },
+        "name": "DiagnosticReportExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab"
       },
       {
@@ -360,6 +378,7 @@
         "reference": {
           "reference": "DiagnosticReport/note-example"
         },
+        "name": "DiagnosticReportNoteExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note"
       },
       {
@@ -376,6 +395,7 @@
         "reference": {
           "reference": "Encounter/example"
         },
+        "name": "EncounterExample",
         "exampleBoolean": true
       },
       {
@@ -392,6 +412,7 @@
         "reference": {
           "reference": "FamilyMemberHistory/example"
         },
+        "name": "FamilyMemberHistoryExample",
         "exampleBoolean": true
       },
       {
@@ -408,6 +429,7 @@
         "reference": {
           "reference": "Flag/example"
         },
+        "name": "FlagExample",
         "exampleBoolean": true
       },
       {
@@ -424,6 +446,7 @@
         "reference": {
           "reference": "Goal/example"
         },
+        "name": "GoalExample",
         "exampleBoolean": true
       },
       {
@@ -440,6 +463,7 @@
         "reference": {
           "reference": "ImagingStudy/example"
         },
+        "name": "ImagingStudyExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy"
       },
       {
@@ -456,6 +480,7 @@
         "reference": {
           "reference": "Immunization/example"
         },
+        "name": "ImmunizationExample",
         "exampleBoolean": true
       },
       {
@@ -472,6 +497,7 @@
         "reference": {
           "reference": "Immunization/negation-example"
         },
+        "name": "ImmunizationNegationExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationnotdone"
       },
       {
@@ -488,6 +514,7 @@
         "reference": {
           "reference": "ImmunizationEvaluation/example"
         },
+        "name": "ImmunizationEvaluationExample",
         "exampleBoolean": true
       },
       {
@@ -504,6 +531,7 @@
         "reference": {
           "reference": "ImmunizationRecommendation/example"
         },
+        "name": "ImmunizationRecommendationExample",
         "exampleBoolean": true
       },
       {
@@ -520,6 +548,7 @@
         "reference": {
           "reference": "Location/example"
         },
+        "name": "LocationExample",
         "exampleBoolean": true
       },
       {
@@ -536,6 +565,7 @@
         "reference": {
           "reference": "Medication/example"
         },
+        "name": "MedicationExample",
         "exampleBoolean": true
       },
       {
@@ -552,6 +582,7 @@
         "reference": {
           "reference": "MedicationAdministration/example"
         },
+        "name": "MedicationAdministrationExample",
         "exampleBoolean": true
       },
       {
@@ -568,6 +599,7 @@
         "reference": {
           "reference": "MedicationAdministration/negation-example"
         },
+        "name": "MedicationAdministrationNegationExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotadministered"
       },
       {
@@ -584,6 +616,7 @@
         "reference": {
           "reference": "MedicationDispense/example"
         },
+        "name": "MedicationDispenseExample",
         "exampleBoolean": true
       },
       {
@@ -600,6 +633,7 @@
         "reference": {
           "reference": "MedicationDispense/negation-example"
         },
+        "name": "MedicationDispenseNegationExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotdispensed"
       },
       {
@@ -616,6 +650,7 @@
         "reference": {
           "reference": "MedicationRequest/example"
         },
+        "name": "MedicationRequestExample",
         "exampleBoolean": true
       },
       {
@@ -632,6 +667,7 @@
         "reference": {
           "reference": "MedicationRequest/negation-example"
         },
+        "name": "MedicationRequestNegationExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested"
       },
       {
@@ -648,6 +684,7 @@
         "reference": {
           "reference": "MedicationStatement/example"
         },
+        "name": "MedicationStatementExample",
         "exampleBoolean": true
       },
       {
@@ -664,6 +701,7 @@
         "reference": {
           "reference": "NutritionOrder/example"
         },
+        "name": "NutritionOrderExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionorder"
       },
       {
@@ -680,6 +718,7 @@
         "reference": {
           "reference": "Observation/example"
         },
+        "name": "ObservationExample",
         "exampleBoolean": true
       },
       {
@@ -696,6 +735,7 @@
         "reference": {
           "reference": "Observation/negation-example"
         },
+        "name": "ObservationNegationExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled"
       },
       {
@@ -712,6 +752,7 @@
         "reference": {
           "reference": "Organization/example"
         },
+        "name": "OrganizationExample",
         "exampleBoolean": true
       },
       {
@@ -728,6 +769,7 @@
         "reference": {
           "reference": "Patient/example"
         },
+        "name": "PatientExample",
         "exampleBoolean": true
       },
       {
@@ -744,6 +786,7 @@
         "reference": {
           "reference": "Practitioner/example"
         },
+        "name": "PractitionerExample",
         "exampleBoolean": true
       },
       {
@@ -760,6 +803,7 @@
         "reference": {
           "reference": "PractitionerRole/example"
         },
+        "name": "PractitionerRoleExample",
         "exampleBoolean": true
       },
       {
@@ -776,6 +820,7 @@
         "reference": {
           "reference": "Procedure/example"
         },
+        "name": "ProcedureExample",
         "exampleBoolean": true
       },
       {
@@ -792,6 +837,7 @@
         "reference": {
           "reference": "Procedure/negation-example"
         },
+        "name": "ProcedureNegationExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurenotdone"
       },
       {
@@ -808,6 +854,7 @@
         "reference": {
           "reference": "ServiceRequest/example"
         },
+        "name": "ServiceRequestExample",
         "exampleBoolean": true
       },
       {
@@ -824,6 +871,7 @@
         "reference": {
           "reference": "ServiceRequest/appropriateness-example"
         },
+        "name": "AppropriatenessExample",
         "exampleBoolean": true
       },
       {
@@ -840,6 +888,7 @@
         "reference": {
           "reference": "ServiceRequest/negation-example"
         },
+        "name": "ServiceRequestNegationExample",
         "exampleCanonical": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested"
       },
       {
@@ -856,6 +905,7 @@
         "reference": {
           "reference": "ServiceRequest/referral-example"
         },
+        "name": "ReferralExample",
         "exampleBoolean": true
       },
       {
@@ -872,6 +922,7 @@
         "reference": {
           "reference": "ServiceRequest/elective-example"
         },
+        "name": "ServiceRequestElectiveExample",
         "exampleBoolean": true
       },
       {
@@ -888,6 +939,7 @@
         "reference": {
           "reference": "RelatedPerson/example"
         },
+        "name": "RelatedPersonExample",
         "exampleBoolean": true
       },
       {
@@ -904,6 +956,7 @@
         "reference": {
           "reference": "Specimen/example"
         },
+        "name": "SpecimenExample",
         "exampleBoolean": true
       },
       {
@@ -920,6 +973,7 @@
         "reference": {
           "reference": "Substance/example"
         },
+        "name": "SubstanceExample",
         "exampleBoolean": true
       },
       {
@@ -936,6 +990,7 @@
         "reference": {
           "reference": "Task/example"
         },
+        "name": "TaskExample",
         "exampleBoolean": true
       },
       {
@@ -952,6 +1007,7 @@
         "reference": {
           "reference": "CodeSystem/appropriateness-score"
         },
+        "name": "AppropriatenessScore",
         "exampleBoolean": false
       },
       {
@@ -968,6 +1024,7 @@
         "reference": {
           "reference": "CodeSystem/communication-medium"
         },
+        "name": "CommunicationMedium",
         "exampleBoolean": false
       },
       {
@@ -984,6 +1041,7 @@
         "reference": {
           "reference": "CodeSystem/diagnosticorder-precondition"
         },
+        "name": "DiagnosticOrderPrecondition",
         "exampleBoolean": false
       },
       
@@ -1001,6 +1059,7 @@
         "reference": {
           "reference": "ValueSet/qicore-appropriateness-score"
         },
+        "name": "QICoreAppropriatenessScore",
         "exampleBoolean": false
       },
       {
@@ -1017,6 +1076,7 @@
         "reference": {
           "reference": "ValueSet/qicore-bodystructure-precoordinated"
         },
+        "name": "QICoreBodyStructurePrecoordinated",
         "exampleBoolean": false
       },
       {
@@ -1033,6 +1093,7 @@
         "reference": {
           "reference": "ValueSet/qicore-goal-reason-rejected"
         },
+        "name": "QICoreGoalReasonRejected",
         "exampleBoolean": false
       },
       {
@@ -1049,6 +1110,7 @@
         "reference": {
           "reference": "ValueSet/qicore-medication-dose-type"
         },
+        "name": "QICoreMedicationDoseType",
         "exampleBoolean": false
       },
       {
@@ -1065,6 +1127,7 @@
         "reference": {
           "reference": "ValueSet/qicore-negation-reason"
         },
+        "name": "QICoreNegationReason",
         "exampleBoolean": false
       },
       {
@@ -1081,6 +1144,7 @@
         "reference": {
           "reference": "ValueSet/qicore-patient-disability"
         },
+        "name": "QICorePatientDisability",
         "exampleBoolean": false
       },
       {
@@ -1097,6 +1161,7 @@
         "reference": {
           "reference": "ValueSet/qicore-priority"
         },
+        "name": "QICorePriority",
         "exampleBoolean": false
       },
       {
@@ -1113,6 +1178,7 @@
         "reference": {
           "reference": "ValueSet/qicore-procedure-type"
         },
+        "name": "QICoreProcedureType",
         "exampleBoolean": false
       },
  
@@ -1130,6 +1196,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-adverseevent"
         },
+        "name": "QICoreAdverseEvent",
         "exampleBoolean": false
       },
       {
@@ -1146,6 +1213,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-allergyintolerance"
         },
+        "name": "QICoreAllergyIntolerance",
         "exampleBoolean": false
       },
       {
@@ -1162,6 +1230,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-bodystructure"
         },
+        "name": "QICoreBodyStructure",
         "exampleBoolean": false
       },
       {
@@ -1178,6 +1247,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-claim"
         },
+        "name": "QICoreClaim",
         "exampleBoolean": false
       },
       {
@@ -1194,6 +1264,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-communication"
         },
+        "name": "QICoreCommunication",
         "exampleBoolean": false
       },
       {
@@ -1210,6 +1281,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-communicationnotdone"
         },
+        "name": "QICoreCommunicationNotDone",
         "exampleBoolean": false
       },
       {
@@ -1226,6 +1298,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-communicationrequest"
         },
+        "name": "QICoreCommunicationRequest",
         "exampleBoolean": false
       },
       {
@@ -1242,6 +1315,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-condition"
         },
+        "name": "QICoreCondition",
         "exampleBoolean": false
       },
       {
@@ -1258,6 +1332,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-coverage"
         },
+        "name": "QICoreCoverage",
         "exampleBoolean": false
       },
       {
@@ -1274,6 +1349,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-device"
         },
+        "name": "QICoreDevice",
         "exampleBoolean": false
       },
       {
@@ -1290,6 +1366,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-devicenotrequested"
         },
+        "name": "QICoreDeviceNotRequested",
         "exampleBoolean": false
       },
       {
@@ -1306,6 +1383,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-devicerequest"
         },
+        "name": "QICoreDeviceRequest",
         "exampleBoolean": false
       },
       {
@@ -1322,6 +1400,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-deviceusestatement"
         },
+        "name": "QICoreDeviceUseStatement",
         "exampleBoolean": false
       },
       {
@@ -1338,6 +1417,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-diagnosticreport-lab"
         },
+        "name": "QICoreDiagnosticReportLab",
         "exampleBoolean": false
       },
       {
@@ -1354,6 +1434,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-diagnosticreport-note"
         },
+        "name": "QICoreDiagnosticReportNote",
         "exampleBoolean": false
       },
       {
@@ -1370,6 +1451,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-encounter"
         },
+        "name": "QICoreEncounter",
         "exampleBoolean": false
       },
       {
@@ -1386,6 +1468,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-familymemberhistory"
         },
+        "name": "QICoreFamilyMemberHistory",
         "exampleBoolean": false
       },
       {
@@ -1402,6 +1485,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-flag"
         },
+        "name": "QICoreFlag",
         "exampleBoolean": false
       },
       {
@@ -1418,6 +1502,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-goal"
         },
+        "name": "QICoreGoal",
         "exampleBoolean": false
       },
       {
@@ -1434,6 +1519,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-imagingstudy"
         },
+        "name": "QICoreImagingStudy",
         "exampleBoolean": false
       },
       {
@@ -1450,6 +1536,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-immunization"
         },
+        "name": "QICoreImmunization",
         "exampleBoolean": false
       },
       {
@@ -1466,6 +1553,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-immunizationnotdone"
         },
+        "name": "QICoreImmunizationNotDone",
         "exampleBoolean": false
       },
       {
@@ -1482,6 +1570,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-immunizationevaluation"
         },
+        "name": "QICoreImmunizationEvaluation",
         "exampleBoolean": false
       },
       {
@@ -1498,6 +1587,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-immunizationrec"
         },
+        "name": "QICoreImmunizationRec",
         "exampleBoolean": false
       },
       {
@@ -1514,6 +1604,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-location"
         },
+        "name": "QICoreLocation",
         "exampleBoolean": false
       },
       {
@@ -1530,6 +1621,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-medication"
         },
+        "name": "QICoreMedication",
         "exampleBoolean": false
       },
       {
@@ -1546,6 +1638,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-medicationadministration"
         },
+        "name": "QICoreMedicationAdministration",
         "exampleBoolean": false
       },
       {
@@ -1562,6 +1655,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-mednotadministered"
         },
+        "name": "QICoreMedNotAdministered",
         "exampleBoolean": false
       },
       {
@@ -1578,6 +1672,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-medicationdispense"
         },
+        "name": "QICoreMedicationDispense",
         "exampleBoolean": false
       },
       {
@@ -1594,6 +1689,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-medicationnotdispensed"
         },
+        "name": "QICoreMedicationNotDispensed",
         "exampleBoolean": false
       },
       {
@@ -1610,6 +1706,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-medicationnotrequested"
         },
+        "name": "QICoreMedicationNotRequested",
         "exampleBoolean": false
       },
       {
@@ -1626,6 +1723,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-medicationrequest"
         },
+        "name": "QICoreMedicationRequest",
         "exampleBoolean": false
       },
       {
@@ -1642,6 +1740,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-medicationstatement"
         },
+        "name": "QICoreCMedicationStatement",
         "exampleBoolean": false
       },
       {
@@ -1658,6 +1757,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-nutritionorder"
         },
+        "name": "QICoreNutritionOrder",
         "exampleBoolean": false
       },
       {
@@ -1674,6 +1774,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-observation"
         },
+        "name": "QICoreObservation",
         "exampleBoolean": false
       },
       {
@@ -1690,6 +1791,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-observationcancelled"
         },
+        "name": "QICoreObservationCancelled",
         "exampleBoolean": false
       },
       {
@@ -1706,6 +1808,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-organization"
         },
+        "name": "QICoreOrganization",
         "exampleBoolean": false
       },
       {
@@ -1722,6 +1825,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-patient"
         },
+        "name": "QICorePatient",
         "exampleBoolean": false
       },
       {
@@ -1738,6 +1842,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-practitioner"
         },
+        "name": "QICorePractitioner",
         "exampleBoolean": false
       },
       {
@@ -1754,6 +1859,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-practitionerrole"
         },
+        "name": "QICorePractitionerRole",
         "exampleBoolean": false
       },
       {
@@ -1770,6 +1876,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-procedure"
         },
+        "name": "QICoreProcedure",
         "exampleBoolean": false
       },
       {
@@ -1786,6 +1893,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-procedurenotdone"
         },
+        "name": "QICoreProcedureNotDone",
         "exampleBoolean": false
       },
       {
@@ -1802,6 +1910,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-relatedperson"
         },
+        "name": "QICoreRelatedPerson",
         "exampleBoolean": false
       },
       {
@@ -1818,6 +1927,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-servicenotrequested"
         },
+        "name": "QICoreServiceNotRequested",
         "exampleBoolean": false
       },
       {
@@ -1834,6 +1944,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-servicerequest"
         },
+        "name": "QICoreServiceRequest",
         "exampleBoolean": false
       },
       {
@@ -1850,6 +1961,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-specimen"
         },
+        "name": "QICoreSpecimen",
         "exampleBoolean": false
       },
       {
@@ -1866,6 +1978,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-substance"
         },
+        "name": "QICoreSubstance",
         "exampleBoolean": false
       },
       {
@@ -1882,6 +1995,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-task"
         },
+        "name": "QICoreTask",
         "exampleBoolean": false
       },
       {
@@ -1898,6 +2012,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-encounter-procedure"
         },
+        "name": "QICoreEncounterProcedure",
         "exampleBoolean": false
       },
       {
@@ -1914,6 +2029,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission"
         },
+        "name": "QICoreEncounterDiagnosisPresentOnAdmission",
         "exampleBoolean": false
       },
       {
@@ -1930,6 +2046,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-doNotPerformReason"
         },
+        "name": "QICoreDoNotPerformReason",
         "exampleBoolean": false
       },
       {
@@ -1946,6 +2063,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-servicerequest-appropriatenessScore"
         },
+        "name": "QICoreServiceRequestAppropriatenessScore",
         "exampleBoolean": false
       },
       {
@@ -1962,6 +2080,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-notDone"
         },
+        "name": "QICoreNotDone",
         "exampleBoolean": false
       },
       {
@@ -1978,6 +2097,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-notDoneReason"
         },
+        "name": "QICoreNotDoneReason",
         "exampleBoolean": false
       },
       {
@@ -1994,6 +2114,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-isElective"
         },
+        "name": "QICoreIsElective",
         "exampleBoolean": false
       },
       {
@@ -2010,6 +2131,7 @@
         "reference": {
           "reference": "StructureDefinition/qicore-recorded"
         },
+        "name": "QICoreRecorded",
         "exampleBoolean": false
       },
       {
