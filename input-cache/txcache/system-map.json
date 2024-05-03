@@ -76,6 +76,11 @@
       "candidates" : []
     },
     {
+      "system" : "http://hl7.org/fhir/us/cqfmeasures/ValueSet/software-system-type",
+      "authoritative" : [],
+      "candidates" : []
+    },
+    {
       "system" : "http://hl7.org/fhir/us/qicore/CodeSystem/qicore-condition-category|6.0.0",
       "authoritative" : [],
       "candidates" : []
