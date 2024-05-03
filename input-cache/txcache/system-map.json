@@ -176,6 +176,11 @@
       "candidates" : []
     },
     {
+      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+      "authoritative" : [],
+      "candidates" : ["http://tx.fhir.org/r4"]
+    },
+    {
       "system" : "https://www.usps.com/",
       "authoritative" : [],
       "candidates" : ["http://tx.fhir.org/r4"]

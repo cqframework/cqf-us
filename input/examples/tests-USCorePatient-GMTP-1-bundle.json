@@ -2,6 +2,7 @@
 "id":"tests-USCorePatient-GMTP-1-bundle",
 "type":"transaction",
 "entry":[{
+    "fullUrl":"https://www.hl7.org/fhir/practitioner.html",
     "resource":{
         "resourceType":"Practitioner",
         "id":"requesting-provider-USCorePatient-GMTP-1",
@@ -10,7 +11,7 @@
         },
         "identifier":[{
             "system":"http://hl7.org/fhir/sid/us-npi",
-            "value":"1144221867"
+            "value":"3412549073"
         }],
         "name":[{
             "family":"Smart",
@@ -45,7 +46,7 @@
         },
         "identifier":[{
             "system":"http://hl7.org/fhir/sid/us-npi",
-            "value":"1144221849"
+            "value":"1144221847"
         }],
         "active":true,
         "name":"Oak Street Billing Provider",
@@ -116,7 +117,8 @@
         "method":"PUT",
         "url":"Coverage/coverage-GMTP-1"
     }},
-    {"resource":{
+    {"fullUrl":"https://www.hl7.org/fhir/patient.html",
+    "resource":{
         "resourceType":"Patient",
         "id":"USCorePatient-GMTP-1",
         "meta":{
@@ -169,12 +171,15 @@
         "method":"PUT",
         "url":"Patient/USCorePatient-GMTP-1"
     }},
-    {"fullUrl":"http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest",
+    {"fullUrl":"https://www.hl7.org/fhir/servicerequest.html",
     "resource":{
         "resourceType":"ServiceRequest",
         "id":"service-request-2-USCorePatient-GMTP-1",
         "status":"active",
         "intent":"order",
+        "meta":{
+            "versionId":"1"
+        },
         "code":{
             "coding":[{
                 "system":"http://snomed.info/sct",
@@ -282,12 +287,15 @@
             "method":"PUT",
             "url":"ResearchStudy/research-study-GMTP-1"
         }},
-        {"fullUrl":"http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest",
+        {"fullUrl":"https://www.hl7.org/fhir/servicerequest.html",
         "resource":{
             "resourceType":"ServiceRequest",
             "id":"service-request-USCorePatient-GMTP-1",
             "status":"active",
             "intent":"order",
+            "meta":{
+                "versionId":"2"
+            },
             "code":{
                 "coding":[{
                     "system":"http://snomed.info/sct",
@@ -325,7 +333,8 @@
             "method":"PUT",
             "url":"ServiceRequest/service-request-USCorePatient-GMTP-1"
         }},
-        {"resource":{
+        {"fullUrl":"https://www.hl7.org/fhir/organization.html",
+        "resource":{
             "resourceType":"Organization",
             "id":"servicing-provider-GMTP-1",
             "meta":{
@@ -333,7 +342,7 @@
             },
             "identifier":[{
                 "system":"http://hl7.org/fhir/sid/us-npi",
-                "value":"1564221867"
+                "value":"1234567893"
             }],
             "active":true,
             "name":"Healthcare Clinic",
