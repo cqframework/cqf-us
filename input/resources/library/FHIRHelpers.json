@@ -7,7 +7,7 @@
       "reference": "Device/cqf-tooling"
     }
   } ],
-  "url": "http://hl7.org/fhir/Library/FHIRHelpers",
+  "url": "http://fhir.org/guides/cqf/us/common/Library/FHIRHelpers",
   "version": "4.1.000",
   "name": "FHIRHelpers",
   "relatedArtifact": [ {

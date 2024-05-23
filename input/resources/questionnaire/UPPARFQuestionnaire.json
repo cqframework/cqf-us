@@ -484,7 +484,7 @@
               "text": "Patient ICD Diagnostic Codes",
               "type": "open-choice",
               "repeats": true,
-              "answerValueSet": "http://hl7.org/fhir/sid/icd-10-cm/ValueSet"
+              "answerValueSet": "http://hl7.org/fhir/ValueSet/icd-10"
             },
             {
               "extension": [

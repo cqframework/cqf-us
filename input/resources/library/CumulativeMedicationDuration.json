@@ -13,7 +13,7 @@
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "USCore model information",
-    "resource": "http://hl7.org/fhir/Library/USCore-ModelInfo"
+    "resource": "https://hl7.org/fhir/us/cqfmeasures/STU4/Library-USCore-ModelInfo.html"
   }, {
     "type": "depends-on",
     "display": "FHIR model information",

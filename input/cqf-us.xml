@@ -22,7 +22,7 @@
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
       <code value="840"/>
-      <display value="USA"/>
+      <display value="United States of America (USA)"/>
     </coding>
   </jurisdiction>
   <packageId value="fhir.cqf.us.common"/>
@@ -44,6 +44,11 @@
     <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
     <packageId value="hl7.fhir.us.core"/>
     <version value="3.1.1"/>
+  </dependsOn>
+  <dependsOn id="qicore">
+    <uri value="http://hl7.org/fhir/us/qicore/ImplementationGuide/hl7.fhir.us.qicore"/>
+    <packageId value="hl7.fhir.us.qicore"/>
+    <version value="6.0.0"/>
   </dependsOn>
   <definition>
     <page>
