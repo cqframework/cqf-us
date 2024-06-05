@@ -264,12 +264,14 @@
       "answerOption": [
         {
           "valueCoding": {
+            "system": "https://terminology.hl7.org/CodeSystem-v2-0532",
             "code": "Y",
             "display": "Yes"
           }
         },
         {
           "valueCoding": {
+            "system": "https://terminology.hl7.org/CodeSystem-v2-0532",
             "code": "N",
             "display": "No"
           }
@@ -282,7 +284,8 @@
               "question": "billing-provider-question",
               "operator": "=",
               "answerCoding": {
-                "code": "Y"
+                "code": "Y",
+                "system": "https://terminology.hl7.org/CodeSystem-v2-0532"
               }
             }
           ],
@@ -431,15 +434,15 @@
               "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
               "valueExpression": {
                 "language": "text/cql-identifier",
-                "expression": "Test ICD Codes"
+                "expression": "Test SCT Codes"
               }
             }
           ],
-          "linkId": "test-requested|diagnosis-icd-code",
-          "text": "ICD-10 code(s)",
+          "linkId": "test-requested|diagnosis-SCT-code",
+          "text": "SNOMED-CT code(s)",
           "type": "open-choice",
           "repeats": true,
-          "answerValueSet": "http://hl7.org/fhir/ValueSet/icd-10"
+          "answerValueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
         },
         {
           "extension": [
@@ -455,7 +458,7 @@
           "text": "CPT code(s)",
           "type": "open-choice",
           "repeats": true,
-          "answerValueSet": "http://terminology.hl7.org/ValueSet/cpt-all"
+          "answerValueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"
         }
       ]
     },
@@ -480,12 +483,14 @@
           "answerOption": [
             {
               "valueCoding": {
+                "system": "https://terminology.hl7.org/CodeSystem-v2-0532",
                 "code": "Y",
                 "display": "Yes"
               }
             },
             {
               "valueCoding": {
+                "system": "https://terminology.hl7.org/CodeSystem-v2-0532",
                 "code": "N",
                 "display": "No"
               }
@@ -507,7 +512,8 @@
                   "question": "clinical-trial-question",
                   "operator": "=",
                   "answerCoding": {
-                    "code": "Y"
+                    "code": "Y",
+                    "system": "https://terminology.hl7.org/CodeSystem-v2-0532"
                   }
                 }
               ],

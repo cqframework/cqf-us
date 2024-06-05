@@ -11,9 +11,7 @@ include CumulativeMedicationDuration called CMD
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 codesystem "Verification Status": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
 codesystem "Condition Clinical": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
-codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10-cm' 
-
-valueset "ICD10 vs": 'http://hl7.org/fhir/sid/icd-10-cm/ValueSet'
+codesystem "ICD10": 'https://terminology.hl7.org/5.1.0/CodeSystem-icd10CM.html' 
 
 code "ICD10 example code": 'example' from "ICD10"
 code "Member Number": 'MB' from "Identifier Type"

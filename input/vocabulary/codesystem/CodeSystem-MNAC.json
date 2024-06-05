@@ -1,0 +1,65 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "MNAC",
+  "id": "MNAC",
+  "title": "MNAC CodeSystem for MNAC Questionnaire",
+  "description": "CodeSystem for MNAC Questionnaire",
+  "url": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC",
+  "concept": [
+    {
+      "code": "UrinaryUrgencyFrequency",
+      "display": "Change in urinary urgency, frequency, or incontinence",
+      "definition": "Change in urinary urgency, frequency, or incontinence"
+    },
+    {
+      "code": "AutonomicDysreflexia",
+      "display": "Appearance of new, or increase in, autonomic dysreflexia (sweating, bradycardia, blood pressure elevation)",
+      "definition": "Appearance of new, or increase in, autonomic dysreflexia (sweating, bradycardia, blood pressure elevation)"
+    },
+    {
+      "code": "PhysicalSignsProstatitis",
+      "display": "Physical signs of prostatitis, epididymitis, orchitis",
+      "definition": "Physical signs of prostatitis, epididymitis, orchitis"
+    },
+    {
+      "code": "Immunosuppressed",
+      "display": "The patient is immunosuppressed (on a regimen of immunosuppressive drugs, cancer chemotherapy, or has AIDS)",
+      "definition": "The patient is immunosuppressed (on a regimen of immunosuppressive drugs, cancer chemotherapy, or has AIDS)"
+    },
+    {
+      "code": "Pyuria",
+      "display": "Pyuria (greater than 5 WBCs per high-powered field)",
+      "definition": "Pyuria (greater than 5 WBCs per high-powered field)"
+    },
+    {
+      "code": "SystemicLeukocytosis",
+      "display": "Systemic leukocytosis",
+      "definition": "Systemic leukocytosis"
+    },
+    {
+      "code": "2-4Times",
+      "display": "2-4 times",
+      "definition": "2-4 times per day"
+    },
+    {
+      "code": "4-6Times",
+      "display": "4-6 times",
+      "definition": "4-6 times per day"
+    },
+    {
+      "code": "6-8Times",
+      "display": "6-8 times",
+      "definition": "6-8 times per day"
+    },
+    {
+      "code": "8TimesOrMore",
+      "display": "8 times or more",
+      "definition": "8 times or more per day"
+    }
+  ],
+  "experimental": true,
+  "caseSensitive": false,
+  "count": 10
+}

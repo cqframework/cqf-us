@@ -68,8 +68,8 @@
           "valueCodeableConcept": {
             "coding": [
               {
-                "system": "http://terminology.hl7.org/CodeSystem/ex-diagnosis-on-admission",
-                "code": "y",
+                "system": "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+                "code": "Y",
                 "display": "Yes"
               }
             ]

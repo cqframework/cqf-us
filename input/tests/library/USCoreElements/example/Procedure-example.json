@@ -56,8 +56,8 @@
       "coding": [
         {
           "system": "http://snomed.info/sct",
-          "code": "163220003",
-          "display": "On examination - abdominal pain - right iliac"
+          "code": "21522001",
+          "display": "Abdominal pain (finding)"
         }
       ]
     }

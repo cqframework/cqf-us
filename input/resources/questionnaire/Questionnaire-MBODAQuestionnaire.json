@@ -190,9 +190,8 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "[in_i]",
-                "display": "[in_i]"
+                "system": "http://unitsofmeasure.org"
               }
             }
           ],
@@ -212,9 +211,8 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "[lb_av]",
-                "display": "[lb_av]"
+                "system": "http://unitsofmeasure.org"
               }
             }
           ],
@@ -234,9 +232,8 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "m2",
-                "display": "m2"
+                "system": "http://unitsofmeasure.org"
               }
             }
           ],
@@ -339,20 +336,22 @@
           "answerOption": [
             {
               "valueCoding": {
-                "code": "OrderingProvider",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                "code": "OP",
                 "display": "Ordering Provider"
               }
             },
             {
               "valueCoding": {
-                "code": "ServicingProvider",
-                "display": "Servicing Provider"
+                "code": "MBODA2",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA"
               }
             },
             {
               "valueCoding": {
-                "code": "HomeHealthAgency",
-                "display": "Home Health Agency - if yes, name of agency"
+                "system": "https://bluebutton.cms.gov/assets/ig/CodeSystem-clm-fac-type-cd",
+                "code": "3",
+                "display": "Home Health Agency (HHA)"
               }
             }
           ]
@@ -364,14 +363,14 @@
           "answerOption": [
             {
               "valueCoding": {
-                "code": "AdministeredFromProviderStock",
-                "display": "Medication will be administered from provider stock and billed by provider (buy & bill)"
+                "code": "MBODA2",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA"
               }
             },
             {
               "valueCoding": {
-                "code": "DispensedByPharmacy",
-                "display": "Medication will be dispensed by a specialty pharmacy and billed by the pharmacy"
+                "code": "MBODA3",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA"
               }
             }
           ],
@@ -385,27 +384,29 @@
                   "question": "select-one",
                   "operator": "=",
                   "answerCoding": {
-                    "code": "AdministeredFromProviderStock"
+                    "code": "MBODA2",
+                    "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA"
                   }
                 }
               ],
               "answerOption": [
                 {
                   "valueCoding": {
-                    "code": "OrderingProvider",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                    "code": "OP",
                     "display": "Ordering Provider"
                   }
                 },
                 {
                   "valueCoding": {
-                    "code": "ServicingProvider",
-                    "display": "Servicing Provider"
+                    "code": "MBODA4",
+                    "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA"
                   }
                 },
                 {
                   "valueCoding": {
-                    "code": "Facility",
-                    "display": "Facility"
+                    "code": "MBODA5",
+                    "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA"
                   }
                 }
               ]
@@ -419,19 +420,22 @@
                   "question": "select-one",
                   "operator": "=",
                   "answerCoding": {
-                    "code": "AdministeredFromProviderStock"
+                    "code": "MBODA4",
+                    "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA"
                   }
                 }
               ],
               "answerOption": [
                 {
                   "valueCoding": {
+                    "system": "https://terminology.hl7.org/CodeSystem-v2-0532",
                     "code": "Y",
                     "display": "Yes"
                   }
                 },
                 {
                   "valueCoding": {
+                    "system": "https://terminology.hl7.org/CodeSystem-v2-0532",
                     "code": "N",
                     "display": "No"
                   }
@@ -447,19 +451,22 @@
                       "question": "provider-participating-ghp",
                       "operator": "=",
                       "answerCoding": {
-                        "code": "N"
+                        "code": "N",
+                        "system": "https://terminology.hl7.org/CodeSystem-v2-0532"
                       }
                     }
                   ],
                   "answerOption": [
                     {
                       "valueCoding": {
+                        "system": "https://terminology.hl7.org/CodeSystem-v2-0532",
                         "code": "Y",
                         "display": "Yes"
                       }
                     },
                     {
                       "valueCoding": {
+                        "system": "https://terminology.hl7.org/CodeSystem-v2-0532",
                         "code": "N",
                         "display": "No"
                       }
@@ -600,7 +607,7 @@
           ],
           "linkId": "diagnosis-info|diagnosis-code",
           "text": "Diagnosis/ICD-10 code(s)",
-          "type": "open-choice",
+          "type": "choice",
           "repeats": true
         },
         {
@@ -644,33 +651,29 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "ug",
-                "display": "ug"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "mg",
-                "display": "mg"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "g",
-                "display": "g"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
-                "code": "ml",
-                "display": "ml"
+                "code": "mL",
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
@@ -705,33 +708,29 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "h",
-                "display": "h"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "d",
-                "display": "d"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "wk",
-                "display": "wk"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "mo",
-                "display": "mo"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
@@ -751,41 +750,36 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "h",
-                "display": "h"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "d",
-                "display": "d"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "wk",
-                "display": "wk"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "mo",
-                "display": "mo"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "a",
-                "display": "a"
+                "system": "http://unitsofmeasure.org"
               }
             },
             {
@@ -826,14 +820,14 @@
           "answerOption": [
             {
               "valueCoding": {
-                "code": "NewMedication",
-                "display": "New Medication"
+                "code": "MBODA6",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA"
               }
             },
             {
               "valueCoding": {
-                "code": "ContinuedTherapy",
-                "display": "Continuation of therapy"
+                "code": "MBODA7",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA"
               }
             }
           ]
@@ -856,7 +850,8 @@
               "question": "medication-info|new-med",
               "operator": "=",
               "answerCoding": {
-                "code": "ContinuedTherapy"
+                "code": "MBODA7",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA"
               }
             }
           ]

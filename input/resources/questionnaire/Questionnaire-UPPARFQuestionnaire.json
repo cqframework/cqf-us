@@ -34,13 +34,13 @@
         {
           "valueCoding": {
             "code": "urgent",
-            "display": "Urgent"
+            "system": "http://hl7.org/fhir/request-priority"
           }
         },
         {
           "valueCoding": {
             "code": "routine",
-            "display": "Non-Urgent"
+            "system": "http://hl7.org/fhir/request-priority"
           }
         }
       ]
@@ -476,7 +476,7 @@
                   "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
                   "valueExpression": {
                     "language": "text/cql-identifier",
-                    "expression": "ICD 10 Codes"
+                    "expression": "ICD-10 Codes"
                   }
                 }
               ],
@@ -508,25 +508,20 @@
               "repeats": true
             },
             {
-              "linkId": "completing-form|drug-benefit|strength-route-frequency",
-              "text": "Strength/Route/Frequency",
-              "type": "string"
-            },
-            {
-              "linkId": "completing-form|drug-benefit|unit-volume",
-              "text": "Unit/Volume of Named Drugs",
-              "type": "string"
-            },
-            {
               "extension": [
                 {
                   "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
                   "valueExpression": {
                     "language": "text/cql-identifier",
-                    "expression": "Start Date and Length"
+                    "expression": "Unit Volume of Named Drugs"
                   }
                 }
               ],
+              "linkId": "completing-form|drug-benefit|unit-volume",
+              "text": "Unit/Volume of Named Drugs",
+              "type": "string"
+            },
+            {
               "linkId": "completing-form|drug-benefit|start-length",
               "text": "Start Date and Length of Therapy",
               "type": "string"
@@ -564,16 +559,43 @@
               "type": "string"
             },
             {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "Dose"
+                  }
+                }
+              ],
               "linkId": "completing-form|drug-benefit|dose",
               "text": "Dose",
               "type": "string"
             },
             {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "Route"
+                  }
+                }
+              ],
               "linkId": "completing-form|drug-benefit|route",
               "text": "Route",
               "type": "string"
             },
             {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "Frequency"
+                  }
+                }
+              ],
               "linkId": "completing-form|drug-benefit|frequency",
               "text": "Frequency",
               "type": "string"
@@ -584,6 +606,15 @@
               "type": "quantity"
             },
             {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "Refill"
+                  }
+                }
+              ],
               "linkId": "completing-form|drug-benefit|refills",
               "text": "Number of Refills",
               "type": "integer"
@@ -615,6 +646,15 @@
               "type": "string"
             },
             {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression": {
+                    "language": "text/cql-identifier",
+                    "expression": "Today"
+                  }
+                }
+              ],
               "linkId": "completing-form|drug-benefit|date",
               "text": "Date",
               "type": "date"

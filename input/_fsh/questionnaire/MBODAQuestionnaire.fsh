@@ -52,15 +52,15 @@ Usage: #example
   * item[+]
     * insert QuestionnaireItemInitialExpression("Height in [in_i]")
     * insert QuestionnaireItem(#decimal, "patient-info|height", "Height")
-    * insert QuestionnaireItemUnit(#[in_i], "in")
+    * insert QuestionnaireItemUnit([in_i])
   * item[+]
     * insert QuestionnaireItemInitialExpression("Weight in [lb_av]")
     * insert QuestionnaireItem(#decimal, "patient-info|weight", "Weight")
-    * insert QuestionnaireItemUnit(#[lb_av], "lbs")
+    * insert QuestionnaireItemUnit([lb_av])
   * item[+]
     * insert QuestionnaireItemInitialExpression("BSA in m2")
     * insert QuestionnaireItem(#decimal, "patient-info|bsa", "BSA")
-    * insert QuestionnaireItemUnit(#[m2], "m2")
+    * insert QuestionnaireItemUnit(m2)
 * item[+]
   * insert QuestionnaireItem(#group, "provider-info", "Ordering Provider Information")
   * item[+]
@@ -96,52 +96,61 @@ Usage: #example
   * item[+]
     * insert QuestionnaireItem(#choice, "servicing-provider-facility-info|drug-admin", "Who is administering the drug?")
     * answerOption[+]
-      * valueCoding.code = #OrderingProvider
-      * valueCoding.display = "Ordering Provider"
+      * valueCoding
+        * system = $providerRole
+        * code = #OP
+        * display = "Ordering Provider"
     * answerOption[+]
-      * valueCoding.code = #ServicingProvider
-      * valueCoding.display = "Servicing Provider"
+      * valueCoding = MBODA#MBODA2
     * answerOption[+]
-      * valueCoding.code = #HomeHealthAgency
-      * valueCoding.display = "Home Health Agency - if yes, name of agency"
+      * valueCoding
+        * system = $clm-fac-type-cd
+        * code = #3
+        * display = "Home Health Agency (HHA)"
   * item[+]
     * insert QuestionnaireItem(#choice, "select-one", "Please select if the medication will be dispensed or administered")
     * answerOption[+]
-      * valueCoding.code = #AdministeredFromProviderStock
-      * valueCoding.display = "Medication will be administered from provider stock and billed by provider (buy & bill)"
+      * valueCoding = MBODA#MBODA2
     * answerOption[+]
-      * valueCoding.code = #DispensedByPharmacy
-      * valueCoding.display = "Medication will be dispensed by a specialty pharmacy and billed by the pharmacy"
+      * valueCoding = MBODA#MBODA3
     * item[+]
       * insert QuestionnaireItem(#choice, "if-buy-bill", "If buy & bill\, who will be billing for the drug?")
-      * insert QuestionnaireEnableWhenEqualsCoding("select-one", #AdministeredFromProviderStock)
+      * insert QuestionnaireEnableWhenEqualsCoding("select-one", MBODA#MBODA2)
       * answerOption[+]
-        * valueCoding.code = #OrderingProvider
-        * valueCoding.display = "Ordering Provider"
+        * valueCoding
+          * system = $providerRole
+          * code = #OP
+          * display = "Ordering Provider"
       * answerOption[+]
-        * valueCoding.code = #ServicingProvider
-        * valueCoding.display = "Servicing Provider"
+        * valueCoding = MBODA#MBODA4
       * answerOption[+]
-        * valueCoding.code = #Facility
-        * valueCoding.display = "Facility"
+        * valueCoding = MBODA#MBODA5
     * item[+]
       * insert QuestionnaireItem(#choice, "provider-participating-ghp", "Is the billing provider participating with GHP?")
-      * insert QuestionnaireEnableWhenEqualsCoding("select-one", #AdministeredFromProviderStock)
+      * insert QuestionnaireEnableWhenEqualsCoding("select-one", MBODA#MBODA4)
       * answerOption[+]
-        * valueCoding.code = #Y
-        * valueCoding.display = "Yes"
+        * valueCoding
+          * system = $v2-0532
+          * code = #Y
+          * display = "Yes"
       * answerOption[+]
-        * valueCoding.code = #N
-        * valueCoding.display = "No"
+        * valueCoding
+          * system = $v2-0532
+          * code = #N
+          * display = "No"
       * item[+]
         * insert QuestionnaireItem(#choice, "no-ghp", "If No\, is this a request for out-of-network services?")
-        * insert QuestionnaireEnableWhenEqualsCoding("provider-participating-ghp", #N)
+        * insert QuestionnaireEnableWhenEqualsCoding("provider-participating-ghp", $v2-0532#N)
         * answerOption[+]
-          * valueCoding.code = #Y
-          * valueCoding.display = "Yes"
+          * valueCoding
+            * system = $v2-0532
+            * code = #Y
+            * display = "Yes"
         * answerOption[+]
-          * valueCoding.code = #N
-          * valueCoding.display = "No"
+          * valueCoding
+            * system = $v2-0532
+            * code = #N
+            * display = "No"
 * item[+]
   * insert QuestionnaireItem(#group, "servicing-provider", "Servicing provider")
   * item[+]
@@ -198,28 +207,28 @@ Usage: #example
     * insert QuestionnaireItemInitialExpression("Medication Name")
     * insert QuestionnaireItem(#string, "medication-info|name", "Medication name")
   * item[+]
-    * insert QuestionnaireUnitOption(#ug, "mcg")
-    * insert QuestionnaireUnitOption(#mg, "mg")
-    * insert QuestionnaireUnitOption(#g, "g")
-    * insert QuestionnaireUnitOption(#ml, "ml")
+    * insert QuestionnaireUnitOption(ug)
+    * insert QuestionnaireUnitOption(mg)
+    * insert QuestionnaireUnitOption(g)
+    * insert QuestionnaireUnitOption(mL)
     * insert QuestionnaireItemInitialExpression("Medication Dose")
     * insert QuestionnaireItem(#quantity, "medication-info|dose", "Dose")   
   * item[+]
     * insert QuestionnaireItemInitialExpression("Medication Route")
     * insert QuestionnaireItemRepeats(#open-choice, "medication-info|route", "Route")    
   * item[+]
-    * insert QuestionnaireUnitOption(#hour, "Per Hour")
-    * insert QuestionnaireUnitOption(#day, "Per Day")
-    * insert QuestionnaireUnitOption(#week, "Per Week")
-    * insert QuestionnaireUnitOption(#month, "Per Month")
+    * insert QuestionnaireUnitOption(h)
+    * insert QuestionnaireUnitOption(d)
+    * insert QuestionnaireUnitOption(wk)
+    * insert QuestionnaireUnitOption(mo)
     * insert QuestionnaireItemInitialExpression("Medication Frequency")
     * insert QuestionnaireItem(#quantity, "medication-info|frequency", "Frequency")    
   * item[+]
-    * insert QuestionnaireUnitOption(#hour, "Hour(s\)")
-    * insert QuestionnaireUnitOption(#day, "Day(s\)")
-    * insert QuestionnaireUnitOption(#week, "Week(s\)")
-    * insert QuestionnaireUnitOption(#month, "Month(s\)") 
-    * insert QuestionnaireUnitOption(#year, "Year(s\)")
+    * insert QuestionnaireUnitOption(h)
+    * insert QuestionnaireUnitOption(d)
+    * insert QuestionnaireUnitOption(wk)
+    * insert QuestionnaireUnitOption(mo) 
+    * insert QuestionnaireUnitOption(a)
     * insert QuestionnaireItemInitialExpression("Expected Therapy Length")
     * insert QuestionnaireItem(#quantity, "medication-info|therapy-leng", "Expected length of therapy")    
   * item[+]
@@ -230,15 +239,13 @@ Usage: #example
   * item[+]
     * insert QuestionnaireItem(#choice, "medication-info|new-med", "New Medication or Continued Therapy")
     * answerOption[+]
-      * valueCoding.code = #NewMedication
-      * valueCoding.display = "New Medication"
+      * valueCoding = MBODA#MBODA6
     * answerOption[+]
-      * valueCoding.code = #ContinuedTherapy
-      * valueCoding.display = "Continuation of therapy"
+      * valueCoding = MBODA#MBODA7
   * item[+]
     * insert QuestionnaireItemInitialExpression("Initial date of therapy")
     * insert QuestionnaireItem(#date, "medication-info|date-initiallized", "Date therapy initially started")
-    * insert QuestionnaireEnableWhenEqualsCoding("medication-info|new-med", #ContinuedTherapy) 
+    * insert QuestionnaireEnableWhenEqualsCoding("medication-info|new-med", MBODA#MBODA7) 
   * item[+]
     * insert QuestionnaireItem(#string, "medication-info|requested-drug-code", "HCPCS/CPT code/J code/NDC code of requested drug")    
   * item[+]

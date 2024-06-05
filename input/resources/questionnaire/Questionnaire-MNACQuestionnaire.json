@@ -1,0 +1,478 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "MNACQuestionnaire",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
+      "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/MNACInitialExpressions"
+    }
+  ],
+  "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/MNACQuestionnaire",
+  "version": "0.1.0",
+  "name": "MNACQuestionnaire",
+  "title": "Medical Necessity For Authorization Of Catheters",
+  "status": "active",
+  "experimental": true,
+  "date": "2024-01-17T00:00:00+00:00",
+  "publisher": "Smile Digital Health",
+  "description": "The Health Care Authority requires this form for all clients requesting sterile closed catheter.",
+  "item": [
+    {
+      "linkId": "request-info",
+      "text": "Request Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Date of Request"
+              }
+            }
+          ],
+          "linkId": "request-info|date-of-request",
+          "text": "DATE OF REQUEST",
+          "type": "date"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Client ID"
+              }
+            }
+          ],
+          "linkId": "request-info|client-id",
+          "text": "CLIENT ID",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "patient-info",
+      "text": "Patient Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Patient Name"
+              }
+            }
+          ],
+          "linkId": "patient-info|name",
+          "text": "PATIENT NAME",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "diagnosis-info",
+      "text": "Diagnosis Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Diagnosis"
+              }
+            }
+          ],
+          "linkId": "diagnosis-info|diagnosis",
+          "text": "Diagnosis",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "item-requested",
+      "text": "Item Requested",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Item Requested"
+              }
+            }
+          ],
+          "linkId": "item-requested|item",
+          "text": "Item requested",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "uti-history",
+      "text": "UTI History",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "UTI in Last Year"
+              }
+            }
+          ],
+          "linkId": "uti-history|uti-last-year",
+          "text": "The patient has|had documented recurrent urinary tract infections while on a program of clean cathing, twice within a 12 month period prior to beginning sterile cathing",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "system": "https://terminology.hl7.org/CodeSystem-v2-0532",
+                "code": "Y",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "https://terminology.hl7.org/CodeSystem-v2-0532",
+                "code": "N",
+                "display": "No"
+              }
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Lab Reports UTIs"
+              }
+            }
+          ],
+          "enableWhen": [
+            {
+              "question": "uti-history|uti-last-year",
+              "operator": "=",
+              "answerCoding": {
+                "code": "Y",
+                "system": "https://terminology.hl7.org/CodeSystem-v2-0532"
+              }
+            }
+          ],
+          "linkId": "uti-history|uti-reports",
+          "text": "Lab reports of UTIs in the last year",
+          "type": "string",
+          "repeats": true
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Dates of UTIs"
+              }
+            }
+          ],
+          "enableWhen": [
+            {
+              "question": "uti-history|uti-last-year",
+              "operator": "=",
+              "answerCoding": {
+                "code": "Y",
+                "system": "https://terminology.hl7.org/CodeSystem-v2-0532"
+              }
+            }
+          ],
+          "linkId": "uti-history|uti-dates",
+          "text": "Dates of UTIs in the last year",
+          "type": "string",
+          "repeats": true
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Antibiotics Used"
+              }
+            }
+          ],
+          "enableWhen": [
+            {
+              "question": "uti-history|uti-last-year",
+              "operator": "=",
+              "answerCoding": {
+                "code": "Y",
+                "system": "https://terminology.hl7.org/CodeSystem-v2-0532"
+              }
+            }
+          ],
+          "linkId": "uti-history|antibiotics-used",
+          "text": "Antibiotics used for UTIs in the last year",
+          "type": "string",
+          "repeats": true
+        }
+      ]
+    },
+    {
+      "linkId": "symptoms-info",
+      "text": "Symptoms Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Check Symptoms"
+              }
+            }
+          ],
+          "linkId": "symptoms-info|symptoms",
+          "text": "Check those that apply to your patient",
+          "type": "choice",
+          "repeats": true,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "386661006",
+                "system": "http://snomed.info/sct"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "UrinaryUrgencyFrequency",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "AutonomicDysreflexia",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "PhysicalSignsProstatitis",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "Immunosuppressed",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "Pyuria",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "SystemicLeukocytosis",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC"
+              }
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Fever Temperature"
+              }
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
+              "valueCoding": {
+                "code": "[degF]",
+                "system": "http://unitsofmeasure.org"
+              }
+            }
+          ],
+          "enableWhen": [
+            {
+              "question": "symptoms-info|symptoms",
+              "operator": "=",
+              "answerCoding": {
+                "code": "386661006",
+                "system": "http://snomed.info/sct"
+              }
+            }
+          ],
+          "linkId": "symptoms-info|fever-temperature",
+          "text": "If fever, state temperature in degrees Fahrenheit",
+          "type": "decimal"
+        }
+      ]
+    },
+    {
+      "linkId": "catheterization-frequency",
+      "text": "Catheterization Frequency",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Catheterization Frequency"
+              }
+            }
+          ],
+          "linkId": "catheterization-frequency|frequency",
+          "text": "How many times per day does the patient catheterize?",
+          "type": "choice",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "2-4Times",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "4-6Times",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "6-8Times",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC"
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "8TimesOrMore",
+                "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MNAC"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "additional-comments",
+      "text": "Additional Comments",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Additional Comment"
+              }
+            }
+          ],
+          "linkId": "additional-comments|comments",
+          "text": "Additional Comment",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "physician-info",
+      "text": "Physician Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Physician's Name"
+              }
+            }
+          ],
+          "linkId": "physician-info|name",
+          "text": "Physician’s Name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Physician's Telephone"
+              }
+            }
+          ],
+          "linkId": "physician-info|phone",
+          "text": "Telephone",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Physician's Fax"
+              }
+            }
+          ],
+          "linkId": "physician-info|fax",
+          "text": "FAX",
+          "type": "string"
+        },
+        {
+          "linkId": "physician-info|signature",
+          "text": "Physician’s Signature",
+          "type": "attachment"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Referring Physician's Telephone"
+              }
+            }
+          ],
+          "linkId": "physician-info|phone",
+          "text": "Referring Physician Telephone",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Date"
+              }
+            }
+          ],
+          "linkId": "physician-info|date",
+          "text": "Date",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "MBODA",
+  "id": "MBODA",
+  "title": "MBODA CodeSystem for Questionnaire",
+  "description": "CodeSystem for MBODA Questionnaire",
+  "url": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA",
+  "concept": [
+    {
+      "code": "MBODA1",
+      "display": "Servicing Provider/Facility",
+      "definition": "Provider/Facility that has administered the drug"
+    },
+    {
+      "code": "MBODA2",
+      "display": "Medication will be administered from provider stock and billed by provider (buy & bill)",
+      "definition": "Medication will be administered from provider stock and billed by provider (buy & bill)"
+    },
+    {
+      "code": "MBODA3",
+      "display": "Medication will be dispensed by a specialty pharmacy and billed by the pharmacy",
+      "definition": "Medication will be dispensed by a specialty pharmacy and billed by the pharmacy"
+    },
+    {
+      "code": "MBODA4",
+      "display": "Servicing Provider",
+      "definition": "Serving provider will be billing for the drug"
+    },
+    {
+      "code": "MBODA5",
+      "display": "Facility",
+      "definition": "Servicing facility will be billing for the drug"
+    },
+    {
+      "code": "MBODA6",
+      "display": "New Medication",
+      "definition": "New Medication"
+    },
+    {
+      "code": "MBODA7",
+      "display": "Continuation of therapy",
+      "definition": "Continuation of therapy"
+    }
+  ],
+  "experimental": true,
+  "caseSensitive": false,
+  "count": 7
+}

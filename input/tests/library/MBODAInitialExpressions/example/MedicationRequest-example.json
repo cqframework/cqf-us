@@ -61,9 +61,9 @@
           },
           "doseQuantity": {
             "value": 5,
-            "unit": "ml",
+            "unit": "mL",
             "system": "http://unitsofmeasure.org",
-            "code": "ml"
+            "code": "mL"
           }
         }
       ]
@@ -72,9 +72,9 @@
   "dispenseRequest": {
     "quantity": {
       "value": 100,
-      "unit": "ml",
+      "unit": "mL",
       "system": "http://unitsofmeasure.org",
-      "code": "ml"
+      "code": "mL"
     }
   }
 }

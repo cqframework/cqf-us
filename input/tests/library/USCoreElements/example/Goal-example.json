@@ -37,6 +37,13 @@
     "text": "high"
   },
   "description": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "50064-5",
+        "display": "Ideal body weight"
+      }
+    ],
     "text": "Target weight is 160 to 180 lbs."
   },
   "subject": {

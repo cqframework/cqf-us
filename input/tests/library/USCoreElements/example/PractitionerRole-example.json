@@ -42,9 +42,9 @@
     {
       "coding": [
         {
-          "system": "http://nucc.org/provider-taxonomy",
-          "code": "1223G0001X",
-          "display": "General Practice"
+          "system": "http://snomed.info/sct",
+          "code": "394814009",
+          "display": "General practice (specialty)"
         }
       ]
     }
