@@ -16,7 +16,7 @@ valueset "Common allergy substances": 'http://hl7.org/fhir/us/core/ValueSet/us-c
 code "No known allergy (situation)": '716186003' from UC.SNOMEDCT
 code "Member Number": 'MB' from "Identifier Type"
 code "Subscriber Number": 'SN' from "Identifier Type"
-code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
+code "Body surface area": '8277-6' from "LOINC" display 'Body surface area'
 code "Confirmed": 'confirmed' from "Verification Status"
 code "Active": 'active' from "Condition Clinical"
 

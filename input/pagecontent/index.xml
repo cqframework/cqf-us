@@ -31,7 +31,7 @@
   (<a href="https://cql.hl7.org/04-logicalspecification.html">ELM</a>) targeted at
   implementations and designed to enable automated sharing of clinical knowledge.</p>
   <p>To use CQL with USCore, <a href="https://cql.hl7.org/07-physicalrepresentation.html#data-model-references">model
-  information</a> must be provided to the implementation environment. The <a href="Library-USCore-ModelInfo.html">USCore-ModelInfo</a>
+  information</a> must be provided to the implementation environment. The <a href="https://hl7.org/fhir/us/cqfmeasures/STU4/Library-USCore-ModelInfo.html">USCore-ModelInfo</a>
   library provides this information for US Core. To use USCore, include a <a href="https://cql.hl7.org/02-authorsguide.html#data-models">using
   declaration</a> as shown in the example below:</p>
   <pre><code>using USCore version '3.1.1'</code></pre>

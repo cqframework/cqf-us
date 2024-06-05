@@ -8,7 +8,7 @@ include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
 
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
-codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10-cm'
+codesystem "ICD10": 'https://terminology.hl7.org/5.1.0/CodeSystem-icd10CM.html'
 codesystem "SNOMED CT": 'http://snomed.info/sct'
 
 code "Member Number": 'MB' from "Identifier Type"
@@ -49,17 +49,17 @@ define "Antibiotics Used":
 [FHIR.MedicationStatement] MS
 where First(MS.reasonReference.reference) in "UTI Diagnostic Reports Last Year".id
 
-define "Check Symptoms":
-'TBD'
+// define "Check Symptoms":
+// 'TBD'
 
-define "Fever Temperature":
-'TBD'
+// define "Fever Temperature":
+// 'TBD'
 
-define "Catheterization Frequency":
-'TBD'
+// define "Catheterization Frequency":
+// 'TBD'
 
-define "Additional Comment":
-'TBD'
+// define "Additional Comment":
+// 'TBD'
 
 define "Physician Name":
 "Requesting Physician".name.family 

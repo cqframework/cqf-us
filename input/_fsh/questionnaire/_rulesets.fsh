@@ -1,4 +1,6 @@
 Alias: $UCUM = http://unitsofmeasure.org
+Alias: $v2-0532 = https://terminology.hl7.org/5.5.0/CodeSystem-v2-0532
+
 RuleSet: QuestionnaireItem(type, linkId, text)
 * linkId = {linkId}
 * text = {text}
@@ -25,7 +27,7 @@ RuleSet: QuestionnaireEnableWhenEqualsCoding(question, coding)
 * enableWhen[+]
   * question = {question}
   * operator = #=
-  * answerCoding = {coding}
+  * answerCoding = $v2-0532#{coding}
 RuleSet: QuestionnaireUnitOption(code, display)
 * extension[+]
   * url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"

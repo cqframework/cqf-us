@@ -74,9 +74,9 @@
           },
           "doseQuantity": {
             "value": 5,
-            "code": "ml",
+            "code": "mL",
             "system": "http://unitsofmeasure.org",
-            "unit": "ml"
+            "unit": "mL"
           }
         }
       ]

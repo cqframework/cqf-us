@@ -1,0 +1,23 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "Drug_Administration",
+  "id": "Drug-Administration",
+  "title": "MBODA ValueSet for drug administration",
+  "description": "ValueSet for provider/facility responsible for administring the drug",
+  "url": "http://fhir.org/guides/cqf/us/common/ValueSet/Drug-Administration",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA",
+        "concept": [
+          {
+            "code": "MBODA1",
+            "display": "Servicing Provider/Facility"
+          }
+        ]
+      }
+    ]
+  }
+}

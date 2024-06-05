@@ -69,13 +69,17 @@ Usage: #example
   * insert QuestionnaireItemInitialExpression("Billing Provider different from Servicing Provider")
   * insert QuestionnaireItem(#choice, "billing-provider-question", "Is the billing provider/referring lab different from servicing provider?")
   * answerOption[+]
-    * valueCoding.code = #Y
-    * valueCoding.display = "Yes"
+    * valueCoding
+      * system = $v2-0532
+      * code = #Y
+      * display = "Yes"
   * answerOption[+]
-    * valueCoding.code = #N
-    * valueCoding.display = "No"
+    * valueCoding
+      * system = $v2-0532
+      * code = #N
+      * display = "No"
   * item[+]
-    * insert QuestionnaireEnableWhenEqualsCoding("billing-provider-question", #Y)
+    * insert QuestionnaireEnableWhenEqualsCoding("billing-provider-question", $v2-0532#Y)
     * insert QuestionnaireItem(#group, "billing-provider-info", "Billing provider/referring lab information")
     * item[+]
       * insert QuestionnaireItemInitialExpression("Billing Provider Name")
@@ -107,29 +111,33 @@ Usage: #example
     * insert QuestionnaireItemInitialExpression("Diagnosis Descriptions")
     * insert QuestionnaireItem(#string, "test-requested|diagnosis-description", "Diagnosis description")
   * item[+]
-    * insert QuestionnaireItemInitialExpression("Test ICD Codes")
-    * insert QuestionnaireItemRepeats(#open-choice, "test-requested|diagnosis-icd-code", "ICD-10 code(s\)")
+    * insert QuestionnaireItemInitialExpression("Test SCT Codes")
+    * insert QuestionnaireItemRepeats(#open-choice, "test-requested|diagnosis-SCT-code", "SNOMED-CT code(s\)")
     * repeats = true
-    * answerValueSet = "http://hl7.org/fhir/sid/icd-10"
+    * answerValueSet = "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
   * item[+]
     * insert QuestionnaireItemInitialExpression("Test CPT Codes")
     * insert QuestionnaireItemRepeats(#open-choice, "test-requested|diagnosis-cpt-code", "CPT code(s\)")
     * repeats = true
-    * answerValueSet = "http://www.ama-assn.org/go/cpt"
+    * answerValueSet = "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"
 * item[+]
   * insert QuestionnaireItem(#group, "clinical-trial", "Clinical Trial Information")
   * item[+]     
     * insert QuestionnaireItemInitialExpression("Part of clinical trial")
     * insert QuestionnaireItem(#choice, "clinical-trial-question", "Is the requested test part of a clinical trial?")
     * answerOption[+]
-      * valueCoding.code = #Y
-      * valueCoding.display = "Yes"
+      * valueCoding
+        * system = $v2-0532
+        * code = #Y
+        * display = "Yes"
     * answerOption[+]
-      * valueCoding.code = #N
-      * valueCoding.display = "No"
+      * valueCoding
+        * system = $v2-0532
+        * code = #N
+        * display = "No"
     * item[+]
       * insert QuestionnaireItemInitialExpression("Clinical Trial ID")
-      * insert QuestionnaireEnableWhenEqualsCoding("clinical-trial-question", #Y)
+      * insert QuestionnaireEnableWhenEqualsCoding("clinical-trial-question", $v2-0532#Y)
       * insert QuestionnaireItem(#string, "clinical-trial|yes-clinial-trial", "If Yes\, provide the registration or ID number for the specific trial in which this test is being studied.")
 * item[+]
   * insert QuestionnaireItem(#group, "history", "Patient history and related findings")

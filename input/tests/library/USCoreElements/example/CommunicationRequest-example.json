@@ -34,8 +34,9 @@
     {
       "coding": [
         {
-          "system": "http://acme.org/messagetypes",
-          "code": "SolicitedAttachmentRequest"
+          "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+          "code": "instruction",
+          "display": "Instruction"
         }
       ]
     }

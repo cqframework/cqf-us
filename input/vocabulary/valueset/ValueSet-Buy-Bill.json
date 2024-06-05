@@ -1,0 +1,27 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "Buy_Bill",
+  "id": "Buy-Bill",
+  "title": "MBODA ValueSet for Buy & Bill",
+  "description": "Valueset for Buy & Bill by provider",
+  "url": "http://fhir.org/guides/cqf/us/common/ValueSet/Buy-Bill",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA",
+        "concept": [
+          {
+            "code": "MBODA4",
+            "display": "Servicing Provider"
+          },
+          {
+            "code": "MBODA5",
+            "display": "Facility"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -50,7 +50,104 @@
     <packageId value="hl7.fhir.us.qicore"/>
     <version value="6.0.0"/>
   </dependsOn>
+  <dependsOn id="measures">
+    <uri value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures"/>
+    <packageId value="hl7.fhir.us.cqfmeasures"/>
+    <version value="4.0.0"/>
+  </dependsOn>
   <definition>
+  <!-- Device -->
+    <resource>
+      <reference>
+        <reference value="Device/cqf-tooling" />
+        <display value="CQF Tooling Device" />
+      </reference>
+      <name value="CQFToolingDevice" />
+      <description value="A Device that represents a CQF Tooling version." />
+      <exampleBoolean value="false" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/CumulativeMedicationDuration" />
+        <display value="Cumulative Medication Duration" />
+        </reference>
+      <name value="Cumulative Medication Duration" />
+      <description value="Cumulative Medication Duration" />
+      <exampleBoolean value="false" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/FHIRHelpers" />
+        <display value="FHIR Helpers Library" />
+      </reference>
+      <name value="FHIRHelpers" />
+      <description value="FHIR Helpers Library" />
+      <exampleBoolean value="false" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/GMTPInitialExpressions" />
+        <display value="GMTP Initial Expressions Library" />
+      </reference>
+      <name value="GMTPInitialExpressions" />
+      <description value="GMTP Initial Expressions Library" />
+      <exampleBoolean value="false" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/MBODAInitialExpressions" />
+        <display value="MBODA Initial Expressions Library" />
+      </reference>
+      <name value="MBODAInitialExpressions" />
+      <description value="MBODA Initial Expressions Library" />
+      <exampleBoolean value="false" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/MNACInitialExpressions" />
+        <display value="MNAC Initial Expressions Library" />
+      </reference>
+      <name value="MNACInitialExpressions" />
+      <description value="MNAC Initial Expressions Library" />
+      <exampleBoolean value="false" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/UPPARFInitialExpressions" />
+        <display value="UPPARF Initial Expressions Library" />
+      </reference>
+      <name value="UPPARFInitialExpressions" />
+      <description value="UPPARF Initial Expressions Library" />
+      <exampleBoolean value="false" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/USCoreCommon" />
+        <display value="US Core Common Library" />
+      </reference>
+      <name value="USCoreCommon" />
+      <description value="US Core Common Library" />
+      <exampleBoolean value="false" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/USCoreElements" />
+        <display value="US Core Elements Library" />
+      </reference>
+      <name value="USCoreElements" />
+      <description value="US Core Elements Library" />
+      <exampleBoolean value="false" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/USCoreTests" />
+        <display value="US Core Tests Library" />
+      </reference>
+      <name value="USCoreTests" />
+      <description value="US Core Tests Library" />
+      <exampleBoolean value="false" />
+    </resource>
+
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
       <nameUrl value="toc.html"/>

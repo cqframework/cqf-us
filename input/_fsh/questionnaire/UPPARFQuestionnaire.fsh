@@ -17,11 +17,9 @@ Usage: #example
   * insert QuestionnaireItemInitialExpression("Urgency")
   * insert QuestionnaireItem(#choice, "urgency", "Urgency")
   * answerOption[+]
-    * valueCoding.code = #urgent
-    * valueCoding.display = "Urgent"
+    * valueCoding = $RequestPriority#urgent
   * answerOption[+]
-    * valueCoding.code = #routine
-    * valueCoding.display = "Non-Urgent"
+    * valueCoding = $RequestPriority#routine
 * item[+]
   * insert QuestionnaireItem(#group, "drug-info", "Drug Information")
   * item[+]
@@ -121,7 +119,7 @@ Usage: #example
       * insert QuestionnaireItemInitialExpression("ICD-10 Codes")
       * insert QuestionnaireItem(#open-choice, "completing-form|drug-benefit|diagnosis-codes", "Patient ICD Diagnostic Codes")
       * repeats = true
-      * answerValueSet = "http://hl7.org/fhir/sid/icd-10-cm"
+      * answerValueSet = "http://hl7.org/fhir/ValueSet/icd-10"
     * item[+]
       * insert QuestionnaireItemInitialExpression("Diagnosis Descriptions")
       * insert QuestionnaireItem(#string, "completing-form|drug-benefit|diagnosis-descriptions", "Patient Diagnosis")

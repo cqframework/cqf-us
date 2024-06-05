@@ -1,0 +1,27 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "Medication_Information",
+  "id": "Medication-Information",
+  "title": "MBODA ValueSet for Medication Information",
+  "description": "ValueSet for Medication start information",
+  "url": "http://fhir.org/guides/cqf/us/common/ValueSet/Medication-Information",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA",
+        "concept": [
+          {
+            "code": "MBODA6",
+            "display": "New Medication"
+          },
+          {
+            "code": "MBODA7",
+            "display": "Continuation of therapy"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -11,18 +11,19 @@
   "version": "0.1.0",
   "name": "USCoreTests",
   "type": {
-    "coding": [{
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/library-type",
       "code": "logic-library"
-    }]
+    } ]
   },
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "USCore model information",
-    "resource": "http://hl7.org/fhir/us/core/STU6.1/ImplementationGuide-hl7.fhir.us.core.html"
+    "resource": "https://hl7.org/fhir/us/cqfmeasures/STU4/Library-USCore-ModelInfo.html"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://fhir.org/guides/cqf/common/Library-FHIRHelpers.html"
+   "resource": "http://fhir.org/guides/cqf/common/Library-FHIRHelpers.html"
   }, {
     "type": "depends-on",
     "display": "Code system Marital Status Codes",

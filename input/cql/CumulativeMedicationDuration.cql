@@ -18,8 +18,10 @@ Fixed invalid unit error evaluating RolloutIntervals
 Fixed RolloutIntervals incorrectly eliminating duplicates
 v3.1.000
 updated to reflect changes from AU2022 QDM library changes _JKR
+v0.1.0
+updated version to align with US Common as this is the published library version in US Common
 */
-library CumulativeMedicationDuration version '3.1.000'
+library CumulativeMedicationDuration version '0.1.0' 
 
 using USCore version '3.1.1'
 // NOTE: Including FHIR to handle MedicationDispense and MedicationAdministration (not in USCore 3.1.1)
