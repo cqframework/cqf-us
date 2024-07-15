@@ -13,7 +13,7 @@ include CumulativeMedicationDuration version '3.1.000' called CMD
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
-code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
+code "Body surface area": '8277-6' from "LOINC" display 'Body surface area'
 code "Member Number": 'MB' from "Identifier Type"
 
 context Patient

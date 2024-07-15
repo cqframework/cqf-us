@@ -1,0 +1,27 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "Medication_Billing",
+  "id": "Medication-Billing",
+  "title": "MBODA Valueset for Medication billing",
+  "description": "Valueset for medication billing",
+  "url": "http://fhir.org/guides/cqf/us/common/ValueSet/Medication-Billing",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://fhir.org/guides/cqf/us/common/CodeSystem/MBODA",
+        "concept": [
+          {
+            "code": "MBODA2",
+            "display": "Medication will be administered from provider stock and billed by provider (buy & bill)"
+          },
+          {
+            "code": "MBODA3",
+            "display": "Medication will be dispensed by a specialty pharmacy and billed by the pharmacy"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,54 +1,3 @@
-Alias: $UCUM = http://unitsofmeasure.org
-RuleSet: QuestionnaireItem(type, linkId, text)
-* linkId = {linkId}
-* text = {text}
-* type = {type}
-RuleSet: QuestionnaireItemRepeats(type, linkId, text)
-* linkId = {linkId}
-* text = {text}
-* type = {type}
-* repeats = true
-RuleSet: QuestionnaireItemInitialExpression(expression)
-* extension[+]
-  * url = "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression"
-  * valueExpression
-    * language = #text/cql-identifier
-    * expression = {expression}
-RuleSet: QuestionnaireItemUnit(code, display)
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unit"
-  * valueCoding
-    * system = $UCUM
-    * code = {code}
-    * display = {display}
-RuleSet: QuestionnaireEnableWhenEqualsCoding(question, coding)
-* enableWhen[+]
-  * question = {question}
-  * operator = #=
-  * answerCoding = {coding}
-RuleSet: QuestionnaireEnableWhenEqualsBoolean(question)
-  * enableWhen[+]
-  * question = {question}
-  * operator = #=
-  * answerBoolean = true
-RuleSet: QuestionnaireUnitOption(code, display)
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"
-  * valueCoding
-    * system = $UCUM
-    * code = {code}
-    * display = {display}
-RuleSet: QuestionnaireItemSignatureRequired(code, display)
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/questionnaire-signatureRequired"
-  * valueCoding
-    * system = "urn:iso-astm:E1762-95:2013"
-    * code = {code}
-    * display = {display}
-* extension[+]
-  * url = "http://hl7.org/fhir/StructureDefinition/questionnaire-usageMode"
-  * valueCode = #capture
-
 Instance: MNACQuestionnaire
 InstanceOf: Questionnaire
 Usage: #example
@@ -95,19 +44,28 @@ Usage: #example
   * insert QuestionnaireItem(#group, "uti-history", "UTI History")
   * item[+]
     * insert QuestionnaireItemInitialExpression("UTI in Last Year")
-    * insert QuestionnaireItem(#boolean, "uti-history|uti-last-year", "The patient has|had documented recurrent urinary tract infections while on a program of clean cathing\, twice within a 12 month period prior to beginning sterile cathing")
-
+    * insert QuestionnaireItem(#choice, "uti-history|uti-last-year", "The patient has|had documented recurrent urinary tract infections while on a program of clean cathing\, twice within a 12 month period prior to beginning sterile cathing")
+    * answerOption[+]
+      * valueCoding
+        * system = $v2-0532
+        * code = #Y
+        * display = "Yes"
+    * answerOption[+]
+      * valueCoding
+        * system = $v2-0532
+        * code = #N
+        * display = "No"
   * item[+]
     * insert QuestionnaireItemInitialExpression("Lab Reports UTIs")
-    * insert QuestionnaireEnableWhenEqualsBoolean("uti-history|uti-last-year")
+    * insert QuestionnaireEnableWhenEqualsCoding("uti-history|uti-last-year", $v2-0532#Y)
     * insert QuestionnaireItemRepeats(#string, "uti-history|uti-reports", "Lab reports of UTIs in the last year")
   * item[+]
     * insert QuestionnaireItemInitialExpression("Dates of UTIs")
-    * insert QuestionnaireEnableWhenEqualsBoolean("uti-history|uti-last-year")
+    * insert QuestionnaireEnableWhenEqualsCoding("uti-history|uti-last-year", $v2-0532#Y)
     * insert QuestionnaireItemRepeats(#string, "uti-history|uti-dates", "Dates of UTIs in the last year")
   * item[+]
     * insert QuestionnaireItemInitialExpression("Antibiotics Used")
-    * insert QuestionnaireEnableWhenEqualsBoolean("uti-history|uti-last-year")
+    * insert QuestionnaireEnableWhenEqualsCoding("uti-history|uti-last-year", $v2-0532#Y)
     * insert QuestionnaireItemRepeats(#string, "uti-history|antibiotics-used", "Antibiotics used for UTIs in the last year")
 
 * item[+]
@@ -116,48 +74,37 @@ Usage: #example
     * insert QuestionnaireItemInitialExpression("Check Symptoms")
     * insert QuestionnaireItemRepeats(#choice, "symptoms-info|symptoms", "Check those that apply to your patient")
     * answerOption[+]
-      * valueCoding.code = #Fever
-      * valueCoding.display = "Fever; state temperature in degree"
+      * valueCoding = $SCT#386661006
     * answerOption[+]
-      * valueCoding.code = #UrinaryUrgencyFrequency
-      * valueCoding.display = "Change in urinary urgency, frequency, or incontinence"
+      * valueCoding = MNAC#UrinaryUrgencyFrequency
     * answerOption[+]
-      * valueCoding.code = #AutonomicDysreflexia
-      * valueCoding.display = "Appearance of new or increase in autonomic dysreflexia"
+      * valueCoding = MNAC#AutonomicDysreflexia
     * answerOption[+]
-      * valueCoding.code = #PhysicalSignsProstatitis
-      * valueCoding.display = "Physical signs of prostatitis, epididymitis, orchitis"
+      * valueCoding = MNAC#PhysicalSignsProstatitis
     * answerOption[+]
-      * valueCoding.code = #Immunosuppressed
-      * valueCoding.display = "The patient is immunosuppressed"
+      * valueCoding = MNAC#Immunosuppressed
     * answerOption[+]
-      * valueCoding.code = #Pyuria
-      * valueCoding.display = "Pyuria"
+      * valueCoding = MNAC#Pyuria
     * answerOption[+]
-      * valueCoding.code = #SystemicLeukocytosis
-      * valueCoding.display = "Systemic leukocytosis"
+      * valueCoding = MNAC#SystemicLeukocytosis
   * item[+]
     * insert QuestionnaireItemInitialExpression("Fever Temperature")
-    * insert QuestionnaireEnableWhenEqualsCoding("symptoms-info|symptoms", #Fever)
-    * insert QuestionnaireItem(#decimal, "symptoms-info|fever-temperature", "If fever\, state temperature in degrees")
-    * insert QuestionnaireItemUnit(#[deg], "deg")
+    * insert QuestionnaireEnableWhenEqualsCoding("symptoms-info|symptoms", $SCT#386661006)
+    * insert QuestionnaireItem(#decimal, "symptoms-info|fever-temperature", "If fever\, state temperature in degrees Fahrenheit")
+    * insert QuestionnaireItemUnit([degF])
 * item[+]
   * insert QuestionnaireItem(#group, "catheterization-frequency", "Catheterization Frequency")
   * item[+]
     * insert QuestionnaireItemInitialExpression("Catheterization Frequency")
     * insert QuestionnaireItem(#choice, "catheterization-frequency|frequency", "How many times per day does the patient catheterize?")
     * answerOption[+]
-      * valueCoding.code = #2-4Times
-      * valueCoding.display = "2-4 times"
+      * valueCoding = MNAC#2-4Times
     * answerOption[+]
-      * valueCoding.code = #4-6Times
-      * valueCoding.display = "4-6 times"
+      * valueCoding = MNAC#4-6Times
     * answerOption[+]
-      * valueCoding.code = #6-8Times
-      * valueCoding.display = "6-8 times"
+      * valueCoding = MNAC#6-8Times
     * answerOption[+]
-      * valueCoding.code = #8TimesOrMore
-      * valueCoding.display = "8 times or more"
+      * valueCoding = MNAC#8TimesOrMore
 
 * item[+]
   * insert QuestionnaireItem(#group, "additional-comments", "Additional Comments")

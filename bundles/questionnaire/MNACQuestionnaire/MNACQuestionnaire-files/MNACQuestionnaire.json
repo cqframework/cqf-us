@@ -7,7 +7,7 @@
         "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/MNACInitialExpressions"
       }
     ],
-    "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/MBODAQuestionnaire",
+    "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/MNACQuestionnaire",
     "version": "0.1.0",
     "name": "MNACQuestionnaire",
     "title": "Medical Necessity For Authorization Of Catheters",
@@ -273,7 +273,7 @@
                 "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
                 "valueCoding": {
                   "system": "http://unitsofmeasure.org",
-                  "code": "[deg]",
+                  "code": "deg",
                   "display": "deg"
                 }
               }

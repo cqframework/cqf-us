@@ -18,7 +18,7 @@
       {
         "system": "http://www.ama-assn.org/go/cpt",
         "code": "70450",
-        "display": "CT, head, wo iv contrast"
+        "display": "Computed tomography, head or brain; without contrast material"
       }
     ]
   },
@@ -34,8 +34,8 @@
       "coding": [
         {
           "system": "http://hl7.org/fhir/sid/icd-9-cm",
-          "code": "70450",
-          "display": "Headache, Chronic, no new features"
+          "code": "784.0",
+          "display": "Headache"
         }
       ]
     }

@@ -40,8 +40,8 @@
         "coding": [
           {
             "system": "http://snomed.info/sct",
-            "code": "394899003",
-            "display": "oral administration of treatment"
+            "code": "26643006",
+            "display": "Oral use"
           }
         ]
       },
@@ -49,9 +49,9 @@
         {
           "doseQuantity": {
             "value": 10,
-            "unit": "ml",
+            "unit": "mL",
             "system": "http://unitsofmeasure.org",
-            "code": "ml"
+            "code": "mL"
           }
         }
       ]
