@@ -45,11 +45,6 @@
     <packageId value="hl7.fhir.us.core"/>
     <version value="3.1.1"/>
   </dependsOn>
-  <dependsOn id="qicore">
-    <uri value="http://hl7.org/fhir/us/qicore/ImplementationGuide/hl7.fhir.us.qicore"/>
-    <packageId value="hl7.fhir.us.qicore"/>
-    <version value="6.0.0"/>
-  </dependsOn>
   <definition>
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
