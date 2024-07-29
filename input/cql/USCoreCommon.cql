@@ -9,7 +9,7 @@ library USCoreCommon version '0.1.0'
 using USCore version '3.1.1'
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.1.000'
+include FHIRHelpers version '4.1.0'
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct'

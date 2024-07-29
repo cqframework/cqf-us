@@ -13,7 +13,16 @@
         <a target="_blank" href="http://cql.hl7.org/index.html">CQL Spec</a>
       </li>
       <li>
-        <a target="_blank" href="http://hl7.org/fhir/uv/cpg">FHIR Clinical Guidelines</a>
+        <a target="_blank" href="http://hl7.org/fhir/uv/cql">Using CQL With FHIR</a>
+      </li>
+      <li>
+        <a target="_blank" href="http://hl7.org/fhir/uv/crmi">Canonical Resource Management Infrastructure (CRMI)</a>
+      </li>
+      <li>
+        <a target="_blank" href="http://hl7.org/fhir/uv/sdc">Structured Data Capture (SDC)</a>
+      </li>
+      <li>
+        <a target="_blank" href="http://hl7.org/fhir/us/davinci-dtr">Documentation Templates and Rules (DTR)</a>
       </li>
       <li>
         <a target="_blank" href="http://hl7.org/fhir/us/core">US Core</a>

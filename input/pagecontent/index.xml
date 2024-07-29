@@ -5,16 +5,32 @@
     built using the approach and specifications developed as part of the Clinical
     Quality Framework (<a href="https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework">CQF</a>)
     initiative, including the USCore-ModelInfo and USCommon libraries.</p>
-  <p>The CQF approach brings a suite of standards and methodologies to bear on the problem
-    of authoring, sharing, and evaluating clinical knowledge, with the goal of streamlining
-    the development and implementation of guideline-based clinical care.</p>
-  <p>For more information on this approach, see the <a href="http://hl7.org/fhir/uv/cpg/approach.html">Approach</a>
-  and <a href="http://hl7.org/fhir/uv/cpg/methodology.html">Methodology</a> sections of the FHIR
-  Clinical Guidelines implementation guide.</p>
+
   <a name="contents"> </a>
   <h3>Contents</h3>
-  <p>This implementation guide contains libraries that facilitate the use of CQL with FHIR in the US Realm, as explained in the sections
-    below. To use these libraries in your implementation guide, include a reference to this implementation guide as
+  <p>This implementation guide contains libraries that facilitate the use of CQL with FHIR in the US Realm, 
+  with an initial use case of Prior Authorization Support Questionnaires as described in the 
+  <a href="https://hl7.org/fhir/us/davinci-dtr/">DaVinci Documentation Templates and Rules (DTR)</a> implementation guide.
+  </p>
+
+  <a name="pa-use-case"> </a>
+  <h4>Prior Authorization Questionnaire Use Case</h4>
+  <p>Links to resources for current prior authorization scenarios:</p>
+
+  <ul>
+    <li><a href="https://www.cms.gov/files/document/prior-authorization-and-pre-claim-review-program-statistics.pdf">Prior Authorization and Pre-Claim Review Program Stats (cms.gov)</a></li>
+    <li><a href="https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-and-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services">Prior Authorization for Certain Hospital Outpatient Department (OPD) Services | CMS</a></li>
+    <li><a href="https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists">Preauthorization and Notification Lists for Healthcare Providers - Humana</a></li>
+  </ul>
+
+  <a name="patient"> </a>
+  <h5>Patient</h5>
+  <p>The following page provides patterns for accessing patient-level information in a questionnaire:</p>
+  <a href="patterns-patient.html">Patient Patterns</a>
+
+  <a name="usage"> </a>
+  <h4>Usage</h4>
+  <p>To use these libraries in your implementation guide, include a reference to this implementation guide as
     an implementation guide dependency:</p>
   <pre><code>&lt;dependsOn id=&quot;cqf-us&quot;&gt;
   &lt;uri value=&quot;http://fhir.org/guides/cqf/us/common/ImplementationGuide/fhir.cqf.us.common&quot;/&gt;
@@ -37,3 +53,5 @@
   <pre><code>using USCore version '3.1.1'</code></pre>
   <p>Although not required by CQL, current best-practice is to include the version of USCore.</p>
 </div>
+
+

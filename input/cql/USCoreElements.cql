@@ -3,7 +3,7 @@ library USCoreElements version '0.1.0'
 using USCore version '3.1.1'
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.1.000'
+include FHIRHelpers version '4.1.0'
 include USCoreCommon version '0.1.0' called UC
 
 codesystem "LOINC": 'http://loinc.org'
@@ -21,6 +21,58 @@ code "Confirmed": 'confirmed' from "Verification Status"
 code "Active": 'active' from "Condition Clinical"
 
 context Patient
+
+// Patient Patterns
+
+define fluent function ageInYearsAt(patient Patient, asOf Date):
+  CalculateAgeInYearsAt(date from Patient.birthDate, asOf)
+
+define fluent function ageInYears(patient Patient):
+  CalculateAgeInYearsAt(date from Patient.birthDate, Today())
+
+define "Usual Name":
+  First(
+    Patient.name name
+      where name.use ~ 'usual'
+  )
+
+define "Official Name":
+  First(
+    Patient.name name
+      where name.use ~ 'official'
+  )
+
+define "First Occurrence of Non-Official, Non-Usual Name":
+  First(
+    Patient.name name
+      where not(name.use ~ 'official') and not(name.use ~ 'usual')
+  )
+
+define "Name":
+  Coalesce("Official Name", "Usual Name", "First Occurrence of Non-Official, Non-Usual Name")
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+// define "First Name":
+//   "Name".given[0]
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+// define "Middle Names":
+//   Combine(Skip("Name".given, 1), ' ')
+
+define "Last Name":
+  "Name".family
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+define "Name - First Middle(s) Last":
+  //Combine("Name".given, ' ') + ' ' + "Name".family
+  "Name".family
+
+// TODO: Correct this once USCore.HumanName.given works as expected
+define "Name - Last, First Middle(s)":
+  //"Name".family + ', ' + Combine("Name".given, ' ')
+  "Name".family
+
+
 
 // Allergy/Intolerance
 
@@ -422,16 +474,10 @@ define "Coverage":
   )
 
 define "Member ID":
-  singleton from (
-    Coverage.identifier I
-      where I.type ~ "Member Number"
-  )
+  Coverage.identifier.where(type ~ "Member Number").single().value
 
 define "Medical Record Number":
-  singleton from (
-    Patient.identifier I
-      where I.type ~ UC.MedicalRecordNumber
-  ).value
+  Patient.identifier.where(type ~ UC.MedicalRecordNumber).single().value
 
 define "Most Recent BSA":
   convert ([FHIR.Observation: "Body surface area"]).resulted().mostRecent().value to 'm2'
@@ -527,46 +573,4 @@ define "RequesterRole":
     [USCore.PractitionerRoleProfile] R
       where EndsWith(R.practitioner.reference, "Requester".id)
   )
-
-define "Usual Name":
-  First(
-    Patient.name name
-      where name.use ~ 'usual'
-  )
-
-define "Official Name":
-  First(
-    Patient.name name
-      where name.use ~ 'official'
-  )
-
-define "First Occurrence of Non-Official, Non-Usual Name":
-  First(
-    Patient.name name
-      where not(name.use ~ 'official') and not(name.use ~ 'usual')
-  )
-
-define "Name":
-  Coalesce("Official Name", "Usual Name", "First Occurrence of Non-Official, Non-Usual Name")
-
-// TODO: Correct this once USCore.HumanName.given works as expected
-// define "First Name":
-//   "Name".given[0]
-
-// TODO: Correct this once USCore.HumanName.given works as expected
-// define "Middle Names":
-//   Combine(Skip("Name".given, 1), ' ')
-
-define "Last Name":
-  "Name".family
-
-// TODO: Correct this once USCore.HumanName.given works as expected
-define "Name - First Middle(s) Last":
-  //Combine("Name".given, ' ') + ' ' + "Name".family
-  "Name".family
-
-// TODO: Correct this once USCore.HumanName.given works as expected
-define "Name - Last, First Middle(s)":
-  //"Name".family + ', ' + Combine("Name".given, ' ')
-  "Name".family
 
