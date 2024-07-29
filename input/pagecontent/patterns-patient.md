@@ -3,7 +3,7 @@
 
 ### Patient
 
-USCore defines the [USCore Patient]({{site.data.fhir.uscore.ver}}/StructureDefinition-us-core-patient.html)
+USCore defines the [USCore Patient]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-patient.html)
 
 #### Patient age
 _Updated 2024-07-28_
