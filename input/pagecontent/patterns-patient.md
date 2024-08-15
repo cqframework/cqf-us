@@ -1,9 +1,25 @@
-
-
-
-### Patient
-
 USCore defines the [USCore Patient]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-patient.html)
+
+### Modifier Elements
+
+### Search Parameters
+
+### Cross-Version Considerations
+
+TODO: Determine how to access member ID in a 3.1.1 context (where there isn't a Coverage profile)
+
+### Common Elements and Functions
+
+#### Member ID
+
+The [USCore 6.1 Coverage Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-coverage.html) defines a slice on identifier called `memberid` that can be used to access the patient's member id
+
+```cql
+define "Covered Member ID":
+  Coverage.memberId()
+```
+
+#### Subscriber ID
 
 #### Patient age
 _Updated 2024-07-28_
