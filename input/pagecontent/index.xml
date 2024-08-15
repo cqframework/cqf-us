@@ -34,6 +34,9 @@
     <li>The prior-authorization application then uses the population expressions in the resulting Questionnaire to perform population, for example using the SDC <a href="https://hl7.org/fhir/uv/sdc/OperationDefinition-Questionnaire-populate.html">$questionnaire-populate</a> operation</li>
   </ul>
 
+<!--
+  FIXME: Remove this comment before merging.
+  
   Next Agenda:
 
   * Finish review of Patient Patterns
@@ -56,6 +59,7 @@
   TODO: Document that SubscriberID is an available element, but would be expected to be the SubscriberID associated with the already established Member ID (individual) (i.e. SubscriberId is the Plan-level identifier for an individual that has the plan, whereas MemberId is specific to the individual beneficiaries of the plan)
   TODO: Consider the ACO use case? At this point we're thinking this is handled behind the scenes (i.e. transparent to the user and therefore this process)
   TODO: For the last step (the questionnaire population), determine exactly how the context parameters will be provided to the operation (because that directly impacts how that information would be accessed within the CQL content).
+-->
 
   <a name="patient"> </a>
   <h5>Patient</h5>
