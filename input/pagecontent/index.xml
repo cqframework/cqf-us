@@ -25,46 +25,97 @@
 
   <a name="data-flow"> </a>
   <h5>Data Flow</h5>
-  <p>The questionnaire examples and associated libraries for population expressions in this IG are expected to be used in the following data flow:
-  </p>
+
+  <p>The questionnaire examples and associated libraries for population expressions in this IG are expected to be used in the following data flow:</p>
+
+  <img src="dtr-data-flow.png"/>
+
+  <ol>
+    <li>DTR Launch: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieving-launch-context-information">Retrieving Launch Context Information</a></li>
+    <li>$questionnaire-package: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieving-questionnaire-packages">Retriving Questionnaire Packages</a></li>
+    <li>QuestionnaireResponse pre-populate (payer-side information only)</li>
+    <li>Questionnaire Package Bundle(s): <a href="https://build.fhir.org/ig/HL7/davinci-dtr/StructureDefinition-DTR-QPackageBundle.html">DTRQuestionnairePackageBundle</a></li>
+    <li>Questionnaire Populate: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#pre-populating-questionnaireresponses">Prepopulating Questionnaire Responses</a></li>
+    <li>FHIR API Calls (resulting from questionnaire populate operation): <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieval-of-patient-fhir-resources-to-supply-to-cql-execution-engine">Retrieval of FHIR Resources</a></li>
+  </ol>
+
+  <p>As described in the DTR implementation guide, the DTR process can be used for a broad range of use cases, including launching from a <a href="https://build.fhir.org/ig/HL7/davinci-dtr/usecases.html#relation-to-coverage-requirements-discovery-crd">Coverage Requirements Discovery</a> response, as well as requesting documents as described in the <a href="https://build.fhir.org/ig/HL7/davinci-dtr/usecases.html#relation-to-clinical-data-exchange-cdex">Relationship to Clinical Data Exchange</a> topic.</p>
+
+  <p>This diagram is a simplification of the overall DTR <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#overview">Overview Sequence Diagram</a>. This diagram is focusing on the interactions from the perspective of CQL authoring and evaluation.</p>
+
+  <p>SDC documents the use of several extensions for supporting CQL-based calculation and form behavior within a Questionnaire in the <a href="https://hl7.org/fhir/uv/sdc/STU3/behavior.html#calculations">Form Behavior and Calculation</a> topic.</p>
+
+  <p>In addition, the DTR specification provides additional guidance and conformance requirements on the use of CQL within DTR Questionnaires in the <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#use-of-cql">Use of CQL</a> topic.</p>
+
+  <p>The content and questionnaires in this IG are expected to already have resolved the question of coverage determination, at this point in the DTR process if prior authorization is not required, we won't land here, and are focused on a particular individual (Member ID)</p>
+
+  <p>SubscriberID is an available element, but would be expected to be the SubscriberID associated with the already established Member ID (individual) (i.e. SubscriberId is the Plan-level identifier for an individual that has the plan, whereas MemberId is specific to the individual beneficiaries of the plan)</p>
+
+  <p>Following the above data flow, there are three key contexts in which CQL expressions may be used to populate questionnaire responses:</p>
+
+  <ol>
+    <li>On the payer-side, during the processing of the $questionnaire-package operation</li>
+    <li>On the provider-side, during the populate step of questionnaire processing in the DTR application</li>
+    <li>On the provider-side, as part of form behavior (e.g. enableWhen processing) while the form is being filled out</li>
+  </ol>
+
+  <a name="questionnaire-package-processing"> </a>
+  <h6>CQL Processing During the $questionnaire-package Operation</h6>
+
+  <p>As part of processing the $questionnaire-package operation, payer systems may use CQL to pre-populate values in a QuestionnaireResponse based on the data that they have received as context to the $questionnaire-package operation, as well as data that they may have available in their systems.</p>
+
+  <p>CQL used in this operation will:</p>
 
   <ul>
-    <li>The Coverage Requirements Discovery CDS Hooks interaction response will include a Coverage resource that is then used to parameterize the DTR request</li>
-    <li>The DTR <a href="https://build.fhir.org/ig/HL7/davinci-dtr/OperationDefinition-questionnaire-package.html">$questionnaire-package operation</a> has context parameters such as the Coverage and Request resources associated with the prior-authorization</li>
-    <li>The prior-authorization application then uses the population expressions in the resulting Questionnaire to perform population, for example using the SDC <a href="https://hl7.org/fhir/uv/sdc/OperationDefinition-Questionnaire-populate.html">$questionnaire-populate</a> operation</li>
+    <li>Have a Patient context specified as the id of the patient referenced by the context resources.</li>
+    <li>Have a Parameters parameter that represents the values passed to the operation.</li>
   </ul>
 
-<!--
-  FIXME: Remove this comment before merging.
-  
-  Next Agenda:
+  <a name="questionnaire-populate-processing"> </a>
+  <h6>CQL Processing to Pre-Populate the QuestionnaireResponse</h6>
 
-  * Finish review of Patient Patterns
-  * Discuss Data Flow and Use Cases (Prior Auth/PAS/CDEX)
-  * Start Lab Results with an eye toward establishing a methodology for working through the profiles
+  <p>As part of the process of filling out a DTR questionnaire, the DTR application may use CQL expressions specified in the questionnaire to access the provider's FHIR server to determine the initial value for items in the QuestionnaireResponse.</p>
 
-  https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=2787759
+  <p>CQL used in this operation will:</p>
 
-  https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=1830868
+  <ul>
+    <li>Have a Patient context specified as the id of the patient referenced by the QuestionnaireResponse (and corresponding to the patient in context for the questionnaire-package operation).</li>
+    <li>Have <a href="https://build.fhir.org/ig/HL7/davinci-dtr/StructureDefinition-qr-context.html">qr-context</a> extensions for the Coverage, Request, and Encounter resources the questionnaire is to be filled out for.</li>
+  </ul>
 
-  https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/maryland/providers/pdfs/abhmd_maryland_prenatal_risk_assesment_mdh.pdf
+  <a name="questionnaire-behavior"> </a>
+  <h6>CQL Processing to Determine Form Behavior</h6>
 
-  https://www.uhcprovider.com/en/resource-library/maternity-support.html
+  <p>While a user is filling out the answers to a questionnaire, the DTR application may use CQL expressions specified in the questionnaire to control form behavior (such as enableWhen logic, or calculation logic).</p>
 
-  TODO: Look at this: https://confluence.hl7.org/pages/viewpage.action?pageId=161060105
+  <a name="examples"> </a>
+  <h5>Examples</h5>
 
-  TODO: Also need to consider the PAS and CDeX use cases (need concrete examples of both of these and should establish consistent parameterization approach)
+  <p>This implementation guide includes several worked examples of prior-authorization questionnaires in the <a href="artifacts.html#structures-questionnaires">Artifacts - Questionnaires</a> listing.</p>
 
-  TODO: Make clear that the content and questionnaires in this IG are expected to already have resolved the question of coverage determination, by the time we get here if prior authorization is not required, we won't land here, and are focused on a particular individual (Member ID).
-  TODO: Document that SubscriberID is an available element, but would be expected to be the SubscriberID associated with the already established Member ID (individual) (i.e. SubscriberId is the Plan-level identifier for an individual that has the plan, whereas MemberId is specific to the individual beneficiaries of the plan)
-  TODO: Consider the ACO use case? At this point we're thinking this is handled behind the scenes (i.e. transparent to the user and therefore this process)
-  TODO: For the last step (the questionnaire population), determine exactly how the context parameters will be provided to the operation (because that directly impacts how that information would be accessed within the CQL content).
--->
+  <p>Other potential examples to be worked include:</p>
 
-  <a name="patient"> </a>
-  <h5>Patient</h5>
-  <p>The following page provides patterns for accessing patient-level information in a questionnaire:</p>
-  <a href="patterns-patient.html">Patient Patterns</a>
+  <ul>
+    <li><a href="https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=2787759">https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=2787759</a></li>
+    <li><a href="https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=1830868">https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=1830868</a></li>
+    <li><a href="https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/maryland/providers/pdfs/abhmd_maryland_prenatal_risk_assesment_mdh.pdf">https://www.aetnabetterhealth.com/content/dam/aetna/medicaid/maryland/providers/pdfs/abhmd_maryland_prenatal_risk_assesment_mdh.pdf</a></li>
+    <li><a href="https://www.uhcprovider.com/en/resource-library/maternity-support.html">https://www.uhcprovider.com/en/resource-library/maternity-support.html</a></li>
+  </ul>
+
+  <p>For additional documentation on the CDeX Attachment Use Case, see the following <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=161060105">Sequence Diagram</a>.</p>
+
+  <a name="Patterns"> </a>
+  <h5>Patterns</h5>
+  <p>The following pages provide patterns for accessing information in a questionnaire for each type of resource:</p>
+
+  <table>
+    <tr>
+      <td><a href="patterns-patient.html">Patient Patterns</a></td>
+    </tr>
+    <tr>
+      <td><a href="patterns-coverage.html">Coverage Patterns</a></td>
+    </tr>
+  </table>
 
   <a name="usage"> </a>
   <h4>Usage</h4>
