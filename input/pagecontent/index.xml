@@ -56,7 +56,7 @@
   <ol>
     <li>On the payer-side, during the processing of the $questionnaire-package operation</li>
     <li>On the provider-side, during the populate step of questionnaire processing in the DTR application</li>
-    <li>On the provider-side, as part of form behavior (e.g. enableWhen processing) while the form is being filled out</li>
+    <li>On the provider-side, as part of form behavior (e.g. enableWhen processing) while the form is being filled out (including the possibility that answers to questions change the available context and form behavior)</li>
   </ol>
 
   <a name="questionnaire-package-processing"> </a>
