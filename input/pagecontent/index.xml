@@ -1,20 +1,17 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
   <a name="introduction"> </a>
   <h3>Introduction</h3>
-  <p>This implementation guide contains common FHIR assets for use in US-based content IGs
-    built using the approach and specifications developed as part of the Clinical
-    Quality Framework (<a href="https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework">CQF</a>)
-    initiative, including the USCore-ModelInfo and USCommon libraries.</p>
+
+  <p>This implementation guide contains common FHIR assets for use in US-based content IGs built using the approach and specifications developed as part of the Clinical Quality Framework (<a href="https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework">CQF</a>) initiative, including the USCore-ModelInfo and USCommon libraries.</p>
 
   <a name="contents"> </a>
   <h3>Contents</h3>
-  <p>This implementation guide contains libraries that facilitate the use of CQL with FHIR in the US Realm, 
-  with an initial use case of Prior Authorization Support Questionnaires as described in the 
-  <a href="https://hl7.org/fhir/us/davinci-dtr/">DaVinci Documentation Templates and Rules (DTR)</a> implementation guide.
-  </p>
+
+  <p>This implementation guide contains libraries that facilitate the use of CQL with FHIR in the US Realm, with an initial use case of Prior Authorization Support Questionnaires as described in the <a href="https://hl7.org/fhir/us/davinci-dtr/">DaVinci Documentation Templates and Rules (DTR)</a> implementation guide.</p>
 
   <a name="pa-use-case"> </a>
   <h4>Prior Authorization Questionnaire Use Case</h4>
+
   <p>Links to resources for current prior authorization scenarios:</p>
 
   <ul>
@@ -28,15 +25,14 @@
 
   <p>The questionnaire examples and associated libraries for population expressions in this IG are expected to be used in the following data flow:</p>
 
-  <img src="dtr-data-flow.png"/>
+  <img src="dtr-data-flow.svg"/>
 
   <ol>
     <li>DTR Launch: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieving-launch-context-information">Retrieving Launch Context Information</a></li>
     <li>$questionnaire-package: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieving-questionnaire-packages">Retriving Questionnaire Packages</a></li>
-    <li>QuestionnaireResponse pre-populate (payer-side information only)</li>
     <li>Questionnaire Package Bundle(s): <a href="https://build.fhir.org/ig/HL7/davinci-dtr/StructureDefinition-DTR-QPackageBundle.html">DTRQuestionnairePackageBundle</a></li>
-    <li>Questionnaire Populate: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#pre-populating-questionnaireresponses">Prepopulating Questionnaire Responses</a></li>
-    <li>FHIR API Calls (resulting from questionnaire populate operation): <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieval-of-patient-fhir-resources-to-supply-to-cql-execution-engine">Retrieval of FHIR Resources</a></li>
+    <li>Questionnaire Pre-Population: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#pre-populating-questionnaireresponses">Pre-Populating Questionnaire Responses</a></li>
+    <li>FHIR API Calls (resulting from questionnaire pre-population): <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieval-of-patient-fhir-resources-to-supply-to-cql-execution-engine">Retrieval of FHIR Resources</a></li>
   </ol>
 
   <p>As described in the DTR implementation guide, the DTR process can be used for a broad range of use cases, including launching from a <a href="https://build.fhir.org/ig/HL7/davinci-dtr/usecases.html#relation-to-coverage-requirements-discovery-crd">Coverage Requirements Discovery</a> response, as well as requesting documents as described in the <a href="https://build.fhir.org/ig/HL7/davinci-dtr/usecases.html#relation-to-clinical-data-exchange-cdex">Relationship to Clinical Data Exchange</a> topic.</p>
@@ -46,30 +42,17 @@
   <p>SDC documents the use of several extensions for supporting CQL-based calculation and form behavior within a Questionnaire in the <a href="https://hl7.org/fhir/uv/sdc/STU3/behavior.html#calculations">Form Behavior and Calculation</a> topic.</p>
 
   <p>In addition, the DTR specification provides additional guidance and conformance requirements on the use of CQL within DTR Questionnaires in the <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#use-of-cql">Use of CQL</a> topic.</p>
+<!-- TODO: 20240829 DM - Member ID vs. MemberID? -->
+  <p>The content and questionnaires in this IG are expected to already have resolved the question of coverage determination, and are focused on a particular individual (Member ID). If prior authorization is not required than the DTR process will not occur.</p>
+<!-- TODO: 20240829 DM - Reword for clarity? -->
+  <p>SubscriberID is an available element; however, this is expected to be the SubscriberID associated with the already established Member ID (individual). That is to say SubscriberId is the plan-level identifier for an individual that has the plan, whereas MemberId is specific to the individual beneficiaries of the plan.</p>
 
-  <p>The content and questionnaires in this IG are expected to already have resolved the question of coverage determination, at this point in the DTR process if prior authorization is not required, we won't land here, and are focused on a particular individual (Member ID)</p>
-
-  <p>SubscriberID is an available element, but would be expected to be the SubscriberID associated with the already established Member ID (individual) (i.e. SubscriberId is the Plan-level identifier for an individual that has the plan, whereas MemberId is specific to the individual beneficiaries of the plan)</p>
-
-  <p>Following the above data flow, there are three key contexts in which CQL expressions may be used to populate questionnaire responses:</p>
+  <p>Following the above data flow, there are two key contexts in which CQL expressions may be used to populate questionnaire responses:</p>
 
   <ol>
-    <li>On the payer-side, during the processing of the $questionnaire-package operation</li>
-    <li>On the provider-side, during the populate step of questionnaire processing in the DTR application</li>
-    <li>On the provider-side, as part of form behavior (e.g. enableWhen processing) while the form is being filled out (including the possibility that answers to questions change the available context and form behavior)</li>
+    <li>On the provider side, during the population step of questionnaire processing in the DTR application</li>
+    <li>On the provider side, as part of form behavior (e.g. enableWhen processing) while the form is being filled out (including the possibility that answers to questions change the available context and form behavior)</li>
   </ol>
-
-  <a name="questionnaire-package-processing"> </a>
-  <h6>CQL Processing During the $questionnaire-package Operation</h6>
-
-  <p>As part of processing the $questionnaire-package operation, payer systems may use CQL to pre-populate values in a QuestionnaireResponse based on the data that they have received as context to the $questionnaire-package operation, as well as data that they may have available in their systems.</p>
-
-  <p>CQL used in this operation will:</p>
-
-  <ul>
-    <li>Have a Patient context specified as the id of the patient referenced by the context resources.</li>
-    <li>Have a Parameters parameter that represents the values passed to the operation.</li>
-  </ul>
 
   <a name="questionnaire-populate-processing"> </a>
   <h6>CQL Processing to Pre-Populate the QuestionnaireResponse</h6>
@@ -79,19 +62,19 @@
   <p>CQL used in this operation will:</p>
 
   <ul>
-    <li>Have a Patient context specified as the id of the patient referenced by the QuestionnaireResponse (and corresponding to the patient in context for the questionnaire-package operation).</li>
-    <li>Have <a href="https://build.fhir.org/ig/HL7/davinci-dtr/StructureDefinition-qr-context.html">qr-context</a> extensions for the Coverage, Request, and Encounter resources the questionnaire is to be filled out for.</li>
+    <li>Have a Patient context specified as the id of the patient referenced by the QuestionnaireResponse (and corresponding to the patient in context for the $questionnaire-package operation).</li>
+    <li>Have <a href="https://build.fhir.org/ig/HL7/davinci-dtr/StructureDefinition-qr-context.html">qr-context</a> extensions for the Coverage, Request, and Encounter resources for which the questionnaire is to be filled out.</li>
   </ul>
 
   <a name="questionnaire-behavior"> </a>
   <h6>CQL Processing to Determine Form Behavior</h6>
 
-  <p>While a user is filling out the answers to a questionnaire, the DTR application may use CQL expressions specified in the questionnaire to control form behavior (such as enableWhen logic, or calculation logic).</p>
+  <p>While a user is filling out the answers to a questionnaire, the DTR application may use CQL expressions specified in the questionnaire to control form behavior (such as enableWhen logic or calculation logic).</p>
 
   <a name="examples"> </a>
   <h5>Examples</h5>
 
-  <p>This implementation guide includes several worked examples of prior-authorization questionnaires in the <a href="artifacts.html#structures-questionnaires">Artifacts - Questionnaires</a> listing.</p>
+  <p>This implementation guide includes several worked examples of prior authorization questionnaires in the <a href="artifacts.html#structures-questionnaires">Artifacts - Questionnaires</a> listing.</p>
 
   <p>Other potential examples to be worked include:</p>
 
@@ -102,10 +85,11 @@
     <li><a href="https://www.uhcprovider.com/en/resource-library/maternity-support.html">https://www.uhcprovider.com/en/resource-library/maternity-support.html</a></li>
   </ul>
 
-  <p>For additional documentation on the CDeX Attachment Use Case, see the following <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=161060105">Sequence Diagram</a>.</p>
+  <p>For additional documentation on the CDex Attachment Use Case, see the following <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=161060105">Sequence Diagram</a>.</p>
 
   <a name="Patterns"> </a>
   <h5>Patterns</h5>
+
   <p>The following pages provide patterns for accessing information in a questionnaire for each type of resource:</p>
 
   <table>
@@ -119,8 +103,9 @@
 
   <a name="usage"> </a>
   <h4>Usage</h4>
-  <p>To use these libraries in your implementation guide, include a reference to this implementation guide as
-    an implementation guide dependency:</p>
+
+  <p>To use these libraries in your implementation guide, include a reference to this implementation guide as an implementation guide dependency:</p>
+
   <pre><code>&lt;dependsOn id=&quot;cqf-us&quot;&gt;
   &lt;uri value=&quot;http://fhir.org/guides/cqf/us/common/ImplementationGuide/fhir.cqf.us.common&quot;/&gt;
   &lt;packageId value=&quot;fhir.cqf.us.common&quot;/&gt;
@@ -129,18 +114,12 @@
 
   <a name="uscore-modelinfo"> </a>
   <h4>USCore ModelInfo</h4>
-  <p>Clinical Quality Language (<a href="http://cql.hl7.org">CQL</a>) is a high-level,
-  domain-specific language focused on clinical quality and targeted at measure and
-  decision support artifact authors. In addition, the CQL specification provides a
-  machine-readable canonical representation called Expression Logical Model
-  (<a href="https://cql.hl7.org/04-logicalspecification.html">ELM</a>) targeted at
-  implementations and designed to enable automated sharing of clinical knowledge.</p>
-  <p>To use CQL with USCore, <a href="https://cql.hl7.org/07-physicalrepresentation.html#data-model-references">model
-  information</a> must be provided to the implementation environment. The <a href="Library-USCore-ModelInfo.html">USCore-ModelInfo</a>
-  library provides this information for US Core. To use USCore, include a <a href="https://cql.hl7.org/02-authorsguide.html#data-models">using
-  declaration</a> as shown in the example below:</p>
+
+  <p>Clinical Quality Language (<a href="http://cql.hl7.org">CQL</a>) is a high-level, domain-specific language focused on clinical quality, and it is targeted at measure and decision support artifact authors. Additionally, the CQL specification provides a machine-readable canonical representation called Expression Logical Model (<a href="https://cql.hl7.org/04-logicalspecification.html">ELM</a>), which is targeted at implementations, and designed to enable automated sharing of clinical knowledge.</p>
+
+  <p>To use CQL with USCore, <a href="https://cql.hl7.org/07-physicalrepresentation.html#data-model-references">model information</a> must be provided to the implementation environment. The <a href="Library-USCore-ModelInfo.html">USCore-ModelInfo</a> library provides this information for US Core. To use USCore, include a <a href="https://cql.hl7.org/02-authorsguide.html#data-models">using declaration</a> as shown in the example below:</p>
+
   <pre><code>using USCore version '3.1.1'</code></pre>
-  <p>Although not required by CQL, current best-practice is to include the version of USCore.</p>
+  
+  <p>Although not required by CQL, current best practice is to include the version of USCore.</p>
 </div>
-
-
