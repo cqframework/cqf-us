@@ -29,7 +29,7 @@
 
   <ol>
     <li>DTR Launch: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieving-launch-context-information">Retrieving Launch Context Information</a></li>
-    <li>$questionnaire-package: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieving-questionnaire-packages">Retriving Questionnaire Packages</a></li>
+    <li>$questionnaire-package: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieving-questionnaire-packages">Retrieving Questionnaire Packages</a></li>
     <li>Questionnaire Package Bundle(s): <a href="https://build.fhir.org/ig/HL7/davinci-dtr/StructureDefinition-DTR-QPackageBundle.html">DTRQuestionnairePackageBundle</a></li>
     <li>Questionnaire Pre-Population: <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#pre-populating-questionnaireresponses">Pre-Populating Questionnaire Responses</a></li>
     <li>FHIR API Calls (resulting from questionnaire pre-population): <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#retrieval-of-patient-fhir-resources-to-supply-to-cql-execution-engine">Retrieval of FHIR Resources</a></li>
@@ -42,28 +42,35 @@
   <p>SDC documents the use of several extensions for supporting CQL-based calculation and form behavior within a Questionnaire in the <a href="https://hl7.org/fhir/uv/sdc/STU3/behavior.html#calculations">Form Behavior and Calculation</a> topic.</p>
 
   <p>In addition, the DTR specification provides additional guidance and conformance requirements on the use of CQL within DTR Questionnaires in the <a href="https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#use-of-cql">Use of CQL</a> topic.</p>
-<!-- TODO: 20240829 DM - Member ID vs. MemberID? -->
-  <p>The content and questionnaires in this IG are expected to already have resolved the question of coverage determination, and are focused on a particular individual (Member ID). If prior authorization is not required than the DTR process will not occur.</p>
-<!-- TODO: 20240829 DM - Reword for clarity? -->
-  <p>SubscriberID is an available element; however, this is expected to be the SubscriberID associated with the already established Member ID (individual). That is to say SubscriberId is the plan-level identifier for an individual that has the plan, whereas MemberId is specific to the individual beneficiaries of the plan.</p>
+
+  <p>The content and questionnaires in this IG are expected to already have resolved the question of coverage determination, and are focused on a particular individual represented as a Patient. If prior authorization is not required than the DTR process will not occur.</p>
+
+  <p>The Coverage resource includes a subscriberId element; however, this is expected to be the Subscriber ID associated with the already established Member ID (individual). That is to say Subscriber ID is the plan-level identifier for an individual that has the plan, whereas Member ID is specific to the individual beneficiaries of the plan.</p>
 
   <p>Following the above data flow, there are two key contexts in which CQL expressions may be used to populate questionnaire responses:</p>
 
   <ol>
-    <li>On the provider side, during the population step of questionnaire processing in the DTR application</li>
-    <li>On the provider side, as part of form behavior (e.g. enableWhen processing) while the form is being filled out (including the possibility that answers to questions change the available context and form behavior)</li>
+    <li>On the provider side, during the population step of questionnaire processing in the DTR application.</li>
+    <li>On the provider side, as part of form behavior (e.g. enableWhen processing) while the form is being filled out (including the possibility that answers to questions change the available context and form behavior).</li>
   </ol>
+  
+  <p>Note: Implementations of $questionnaire-package may pre-populate elements of the QuestionnaireResponse; however, how that pre-population occurs payer-side is out of scope from both the CRD and DTR perspectives.</p>
 
   <a name="questionnaire-populate-processing"> </a>
   <h6>CQL Processing to Pre-Populate the QuestionnaireResponse</h6>
 
   <p>As part of the process of filling out a DTR questionnaire, the DTR application may use CQL expressions specified in the questionnaire to access the provider's FHIR server to determine the initial value for items in the QuestionnaireResponse.</p>
 
-  <p>CQL used in this operation will:</p>
+  <p>CQL used in this operation:</p>
 
   <ul>
-    <li>Have a Patient context specified as the id of the patient referenced by the QuestionnaireResponse (and corresponding to the patient in context for the $questionnaire-package operation).</li>
-    <li>Have <a href="https://build.fhir.org/ig/HL7/davinci-dtr/StructureDefinition-qr-context.html">qr-context</a> extensions for the Coverage, Request, and Encounter resources for which the questionnaire is to be filled out.</li>
+    <li>will have a Patient context specified as the id of the patient in the DTR launch context and referenced by the QuestionnaireResponse;</li>
+    
+    <!-- TODO DM 20240830: how does this happen? - name+type, DTR correlates launch context from SMART app with the launch context extension, and pass them as named parameters to the CQL expression -->
+    <li>may declare additional parameters through the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-launchContext.html">Launch Context</a> extension; and</li>
+
+    <!-- TODO DM 20240830: how does this happen? - corresponds to the expressions that need to run; when to use this vs. initialExpression, calculatedExpression, etc? (confirm Brenin) -->
+    <li>may declare additional parameters through the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-itemPopulationContext.html">Item Population Context</a> extension.</li>
   </ul>
 
   <a name="questionnaire-behavior"> </a>
