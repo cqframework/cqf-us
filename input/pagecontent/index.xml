@@ -59,19 +59,26 @@
   <a name="questionnaire-populate-processing"> </a>
   <h6>CQL Processing to Pre-Populate the QuestionnaireResponse</h6>
 
-  <p>As part of the process of filling out a DTR questionnaire, the DTR application may use CQL expressions specified in the questionnaire to access the provider's FHIR server to determine the initial value for items in the QuestionnaireResponse.</p>
+  <p>As part of the process of filling out a DTR questionnaire, the DTR application may use CQL expressions specified in the Questionnaire to access the provider's FHIR server to determine the initial value for items in the QuestionnaireResponse.</p>
 
   <p>CQL used in this operation:</p>
 
   <ul>
-    <li>will have a Patient context specified as the id of the patient in the DTR launch context and referenced by the QuestionnaireResponse;</li>
-    
-    <!-- TODO DM 20240830: how does this happen? - name+type, DTR correlates launch context from SMART app with the launch context extension, and pass them as named parameters to the CQL expression -->
-    <li>may declare additional parameters through the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-launchContext.html">Launch Context</a> extension; and</li>
-
-    <!-- TODO DM 20240830: how does this happen? - corresponds to the expressions that need to run; when to use this vs. initialExpression, calculatedExpression, etc? (confirm Brenin) -->
-    <li>may declare additional parameters through the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-itemPopulationContext.html">Item Population Context</a> extension.</li>
+    <li>Will have a Patient context specified as the id of the patient in the DTR launch context and referenced by the QuestionnaireResponse. This is declared as a parameter through the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-launchContext.html">Launch Context</a> extension.</li>
+    <ul>
+      <li>For example, an Patient context specified in the DTR launch context will be correlated with an sdc-questionnaire-launchContext extension with a name of <code>patient</code> and a type of <code>Patient</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire. It would be the responsibility of the DTR application to reconcile such launch contexts.</li>
+    </ul>
+    <li>May declare additional parameters through the SDC Launch Context extension.</li>
+    <ul>
+      <li>For example, an Encounter context specified in the DTR launch context may be correlated with an sdc-questionnaire-launchContext extension with a name of <code>encounter</code> and a type of <code>Encounter</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire.</li>
+    </ul>
+    <li>May declare additional parameters through the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-itemPopulationContext.html">Item Population Context</a> extension.</li>
+    <ul>
+      <li>For example, an sdc-questionnaire-itemPopulationContext extension can be used to provide context to a group of related questions by querying for a record or records (e.g. Observations), and this provides a named parameter for use in specified CQL expressions for that group. </li>
+    </ul>
   </ul>
+
+  <p>Generally, the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-initialExpression.html">Initial Expression</a> extension will be used to pre-populate a given item in the QuestionnaireResponse. This is how CQL expressions are specified in the Questionnaire.</p>
 
   <a name="questionnaire-behavior"> </a>
   <h6>CQL Processing to Determine Form Behavior</h6>
@@ -103,9 +110,10 @@
     <tr>
       <td><a href="patterns-patient.html">Patient Patterns</a></td>
     </tr>
+    <!-- TODO DM 20240905: Uncomment when this page includes cotent.
     <tr>
       <td><a href="patterns-coverage.html">Coverage Patterns</a></td>
-    </tr>
+    </tr>-->
   </table>
 
   <a name="usage"> </a>
