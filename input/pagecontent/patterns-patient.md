@@ -6,7 +6,7 @@ USCore defines the [USCore Patient]({{site.data.fhir.ver.uscore}}/StructureDefin
 
 ### Cross-Version Considerations
 
-TODO: Determine how to access member ID in a 3.1.1 context (where there isn't a Coverage profile)
+[//]: # (// TODO: Determine how to access member ID in a 3.1.1 context (where there isn't a Coverage profile))
 
 ### Common Elements and Functions
 
