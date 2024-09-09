@@ -66,7 +66,7 @@
   <ul>
     <li>Will have a Patient context specified as the id of the patient in the DTR launch context and referenced by the QuestionnaireResponse. This is declared as a parameter through the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-launchContext.html">Launch Context</a> extension.</li>
     <ul>
-      <li>For example, an Patient context specified in the DTR launch context will be correlated with an sdc-questionnaire-launchContext extension with a name of <code>patient</code> and a type of <code>Patient</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire. It would be the responsibility of the DTR application to reconcile such launch contexts.</li>
+      <li>For example, a Patient context specified in the DTR launch context will be correlated with an sdc-questionnaire-launchContext extension with a name of <code>patient</code> and a type of <code>Patient</code>, and thereby established as the <a href="https://cql.hl7.org/02-authorsguide.html#context">Patient context</a> for the CQL expression specified in Questionnaire. It would be the responsibility of the DTR application to reconcile such launch contexts.</li>
     </ul>
     <li>May declare additional parameters through the SDC Launch Context extension.</li>
     <ul>
