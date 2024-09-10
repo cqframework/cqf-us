@@ -192,7 +192,7 @@
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
                 "code": "[in_i]",
-                "display": "in"
+                "display": "[in_i]"
               }
             }
           ],
@@ -214,7 +214,7 @@
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
                 "code": "[lb_av]",
-                "display": "lbs"
+                "display": "[lb_av]"
               }
             }
           ],
@@ -235,7 +235,7 @@
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
-                "code": "[m2]",
+                "code": "m2",
                 "display": "m2"
               }
             }
@@ -646,7 +646,7 @@
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
                 "code": "ug",
-                "display": "mcg"
+                "display": "ug"
               }
             },
             {
@@ -706,32 +706,32 @@
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
-                "code": "hour",
-                "display": "Per Hour"
+                "code": "h",
+                "display": "h"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
-                "code": "day",
-                "display": "Per Day"
+                "code": "d",
+                "display": "d"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
-                "code": "week",
-                "display": "Per Week"
+                "code": "wk",
+                "display": "wk"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
-                "code": "month",
-                "display": "Per Month"
+                "code": "mo",
+                "display": "mo"
               }
             },
             {
@@ -752,40 +752,40 @@
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
-                "code": "hour",
-                "display": "Hour(s)"
+                "code": "h",
+                "display": "h"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
-                "code": "day",
-                "display": "Day(s)"
+                "code": "d",
+                "display": "d"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
-                "code": "week",
-                "display": "Week(s)"
+                "code": "wk",
+                "display": "wk"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
-                "code": "month",
-                "display": "Month(s)"
+                "code": "mo",
+                "display": "mo"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
                 "system": "http://unitsofmeasure.org",
-                "code": "year",
-                "display": "Year(s)"
+                "code": "a",
+                "display": "a"
               }
             },
             {
@@ -904,10 +904,14 @@
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-signatureRequired",
-              "valueCoding": {
-                "system": "urn:iso-astm:E1762-95:2013",
-                "code": "1.2.840.10065.1.12.1.1",
-                "display": "Author's Signature"
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "urn:iso-astm:E1762-95:2013",
+                    "code": "1.2.840.10065.1.12.1.1",
+                    "display": "Author's Signature"
+                  }
+                ]
               }
             },
             {
