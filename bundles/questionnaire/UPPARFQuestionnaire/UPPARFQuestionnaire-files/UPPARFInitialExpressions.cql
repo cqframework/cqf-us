@@ -58,34 +58,12 @@ define "Is First Request > 12 Months":
 if IsNull("Initial Request Date") then null else 
 (months between "Initial Request Date" and Now() > 12)
 
-define "Patient Name":
-  UCE."Name - First Middle(s) Last"
-
-//TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form? 
-define "Member ID":
-  UCE."Member ID"
-
-//TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form? 
-define "Policy Number":
-  UCE."Policy Number"
-
-define "Date of Birth":
-  Patient.birthDate
-
-define "Address":
-  { 'TODO: remove hard-coded address' }
-
-define "Phone Number":
-  UC.Mobile(Patient.telecom).value
-
-define "Email Address":
-  UC.Email(Patient.telecom).value
-
 define "Prescription Date":
 "Most Recent Medication Request".authoredOn
 
 define "Prescriber Name":
    First(Requester.name).family
+   //TODO: should this be First("Requester".name).family with double quotes?
    //TODO: prefix, suffix and given do not work as expected.
 
 define "Prescriber Fax":

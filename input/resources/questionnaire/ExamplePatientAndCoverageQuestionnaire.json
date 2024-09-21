@@ -1,0 +1,204 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "ExamplePatientAndCoverageQuestionnaire",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
+      "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/ExamplePatientAndCoverageInitialExpressions"
+    }
+  ],
+  "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/ExamplePatientAndCoverageQuestionnaire",
+  "version": "0.1.0",
+  "name": "ExamplePatientAndCoverageQuestionnaire",
+  "title": "Example Patient and Coverage Questionnaire",
+  "status": "active",
+  "experimental": true,
+  "date": "2024-09-16T00:00:00+00:00",
+  "publisher": "Smile Digital Health",
+  "description": "For the Prior Authorization Questionnaire Use Case, this type of in-context information is expected to be known already so it wouldn't typically be in a Questionnaire. This example illustrates how to get this information if it is needed.",
+  "item": [
+    {
+      "linkId": "patient-info",
+      "text": "Patient Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Patient Name"
+              }
+            }
+          ],
+          "linkId": "patient-info|patient-name",
+          "text": "Name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Date of Birth"
+              }
+            }
+          ],
+          "linkId": "patient-info|date-of-birth",
+          "text": "Date of Birth",
+          "type": "date"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Birth Sex"
+              }
+            }
+          ],
+          "linkId": "patient-info|birth-sex",
+          "text": "Birth Sex",
+          "type": "choice",
+          "answerValueSet": "http://hl7.org/fhir/us/core/ValueSet/birthsex"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Medical Record Number"
+              }
+            }
+          ],
+          "linkId": "patient-info|medical-record-number",
+          "text": "Medical Record Number",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Phone Number"
+              }
+            }
+          ],
+          "linkId": "patient-info|phone-number",
+          "text": "Phone Number",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Email Address"
+              }
+            }
+          ],
+          "linkId": "patient-info|email-address",
+          "text": "Email Address",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Address"
+              }
+            }
+          ],
+          "linkId": "patient-info|address",
+          "text": "Address",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "City"
+              }
+            }
+          ],
+          "linkId": "patient-info|city",
+          "text": "City",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "State"
+              }
+            }
+          ],
+          "linkId": "patient-info|state",
+          "text": "State",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Postal Code"
+              }
+            }
+          ],
+          "linkId": "patient-info|postal-code",
+          "text": "Postal Code",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "coverage-info",
+      "text": "Coverage Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Member ID"
+              }
+            }
+          ],
+          "linkId": "coverage-info|member-id",
+          "text": "Member ID",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Policy Number"
+              }
+            }
+          ],
+          "linkId": "completing-form|patient-info|policy-number",
+          "text": "Policy Number",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}

@@ -371,3 +371,306 @@ Evaluation logs:
 15:51:43.422 [pool-2-thread-1] WARN  o.o.cqf.cql.engine.elm.execution.MessageEvaluator - CMDLogic.ToDaily.UnknownUnit: Unknown unit 
 elapsed: 5.362 seconds
 
+Executing CQL...
+CQL path: /home/dmuylwyk/projects/cqf/cqf-us/input/cql
+Data path: /home/dmuylwyk/projects/cqf/cqf-us/input/tests/library/MBODAInitialExpressions
+Terminology path: /home/dmuylwyk/projects/cqf/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=USCorePatient-1)
+Last Name=Chalmers
+Allergies=[Cashew nuts]
+Height=69.1 '[in_i]'
+Height in [in_i]=69.1
+Weight=176.369809747902064578379 '[lb_av]'
+Weight in [lb_av]=176.369809747902064578379
+BMI=[]
+Most Recent BSA=null
+Calculated BSA - Mosteller=1.97292062 'm2'
+BSA=1.97292062 'm2'
+BSA in m2=1.97292062
+Height in cm=176 'cm'
+Weight in kg=80.0000000000000000000000 'kg'
+Calculated BSA - DuBois and DuBois=1.96415720 'm2'
+Diagnosis Codes=[Concept {
+	Code { code: I10, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Essential (primary) hypertension }
+}]
+Diagnosis Descriptions=[Essential (primary) hypertension]
+Most Recent Medication Request=MedicationRequest(id=MedRequest-example)
+Medication Requested=[]
+Medication Name=[]
+Code of Requested Drug=[]
+Medication Request References=null
+Most Recent Medication Request dosageInstruction=Dosage
+Most Recent Medication Request dosageInstruction.doseAndRate=null
+Medication Dose=null
+Medication Route=null
+Medication Frequency value=null
+Medication Frequency Period=null
+Medication Frequency=null
+Quantity or Number of requested Visits=null
+Prior Prescription=null
+New therapy=true
+New therapy code=Code { code: NewMedication, system: null, version: null, display: New Medication }
+Initial date of therapy=null
+Medication Request Period=null
+Expected Therapy Length=null
+Anticipated/actual date of service=null
+
+Patient=Patient(id=USCorePatient-2)
+Last Name=Elizabeth
+Allergies=[]
+Height=null
+Height in [in_i]=null
+Weight=176.810734272271819739825 '[lb_av]'
+Weight in [lb_av]=176.810734272271819739825
+BMI=[]
+Most Recent BSA=null
+Calculated BSA - Mosteller=null 'm2'
+BSA=null 'm2'
+BSA in m2=null
+Height in cm=null
+Weight in kg=80.2000000000000000000000 'kg'
+Calculated BSA - DuBois and DuBois=null 'm2'
+Diagnosis Codes=[Concept {
+	Code { code: O24.414, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Gestational diabetes mellitus in pregnancy, insulin controlled }
+}]
+Diagnosis Descriptions=[Gestational diabetes mellitus in pregnancy, insulin controlled]
+Most Recent Medication Request=null
+Medication Requested=[]
+Medication Name=[]
+Code of Requested Drug=[]
+Medication Request References=null
+Most Recent Medication Request dosageInstruction=null
+Most Recent Medication Request dosageInstruction.doseAndRate=null
+Medication Dose=null
+Medication Route=null
+Medication Frequency value=null
+Medication Frequency Period=null
+Medication Frequency=null
+Quantity or Number of requested Visits=null
+Prior Prescription=null
+New therapy=true
+New therapy code=Code { code: NewMedication, system: null, version: null, display: New Medication }
+Initial date of therapy=null
+Medication Request Period=null
+Expected Therapy Length=null
+Anticipated/actual date of service=null
+
+Patient=Patient(id=USCorePatient-3)
+Last Name=Chalmers
+Allergies=[]
+Height=null
+Height in [in_i]=null
+Weight=null
+Weight in [lb_av]=null
+BMI=[]
+Most Recent BSA=null
+Calculated BSA - Mosteller=null 'm2'
+BSA=null 'm2'
+BSA in m2=null
+Height in cm=null
+Weight in kg=null
+Calculated BSA - DuBois and DuBois=null 'm2'
+Diagnosis Codes=[Concept {
+	Code { code: E11.618, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Type 2 diabetes mellitus with other diabetic arthropathy }
+}]
+Diagnosis Descriptions=[Type 2 diabetes mellitus with other diabetic arthropathy]
+Most Recent Medication Request=null
+Medication Requested=[]
+Medication Name=[]
+Code of Requested Drug=[]
+Medication Request References=null
+Most Recent Medication Request dosageInstruction=null
+Most Recent Medication Request dosageInstruction.doseAndRate=null
+Medication Dose=null
+Medication Route=null
+Medication Frequency value=null
+Medication Frequency Period=null
+Medication Frequency=null
+Quantity or Number of requested Visits=null
+Prior Prescription=null
+New therapy=true
+New therapy code=Code { code: NewMedication, system: null, version: null, display: New Medication }
+Initial date of therapy=null
+Medication Request Period=null
+Expected Therapy Length=null
+Anticipated/actual date of service=null
+
+Patient=Patient(id=USCorePatient-4)
+Last Name=du Marché
+Allergies=[]
+Height=null
+Height in [in_i]=null
+Weight=null
+Weight in [lb_av]=null
+BMI=[]
+Most Recent BSA=null
+Calculated BSA - Mosteller=null 'm2'
+BSA=null 'm2'
+BSA in m2=null
+Height in cm=null
+Weight in kg=null
+Calculated BSA - DuBois and DuBois=null 'm2'
+Diagnosis Codes=[Concept {
+	Code { code: G20, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Parkinson's disease }
+}]
+Diagnosis Descriptions=[Parkinson's disease]
+Most Recent Medication Request=null
+Medication Requested=[]
+Medication Name=[]
+Code of Requested Drug=[]
+Medication Request References=null
+Most Recent Medication Request dosageInstruction=null
+Most Recent Medication Request dosageInstruction.doseAndRate=null
+Medication Dose=null
+Medication Route=null
+Medication Frequency value=null
+Medication Frequency Period=null
+Medication Frequency=null
+Quantity or Number of requested Visits=null
+Prior Prescription=null
+New therapy=true
+New therapy code=Code { code: NewMedication, system: null, version: null, display: New Medication }
+Initial date of therapy=null
+Medication Request Period=null
+Expected Therapy Length=null
+Anticipated/actual date of service=null
+
+Patient=Patient(id=example)
+Last Name=Chalmers
+Allergies=[Cashew nuts]
+Height=43.9 '[in_i]'
+Height in [in_i]=43.9
+Weight=44.30000 '[lb_av]'
+Weight in [lb_av]=44.30000
+BMI=[16.2 'kg/m2']
+Most Recent BSA=null
+Calculated BSA - Mosteller=0.78812043 'm2'
+BSA=0.78812043 'm2'
+BSA in m2=0.78812043
+Height in cm=112 'cm'
+Weight in kg=20.09414 'kg'
+Calculated BSA - DuBois and DuBois=0.78678104 'm2'
+Diagnosis Codes=[Concept {
+}, Concept {
+	Code { code: 39065001, system: http://snomed.info/sct, version: null, display: Burn of ear }
+}]
+Diagnosis Descriptions=[, Burn of ear]
+Most Recent Medication Request=MedicationRequest(id=uscore-mo2-with-dosage)
+Medication Requested=[Medication(id=uscore-med2)]
+Medication Name=[Nizatidine 15 MG/ML Oral Solution [Axid]]
+Code of Requested Drug=[Concept {
+	Code { code: 582620, system: http://www.nlm.nih.gov/research/umls/rxnorm, version: null, display: Nizatidine 15 MG/ML Oral Solution [Axid] }
+}]
+Medication Request References=Medication/uscore-med2
+Most Recent Medication Request dosageInstruction=Dosage
+Most Recent Medication Request dosageInstruction.doseAndRate=Dosage.doseAndRate
+Medication Dose=5 'ml'
+Medication Route=Concept {
+	Code { code: 394899003, system: http://snomed.info/sct, version: null, display: oral administration of treatment }
+}
+Medication Frequency value=3
+Medication Frequency Period=1 'd'
+Medication Frequency=3x per 1 d
+Quantity or Number of requested Visits=480 'mL'
+Prior Prescription=null
+New therapy=true
+New therapy code=Code { code: NewMedication, system: null, version: null, display: New Medication }
+Initial date of therapy=null
+Medication Request Period=Interval[2023-04-05, 2023-06-03]
+Expected Therapy Length=59 'd'
+Anticipated/actual date of service=2023-04-05
+
+Patient=Patient(id=example-continued-therapy)
+Last Name=Chalmers
+Allergies=[Cashew nuts]
+Height=43.9 '[in_i]'
+Height in [in_i]=43.9
+Weight=44.30000 '[lb_av]'
+Weight in [lb_av]=44.30000
+BMI=[]
+Most Recent BSA=null
+Calculated BSA - Mosteller=0.78812043 'm2'
+BSA=0.78812043 'm2'
+BSA in m2=0.78812043
+Height in cm=112 'cm'
+Weight in kg=20.09414 'kg'
+Calculated BSA - DuBois and DuBois=0.78678104 'm2'
+Diagnosis Codes=[Concept {
+	Code { code: 39065001, system: http://snomed.info/sct, version: null, display: Burn of ear }
+}]
+Diagnosis Descriptions=[Burn of ear]
+Most Recent Medication Request=MedicationRequest(id=uscore-mo2-with-dosage-continued-therapy)
+Medication Requested=[Medication(id=uscore-med2-continued-therapy)]
+Medication Name=[Nizatidine 15 MG/ML Oral Solution [Axid]]
+Code of Requested Drug=[Concept {
+	Code { code: 582620, system: http://www.nlm.nih.gov/research/umls/rxnorm, version: null, display: Nizatidine 15 MG/ML Oral Solution [Axid] }
+}]
+Medication Request References=Medication/uscore-med2-continued-therapy
+Most Recent Medication Request dosageInstruction=Dosage
+Most Recent Medication Request dosageInstruction.doseAndRate=Dosage.doseAndRate
+Medication Dose=5 'ml'
+Medication Route=Concept {
+	Code { code: 394899003, system: http://snomed.info/sct, version: null, display: oral administration of treatment }
+}
+Medication Frequency value=3
+Medication Frequency Period=1 'd'
+Medication Frequency=3x per 1 d
+Quantity or Number of requested Visits=480 'mL'
+Prior Prescription=Reference
+New therapy=false
+New therapy code=Code { code: ContinuedTherapy, system: null, version: null, display: Continuation of therapy }
+Initial date of therapy=[2009-04-05T00:00:00.000]
+Medication Request Period=Interval[2023-04-05, 2023-06-03]
+Expected Therapy Length=59 'd'
+Anticipated/actual date of service=2023-04-05
+
+Patient=Patient(id=example-new-therapy)
+Last Name=Chalmers
+Allergies=[Cashew nuts]
+Height=43.9 '[in_i]'
+Height in [in_i]=43.9
+Weight=44.30000 '[lb_av]'
+Weight in [lb_av]=44.30000
+BMI=[]
+Most Recent BSA=null
+Calculated BSA - Mosteller=0.78812043 'm2'
+BSA=0.78812043 'm2'
+BSA in m2=0.78812043
+Height in cm=112 'cm'
+Weight in kg=20.09414 'kg'
+Calculated BSA - DuBois and DuBois=0.78678104 'm2'
+Diagnosis Codes=[Concept {
+	Code { code: 39065001, system: http://snomed.info/sct, version: null, display: Burn of ear }
+}]
+Diagnosis Descriptions=[Burn of ear]
+Most Recent Medication Request=MedicationRequest(id=uscore-mo2-continued-therapy-with-dosage-continued-therapy)
+Medication Requested=[Medication(id=uscore-med2-continued-therapy)]
+Medication Name=[Nizatidine 15 MG/ML Oral Solution [Axid]]
+Code of Requested Drug=[Concept {
+	Code { code: 582620, system: http://www.nlm.nih.gov/research/umls/rxnorm, version: null, display: Nizatidine 15 MG/ML Oral Solution [Axid] }
+}]
+Medication Request References=Medication/uscore-med2-continued-therapy
+Most Recent Medication Request dosageInstruction=Dosage
+Most Recent Medication Request dosageInstruction.doseAndRate=Dosage.doseAndRate
+Medication Dose=5 'ml'
+Medication Route=Concept {
+	Code { code: 394899003, system: http://snomed.info/sct, version: null, display: oral administration of treatment }
+}
+Medication Frequency value=3
+Medication Frequency Period=1 'd'
+Medication Frequency=3x per 1 d
+Quantity or Number of requested Visits=480 'mL'
+Prior Prescription=null
+New therapy=true
+New therapy code=Code { code: NewMedication, system: null, version: null, display: New Medication }
+Initial date of therapy=null
+Medication Request Period=Interval[2023-04-05, 2023-06-03]
+Expected Therapy Length=59 'd'
+Anticipated/actual date of service=2023-04-05
+
+
+Evaluation logs:
+01:17:28.261 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+01:17:29.921 [pool-2-thread-1] WARN  o.o.cqf.cql.engine.elm.execution.MessageEvaluator - CMDLogic.ToDaily.UnknownUnit: Unknown unit 
+elapsed: 7.285 seconds
+

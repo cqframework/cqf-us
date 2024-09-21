@@ -203,3 +203,89 @@ Evaluation logs:
 Expected a list with at most one element, but found a list with multiple elements.
 elapsed: 7.43 seconds
 
+Executing CQL...
+CQL path: /home/dmuylwyk/projects/cqf/cqf-us/input/cql
+Data path: /home/dmuylwyk/projects/cqf/cqf-us/input/tests/library/UPPARFInitialExpressions
+Terminology path: /home/dmuylwyk/projects/cqf/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=Patient-example-UPPARF-1)
+Most Recent Medication Request=MedicationRequest(id=MedicationRequest-2-nizatidine)
+Urgency=Urgent
+Most Recent Medication=Medication(id=Medication-nizatidine)
+Most Recent Medication Name=Nizatidine 15 MG/ML Oral Solution [Axid]
+Is Opioid Treatment=null
+Prior Prescription=Reference
+Is First Prior Authentication=false
+Initial Request Date=2020-04-05T00:00:00.000
+Is First Request > 12 Months=true
+Prescription Date=2023-04-05T00:00:00.000
+Requester=Practitioner(id=Practitioner-1)
+Prescriber Name=Voigt
+Prescriber Fax=(03) 123 654 234
+Prescriber Phone=(03) 123 645
+Prescriber Pager=234325
+Prescriber Address=TODO: remove hard coded address
+Prescriber Contact=TODO: remove hard coded contact
+Prescriber NPI=9941339108
+Prescriber DEA=null
+Prescriber Tax ID=1tg1556
+RequesterRole=null
+Prescriber Specialty=null
+Prescriber Email Address=example.practitioner@gmail.com
+Request Type=Reauthorization
+ICD 10 Codes=[]
+Diagnosis Descriptions=[Transient Hypothyroidism]
+Dosage Value as String=5
+Dosage Unit=ml
+Unit Volume of Named Drugs=5ml
+Dose=5
+Route=null
+Most Recent Dosage Instruction=Dosage
+Frequency=3 times per 1d
+Refills=1
+Today=2024-09-21
+Start Date and Length=null
+
+Patient=Patient(id=Patient-example-UPPARF-2)
+Most Recent Medication Request=MedicationRequest(id=MedicationRequest-lisinopril-example)
+Urgency=Not Urgent
+Most Recent Medication=Medication(id=Medication-lisinopril-example)
+Most Recent Medication Name=lisinopril oral 10 mg
+Is Opioid Treatment=null
+Prior Prescription=null
+Is First Prior Authentication=true
+Initial Request Date=null
+Is First Request > 12 Months=null
+Prescription Date=2021-06-24
+Requester=Practitioner(id=Practitioner-example)
+Prescriber Name=Kathy
+Prescriber Fax=(55) 123 654 234
+Prescriber Phone=(55) 123 645
+Prescriber Pager=111111
+Prescriber Address=TODO: remove hard coded address
+Prescriber Contact=TODO: remove hard coded contact
+Prescriber NPI=1245319599
+Prescriber DEA=null
+Prescriber Tax ID=1tg1556
+RequesterRole=PractitionerRole(id=PractitionerRole-example)
+Prescriber Specialty=General Practice
+Prescriber Email Address=practitioner.example@gmail.com
+Request Type=New Request
+ICD 10 Codes=[]
+Diagnosis Descriptions=[]
+Dosage Value as String=10
+Dosage Unit=mg
+Unit Volume of Named Drugs=10mg
+Dose=10
+Route=null
+Most Recent Dosage Instruction=Dosage
+Frequency=1 times per 1d
+Refills=1
+Today=2024-09-21
+Start Date and Length=null
+
+
+Evaluation logs:
+00:50:11.245 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+Expected a list with at most one element, but found a list with multiple elements.
+elapsed: 2.391 seconds
+
