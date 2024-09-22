@@ -174,104 +174,6 @@
                   "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
                   "valueExpression": {
                     "language": "text/cql-identifier",
-                    "expression": "Patient Name"
-                  }
-                }
-              ],
-              "linkId": "completing-form|patient-info|patient-name",
-              "text": "Patient Name",
-              "type": "string"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-                  "valueExpression": {
-                    "language": "text/cql-identifier",
-                    "expression": "Member ID"
-                  }
-                }
-              ],
-              "linkId": "completing-form|patient-info|member-number",
-              "text": "Member/Subscriber Number",
-              "type": "string"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-                  "valueExpression": {
-                    "language": "text/cql-identifier",
-                    "expression": "Policy Number"
-                  }
-                }
-              ],
-              "linkId": "completing-form|patient-info|policy-number",
-              "text": "Policy/Group Number",
-              "type": "string"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-                  "valueExpression": {
-                    "language": "text/cql-identifier",
-                    "expression": "Date of Birth"
-                  }
-                }
-              ],
-              "linkId": "completing-form|patient-info|dob",
-              "text": "Patient Date of Birth",
-              "type": "date"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-                  "valueExpression": {
-                    "language": "text/cql-identifier",
-                    "expression": "Address"
-                  }
-                }
-              ],
-              "linkId": "completing-form|patient-info|address",
-              "text": "Patient Address",
-              "type": "string"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-                  "valueExpression": {
-                    "language": "text/cql-identifier",
-                    "expression": "Phone Number"
-                  }
-                }
-              ],
-              "linkId": "completing-form|patient-info|phone",
-              "text": "Patient Phone",
-              "type": "string"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-                  "valueExpression": {
-                    "language": "text/cql-identifier",
-                    "expression": "Email Address"
-                  }
-                }
-              ],
-              "linkId": "completing-form|patient-info|email",
-              "text": "Patient Email Address",
-              "type": "string"
-            },
-            {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-                  "valueExpression": {
-                    "language": "text/cql-identifier",
                     "expression": "Prescription Date"
                   }
                 }
@@ -594,7 +496,7 @@
               "type": "choice",
               "answerOption": [
                 {
-                  "valueString": "Patient’s Home"
+                  "valueString": "Patient's Home"
                 },
                 {
                   "valueString": "Physician Office"

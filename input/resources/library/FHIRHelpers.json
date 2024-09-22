@@ -8,12 +8,12 @@
     }
   } ],
   "url": "http://fhir.org/guides/cqf/us/common/Library/FHIRHelpers",
-  "version": "4.1.000",
+  "version": "4.1.0",
   "name": "FHIRHelpers",
   "type": {
-    "coding": [{
+    "coding": [ {
       "code": "logic-library"
-    }]
+    } ]
   },
   "relatedArtifact": [ {
     "type": "depends-on",

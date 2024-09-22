@@ -3,7 +3,7 @@ library GMTPInitialExpressions version '0.1.0'
 using USCore version '3.1.1'
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.1.000'
+include FHIRHelpers version '4.1.0'
 include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
 
@@ -11,30 +11,10 @@ codesystem "LOINC": 'http://loinc.org'
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 code "Member Number": 'MB' from "Identifier Type"
 
-
 context Patient
 
-define "Humana ID": // Similar to Member ID from MBODA Initial expressions?
-  UCE."Member ID"
-
-define "Patient Name":
-  UCE."Name - First Middle(s) Last"
-
-define "Date of Birth":
-  Patient.birthDate
-
-define "Phone Number":
-  UC.Mobile(Patient.telecom).value
-
 // TODO: Error: Could not resolve data provider for package 'java.util'.
-/*
-define "Address":
-   (singleton from Patient.address).line
-*/
 
-define "Address":
-  { 'TODO: remove hard-coded address' }
-  
 define "Requesting Provider Name":
   UCE."Requesting Provider".name.family 
 

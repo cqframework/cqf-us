@@ -22,13 +22,6 @@ define "Date of Request":
 
 //https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf
 
-//assuming that client id is the coverage member id
-define "Client ID":
-  UCE."Member ID"
-
-define "Patient Name":
-  UCE."Name - First Middle(s) Last"
-
 define "Diagnosis":
 First("SR Related Condition".code).text.value
 

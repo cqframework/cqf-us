@@ -3,7 +3,7 @@ library MNACInitialExpressions version '0.1.0'
 using USCore version '3.1.1'
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.1.000'
+include FHIRHelpers version '4.1.0'
 include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
 
@@ -21,13 +21,6 @@ define "Date of Request":
 "Most Recent ServiceRequest".authoredOn
 
 //https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf
-
-//assuming that client id is the coverage member id
-define "Client ID":
-  UCE."Member ID"
-
-define "Patient Name":
-  UCE."Name - First Middle(s) Last"
 
 define "Diagnosis":
 First("SR Related Condition".code).text.value

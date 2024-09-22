@@ -50,6 +50,11 @@
         <generation value="html"/>
       </page>
       <page>
+        <nameUrl value="authoring.html"/>
+        <title value="Authoring Documentation"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
         <nameUrl value="patterns-patient.html"/>
         <title value="Patient Patterns"/>
         <generation value="markdown"/>

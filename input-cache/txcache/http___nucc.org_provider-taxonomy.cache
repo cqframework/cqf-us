@@ -510,7 +510,6 @@ v: {
   "system" : "http://nucc.org/provider-taxonomy",
   "version" : "22.1",
   "server" : "http://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -534,7 +533,117 @@ v: {
   "system" : "http://nucc.org/provider-taxonomy",
   "version" : "22.1",
   "server" : "http://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://nucc.org/provider-taxonomy",
+  "code" : "261QP2300X",
+  "display" : "Primary Care Clinic/Center"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Primary Care Clinic/Center",
+  "code" : "261QP2300X",
+  "system" : "http://nucc.org/provider-taxonomy",
+  "version" : "22.1",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://nucc.org/provider-taxonomy",
+  "code" : "1223G0001X",
+  "display" : "General Practice Dentistry"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "General Practice Dentistry",
+  "code" : "1223G0001X",
+  "system" : "http://nucc.org/provider-taxonomy",
+  "version" : "22.1",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://nucc.org/provider-taxonomy",
+  "code" : "261QP2300X"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-provider-role--0", "version": "3.1.1", "langs":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Primary Care Clinic/Center",
+  "code" : "261QP2300X",
+  "system" : "http://nucc.org/provider-taxonomy",
+  "version" : "22.1",
+  "severity" : "error",
+  "error" : "The provided code 'http://nucc.org/provider-taxonomy#261QP2300X' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-provider-role--0|3.1.1'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "not-in-vs"
+      }],
+      "text" : "The provided code 'http://nucc.org/provider-taxonomy#261QP2300X' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-provider-role--0|3.1.1'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://nucc.org/provider-taxonomy",
+  "code" : "1223G0001X"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-provider-specialty--0", "version": "3.1.1", "langs":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "Error from http://tx.fhir.org/r4: The filter \"abstract = false\" from the value set http://hl7.org/fhir/us/core/ValueSet/us-core-provider-specialty--0 was not understood in the context of http://nucc.org/provider-taxonomy",
+  "class" : "SERVER_ERROR",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }

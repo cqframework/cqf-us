@@ -28,147 +28,6 @@
               "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
               "valueExpression": {
                 "language": "text/cql-identifier",
-                "expression": "Patient Name"
-              }
-            }
-          ],
-          "linkId": "patient-info|name",
-          "text": "Patient name",
-          "type": "string"
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-              "valueExpression": {
-                "language": "text/cql-identifier",
-                "expression": "Date of Birth"
-              }
-            }
-          ],
-          "linkId": "patient-info|dob",
-          "text": "DOB",
-          "type": "date"
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-              "valueExpression": {
-                "language": "text/cql-identifier",
-                "expression": "Birth Sex"
-              }
-            }
-          ],
-          "linkId": "patient-info|gender",
-          "text": "Sex",
-          "type": "choice",
-          "answerValueSet": "http://hl7.org/fhir/us/core/ValueSet/birthsex"
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-              "valueExpression": {
-                "language": "text/cql-identifier",
-                "expression": "Member ID"
-              }
-            }
-          ],
-          "linkId": "patient-info|member-id",
-          "text": "Member ID #",
-          "type": "string"
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-              "valueExpression": {
-                "language": "text/cql-identifier",
-                "expression": "Medical Record Number"
-              }
-            }
-          ],
-          "linkId": "patient-info|medical-record-number",
-          "text": "Medical record #",
-          "type": "string"
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-              "valueExpression": {
-                "language": "text/cql-identifier",
-                "expression": "Phone Number"
-              }
-            }
-          ],
-          "linkId": "patient-info|phone-number",
-          "text": "Member phone #",
-          "type": "string"
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-              "valueExpression": {
-                "language": "text/cql-identifier",
-                "expression": "Address"
-              }
-            }
-          ],
-          "linkId": "patient-info|address",
-          "text": "Address",
-          "type": "string"
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-              "valueExpression": {
-                "language": "text/cql-identifier",
-                "expression": "City"
-              }
-            }
-          ],
-          "linkId": "patient-info|city",
-          "text": "City",
-          "type": "string"
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-              "valueExpression": {
-                "language": "text/cql-identifier",
-                "expression": "State"
-              }
-            }
-          ],
-          "linkId": "patient-info|state",
-          "text": "State",
-          "type": "string"
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-              "valueExpression": {
-                "language": "text/cql-identifier",
-                "expression": "Zip"
-              }
-            }
-          ],
-          "linkId": "patient-info|zip-code",
-          "text": "Zip",
-          "type": "string"
-        },
-        {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
-              "valueExpression": {
-                "language": "text/cql-identifier",
                 "expression": "Allergies"
               }
             }
@@ -190,9 +49,9 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "[in_i]",
-                "display": "in"
+                "system": "http://unitsofmeasure.org",
+                "display": "[in_i]"
               }
             }
           ],
@@ -212,9 +71,9 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "[lb_av]",
-                "display": "lbs"
+                "system": "http://unitsofmeasure.org",
+                "display": "[lb_av]"
               }
             }
           ],
@@ -234,8 +93,8 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
               "valueCoding": {
+                "code": "m2",
                 "system": "http://unitsofmeasure.org",
-                "code": "[m2]",
                 "display": "m2"
               }
             }
@@ -644,32 +503,32 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "ug",
-                "display": "mcg"
+                "system": "http://unitsofmeasure.org",
+                "display": "ug"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "mg",
+                "system": "http://unitsofmeasure.org",
                 "display": "mg"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "g",
+                "system": "http://unitsofmeasure.org",
                 "display": "g"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
-                "system": "http://unitsofmeasure.org",
                 "code": "ml",
+                "system": "http://unitsofmeasure.org",
                 "display": "ml"
               }
             },
@@ -705,33 +564,33 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
+                "code": "h",
                 "system": "http://unitsofmeasure.org",
-                "code": "hour",
-                "display": "Per Hour"
+                "display": "h"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
+                "code": "d",
                 "system": "http://unitsofmeasure.org",
-                "code": "day",
-                "display": "Per Day"
+                "display": "d"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
+                "code": "wk",
                 "system": "http://unitsofmeasure.org",
-                "code": "week",
-                "display": "Per Week"
+                "display": "wk"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
+                "code": "mo",
                 "system": "http://unitsofmeasure.org",
-                "code": "month",
-                "display": "Per Month"
+                "display": "mo"
               }
             },
             {
@@ -751,41 +610,41 @@
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
+                "code": "h",
                 "system": "http://unitsofmeasure.org",
-                "code": "hour",
-                "display": "Hour(s)"
+                "display": "h"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
+                "code": "d",
                 "system": "http://unitsofmeasure.org",
-                "code": "day",
-                "display": "Day(s)"
+                "display": "d"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
+                "code": "wk",
                 "system": "http://unitsofmeasure.org",
-                "code": "week",
-                "display": "Week(s)"
+                "display": "wk"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
+                "code": "mo",
                 "system": "http://unitsofmeasure.org",
-                "code": "month",
-                "display": "Month(s)"
+                "display": "mo"
               }
             },
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
               "valueCoding": {
+                "code": "a",
                 "system": "http://unitsofmeasure.org",
-                "code": "year",
-                "display": "Year(s)"
+                "display": "a"
               }
             },
             {
@@ -904,10 +763,14 @@
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-signatureRequired",
-              "valueCoding": {
-                "system": "urn:iso-astm:E1762-95:2013",
-                "code": "1.2.840.10065.1.12.1.1",
-                "display": "Author's Signature"
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "1.2.840.10065.1.12.1.1",
+                    "system": "urn:iso-astm:E1762-95:2013",
+                    "display": "Author's Signature"
+                  }
+                ]
               }
             },
             {

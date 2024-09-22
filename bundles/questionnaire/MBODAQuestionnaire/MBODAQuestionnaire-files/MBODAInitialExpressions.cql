@@ -3,7 +3,7 @@ library MBODAInitialExpressions version '0.1.0'
 using USCore version '3.1.1'
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.1.000'
+include FHIRHelpers version '4.1.0'
 include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
 
@@ -18,12 +18,6 @@ code "Member Number": 'MB' from "Identifier Type"
 
 context Patient
 
-define "Member ID":
-  UCE."Member ID"
-
-define "Patient Name":
-  UCE."Name - First Middle(s) Last"
-
 define "Last Name":
   UCE."Last Name"
 
@@ -31,32 +25,8 @@ define "Last Name":
 // define "First Name":
 //   Patient.name.given.first()
 
-define "Date of Birth":
-  Patient.birthDate
-  
-define "Medical Record Number":
-  UCE."Medical Record Number"
-
-define "Phone Number":
-  UC.Mobile(Patient.telecom).value
-
 define "Allergies":
   UCE."Active Confirmed Allergies and Intolerances".code.codes.display 
-
-// TODO: Error: Could not resolve data provider for package 'java.util'.
-// define "Address":
-//   (singleton from Patient.address).line
-define "Address":
-  { 'TODO: remove hard-coded address' }
-
-define "City":
-  Patient.address.city
-
-define "State":
-  Patient.address.state
-
-define "Zip":
-  Patient.address.postalCode
 
 define "Height":
   convert(
@@ -107,10 +77,6 @@ define "Weight in kg":
 
 define "Calculated BSA - DuBois and DuBois":
   UCE.CalculateBSA('DuBois and DuBois', "Height", "Weight")
-
-// QUESTION: do we want to use Patient.gender as a backup? If so we'll need a ConceptMap or translation
-define "Birth Sex":
- Patient.birthsex
 
 define "Diagnosis Codes":
   UCE."All Conditions" C
