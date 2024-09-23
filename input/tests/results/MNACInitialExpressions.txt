@@ -1737,3 +1737,37 @@ Evaluation logs:
 00:49:26.078 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
 elapsed: 1.179 seconds
 
+Executing CQL...
+CQL path: /home/dmuylwyk/projects/cqf/cqf-us/input/cql
+Data path: /home/dmuylwyk/projects/cqf/cqf-us/input/tests/library/MNACInitialExpressions
+Terminology path: /home/dmuylwyk/projects/cqf/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=example)
+All ServiceRequests=[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]
+Most Recent ServiceRequest=ServiceRequest(id=service-request-USCorePatient)
+Date of Request=dateTime
+SR Related Condition=[Condition(id=related-Condition)]
+Diagnosis=UTI
+Item Requested=[Molecular genetic test (procedure),  Encounter for screening for other disorder, Unlisted molecular pathology procedure]
+UTI Diagnostic Reports Last Year=[]
+UTI in Last Year=false
+Lab Reports UTIs=[]
+Dates of UTIs=[]
+Antibiotics Used=[]
+Check Symptoms=TBD
+Fever Temperature=TBD
+Catheterization Frequency=TBD
+Additional Comment=TBD
+Requesting Physician=null
+Physician Name=null
+Physician Telephone=null
+Physician Fax=null
+Referring Physician Telephone=TBD
+Date=2024-09-23
+
+
+Evaluation logs:
+13:22:34.185 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+13:22:34.350 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+13:22:34.352 [pool-2-thread-1] WARN  ca.uhn.fhir.parser.LenientErrorHandler - Found incorrect type for element presentedForm - Expected ARRAY and found OBJECT
+elapsed: 0.383 seconds
+
