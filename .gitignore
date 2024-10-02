@@ -20,5 +20,5 @@ Thumbs.db
 # backup files #
 ################
 *.bak
-/input-cache/tooling-cli-2.4.0.jar
+/input-cache/tooling-cli-*.jar
 /input-cache/publisher.jar
