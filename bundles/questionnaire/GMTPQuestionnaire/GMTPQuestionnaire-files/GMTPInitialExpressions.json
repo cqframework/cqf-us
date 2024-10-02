@@ -26,7 +26,7 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.1.0"
+    "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
   }, {
     "type": "depends-on",
     "display": "Library UC",
@@ -38,7 +38,7 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.1.0"
+    "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
   }, {
     "type": "depends-on",
     "display": "Code system LOINC",
