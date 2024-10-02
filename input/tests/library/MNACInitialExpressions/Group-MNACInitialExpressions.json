@@ -1,0 +1,17 @@
+{
+  "resourceType": "Group",
+  "id": "MNACInitialExpressions",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-testArtifact",
+    "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/MNACInitialExpressions"
+  } ],
+  "active": true,
+  "type": "person",
+  "actual": true,
+  "member": [ {
+    "entity": {
+      "reference": "Patient/example",
+      "display": "Peter James Chalmers"
+    }
+  } ]
+}

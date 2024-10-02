@@ -1,1 +1,18 @@
-{"resourceType":"Device","id":"cqf-tooling","meta":{"profile":["https://hl7.org/fhir/us/cqfmeasures/STU4/Device-software-system-example.html"]},"manufacturer":"CQFramework","deviceName":[{"name":"cqf-tooling","type":"manufacturer-name"}],"type":{"text":"tooling"},"version":[{"value":"2.4.0"}]}
+{
+  "resourceType": "Device",
+  "id": "cqf-tooling",
+  "meta": {
+    "profile": [ "https://hl7.org/fhir/us/cqfmeasures/STU4/Device-software-system-example.html" ]
+  },
+  "manufacturer": "CQFramework",
+  "deviceName": [ {
+    "name": "cqf-tooling",
+    "type": "manufacturer-name"
+  } ],
+  "type": {
+    "text": "tooling"
+  },
+  "version": [ {
+    "value": "3.6.0"
+  } ]
+}

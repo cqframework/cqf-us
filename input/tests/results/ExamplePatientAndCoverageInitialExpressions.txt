@@ -44,3 +44,33 @@ Evaluation logs:
 13:02:15.586 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
 elapsed: 1.091 seconds
 
+Executing CQL...
+CQL path: /home/dmuylwyk/projects/cqf/cqf-us/input/cql
+Data path: /home/dmuylwyk/projects/cqf/cqf-us/input/tests/library/ExamplePatientAndCoverageInitialExpressions
+Terminology path: /home/dmuylwyk/projects/cqf/cqf-us/input/vocabulary/valueset
+Patient=Patient(id=minimal-patient-example)
+Patient Name=Chalmers
+Date of Birth=1974-12-25
+Birth Sex=M
+Medical Record Number=12345
+Phone Number=(03) 5555 6473
+Email Address=peter.chalmers@example.org
+Address=[TODO: remove hard-coded address]
+City=[PleasantVille]
+State=[UT]
+Postal Code=[84414]
+Member ID=null
+Policy Number=null
+
+
+Evaluation logs:
+14:19:01.442 [pool-2-thread-1] INFO  ca.uhn.fhir.util.VersionUtil - HAPI FHIR version 6.0.1 - Rev 2a70df1a11
+14:19:01.467 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+14:19:02.946 [pool-2-thread-1] INFO  ca.uhn.fhir.util.XmlUtil - Unable to determine StAX implementation: java.xml/META-INF/MANIFEST.MF not found
+14:19:03.400 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-resources.xml
+14:19:05.089 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-types.xml
+14:19:05.159 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-others.xml
+14:19:05.971 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/extension/extension-definitions.xml
+14:19:06.224 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+elapsed: 7.64 seconds
+
