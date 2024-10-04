@@ -26,7 +26,7 @@ using USCore version '3.1.1'
 // TODO: Remove this reference once USCore supports MedicationDispense and MedicationAdministration
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.1.0'
+include FHIRHelpers version '4.0.1'
 
 // NOTE: Removed in favor of USCoreCommon
 //include QICoreCommon version '1.3.000'

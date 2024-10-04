@@ -1,0 +1,22 @@
+{
+  "resourceType": "Group",
+  "id": "GMTPInitialExpressions",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-testArtifact",
+    "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/GMTPInitialExpressions"
+  } ],
+  "active": true,
+  "type": "person",
+  "actual": true,
+  "member": [ {
+    "entity": {
+      "reference": "Patient/GMTP-example-patient-2",
+      "display": "Peter James Chalmers"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/USCorePatient-GMTP-1",
+      "display": "Emilia Smith"
+    }
+  } ]
+}

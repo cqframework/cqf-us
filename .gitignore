@@ -7,6 +7,8 @@ output
 # Don't commit this because it's so large #
 ###########################################
 /input-cache/org.hl7.fhir.publisher.jar
+/input-cache/publisher.jar
+/input-cache/tooling-cli-*.jar
 
 # Windows generated files #
 ###########################
@@ -20,5 +22,3 @@ Thumbs.db
 # backup files #
 ################
 *.bak
-/input-cache/tooling-cli-2.4.0.jar
-/input-cache/publisher.jar
