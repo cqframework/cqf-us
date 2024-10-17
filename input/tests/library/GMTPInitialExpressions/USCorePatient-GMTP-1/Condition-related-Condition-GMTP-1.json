@@ -26,9 +26,9 @@
     {
       "coding": [
         {
-          "code": "encounter-diagnosis",
+          "code": "problem-list-item",
           "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-          "display": "Encounter Diagnosis"
+          "display": "Problem List Item"
         }
       ]
     }
@@ -40,7 +40,8 @@
         "system": "http://hl7.org/fhir/sid/icd-10-cm",
         "display": "Type 2 diabetes mellitus with other diabetic arthropathy"
       }
-    ]
+    ],
+    "text": "Type 2 diabetes mellitus with other diabetic arthropathy"
   },
   "subject": {
     "reference": "Patient/USCorePatient-GMTP-1"

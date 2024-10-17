@@ -3,7 +3,7 @@ library GMTPInitialExpressions version '0.1.0'
 using USCore version '3.1.1'
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.1.0'
+include FHIRHelpers version '4.1.0' called FHIRHelpers
 include USCoreCommon version '0.1.0' called UC
 include USCoreElements version '0.1.0' called UCE
 
@@ -13,7 +13,26 @@ code "Member Number": 'MB' from "Identifier Type"
 
 context Patient
 
-// TODO: Error: Could not resolve data provider for package 'java.util'.
+define "All Problem List Items":
+  UCE."All Problem List Items"
+
+/*
+@question: Patient history (including age at diagnosis):
+TODO: Determine whether we should be considering encounter diagnoses and/or health concerns
+TODO: Determine whether age at onset is actually relevant, or if we would, in an automated context, just return the Condition resource
+TODO: Does "age at diagnosis" mean "age at onset" or is it really asking for when the diagnosis was recorded?
+TODO: Is there a version of patient history that is reusable here?
+*/
+define "Patient history":
+  UCE."All Problem List Items" C
+    let prevalence: C.prevalenceInterval()
+    where C.isConfirmed()
+    return {
+      diagnosis: C.code.display,
+      ageAtOnset: ToString(AgeInYearsAt(start of prevalence)),
+      onset: ToString(start of prevalence),
+      abatement: ToString(if prevalence.hasEnd() then end of prevalence else null)
+    }
 
 define "Requesting Provider Name":
   UCE."Requesting Provider".name.family 
@@ -172,7 +191,5 @@ define "Previous genetic testing for condition":
 //define "Family history of genetic testing"
 //too general to prefill?
 
-//define "Patient history"
-//too general to prefill?
 
 

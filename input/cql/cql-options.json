@@ -12,5 +12,5 @@
    "validateUnits":true,
    "verifyOnly":false,
    "errorLevel":"Info",
-   "signatureLevel":"None"
+   "signatureLevel":"All"
 }
