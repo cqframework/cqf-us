@@ -47,16 +47,76 @@
       <page>
         <nameUrl value="index.html"/>
         <title value="Home"/>
-        <generation value="html"/>
-      </page>
-      <page>
-        <nameUrl value="authoring.html"/>
-        <title value="Authoring Documentation"/>
         <generation value="markdown"/>
       </page>
       <page>
-        <nameUrl value="patterns-patient.html"/>
-        <title value="Patient Patterns"/>
+        <nameUrl value="background.html"/>
+        <title value="Background"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="use-cases.html"/>
+        <title value="Use Cases"/>
+        <generation value="markdown"/>
+        <page>
+          <nameUrl value="use-case-pa.html"/>
+          <title value="Prior Authorization Questionnaire Use Case"/>
+          <generation value="markdown"/>
+        </page>
+      </page>
+      <page>
+        <nameUrl value="architectural-guidance.html"/>
+        <title value="Architectural Guidance"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="query-management.html"/>
+        <title value="Query Management"/>
+        <generation value="markdown"/>
+        <page>
+          <nameUrl value="authoring.html"/>
+          <title value="Authoring Documentation"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="patterns.html"/>
+          <title value="Patterns"/>
+          <generation value="markdown"/>
+          <page>
+            <nameUrl value="patterns-condition.html"/>
+            <title value="Condition Patterns"/>
+            <generation value="markdown"/>
+          </page>
+          <page>
+            <nameUrl value="patterns-coverage.html"/>
+            <title value="Coverage Patterns"/>
+            <generation value="markdown"/>
+          </page>
+          <page>
+            <nameUrl value="patterns-patient.html"/>
+            <title value="Patient Patterns"/>
+            <generation value="markdown"/>
+          </page>
+        </page>
+        <page>
+          <nameUrl value="usage.html"/>
+          <title value="Usage"/>
+          <generation value="markdown"/>
+        </page>
+      </page>
+      <page>
+        <nameUrl value="examples.html"/>
+        <title value="Downloads"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="tooling-support.html"/>
+        <title value="Tooling Support"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="changes.html"/>
+        <title value="Changes"/>
         <generation value="markdown"/>
       </page>
       <page>

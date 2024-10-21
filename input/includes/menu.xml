@@ -1,6 +1,22 @@
 <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
   <li><a href="index.html">IG Home</a></li>
-  <li><a href="authoring.html">Authoring Documentation</a></li>
+  <li><a href="background.html">Background</a></li>
+  <li><a href="use-cases.html">Use Cases</a></li>
+  <li><a href="architectural-guidance.html">Architectural Guidance</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="query-management.html" class="dropdown-toggle">
+      Query Management<b class="caret">
+        </b>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="query-management.html">General Guidance</a></li>
+      <li><a href="authoring.html">Authoring</a></li>
+      <li><a href="patterns.html">Patterns</a></li>
+      <li><a href="examples.html">Examples</a></li>
+      <li><a href="usage.html">Usage</a></li>
+    </ul>
+  </li>
+  <li><a href="tooling-support.html">Tooling Support</a></li>
   <li><a href="artifacts.html">Artifact Index</a></li>
   <li class="dropdown">
     <a data-toggle="dropdown" href="#" class="dropdown-toggle">Support<b class="caret">
@@ -27,6 +43,9 @@
       </li>
       <li>
         <a target="_blank" href="http://hl7.org/fhir/us/core">US Core</a>
+      </li>
+      <li>
+        <a href="changes.html">Changes</a>
       </li>
       <li>
         <a href="downloads.html">Downloads</a>

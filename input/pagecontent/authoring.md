@@ -1,17 +1,7 @@
-### CQF US Common
-
-This implementation guide contains common FHIR assets for use in US-based CQFramework content IGs, including the USCore-ModelInfo and USCommon libraries.
-
-The continuous integration build of this implementation guide is available here:
-
-* [http://build.fhir.org/ig/cqframework/cqf-us](http://build.fhir.org/ig/cqframework/cqf-us)
-
-Commits to the following repository will automatically update the above site:
-
-* [https://github.com/cqframework/cqf-us](https://github.com/cqframework/cqf-us)
-
 #### Steps for Adding New Questionnaires
+
 Adding new content to this IG involves several steps. There are multiple ways to complete many of these steps, and this guide highlights one path for adding a new Questionnaire:
+
 1. Select a questionnaire form (e.g. a prior authorization form), which typically is in a non-computable format such as the PDF form [Medical Necessity For Authorization Of Catheters](https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf)
 2. Manually translate or train LLM to translate the PDF content into a FHIR Questionnaire (this can optionally be done first in FSH format but ultimately must be present as an XML or JSON FHIR resource located at the path `input/resources/questionnaire`). An example for the form in #1 can be found [here](https://github.com/cqframework/cqf-us/blob/master/input/resources/questionnaire/MNACQuestionnaire.json).
 3. Add the extension `http://hl7.org/fhir/StructureDefinition/cqf-library` to the Questionnaire with the canonical value of the related CQL library.
@@ -27,5 +17,6 @@ Adding new content to this IG involves several steps. There are multiple ways to
 11. Test and see if the operation `$populate` for your questionnaire results in the expected initial values for each item. A complete sample Postman collection for a different Questionnaire can be found [here](./postman/UPPARFPopulate.postman_collection.json). This collection also contains automated tests to highlight what to look for. 
 
 #### Frequent Errors
+
 * When refreshing the IG (by executing `sh _refresh.sh`), sometimes errors in the Questionnaire or CQL cause the new content to be ignored and no output bundle being created. A frequent error is that a wrong or non-existent library name is defined within the Questionnaire.json element *cql-library* extension.
 * Special Characters in CQL expression titles: The engine will not be able to resolve special characters within CQL expression titles. E.g. `define "Practitioner's phone"` will fail and must be renamed to `define "Practitioner phone"`.
