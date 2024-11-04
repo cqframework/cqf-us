@@ -13,3 +13,16 @@ This implementation guide contains architectural guidance and re-usable librarie
 * [Artifacts](artifacts.html)
 * [Changes](changes.html)
 * [Downloads](downloads.html)
+
+### Roadmap
+
+| Outstanding Area | Status | Target Call |
+|----|----|----|
+| Architectural Guidance | To Do | |
+| Tooling Support | To Do | 11/4 |
+| Query Management Considerations | To Do | |
+| Example Details | To Do | 11/4 |
+| Laboratory Testing Patterns | To Do | |
+| MedicationRequest Patterns | To Do | |
+| AllergyIntolerance Patterns | To Do | |
+| ServiceRequest Patterns | To Do | |

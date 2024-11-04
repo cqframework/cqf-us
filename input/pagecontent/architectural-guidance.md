@@ -15,3 +15,6 @@ This topic provides architectural guidance for implementers supporting FHIR and 
     * Accessability (authoring)
     * Maintainability
 * Version support best practices
+
+* Questionnaire prepopulation
+    * Note that when populating a questionnaire response, if the questionnaire response already has a value for the initial expression, don't populate

@@ -19,6 +19,21 @@ The following table lists the patterns page for each profile:
 
 |US Core Profile|Patterns|Status|
 |----|----|----|
+|[USCore AllergyIntolerance]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-allergyintolerance.html)|[AllergyIntolerance Patterns](patterns-condition.html)|in-progress|
 |[USCore Condition]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-condition.html)|[Condition Patterns](patterns-condition.html)|in-progress|
 |[USCore Coverage]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-coverage.html)|[Coverage Patterns](patterns-coverage.html)|todo|
 |[USCore Patient]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-patient.html)|[Patient Patterns](patterns-patient.html)|draft|
+
+
+Elements from current example questionnaires:
+
+* DiagnosticReport - Query for and attach to response, but not necessarily drive any particular questions out of the contents
+* Laboratory Results
+* Clinical Tests
+* Family History - including age at diagnosis, availability for testing (e.g., family member deceased, refused testing or patient not in contact with affected family member) and any genetic testing performed on family member (attach pedigree, if available)
+* Patient History
+* Is Test Part of a Clinical Trial
+* ServiceRequest
+* MedicationRequest
+* Associated Procedures for a Request (given a particular prior auth there will sometimes be additional associated prior authorizations required)
+    * for example, given an allergy appointment, you're probably gonna have additional testing
