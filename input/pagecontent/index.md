@@ -18,11 +18,13 @@ This implementation guide contains architectural guidance and re-usable librarie
 
 | Outstanding Area | Status | Target Call |
 |----|----|----|
-| Architectural Guidance | To Do | |
-| Tooling Support | To Do | 11/4 |
-| Query Management Considerations | To Do | |
-| Example Details | To Do | 11/4 |
-| Laboratory Testing Patterns | To Do | |
-| MedicationRequest Patterns | To Do | |
-| AllergyIntolerance Patterns | To Do | |
-| ServiceRequest Patterns | To Do | |
+| Architectural Guidance | To Do | 11/18 |
+| Tooling Support | In Review | 11/4 |
+| Query Management Considerations | To Do | 11/18 |
+| Example Details | To Do | 11/18 |
+| Patient and Family History | In Progress | 12/2 |
+| Laboratory Testing Patterns | To Do | 12/2 |
+| MedicationRequest Patterns | To Do | 12/2 |
+| AllergyIntolerance Patterns | To Do | 12/2 |
+| ServiceRequest Patterns | To Do | 12/2 |
+| Feedback Review | To Do | 12/18 |
