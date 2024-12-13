@@ -14,7 +14,6 @@
   "status": "active",
   "experimental": true,
   "date": "2024-09-16T00:00:00+00:00",
-  "publisher": "Smile Digital Health",
   "description": "For the Prior Authorization Questionnaire Use Case, this type of in-context information is expected to be known already so it wouldn't typically be in a Questionnaire. This example illustrates how to get this information if it is needed.",
   "item": [
     {

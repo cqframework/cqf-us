@@ -7,7 +7,6 @@ used in writing CQL with FHIR and QICore profiles.
 library USCoreCommon version '0.1.0'
 
 using USCore version '3.1.1'
-using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.1.0'
 
@@ -138,23 +137,10 @@ define fluent function active(conditions List<USCore.Condition>):
       or C.clinicalStatus ~ "recurrence"
       or C.clinicalStatus ~ "relapse"
 
-define fluent function active(conditions List<FHIR.Condition>)://FHIR Version
-  conditions C
-    where C.clinicalStatus ~ "active"
-      or C.clinicalStatus ~ "recurrence"
-      or C.clinicalStatus ~ "relapse"
-
 define fluent function isAllergyActive(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.clinicalStatus ~ "allergy-active"
 
-define fluent function isAllergyActive(allergyIntolerance FHIR.AllergyIntolerance)://FHIR Version
-  allergyIntolerance.clinicalStatus ~ "allergy-active"
-
 define fluent function allergyActive(allergyIntolerances List<USCore.AllergyIntolerance>):
-  allergyIntolerances A
-    where A.clinicalStatus ~ "allergy-active"
-
-define fluent function allergyActive(allergyIntolerances List<FHIR.AllergyIntolerance>)://FHIR Version
   allergyIntolerances A
     where A.clinicalStatus ~ "allergy-active"
 
@@ -175,21 +161,11 @@ define fluent function allergyResolved(allergyIntolerances List<USCore.AllergyIn
 define fluent function isAllergyConfirmed(allergyIntolerance USCore.AllergyIntolerance):
   allergyIntolerance.verificationStatus ~ "allergy-confirmed"
 
-define fluent function isAllergyConfirmed(allergyIntolerance FHIR.AllergyIntolerance)://FHIR Version
-  allergyIntolerance.verificationStatus ~ "allergy-confirmed"
-
 define fluent function allergyConfirmed(allergyIntolerances List<USCore.AllergyIntolerance>):
   allergyIntolerances A
     where A.verificationStatus ~ "allergy-confirmed"
 
-define fluent function allergyConfirmed(allergyIntolerances List<FHIR.AllergyIntolerance>)://FHIR Version
-  allergyIntolerances A
-    where A.verificationStatus ~ "allergy-confirmed"
-
 define fluent function isAllergyUnconfirmed(allergyIntolerance USCore.AllergyIntolerance):
-  allergyIntolerance.verificationStatus ~ "allergy-unconfirmed"
-
-define fluent function isAllergyUnconfirmed(allergyIntolerance FHIR.AllergyIntolerance)://FHIR Version
   allergyIntolerance.verificationStatus ~ "allergy-unconfirmed"
 
 define fluent function allergyUnconfirmed(allergyIntolerances USCore.AllergyIntolerance):
@@ -219,12 +195,6 @@ define fluent function isProblemListItem(condition USCore.Condition):
     where C ~ "problem-list-item"
   )
 
-//FHIR Version
-define fluent function isProblemListItem(condition FHIR.Condition):
-  exists (condition.category C
-    where C ~ "problem-list-item"
-  )
-
 /*
 @description: Returns true if the given condition is an encounter diagnosis
 */
@@ -233,22 +203,10 @@ define fluent function isEncounterDiagnosis(condition USCore.Condition):
     where C ~ "encounter-diagnosis"
   )
 
-//FHIR Version
-define fluent function isEncounterDiagnosis(condition FHIR.Condition):
-  exists (condition.category C
-    where C ~ "encounter-diagnosis"
-  )
-
 /*
 @description: Returns true if the given condition is a health concern
 */
 define fluent function isHealthConcern(condition USCore.Condition):
-  exists (condition.category C
-    where C ~ "health-concern"
-  )
-
-//FHIR Version
-define fluent function isHealthConcern(condition FHIR.Condition):
   exists (condition.category C
     where C ~ "health-concern"
   )
@@ -278,10 +236,6 @@ define fluent function isConfirmed(condition USCore.Condition):
   condition.verificationStatus ~ "confirmed"
 
 define fluent function confirmed(conditions List<USCore.Condition>):
-  conditions C
-    where C.verificationStatus ~ "confirmed"
-
-define fluent function confirmed(conditions List<FHIR.Condition>)://FHIR Version
   conditions C
     where C.verificationStatus ~ "confirmed"
 
@@ -334,41 +288,6 @@ define fluent function isCorrected(observation LaboratoryResultObservationProfil
 define fluent function corrected(observations List<LaboratoryResultObservationProfile>):
   observations observation
     where observation.status ~ "observation-corrected".code
-
-
-define fluent function isResulted(observation FHIR.Observation):
-  observation.status ~ "observation-final".code
-    or observation.status ~ "observation-amended".code
-    or observation.status ~ "observation-corrected".code
-
-define fluent function resulted(observations List<FHIR.Observation>):
-  observations observation
-    where observation.status ~ "observation-final".code
-      or observation.status ~ "observation-amended".code
-      or observation.status ~ "observation-corrected".code
-
-define fluent function isFinal(observation FHIR.Observation):
-  observation.status ~ "observation-final".code
-
-define fluent function final(observations List<FHIR.Observation>):
-  observations observation
-    where observation.status ~ "observation-final".code
-
-define fluent function isAmended(observation FHIR.Observation):
-  observation.status ~ "observation-amended".code
-
-define fluent function amended(observations List<FHIR.Observation>):
-  observations observation
-    where observation.status ~ "observation-amended".code
-
-define fluent function isCorrected(observation FHIR.Observation):
-  observation.status ~ "observation-corrected".code
-
-define fluent function corrected(observations List<FHIR.Observation>):
-  observations observation
-    where observation.status ~ "observation-corrected".code
-    
-
 
 define fluent function isResulted(observation Choice<"observation-bodyweight","observation-bmi","observation-bp","PediatricBMIforAgeObservationProfile","PediatricWeightForHeightObservationProfile","PulseOximetryProfile","SmokingStatusProfile","observation-vitalspanel","observation-resprate","observation-heartrate","observation-oxygensat","observation-bodytemp","observation-headcircum","observation-bmi",LaboratoryResultObservationProfile>):
   observation.status ~ "observation-final".code
@@ -590,22 +509,6 @@ define function MostRecent(conditions List<USCore.Condition>):
       sort by recordedDate
   )
 
-/*
-@description: Return the most recent Observation
-*/
-define function MostRecent(observations List<Observation>):
-  Last(
-    observations O
-      sort by issued
-  )
-
-define fluent function mostRecent(observations List<Observation>):
-  Last(
-    observations O
-      sort by issued
-  )
-
-
 define function MostRecent(observations List<"SmokingStatusProfile">):
   Last(
     observations O
@@ -799,29 +702,15 @@ define fluent function mostRecentMR(medicationRequests List<"MedicationRequestPr
       sort by authoredOn
   )
 
-define function MostRecentSR(serviceRequests List<FHIR.ServiceRequest>):
-  Last(
-    serviceRequests SR
-      sort by (FHIRHelpers.ToDateTime(authoredOn) as DateTime)
-  )
-
-define fluent function mostRecentSR(serviceRequests List<FHIR.ServiceRequest>):
-  Last(
-    serviceRequests SR
-      sort by (FHIRHelpers.ToDateTime(authoredOn) as DateTime)
-  )
-
-//Should these be singletons?
+//TODO: Should these be singletons?
 define function Mobile(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.use = 'mobile')
 
 define function Email(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'email')
 
-  //TBD: is this better as part of us common?
 define function Fax(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'fax')
 
-    //TBD: is this better as part of us common?
 define function Pager(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'pager')
