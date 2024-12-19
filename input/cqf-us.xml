@@ -83,6 +83,11 @@
           <title value="Patterns"/>
           <generation value="markdown"/>
           <page>
+            <nameUrl value="patterns-allergy.html"/>
+            <title value="Allergy Patterns"/>
+            <generation value="markdown"/>
+          </page>
+          <page>
             <nameUrl value="patterns-condition.html"/>
             <title value="Condition Patterns"/>
             <generation value="markdown"/>
@@ -93,8 +98,23 @@
             <generation value="markdown"/>
           </page>
           <page>
+            <nameUrl value="patterns-lab.html"/>
+            <title value="Lab Patterns"/>
+            <generation value="markdown"/>
+          </page>
+          <page>
+            <nameUrl value="patterns-medication.html"/>
+            <title value="Medication Patterns"/>
+            <generation value="markdown"/>
+          </page>
+          <page>
             <nameUrl value="patterns-patient.html"/>
             <title value="Patient Patterns"/>
+            <generation value="markdown"/>
+          </page>
+          <page>
+            <nameUrl value="patterns-service.html"/>
+            <title value="Service Patterns"/>
             <generation value="markdown"/>
           </page>
         </page>
