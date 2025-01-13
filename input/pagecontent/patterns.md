@@ -19,11 +19,13 @@ The following table lists the patterns page for each profile:
 
 |US Core Profile|Patterns|Status|
 |----|----|----|
-|[USCore AllergyIntolerance]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-allergyintolerance.html)|[AllergyIntolerance Patterns](patterns-condition.html)|in-progress|
+|[USCore AllergyIntolerance]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-allergyintolerance.html)|[AllergyIntolerance Patterns](patterns-allergy.html)|in-progress|
 |[USCore Condition]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-condition.html)|[Condition Patterns](patterns-condition.html)|in-progress|
 |[USCore Coverage]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-coverage.html)|[Coverage Patterns](patterns-coverage.html)|todo|
+|[USCore Medication]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medication.html)|[Medication Patterns](patterns-medication.html)|draft|
+|[USCore Observation Lab]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html)|[Observation Lab Patterns](patterns-lab.html)|draft|
 |[USCore Patient]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-patient.html)|[Patient Patterns](patterns-patient.html)|draft|
-
+|[USCore Service]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-service.html)|[Service Patterns](patterns-service.html)|draft|
 
 Elements from current example questionnaires:
 
