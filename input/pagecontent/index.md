@@ -36,7 +36,7 @@ This implementation guide does not:
 
 | Outstanding Area | Status | Target Call |
 |----|----|----|
-| Architectural Guidance | To Do | 11/18 |
+| Architectural Guidance | In Progress | 11/18 |
 | Tooling Support | In Review | 11/4 |
 | Query Management Considerations | To Do | 11/18 |
 | Example Details | To Do | 11/18 |

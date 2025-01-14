@@ -74,7 +74,7 @@ define "All ServiceRequests":
   [FHIR.ServiceRequest]
 
 define "Most Recent ServiceRequest":
-  UC.MostRecentSR("All ServiceRequests")
+  UC.MostRecent("All ServiceRequests")
 
 define "SR Related Condition":
   [FHIR.Condition] C

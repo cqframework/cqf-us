@@ -29,25 +29,13 @@ define "Allergies":
   UCE."Active Confirmed Allergies and Intolerances".code.codes.display 
 
 define "Height":
-  convert(
-    (
-      (
-        UCE."All Body Height Measurements"
-      ).mostRecent()
-    ).value
-  ) to '[in_i]'
+  convert (((UCE."All Body Height Measurements").mostRecent() as "observation-bodyheight").value) to '[in_i]'
 
 define "Height in [in_i]":
   "Height".value
 
 define "Weight":
-  convert(
-    (
-      (
-        UCE."All Body Weight Measurements"
-      ).mostRecent()
-    ).value
-  ) to '[lb_av]'
+  convert (((UCE."All Body Weight Measurements").mostRecent() as "observation-bodyweight").value) to '[lb_av]'
 
 define "Weight in [lb_av]":
   "Weight".value

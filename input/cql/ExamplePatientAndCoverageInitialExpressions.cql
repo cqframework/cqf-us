@@ -34,11 +34,8 @@ define "Phone Number":
 define "Email Address":
   UC.Email(Patient.telecom).value
 
-// TODO: Error: Could not resolve data provider for package 'java.util'.
-// define "Address":
-//   (singleton from Patient.address).line
 define "Address":
-  { 'TODO: remove hard-coded address' }
+  (singleton from Patient.address).line
 
 define "City":
   Patient.address.city
@@ -51,12 +48,10 @@ define "Postal Code":
 
 // Coverage
 
-// TODO DM 20240921: Why doesn't this populate in test results when executing CQL? Member ID=null
 // TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form?
 define "Member ID":
   UCE."Member ID"
 
-// TODO DM 20240921: Why doesn't this populate in test results when executing CQL? Policy Number=null
 // TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form?
 define "Policy Number":
   UCE."Policy Number"

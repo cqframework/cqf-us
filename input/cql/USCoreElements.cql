@@ -206,7 +206,7 @@ define "Resulted Laboratory Results":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
 */
 define "Most Recent Medication Request":
-  UC.MostRecentMR("All Medication Requests")
+  UC.MostRecent("All Medication Requests")
 
 define "All Medication Requests":
   ["MedicationRequestProfile"]
@@ -384,12 +384,8 @@ define "All Body Temperature Measurements All Statuses":
 @profile: http://hl7.org/fhir/StructureDefinition/bodyheight
 */
 define "All Body Height Measurements":
-   (["observation-bodyheight"]).resulted()
-
-/*define "All Body Height Measurements":
-   ((["observation-bodyheight"]).resulted()) O 
-     return O as "observation-bodyheight" */
-// bug req: "observation-bodyheight" does not work in list of choices in USCoreCommons when all others do.
+   ((["observation-bodyheight"]).resulted()) O
+     return O as "observation-bodyheight"
 
 define "All Body Height Measurements All Statuses":
   ["observation-bodyheight"] 
@@ -472,7 +468,7 @@ define "Medical Record Number":
   Patient.identifier.where(type ~ UC.MedicalRecordNumber).single().value
 
 define "Most Recent BSA":
-  convert ([FHIR.Observation: "Body surface area"]).resulted().mostRecent().value to 'm2'
+  convert (([FHIR.Observation: "Body surface area"]).resulted().mostRecent() as FHIR.Observation).value to 'm2'
 
 define function CalculateBSA(alg System.String, height System.Quantity, weight System.Quantity):
   System.Quantity { value: 
@@ -494,7 +490,7 @@ define "All ServiceRequests":
   [FHIR.ServiceRequest]
 
 define "Most Recent ServiceRequest":
-  UC.MostRecentSR("All ServiceRequests")
+  UC.MostRecent("All ServiceRequests")
 
 define "Requesting Provider Practitioner"://assuming the requester is a practitioner
   [PractitionerProfile] P
