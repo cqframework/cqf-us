@@ -5,6 +5,69 @@
     {
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
       "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/GMTPInitialExpressions"
+    },
+    {
+      "extension": [
+        {
+          "url": "name",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "code": "patient",
+            "display": "Patient"
+          }
+        },
+        {
+          "url": "type",
+          "valueCode": "Patient"
+        },
+        {
+          "url": "description",
+          "valueString": "The patient that is to be used to pre-populate the form"
+        }
+      ],
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext"
+    },
+    {
+      "extension": [
+        {
+          "url": "name",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "code": "Coverage",
+            "display": "Coverage"
+          }
+        },
+        {
+          "url": "type",
+          "valueCode": "Coverage"
+        },
+        {
+          "url": "description",
+          "valueString": "The Coverage that is to be used to pre-populate the form"
+        }
+      ],
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext"
+    },
+    {
+      "extension": [
+        {
+          "url": "name",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "code": "ServiceRequest",
+            "display": "ServiceRequest"
+          }
+        },
+        {
+          "url": "type",
+          "valueCode": "ServiceRequest"
+        },
+        {
+          "url": "description",
+          "valueString": "The ServiceRequest that is to be used to pre-populate the form"
+        }
+      ],
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext"
     }
   ],
   "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/GMTPQuestionnaire",
@@ -14,7 +77,6 @@
   "status": "active",
   "experimental": true,
   "date": "2023-10-12T00:00:00+00:00",
-  "publisher": "Smile Digital Health",
   "description": "Automated online preauthorization is available for some tests. Please log into the Availity Portal at Availity.com for a list of available questionnaires. If the appropriate questionnaire is not available, please complete this form.",
   "item": [
     {

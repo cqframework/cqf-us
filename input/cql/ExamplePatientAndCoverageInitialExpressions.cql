@@ -12,6 +12,8 @@ codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 code "Member Number": 'MB' from "Identifier Type"
 code "Subscriber Number": 'SN' from "Identifier Type"
 
+parameter "Coverage" FHIR.Coverage
+
 context Patient
 
 // Patient
@@ -47,11 +49,13 @@ define "Postal Code":
   Patient.address.postalCode
 
 // Coverage
+// define "Coverage":
+//   First(clinical C where C is FHIR.Coverage)
 
 // TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form?
 define "Member ID":
-  UCE."Member ID"
+  UCE.MemberID(Coverage)
 
 // TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form?
 define "Policy Number":
-  UCE."Policy Number"
+  UCE.PolicyNumber(Coverage)

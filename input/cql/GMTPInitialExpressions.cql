@@ -11,6 +11,9 @@ codesystem "LOINC": 'http://loinc.org'
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 code "Member Number": 'MB' from "Identifier Type"
 
+parameter "Coverage" FHIR.Coverage
+parameter "ServiceRequest" FHIR.ServiceRequest
+
 context Patient
 
 define "All Problem List Items":
@@ -34,11 +37,18 @@ define "Patient history":
       abatement: ToString(if prevalence.hasEnd() then end of prevalence else null)
     }
 
+define "Most Recent ServiceRequest":
+  ServiceRequest
+  //UCE.MostRecentSR(ServiceRequest)
+
+define "Requesting Provider":
+  UCE.RequestingProvider("Most Recent ServiceRequest")
+
 define "Requesting Provider Name":
-  UCE."Requesting Provider".name.family 
+  "Requesting Provider".name.family
 
 define "Requesting Provider Phone":
-  UC.Mobile(UCE."Requesting Provider".telecom).value
+  UC.Mobile("Requesting Provider".telecom).value
   //This definition looks for #mobile, but wouldn't a practitioner be #work?
 /*
 define "Requesting Provider Address":
@@ -48,20 +58,23 @@ define "Requesting Provider Address":
   { 'TODO: remove hard-coded address' }
 
 define "Requesting Provider NPI":
-  UCE."Requesting Provider".identifier I 
+  "Requesting Provider".identifier I 
   where I.system = 'http://hl7.org/fhir/sid/us-npi'
   return I.value
 
 define "Requesting Provider Fax":
-  UCE."Requesting Provider".telecom T
+  "Requesting Provider".telecom T
   where T.system = 'fax'
   return T.value
 
+define "Servicing Provider":
+  UCE.ServicingProvider("Most Recent ServiceRequest")
+
 define "Servicing Provider Name":
-  UCE."Servicing Provider".name
+  "Servicing Provider".name
 
 define "Servicing Provider Phone":
-  UC.Mobile(UCE."Servicing Provider".telecom).value
+  UC.Mobile("Servicing Provider".telecom).value
 
 // TODO: Error: Could not resolve data provider for package 'java.util'.
 /*
@@ -72,20 +85,23 @@ define "Servicing Provider Address":
   { 'TODO: remove hard-coded address' }
 
 define "Servicing Provider NPI":
-  UCE."Servicing Provider".identifier I 
+  "Servicing Provider".identifier I 
   where I.system = 'http://hl7.org/fhir/sid/us-npi'
   return I.value
 
 define "Servicing Provider Fax":
-  UCE."Servicing Provider".telecom T
+  "Servicing Provider".telecom T
   where T.system = 'fax'
   return T.value
 
+define "Billing Provider":
+  UCE.BillingProvider(Coverage)
+
 define "Billing Provider Name":
-  UCE."Billing Provider".name
+  "Billing Provider".name
 
 define "Billing Provider Phone":
-  UC.Mobile(UCE."Billing Provider".telecom).value
+  UC.Mobile("Billing Provider".telecom).value
 
 // TODO: Error: Could not resolve data provider for package 'java.util'.
 /*
@@ -96,21 +112,20 @@ define "Billing Provider Address":
   { 'TODO: remove hard-coded address' }
 
 define "Billing Provider NPI":
-  UCE."Billing Provider".identifier I 
+  "Billing Provider".identifier I 
   where I.system = 'http://hl7.org/fhir/sid/us-npi'
   return I.value
 
 define "Billing Provider Fax":
-  UCE."Billing Provider".telecom T
+  "Billing Provider".telecom T
   where T.system = 'fax'
   return T.value
 
 define "Date of Service":
-  UCE."Most Recent ServiceRequest".occurrence.value
+  ServiceRequest.occurrence.value
 
 define "Requested Test":
-  UCE."Most Recent ServiceRequest" SR
-  return SR.code
+  ServiceRequest.code
 
 define "Test ID":
   Combine("Requested Test".coding.code.value, ', ') 
@@ -135,14 +150,14 @@ define "Test CPT Codes":
   return C
 
 define "Test Related Condition":
-  UCE."Test Related Condition"
+  UCE.RelatedCondition("Most Recent ServiceRequest")
   //.reasonReference changed to .reason in FHIR R5
 
 define "Diagnosis Descriptions":
   "Test Related Condition".code.coding.display.value
 
 define "Billing Provider different from Servicing Provider":
-  if UCE."Billing Provider".id != UCE."Servicing Provider".id then
+  if "Billing Provider".id != First("Servicing Provider".id) then
   'Yes'
   else 
   'No'
@@ -152,12 +167,12 @@ define "Clinical Trial Organization":
     with "Clinical Trial"  T such that EndsWith(T.sponsor.reference, O.id))  
  //in FHIR R5 T.associatedParty instead of T.sponsor 
 
-define "BillingProvider is Clinical Trial Organisation":
-  UCE."Billing Provider" = "Clinical Trial Organization"
+define "BillingProvider is Clinical Trial Organization":
+  "Billing Provider" = "Clinical Trial Organization"
 
 //TODO does not get populated properly
 define "Part of clinical trial":
- if "Is Research Subject" and "BillingProvider is Clinical Trial Organisation" then
+ if "Is Research Subject" and "BillingProvider is Clinical Trial Organization" then
  'Yes'
  else
  'No'
@@ -182,7 +197,7 @@ define "Clinical Trial ID":
 define "Previous genetic testing for condition":
   from 
     UCE."All ServiceRequests" S,
-    UCE."Most Recent ServiceRequest" SR 
+    ServiceRequest SR
   where S.occurrence before SR.occurrence
     and S.id != SR.id
     and S.reasonReference = SR.reasonReference

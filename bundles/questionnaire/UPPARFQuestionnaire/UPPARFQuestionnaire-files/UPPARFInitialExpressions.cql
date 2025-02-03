@@ -21,7 +21,6 @@ code "Subscriber Number": 'SN' from "Identifier Type"
 code "Confirmed": 'confirmed' from "Verification Status"
 code "Active": 'active' from "Condition Clinical"
 
-
 context Patient
 
 define "Urgency":
