@@ -14,8 +14,8 @@ Adding new content to this IG involves several steps. There are multiple ways to
     * In `bundles/questionnaires`, a new folder with the Questionnaire name is create, which includes a bundle containing the FHIR Library with the CQL content and the related dependency libraries. 
     * In the Library's test folder, a test bundle appears that contains all test resources in one file.
 10. Start a local instance of the [Clinical Reasoning enabled HAPI JPA Server Starter](https://github.com/hapifhir/hapi-fhir-jpaserver-starter?tab=readme-ov-file#enabling-clinical-reasoning) (e.g. by using Docker) or use a publicly available FHIR server that supports CQL processing and the [SDC `$populate` operation](https://hl7.org/fhir/uv/sdc/OperationDefinition-Questionnaire-populate.html).
-11. Use a REST tool such as Postman to POST the two bundles described in step #8.
-12. Test and see if the operation `$populate` for your questionnaire results in the expected initial values for each item. A complete sample Postman collection for a different Questionnaire can be found [here](./postman/UPPARFPopulate.postman_collection.json). This collection also contains automated tests to highlight what to look for. 
+11. Use a REST tool such as Postman to POST the two bundles described in step #9.
+12. Test and see if the operation `$populate` for your questionnaire results in the expected initial values for each item. A complete sample Postman collection for a different Questionnaire can be found [here](./postman/USCoreGMTPQuestionnaire.postman_collection.json). This collection also contains automated tests to highlight what to look for. 
 
 #### Frequent Errors
 

@@ -72,11 +72,11 @@ define "Date":
   Today()
 
 //helper definitions
-define "All ServiceRequests":
-  [FHIR.ServiceRequest]
+// define "All ServiceRequests":
+//   [FHIR.ServiceRequest]
 
-define "Most Recent ServiceRequest":
-  UC.MostRecent("All ServiceRequests")
+// define "Most Recent ServiceRequest":
+//   UC.MostRecent("All ServiceRequests")
 
 define "SR Related Condition":
   [FHIR.Condition] C
