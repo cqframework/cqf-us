@@ -5,6 +5,48 @@
     {
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
       "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/ExamplePatientAndCoverageInitialExpressions"
+    },
+    {
+      "extension": [
+        {
+          "url": "name",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "code": "patient",
+            "display": "Patient"
+          }
+        },
+        {
+          "url": "type",
+          "valueCode": "Patient"
+        },
+        {
+          "url": "description",
+          "valueString": "The patient that is to be used to pre-populate the form"
+        }
+      ],
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext"
+    },
+    {
+      "extension": [
+        {
+          "url": "name",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "code": "Coverage",
+            "display": "Coverage"
+          }
+        },
+        {
+          "url": "type",
+          "valueCode": "Coverage"
+        },
+        {
+          "url": "description",
+          "valueString": "The coverage that is to be used to pre-populate the form"
+        }
+      ],
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext"
     }
   ],
   "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/ExamplePatientAndCoverageQuestionnaire",
@@ -14,7 +56,6 @@
   "status": "active",
   "experimental": true,
   "date": "2024-09-16T00:00:00+00:00",
-  "publisher": "Smile Digital Health",
   "description": "For the Prior Authorization Questionnaire Use Case, this type of in-context information is expected to be known already so it wouldn't typically be in a Questionnaire. This example illustrates how to get this information if it is needed.",
   "item": [
     {

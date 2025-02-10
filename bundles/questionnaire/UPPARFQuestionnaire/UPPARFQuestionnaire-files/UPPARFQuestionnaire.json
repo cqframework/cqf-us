@@ -5,6 +5,27 @@
     {
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-library",
       "valueCanonical": "http://fhir.org/guides/cqf/us/common/Library/UPPARFInitialExpressions"
+    },
+    {
+      "extension": [
+        {
+          "url": "name",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "code": "patient",
+            "display": "Patient"
+          }
+        },
+        {
+          "url": "type",
+          "valueCode": "Patient"
+        },
+        {
+          "url": "description",
+          "valueString": "The patient that is to be used to pre-populate the form"
+        }
+      ],
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext"
     }
   ],
   "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/UPPARFQuestionnaire",
@@ -14,7 +35,6 @@
   "status": "active",
   "experimental": true,
   "date": "2023-10-19T00:00:00+00:00",
-  "publisher": "Smile Digital Health",
   "description": "Humana Uniform Pharmacy Prior Authorization Request Form",
   "item": [
     {

@@ -15,70 +15,72 @@ code "Member Number": 'MB' from "Identifier Type"
 code "UTI": 'T83.5' from "ICD10"
 code "Abnormal Urine Finding": '102866000' from "SNOMED CT"
 
+parameter "ServiceRequest" FHIR.ServiceRequest
+
 context Patient
 
 define "Date of Request":
-"Most Recent ServiceRequest".authoredOn
+  ServiceRequest.authoredOn
 
 //https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf
 
 define "Diagnosis":
-First("SR Related Condition".code).text.value
+  First("SR Related Condition".code).text.value
 
 define "Item Requested":
-"Most Recent ServiceRequest".code.coding.display.value
+  ServiceRequest.code.coding.display.value
 
 define "UTI in Last Year":
-Exists("UTI Diagnostic Reports Last Year")
+  Exists("UTI Diagnostic Reports Last Year")
 
 define "Lab Reports UTIs":
-"UTI Diagnostic Reports Last Year".presentedForm
+  "UTI Diagnostic Reports Last Year".presentedForm
 
 define "Dates of UTIs":
-"UTI Diagnostic Reports Last Year".effective.value
+  "UTI Diagnostic Reports Last Year".effective.value
 
 //TODO: create example MedicationStatement
 define "Antibiotics Used":
-[FHIR.MedicationStatement] MS
-where First(MS.reasonReference.reference) in "UTI Diagnostic Reports Last Year".id
+  [FHIR.MedicationStatement] MS
+    where First(MS.reasonReference.reference) in "UTI Diagnostic Reports Last Year".id
 
 define "Check Symptoms":
-'TBD'
+  'TBD'
 
 define "Fever Temperature":
-'TBD'
+  'TBD'
 
 define "Catheterization Frequency":
-'TBD'
+  'TBD'
 
 define "Additional Comment":
-'TBD'
+  'TBD'
 
 define "Physician Name":
-"Requesting Physician".name.family 
+  "Requesting Physician".name.family 
 
 define "Physician Telephone":
-UC.Mobile("Requesting Physician".telecom).value
+  UC.Mobile("Requesting Physician".telecom).value
 
 define "Physician Fax":
-Fax("Requesting Physician".telecom).value
+  Fax("Requesting Physician".telecom).value
 
 define "Referring Physician Telephone":
-'TBD'
+  'TBD'
 
 define "Date":
-Today()
+  Today()
 
 //helper definitions
-define "All ServiceRequests":
-  [FHIR.ServiceRequest]
+// define "All ServiceRequests":
+//   [FHIR.ServiceRequest]
 
-define "Most Recent ServiceRequest":
-  UC.MostRecentSR("All ServiceRequests")
+// define "Most Recent ServiceRequest":
+//   UC.MostRecent("All ServiceRequests")
 
 define "SR Related Condition":
   [FHIR.Condition] C
-  where EndsWith(First("Most Recent ServiceRequest".reasonReference.reference.value), C.id)
+  where EndsWith(First(ServiceRequest.reasonReference.reference.value), C.id)
 
 define "UTI Diagnostic Reports Last Year":
   [FHIR.DiagnosticReport] C
@@ -86,9 +88,9 @@ define "UTI Diagnostic Reports Last Year":
   and C.effective	> (Today() - 1 year)
 
 define "Requesting Physician":
-singleton from (
-  [USCore.PractitionerProfile] P
-where EndsWith("Most Recent ServiceRequest".requester.reference, P.id))
+  singleton from (
+    [USCore.PractitionerProfile] P
+  where EndsWith(ServiceRequest.requester.reference, P.id))
 
 define function Fax(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'fax')

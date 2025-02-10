@@ -453,19 +453,34 @@ define "Diastolic Blood Pressure":
 /* MBODA InitialExpressions */
 
 // TODO: Need to address how to identify which coverage is in use
-define "Coverage":
-  First(
-    [FHIR.Coverage] C
-      where EndsWith(C.beneficiary.reference, Patient.id)
-        and C.period includes Today()
-      sort by Coalesce(period.end, period.start) desc
-  )
+// define "Coverage":
+//   First(
+//     [FHIR.Coverage] C
+//       where EndsWith(C.beneficiary.reference, Patient.id)
+//         and C.period includes Today()
+//       sort by Coalesce(period.end, period.start) desc
+//   )
 
-define "Member ID":
-  Coverage.identifier.where(type ~ "Member Number").single().value
+// define "Member ID":
+//   Coverage.identifier.where(type ~ "Member Number").single().value
+
+define function MemberID(coverage FHIR.Coverage):
+  coverage.identifier.where(type ~ "Member Number").single().value
+
+define function PolicyNumber(coverage FHIR.Coverage):
+  singleton from (
+    coverage.identifier I
+      where I.type ~ "Subscriber Number"
+  ).value
 
 define "Medical Record Number":
   Patient.identifier.where(type ~ UC.MedicalRecordNumber).single().value
+
+define function MostRecentObservation(observations List<"FHIR.Observation">):
+  Last(
+    observations O
+      sort by issued
+  )
 
 define "Most Recent BSA":
   convert (([FHIR.Observation: "Body surface area"]).resulted().mostRecent() as FHIR.Observation).value to 'm2'
@@ -489,36 +504,66 @@ define function CalculateBSA(alg System.String, height System.Quantity, weight S
 define "All ServiceRequests":
   [FHIR.ServiceRequest]
 
-define "Most Recent ServiceRequest":
-  UC.MostRecent("All ServiceRequests")
+define function MostRecentSR(serviceRequests List<"FHIR.ServiceRequest">):
+  Last(
+    serviceRequests SR
+      // sort by authoredOn
+  )
 
-define "Requesting Provider Practitioner"://assuming the requester is a practitioner
+define fluent function mostRecentSR(serviceRequests List<"FHIR.ServiceRequest">):
+  Last(
+    serviceRequests SR
+      // sort by authoredOn
+  )
+
+// define "Most Recent ServiceRequest":
+//   UC.MostRecent("All ServiceRequests")
+
+// define "Requesting Provider Practitioner"://assuming the requester is a practitioner
+//   [PractitionerProfile] P
+//     where EndsWith("Most Recent ServiceRequest".requester.reference.value, P.id)
+
+define function RequestingProvider(serviceRequest FHIR.ServiceRequest):
   [PractitionerProfile] P
-    where EndsWith("Most Recent ServiceRequest".requester.reference.value, P.id)
+    where EndsWith(serviceRequest.requester.reference.value, P.id)
+
 /*
 define "Requesting Provider Organization":
   [OrganizationProfile] O
     where EndsWith("Most Recent ServiceRequest".requester.reference.value, O.id)
 */
 
-define "Requesting Provider":
-  "Requesting Provider Practitioner"
+// define "Requesting Provider":
+//   "Requesting Provider Practitioner"
 
-define "Servicing Provider"://assuming the servicing provider is a lab - (molecular/genetic testing)
-  singleton from ([OrganizationProfile] O
-    where EndsWith(First("Most Recent ServiceRequest".performer.reference.value), O.id))
+// define "Servicing Provider"://assuming the servicing provider is a lab - (molecular/genetic testing)
+//   singleton from ([OrganizationProfile] O
+//     where EndsWith(First("Most Recent ServiceRequest".performer.reference.value), O.id))
 
-define "Test Coverage":
-  [FHIR.Coverage] C
-    with "Most Recent ServiceRequest" SR such that EndsWith(First(SR.insurance.reference), C.id)
+define function ServicingProvider(serviceRequest FHIR.ServiceRequest):
+  [PractitionerProfile] P
+    where EndsWith(First(serviceRequest.performer.reference.value), P.id)
 
-define "Billing Provider":
+// define "Test Coverage":
+//   [FHIR.Coverage] C
+//     with "Most Recent ServiceRequest" SR such that EndsWith(First(SR.insurance.reference), C.id)
+
+// define "Billing Provider":
+//   singleton from([OrganizationProfile] O
+//     where EndsWith(First("Test Coverage".payor.reference.value), O.id))
+
+define function BillingProvider(coverage FHIR.Coverage):
   singleton from([OrganizationProfile] O
-    where EndsWith(First("Test Coverage".payor.reference.value), O.id))
+    where EndsWith(First(coverage.payor.reference.value), O.id))
 
-define "Test Related Condition":
+// define "Test Related Condition":
+//   [FHIR.Condition] C
+//     where EndsWith(First("Most Recent ServiceRequest".reasonReference.reference.value), C.id)
+//   //.reasonReference changed to .reason in FHIR R5
+
+define function RelatedCondition(serviceRequest FHIR.ServiceRequest):
   [FHIR.Condition] C
-    where EndsWith(First("Most Recent ServiceRequest".reasonReference.reference.value), C.id)
+    where EndsWith(First(serviceRequest.reasonReference.reference.value), C.id)
   //.reasonReference changed to .reason in FHIR R5
 
 define "Research Subject":
@@ -538,16 +583,16 @@ define "All Clinical Trials":
 define "Clinical Trial Organization":
   [OrganizationProfile] O
   
-define function "GetServiceRequestReasonCondition"(S ServiceRequest):
+define function "GetServiceRequestReasonCondition"(serviceRequest ServiceRequest):
   [FHIR.Condition] C
-  with  "Most Recent ServiceRequest" SR such that  EndsWith(First(SR.insurance.reference), C.id)
+    where EndsWith(First(serviceRequest.insurance.reference), C.id)
   return C
 
-define "Policy Number":
-  singleton from (
-    Coverage.identifier I
-      where I.type ~ "Subscriber Number"
-  )
+// define "Policy Number":
+//   singleton from (
+//     Coverage.identifier I
+//       where I.type ~ "Subscriber Number"
+//   )
 
 // May not be appropriate for the Elements library, this is based on identifying a medication request...
 define "Requester":

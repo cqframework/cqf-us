@@ -17,7 +17,7 @@ To address this, static analysis of the CQL can be used to determine the set of 
 
 TODO: Intrinsic library with names driven by linkIds that contains all the in-line CQL expressions and this is the library used to do dependency tracing
 
-* Minimzing the number of queries
+* Minimizing the number of queries
 * Leveraging server-side filters
 * Optimizing for initial question display
 * Managing query inter-dependencies to maximize performance
@@ -81,7 +81,7 @@ This data requirement can be satisfied with an appropriate FHIR query:
 [base]/Observation?subject=Patient/123&code:in=http://example.org/ValueSet/glucose-test-codes
 ```
 
-However, use of this approach requires that the EHR's FHIR server 1) supports the `:in` modifier for code-based searches, 2) either has or can get the Glucose Test Codes value set, and 3) can perform (or ask for) an appropriate expansion of the value set. To address the situtation where the EHR does not or cannot support code-based searching with value sets, the query may be executed by either:
+However, use of this approach requires that the EHR's FHIR server 1) supports the `:in` modifier for code-based searches, 2) either has or can get the Glucose Test Codes value set, and 3) can perform (or ask for) an appropriate expansion of the value set. To address the situation where the EHR does not or cannot support code-based searching with value sets, the query may be executed by either:
 
 1. Choosing a less-selective filter (such as `category=laboratory` in this case) (or no filter at all) and then filtering the result in the CQL
 

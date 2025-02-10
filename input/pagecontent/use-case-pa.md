@@ -41,18 +41,19 @@ Note: Implementations of $questionnaire-package may pre-populate elements of the
 
 #### CQL Processing to Pre-Populate the QuestionnaireResponse
 
-As part of the process of filling out a DTR questionnaire, the DTR application may use CQL expressions specified in the Questionnaire to access the provider's FHIR server to determine the initial value for items in the QuestionnaireResponse.
+As part of the process of filling out a DTR questionnaire, the DTR application may use CQL expressions specified in the Questionnaire to evaluate the context data to determine the initial value for items in the QuestionnaireResponse.
 
 CQL used in this operation:
 
 * Will have a Patient context specified as the id of the patient in the DTR launch context and referenced by the QuestionnaireResponse. This is declared as a parameter through the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-launchContext.html">Launch Context</a> extension.
     * For example, a Patient context specified in the DTR launch context will be correlated with an sdc-questionnaire-launchContext extension with a name of <code>patient</code> and a type of <code>Patient</code>, and thereby established as the <a href="https://cql.hl7.org/02-authorsguide.html#context">Patient context</a> for the CQL expressions specified in the Questionnaire. It would be the responsibility of the DTR application to reconcile such launch contexts.
 * May declare additional parameters through the SDC Launch Context extension.
-    * For example, an Encounter context specified in the DTR launch context may be correlated with an sdc-questionnaire-launchContext extension with a name of <code>encounter</code> and a type of <code>Encounter</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire.
-* May declare additional parameters through the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-itemPopulationContext.html">Item Population Context</a> extension.
-    * For example, an sdc-questionnaire-itemPopulationContext extension can be used to provide context to a group of related questions by querying for a record or records (e.g. Observations), and this provides a named parameter for use in specified CQL expressions for that group.
+    * For example, an Encounter context specified in the DTR launch context may be correlated with an `sdc-questionnaire-launchContext` extension with a name of <code>encounter</code> and a type of <code>Encounter</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire.
+    * Additionally, since this ValueSet is extensible, a Coverage context specified in the DTR launch context may be correlated with an `sdc-questionnaire-launchContext` extension with a name of <code>PrimaryCoverage</code> and a type of <code>Coverage</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire.
 
 Generally, the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-initialExpression.html">Initial Expression</a> extension will be used to pre-populate a given item in the QuestionnaireResponse. This is how CQL expressions are specified in the Questionnaire.
+
+Additionally, the SDC <a href="https://hl7.org/fhir/uv/sdc/StructureDefinition-sdc-questionnaire-itemPopulationContext.html">Item Population Context</a> extension can be used with a CQL expression to provide context when populating group items.
 
 #### CQL Processing to Determine Form Behavior
 
