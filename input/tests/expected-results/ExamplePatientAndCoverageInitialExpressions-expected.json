@@ -1,0 +1,66 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:ExamplePatientAndCoverageInitialExpressions:minimal-patient-example",
+      "resource": {
+        "resourceType": "Parameters",
+        "parameter": [
+          {
+            "name": "Address",
+            "valueString": "[534 Erewhon St]"
+          },
+          {
+            "name": "Birth Sex",
+            "valueString": "M"
+          },
+          {
+            "name": "City",
+            "valueString": "[PleasantVille]"
+          },
+          {
+            "name": "Date of Birth",
+            "valueString": "1974-12-25"
+          },
+          {
+            "name": "Email Address",
+            "valueString": "peter.chalmers@example.org"
+          },
+          {
+            "name": "Medical Record Number",
+            "valueString": "12345"
+          },
+          {
+            "name": "Member ID",
+            "valueString": "null"
+          },
+          {
+            "name": "Patient",
+            "valueString": "Patient(id=minimal-patient-example)"
+          },
+          {
+            "name": "Patient Name",
+            "valueString": "Peter James Chalmers"
+          },
+          {
+            "name": "Phone Number",
+            "valueString": "(03) 5555 6473"
+          },
+          {
+            "name": "Policy Number",
+            "valueString": "null"
+          },
+          {
+            "name": "Postal Code",
+            "valueString": "[84414]"
+          },
+          {
+            "name": "State",
+            "valueString": "[UT]"
+          }
+        ]
+      }
+    }
+  ]
+}
