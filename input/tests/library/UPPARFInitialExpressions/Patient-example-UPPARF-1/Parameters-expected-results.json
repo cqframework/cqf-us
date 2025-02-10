@@ -1,0 +1,153 @@
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "Diagnosis Descriptions",
+            "valueString": "[Transient Hypothyroidism]"
+        },
+        {
+            "name": "Dosage Unit",
+            "valueString": "ml"
+        },
+        {
+            "name": "Dosage Value as String",
+            "valueString": "5"
+        },
+        {
+            "name": "Dose",
+            "valueString": "5"
+        },
+        {
+            "name": "Frequency",
+            "valueString": "3 times per 1d"
+        },
+        {
+            "name": "ICD 10 Codes",
+            "valueString": "[]"
+        },
+        {
+            "name": "Initial Request Date",
+            "valueString": "2020-04-05T00:00:00.000"
+        },
+        {
+            "name": "Is First Prior Authentication",
+            "valueString": "false"
+        },
+        {
+            "name": "Is First Request > 12 Months",
+            "valueString": "true"
+        },
+        {
+            "name": "Is Opioid Treatment",
+            "valueString": "null"
+        },
+        {
+            "name": "Most Recent Dosage Instruction",
+            "valueString": "Dosage"
+        },
+        {
+            "name": "Most Recent Medication",
+            "valueString": "Medication(id=Medication-nizatidine)"
+        },
+        {
+            "name": "Most Recent Medication Name",
+            "valueString": "Nizatidine 15 MG/ML Oral Solution [Axid]"
+        },
+        {
+            "name": "Most Recent Medication Request",
+            "valueString": "MedicationRequest(id=MedicationRequest-2-nizatidine)"
+        },
+        {
+            "name": "Patient",
+            "valueString": "Patient(id=Patient-example-UPPARF-1)"
+        },
+        {
+            "name": "Prescriber Address",
+            "valueString": "TODO: remove hard coded address"
+        },
+        {
+            "name": "Prescriber Contact",
+            "valueString": "TODO: remove hard coded contact"
+        },
+        {
+            "name": "Prescriber DEA",
+            "valueString": "null"
+        },
+        {
+            "name": "Prescriber Email Address",
+            "valueString": "example.practitioner@gmail.com"
+        },
+        {
+            "name": "Prescriber Fax",
+            "valueString": "(03) 123 654 234"
+        },
+        {
+            "name": "Prescriber NPI",
+            "valueString": "9941339108"
+        },
+        {
+            "name": "Prescriber Name",
+            "valueString": "Voigt"
+        },
+        {
+            "name": "Prescriber Pager",
+            "valueString": "234325"
+        },
+        {
+            "name": "Prescriber Phone",
+            "valueString": "(03) 123 645"
+        },
+        {
+            "name": "Prescriber Specialty",
+            "valueString": "null"
+        },
+        {
+            "name": "Prescriber Tax ID",
+            "valueString": "1tg1556"
+        },
+        {
+            "name": "Prescription Date",
+            "valueString": "2023-04-05T00:00:00.000"
+        },
+        {
+            "name": "Prior Prescription",
+            "valueString": "Reference"
+        },
+        {
+            "name": "Refills",
+            "valueString": "1"
+        },
+        {
+            "name": "Request Type",
+            "valueString": "Reauthorization"
+        },
+        {
+            "name": "Requester",
+            "valueString": "Practitioner(id=Practitioner-1)"
+        },
+        {
+            "name": "RequesterRole",
+            "valueString": "null"
+        },
+        {
+            "name": "Route",
+            "valueString": "null"
+        },
+        {
+            "name": "Start Date and Length",
+            "valueString": "null"
+        },
+        {
+            "name": "Today",
+            "valueString": "2025-02-10"
+        },
+        {
+            "name": "Unit Volume of Named Drugs",
+            "valueString": "5ml"
+        },
+        {
+            "name": "Urgency",
+            "valueString": "Urgent"
+        }
+    ]
+}

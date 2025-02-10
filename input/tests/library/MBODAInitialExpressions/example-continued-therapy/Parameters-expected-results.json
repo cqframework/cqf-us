@@ -1,0 +1,153 @@
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "Allergies",
+            "valueString": "[Cashew nuts]"
+        },
+        {
+            "name": "Anticipated/actual date of service",
+            "valueString": "2023-04-05"
+        },
+        {
+            "name": "BMI",
+            "valueString": "[]"
+        },
+        {
+            "name": "BSA",
+            "valueString": "0.78812043 'm2'"
+        },
+        {
+            "name": "BSA in m2",
+            "valueString": "0.78812043"
+        },
+        {
+            "name": "Calculated BSA - DuBois and DuBois",
+            "valueString": "0.78678104 'm2'"
+        },
+        {
+            "name": "Calculated BSA - Mosteller",
+            "valueString": "0.78812043 'm2'"
+        },
+        {
+            "name": "Code of Requested Drug",
+            "valueString": "[Concept {\n\tCode { code: 582620, system: http://www.nlm.nih.gov/research/umls/rxnorm, version: null, display: Nizatidine 15 MG/ML Oral Solution [Axid] }\n}]"
+        },
+        {
+            "name": "Diagnosis Codes",
+            "valueString": "[Concept {\n\tCode { code: 39065001, system: http://snomed.info/sct, version: null, display: Burn of ear }\n}]"
+        },
+        {
+            "name": "Diagnosis Descriptions",
+            "valueString": "[Burn of ear]"
+        },
+        {
+            "name": "Expected Therapy Length",
+            "valueString": "59 'd'"
+        },
+        {
+            "name": "Height",
+            "valueString": "43.9 '[in_i]'"
+        },
+        {
+            "name": "Height in [in_i]",
+            "valueString": "43.9"
+        },
+        {
+            "name": "Height in cm",
+            "valueString": "112 'cm'"
+        },
+        {
+            "name": "Initial date of therapy",
+            "valueString": "[2009-04-05T00:00:00.000]"
+        },
+        {
+            "name": "Last Name",
+            "valueString": "Chalmers"
+        },
+        {
+            "name": "Medication Dose",
+            "valueString": "5 'ml'"
+        },
+        {
+            "name": "Medication Frequency",
+            "valueString": "3x per 1 d"
+        },
+        {
+            "name": "Medication Frequency Period",
+            "valueString": "1 'd'"
+        },
+        {
+            "name": "Medication Frequency value",
+            "valueString": "3"
+        },
+        {
+            "name": "Medication Name",
+            "valueString": "[Nizatidine 15 MG/ML Oral Solution [Axid]]"
+        },
+        {
+            "name": "Medication Request Period",
+            "valueString": "Interval[2023-04-05, 2023-06-03]"
+        },
+        {
+            "name": "Medication Request References",
+            "valueString": "Medication/uscore-med2-continued-therapy"
+        },
+        {
+            "name": "Medication Requested",
+            "valueString": "[Medication(id=uscore-med2-continued-therapy)]"
+        },
+        {
+            "name": "Medication Route",
+            "valueString": "Concept {\n\tCode { code: 394899003, system: http://snomed.info/sct, version: null, display: oral administration of treatment }\n}"
+        },
+        {
+            "name": "Most Recent BSA",
+            "valueString": "null"
+        },
+        {
+            "name": "Most Recent Medication Request",
+            "valueString": "MedicationRequest(id=uscore-mo2-with-dosage-continued-therapy)"
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction",
+            "valueString": "Dosage"
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction.doseAndRate",
+            "valueString": "Dosage.doseAndRate"
+        },
+        {
+            "name": "New therapy",
+            "valueString": "false"
+        },
+        {
+            "name": "New therapy code",
+            "valueString": "Code { code: ContinuedTherapy, system: null, version: null, display: Continuation of therapy }"
+        },
+        {
+            "name": "Patient",
+            "valueString": "Patient(id=example-continued-therapy)"
+        },
+        {
+            "name": "Prior Prescription",
+            "valueString": "Reference"
+        },
+        {
+            "name": "Quantity or Number of requested Visits",
+            "valueString": "480 'mL'"
+        },
+        {
+            "name": "Weight",
+            "valueString": "44.30000 '[lb_av]'"
+        },
+        {
+            "name": "Weight in [lb_av]",
+            "valueString": "44.30000"
+        },
+        {
+            "name": "Weight in kg",
+            "valueString": "20.09414 'kg'"
+        }
+    ]
+}

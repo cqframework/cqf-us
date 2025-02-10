@@ -1,0 +1,153 @@
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "Allergies",
+            "valueString": "[Cashew nuts]"
+        },
+        {
+            "name": "Anticipated/actual date of service",
+            "valueString": "null"
+        },
+        {
+            "name": "BMI",
+            "valueString": "[]"
+        },
+        {
+            "name": "BSA",
+            "valueString": "1.97292062 'm2'"
+        },
+        {
+            "name": "BSA in m2",
+            "valueString": "1.97292062"
+        },
+        {
+            "name": "Calculated BSA - DuBois and DuBois",
+            "valueString": "1.96415720 'm2'"
+        },
+        {
+            "name": "Calculated BSA - Mosteller",
+            "valueString": "1.97292062 'm2'"
+        },
+        {
+            "name": "Code of Requested Drug",
+            "valueString": "[]"
+        },
+        {
+            "name": "Diagnosis Codes",
+            "valueString": "[Concept {\n\tCode { code: I10, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Essential (primary) hypertension }\n}]"
+        },
+        {
+            "name": "Diagnosis Descriptions",
+            "valueString": "[Essential (primary) hypertension]"
+        },
+        {
+            "name": "Expected Therapy Length",
+            "valueString": "null"
+        },
+        {
+            "name": "Height",
+            "valueString": "69.1 '[in_i]'"
+        },
+        {
+            "name": "Height in [in_i]",
+            "valueString": "69.1"
+        },
+        {
+            "name": "Height in cm",
+            "valueString": "176 'cm'"
+        },
+        {
+            "name": "Initial date of therapy",
+            "valueString": "null"
+        },
+        {
+            "name": "Last Name",
+            "valueString": "Chalmers"
+        },
+        {
+            "name": "Medication Dose",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Frequency",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Frequency Period",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Frequency value",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Name",
+            "valueString": "[]"
+        },
+        {
+            "name": "Medication Request Period",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Request References",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Requested",
+            "valueString": "[]"
+        },
+        {
+            "name": "Medication Route",
+            "valueString": "null"
+        },
+        {
+            "name": "Most Recent BSA",
+            "valueString": "null"
+        },
+        {
+            "name": "Most Recent Medication Request",
+            "valueString": "MedicationRequest(id=MedRequest-example)"
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction",
+            "valueString": "Dosage"
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction.doseAndRate",
+            "valueString": "null"
+        },
+        {
+            "name": "New therapy",
+            "valueString": "true"
+        },
+        {
+            "name": "New therapy code",
+            "valueString": "Code { code: NewMedication, system: null, version: null, display: New Medication }"
+        },
+        {
+            "name": "Patient",
+            "valueString": "Patient(id=USCorePatient-1)"
+        },
+        {
+            "name": "Prior Prescription",
+            "valueString": "null"
+        },
+        {
+            "name": "Quantity or Number of requested Visits",
+            "valueString": "null"
+        },
+        {
+            "name": "Weight",
+            "valueString": "176.369809747902064578379 '[lb_av]'"
+        },
+        {
+            "name": "Weight in [lb_av]",
+            "valueString": "176.369809747902064578379"
+        },
+        {
+            "name": "Weight in kg",
+            "valueString": "80.0000000000000000000000 'kg'"
+        }
+    ]
+}

@@ -1,0 +1,153 @@
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "Allergies",
+            "valueString": "[]"
+        },
+        {
+            "name": "Anticipated/actual date of service",
+            "valueString": "null"
+        },
+        {
+            "name": "BMI",
+            "valueString": "[]"
+        },
+        {
+            "name": "BSA",
+            "valueString": "null 'm2'"
+        },
+        {
+            "name": "BSA in m2",
+            "valueString": "null"
+        },
+        {
+            "name": "Calculated BSA - DuBois and DuBois",
+            "valueString": "null 'm2'"
+        },
+        {
+            "name": "Calculated BSA - Mosteller",
+            "valueString": "null 'm2'"
+        },
+        {
+            "name": "Code of Requested Drug",
+            "valueString": "[]"
+        },
+        {
+            "name": "Diagnosis Codes",
+            "valueString": "[Concept {\n\tCode { code: O24.414, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Gestational diabetes mellitus in pregnancy, insulin controlled }\n}]"
+        },
+        {
+            "name": "Diagnosis Descriptions",
+            "valueString": "[Gestational diabetes mellitus in pregnancy, insulin controlled]"
+        },
+        {
+            "name": "Expected Therapy Length",
+            "valueString": "null"
+        },
+        {
+            "name": "Height",
+            "valueString": "null"
+        },
+        {
+            "name": "Height in [in_i]",
+            "valueString": "null"
+        },
+        {
+            "name": "Height in cm",
+            "valueString": "null"
+        },
+        {
+            "name": "Initial date of therapy",
+            "valueString": "null"
+        },
+        {
+            "name": "Last Name",
+            "valueString": "Elizabeth"
+        },
+        {
+            "name": "Medication Dose",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Frequency",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Frequency Period",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Frequency value",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Name",
+            "valueString": "[]"
+        },
+        {
+            "name": "Medication Request Period",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Request References",
+            "valueString": "null"
+        },
+        {
+            "name": "Medication Requested",
+            "valueString": "[]"
+        },
+        {
+            "name": "Medication Route",
+            "valueString": "null"
+        },
+        {
+            "name": "Most Recent BSA",
+            "valueString": "null"
+        },
+        {
+            "name": "Most Recent Medication Request",
+            "valueString": "null"
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction",
+            "valueString": "null"
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction.doseAndRate",
+            "valueString": "null"
+        },
+        {
+            "name": "New therapy",
+            "valueString": "true"
+        },
+        {
+            "name": "New therapy code",
+            "valueString": "Code { code: NewMedication, system: null, version: null, display: New Medication }"
+        },
+        {
+            "name": "Patient",
+            "valueString": "Patient(id=USCorePatient-2)"
+        },
+        {
+            "name": "Prior Prescription",
+            "valueString": "null"
+        },
+        {
+            "name": "Quantity or Number of requested Visits",
+            "valueString": "null"
+        },
+        {
+            "name": "Weight",
+            "valueString": "176.810734272271819739825 '[lb_av]'"
+        },
+        {
+            "name": "Weight in [lb_av]",
+            "valueString": "176.810734272271819739825"
+        },
+        {
+            "name": "Weight in kg",
+            "valueString": "80.2000000000000000000000 'kg'"
+        }
+    ]
+}

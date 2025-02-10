@@ -1,0 +1,149 @@
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "ALL ICD and CPT Test Codes",
+            "valueString": "[]"
+        },
+        {
+            "name": "All Problem List Items",
+            "valueString": "[]"
+        },
+        {
+            "name": "Billing Provider Address",
+            "valueString": "[TODO: remove hard-coded address]"
+        },
+        {
+            "name": "Billing Provider Fax",
+            "valueString": "[+1 (123) 4567890]"
+        },
+        {
+            "name": "Billing Provider NPI",
+            "valueString": "[1144221849]"
+        },
+        {
+            "name": "Billing Provider Name",
+            "valueString": "Oak Street Billing Provider"
+        },
+        {
+            "name": "Billing Provider Phone",
+            "valueString": "+1 (123) 4567890"
+        },
+        {
+            "name": "Billing Provider different from Servicing Provider",
+            "valueString": "No"
+        },
+        {
+            "name": "BillingProvider is Clinical Trial Organisation",
+            "valueString": "null"
+        },
+        {
+            "name": "Clinical Trial",
+            "valueString": "[]"
+        },
+        {
+            "name": "Clinical Trial ID",
+            "valueString": "[]"
+        },
+        {
+            "name": "Clinical Trial Organization",
+            "valueString": "null"
+        },
+        {
+            "name": "Date of Service",
+            "valueString": "2013-04-05"
+        },
+        {
+            "name": "Diagnosis Descriptions",
+            "valueString": "[]"
+        },
+        {
+            "name": "Is Research Subject",
+            "valueString": "false"
+        },
+        {
+            "name": "Part of clinical trial",
+            "valueString": "No"
+        },
+        {
+            "name": "Patient",
+            "valueString": "null"
+        },
+        {
+            "name": "Patient history",
+            "valueString": "[]"
+        },
+        {
+            "name": "Previous genetic testing for condition",
+            "valueString": "[]"
+        },
+        {
+            "name": "Requested Test",
+            "valueString": "CodeableConcept"
+        },
+        {
+            "name": "Requesting Provider Address",
+            "valueString": "[TODO: remove hard-coded address]"
+        },
+        {
+            "name": "Requesting Provider Fax",
+            "valueString": "[555-555-5672]"
+        },
+        {
+            "name": "Requesting Provider NPI",
+            "valueString": "[]"
+        },
+        {
+            "name": "Requesting Provider Name",
+            "valueString": "[Kathy]"
+        },
+        {
+            "name": "Requesting Provider Phone",
+            "valueString": "555-555-5672"
+        },
+        {
+            "name": "Research Subject",
+            "valueString": "[]"
+        },
+        {
+            "name": "Servicing Provider Address",
+            "valueString": "[TODO: remove hard-coded address]"
+        },
+        {
+            "name": "Servicing Provider Fax",
+            "valueString": "[+1 (123) 4567890]"
+        },
+        {
+            "name": "Servicing Provider NPI",
+            "valueString": "[1144221849]"
+        },
+        {
+            "name": "Servicing Provider Name",
+            "valueString": "Oak Street Billing Provider"
+        },
+        {
+            "name": "Servicing Provider Phone",
+            "valueString": "+1 (123) 4567890"
+        },
+        {
+            "name": "Test CPT Codes",
+            "valueString": "[]"
+        },
+        {
+            "name": "Test ICD Codes",
+            "valueString": "[]"
+        },
+        {
+            "name": "Test ID",
+            "valueString": "80146002"
+        },
+        {
+            "name": "Test Related Condition",
+            "valueString": "[]"
+        },
+        {
+            "name": "Test name",
+            "valueString": "Excision of appendix (procedure)"
+        }
+    ]
+}

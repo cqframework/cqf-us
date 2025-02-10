@@ -1,0 +1,153 @@
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "Diagnosis Descriptions",
+            "valueString": "[Burnt Ear]"
+        },
+        {
+            "name": "Dosage Unit",
+            "valueString": "ml"
+        },
+        {
+            "name": "Dosage Value as String",
+            "valueString": "5"
+        },
+        {
+            "name": "Dose",
+            "valueString": "5"
+        },
+        {
+            "name": "Frequency",
+            "valueString": "3 times per 1d"
+        },
+        {
+            "name": "ICD 10 Codes",
+            "valueString": "[T20.21]"
+        },
+        {
+            "name": "Initial Request Date",
+            "valueString": "null"
+        },
+        {
+            "name": "Is First Prior Authentication",
+            "valueString": "true"
+        },
+        {
+            "name": "Is First Request > 12 Months",
+            "valueString": "null"
+        },
+        {
+            "name": "Is Opioid Treatment",
+            "valueString": "null"
+        },
+        {
+            "name": "Most Recent Dosage Instruction",
+            "valueString": "Dosage"
+        },
+        {
+            "name": "Most Recent Medication",
+            "valueString": "Medication(id=nizatidine)"
+        },
+        {
+            "name": "Most Recent Medication Name",
+            "valueString": "Nizatidine 15 MG/ML Oral Solution [Axid]"
+        },
+        {
+            "name": "Most Recent Medication Request",
+            "valueString": "MedicationRequest(id=reference-nizatidine)"
+        },
+        {
+            "name": "Patient",
+            "valueString": "Patient(id=example)"
+        },
+        {
+            "name": "Prescriber Address",
+            "valueString": "TODO: remove hard coded address"
+        },
+        {
+            "name": "Prescriber Contact",
+            "valueString": "TODO: remove hard coded contact"
+        },
+        {
+            "name": "Prescriber DEA",
+            "valueString": "null"
+        },
+        {
+            "name": "Prescriber Email Address",
+            "valueString": "example.practitioner@gmail.com"
+        },
+        {
+            "name": "Prescriber Fax",
+            "valueString": "(03) 123 654 234"
+        },
+        {
+            "name": "Prescriber NPI",
+            "valueString": "9941339108"
+        },
+        {
+            "name": "Prescriber Name",
+            "valueString": "Voigt"
+        },
+        {
+            "name": "Prescriber Pager",
+            "valueString": "234325"
+        },
+        {
+            "name": "Prescriber Phone",
+            "valueString": "(03) 123 645"
+        },
+        {
+            "name": "Prescriber Specialty",
+            "valueString": "General Practice"
+        },
+        {
+            "name": "Prescriber Tax ID",
+            "valueString": "1tg1556"
+        },
+        {
+            "name": "Prescription Date",
+            "valueString": "2023-04-05T00:00:00.000"
+        },
+        {
+            "name": "Prior Prescription",
+            "valueString": "null"
+        },
+        {
+            "name": "Refills",
+            "valueString": "1"
+        },
+        {
+            "name": "Request Type",
+            "valueString": "New Request"
+        },
+        {
+            "name": "Requester",
+            "valueString": "Practitioner(id=practitioner-1)"
+        },
+        {
+            "name": "RequesterRole",
+            "valueString": "PractitionerRole(id=example)"
+        },
+        {
+            "name": "Route",
+            "valueString": "null"
+        },
+        {
+            "name": "Start Date and Length",
+            "valueString": "null"
+        },
+        {
+            "name": "Today",
+            "valueString": "2025-02-10"
+        },
+        {
+            "name": "Unit Volume of Named Drugs",
+            "valueString": "5ml"
+        },
+        {
+            "name": "Urgency",
+            "valueString": "Not Urgent"
+        }
+    ]
+}
