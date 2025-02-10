@@ -1,0 +1,93 @@
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "Additional Comment",
+            "valueString": "TBD"
+        },
+        {
+            "name": "All ServiceRequests",
+            "valueString": "[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]"
+        },
+        {
+            "name": "Antibiotics Used",
+            "valueString": "[]"
+        },
+        {
+            "name": "Catheterization Frequency",
+            "valueString": "TBD"
+        },
+        {
+            "name": "Check Symptoms",
+            "valueString": "TBD"
+        },
+        {
+            "name": "Date",
+            "valueString": "2025-02-10"
+        },
+        {
+            "name": "Date of Request",
+            "valueString": "dateTime"
+        },
+        {
+            "name": "Dates of UTIs",
+            "valueString": "[]"
+        },
+        {
+            "name": "Diagnosis",
+            "valueString": "UTI"
+        },
+        {
+            "name": "Fever Temperature",
+            "valueString": "TBD"
+        },
+        {
+            "name": "Item Requested",
+            "valueString": "[Molecular genetic test (procedure),  Encounter for screening for other disorder, Unlisted molecular pathology procedure]"
+        },
+        {
+            "name": "Lab Reports UTIs",
+            "valueString": "[]"
+        },
+        {
+            "name": "Most Recent ServiceRequest",
+            "valueString": "ServiceRequest(id=service-request-USCorePatient)"
+        },
+        {
+            "name": "Patient",
+            "valueString": "Patient(id=example)"
+        },
+        {
+            "name": "Physician Fax",
+            "valueString": "null"
+        },
+        {
+            "name": "Physician Name",
+            "valueString": "null"
+        },
+        {
+            "name": "Physician Telephone",
+            "valueString": "null"
+        },
+        {
+            "name": "Referring Physician Telephone",
+            "valueString": "TBD"
+        },
+        {
+            "name": "Requesting Physician",
+            "valueString": "null"
+        },
+        {
+            "name": "SR Related Condition",
+            "valueString": "[Condition(id=related-Condition)]"
+        },
+        {
+            "name": "UTI Diagnostic Reports Last Year",
+            "valueString": "[]"
+        },
+        {
+            "name": "UTI in Last Year",
+            "valueString": "false"
+        }
+    ]
+}
