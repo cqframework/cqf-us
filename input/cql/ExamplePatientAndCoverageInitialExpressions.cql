@@ -13,6 +13,7 @@ code "Member Number": 'MB' from "Identifier Type"
 code "Subscriber Number": 'SN' from "Identifier Type"
 
 parameter "Coverage" FHIR.Coverage
+parameter "ServiceRequest" FHIR.ServiceRequest
 
 context Patient
 
@@ -59,3 +60,59 @@ define "Member ID":
 // TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form?
 define "Policy Number":
   UCE.PolicyNumber(Coverage)
+
+define "Most Recent ServiceRequest":
+  ServiceRequest
+
+define "Requesting Provider":
+  UCE.RequestingProvider("Most Recent ServiceRequest")
+
+define "Requesting Provider Name":
+  "Requesting Provider".name.family
+
+define "Requesting Provider Phone":
+  UC.Mobile("Requesting Provider".telecom).value
+  //This definition looks for #mobile, but wouldn't a practitioner be #work?
+/*
+define "Requesting Provider Address":
+  (singleton from "Requesting Provider".address).line
+*/
+define "Requesting Provider Address":
+  { 'TODO: remove hard-coded address' }
+
+define "Requesting Provider NPI":
+  "Requesting Provider".identifier I 
+  where I.system = 'http://hl7.org/fhir/sid/us-npi'
+  return I.value
+
+define "Requesting Provider Fax":
+  "Requesting Provider".telecom T
+  where T.system = 'fax'
+  return T.value
+
+define "Servicing Provider":
+  UCE.ServicingProvider("Most Recent ServiceRequest")
+
+define "Servicing Provider Name":
+  "Servicing Provider".name
+
+define "Servicing Provider Phone":
+  UC.Mobile("Servicing Provider".telecom).value
+
+// TODO: Error: Could not resolve data provider for package 'java.util'.
+/*
+define "Servicing Provider Address":
+  (singleton from "Servicing Provider".address).line
+*/
+define "Servicing Provider Address":
+  { 'TODO: remove hard-coded address' }
+
+define "Servicing Provider NPI":
+  "Servicing Provider".identifier I 
+  where I.system = 'http://hl7.org/fhir/sid/us-npi'
+  return I.value
+
+define "Servicing Provider Fax":
+  "Servicing Provider".telecom T
+  where T.system = 'fax'
+  return T.value
