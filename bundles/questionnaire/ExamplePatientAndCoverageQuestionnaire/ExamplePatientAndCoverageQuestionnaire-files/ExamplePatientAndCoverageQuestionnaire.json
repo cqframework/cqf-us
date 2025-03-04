@@ -47,6 +47,27 @@
         }
       ],
       "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext"
+    },
+    {
+      "extension": [
+        {
+          "url": "name",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "code": "ServiceRequest",
+            "display": "ServiceRequest"
+          }
+        },
+        {
+          "url": "type",
+          "valueCode": "ServiceRequest"
+        },
+        {
+          "url": "description",
+          "valueString": "The ServiceRequest that is to be used to pre-populate the form"
+        }
+      ],
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext"
     }
   ],
   "url": "http://fhir.org/guides/cqf/us/common/Questionnaire/ExamplePatientAndCoverageQuestionnaire",
@@ -237,6 +258,160 @@
           ],
           "linkId": "completing-form|patient-info|policy-number",
           "text": "Policy Number",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "provider-info",
+      "text": "Requesting Provider Information",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Requesting Provider Name"
+              }
+            }
+          ],
+          "linkId": "provider-info|name",
+          "text": "Requesting provider name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Requesting Provider Phone"
+              }
+            }
+          ],
+          "linkId": "provider-info|phone-number",
+          "text": "Phone",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Requesting Provider Address"
+              }
+            }
+          ],
+          "linkId": "provider-info|address",
+          "text": "Ordering provider address",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Requesting Provider NPI"
+              }
+            }
+          ],
+          "linkId": "provider-info|npi",
+          "text": "Ordering provider Tax ID/NPI #",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Requesting Provider Fax"
+              }
+            }
+          ],
+          "linkId": "provider-info|fax",
+          "text": "Fax",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "linkId": "servicing-provider",
+      "text": "Laboratory performing testing/Servicing Provider",
+      "type": "group",
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Servicing Provider Name"
+              }
+            }
+          ],
+          "linkId": "servicing-provider|name",
+          "text": "Requesting provider name",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Servicing Provider Phone"
+              }
+            }
+          ],
+          "linkId": "servicing-provider|phone-number",
+          "text": "Phone",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Servicing Provider Address"
+              }
+            }
+          ],
+          "linkId": "servicing-provider|address",
+          "text": "Ordering provider address",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Servicing Provider NPI"
+              }
+            }
+          ],
+          "linkId": "servicing-provider|npi",
+          "text": "Ordering provider Tax ID/NPI #",
+          "type": "string"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression": {
+                "language": "text/cql-identifier",
+                "expression": "Servicing Provider Fax"
+              }
+            }
+          ],
+          "linkId": "servicing-provider|fax",
+          "text": "Fax",
           "type": "string"
         }
       ]
