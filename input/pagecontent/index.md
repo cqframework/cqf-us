@@ -90,3 +90,42 @@ TODO:
   * ServiceRequest
 * Authoring Documentation
   * Workflow diagram illustrating tooling and pattern touchpoints
+
+### In Progress Questions:
+
+#### Context Questions
+For each questionnaire specifically, which questions are expected to be answerable from prior authorization context and how?
+
+#### Billing/Servicing Provider
+
+Should these types of questions be part of DTR forms?
+
+Possibilities:
+1. Known ahead of time (and part of the ServiceRequest, so doesn't make sense to ask)
+2. Not known, but will be specified by a separate process (such as order dispatch)
+3. Servicing isn't part of the process
+
+* Directed order - provider has to be on the order
+* Undirected order - provider may or may not be on the order, requesting organization may need to specify at some point, but may not care. If provider doesn't care and payer does, having it in the questionnaire potentially gives the payer an opportunity for the in/out of network check to be performed, as well as for the payer to participate in the decision of who the servicing/billing provider is?
+
+Should the question(s) be framed as "Pick one of these in network providers near you?"
+Definitely need examples of "Pick an organization from this list", "Pick a practitioner from this list"?
+Note that the paper equivalent is "provider name, address, and phone number", whereas the FHIR Questionnaire approach is based on lists
+
+#### Questions related to the Service being Authorized
+
+Authorization for lab tests is sometimes determined based on category (e.g. preventative, treatment, elective). Is this categorization something that would typically be expected to be present in the ServiceRequest (likely not), and if not, how would that be represented, or is it only something that is captured as part of the Prior Authorization process?
+
+Could potentially put it in a "reason", but that may not necessarily be coded in a way that is useful for the payer
+
+#### Urgency
+Almost all prior auth forms contain a question about the urgency of the request. Different forms have different ways of expressing the same logic. E.g., the [Humana Uniform Pharmacy Prior Authorization Request Form](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=2567656) uses check boxes with the strings "Urgent" and "Non-Urgent". The form [Geisinger Medical Benefit Outpatient Drug Authorization Form](https://www.geisinger.org/-/media/OneGeisinger/Files/PDFs/Provider/NaviNet/Forms/medical-benefit-outpatient-drug-authorization-form-050819.pdf?sc_lang=en&hash=6EDE27E13FCCB5731E081FC49B85359D) contains a categorization as "Urgent" more in a boolean logic with a required rationale if the request is labelled as "Urgent". 
+
+Potentially, urgency can be determined by specific FHIR elements such as the MedicationRequest.priority element. In the current implementations, only `routine` codes are determined non-urgent, all other codes (such as `stat`, `asap`, `urgent`).
+
+#### Patterns Questions
+* [Allergy](patterns-allergy.md)
+* [Condition](patterns-condition.md)
+* [Lab](patterns-lab.md)
+* [Medication](patterns-medication.md)
+* [ServiceRequest](patterns-service.md)
