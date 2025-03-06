@@ -1,6 +1,6 @@
 ### Introduction
 
-> NOTE: This implementation guide has been moved to HL7. See the [HL7 Davinci CQL Questionnaire Project Page](https://confluence.hl7.org/spaces/CDS/pages/256516986/DaVinci+CQL+Questionnaire+Support) for more information
+> NOTE: This implementation guide has been moved to the [HL7 Common CQL Assets for FHIR - US implementation guide](https://build.fhir.org/ig/HL7/us-cql-ig). See the [HL7 Davinci CQL Questionnaire Project Page](https://confluence.hl7.org/spaces/CDS/pages/256516986/DaVinci+CQL+Questionnaire+Support) for more information
 
 This implementation guide contains architectural guidance and re-usable libraries that facilitate the use of CQL with FHIR in the US Realm, with an initial use case of Prior Authorization Support Questionnaires as described in the [DaVinci Documentation Templates and Rules (DTR)](https://hl7.org/fhir/us/davinci-dtr/) implementation guide.
 
